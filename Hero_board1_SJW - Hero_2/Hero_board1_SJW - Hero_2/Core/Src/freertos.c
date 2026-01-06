@@ -33,7 +33,6 @@
 #include "Shoot.h"
 #include "DT7.h"
 #include "Protocol_UpperComputer.h"
-#include "Task_vofa.h"
 #include "Task_J4310_onlineCheck.h"
 /* USER CODE END Includes */
 
@@ -68,7 +67,6 @@ osThreadId Robot_Control_Handle;          // 机器人控制任务句柄
 osThreadId Task_CommunicateFromPC_Handle; // 从PC通信任务句柄
 osThreadId Task_CommunicateToPC_Handle;   // 向PC通信任务句柄
 osThreadId Task_DT7_Handle;               // 遥控器任务句柄;
-osThreadId Task_VOFA_Handle;							// VOFA任务句柄
 osThreadId Task_J4310_onlineCheck_Handle;	// J4310电机在线检测
 
 /* USER CODE END Variables */
@@ -84,7 +82,6 @@ extern void Robot_Control(void const *argument);
 extern void USBCommunicateTask_Receive(void const *argument);
 extern void USBCommunicateTask_Send(void const *argument);
 extern void DT7_Control(void const *argument);
-extern void VOFA_Handle(void const *argument);
 extern void J4310_onlineCheck(void const *argument);
 /* USER CODE END FunctionPrototypes */
 
@@ -149,7 +146,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityLow, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of StartTask */
@@ -186,10 +183,6 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(Task_DT7_Handle, DT7_Control, osPriorityHigh, 0, 256);
   Task_DT7_Handle = osThreadCreate(osThread(Task_DT7_Handle), NULL);
 
-  /* definition and creation of Task_VOFA_Handle */
-  osThreadDef(Task_VOFA_Handle, VOFA_Handle, osPriorityNormal, 0, 128);
-  Task_VOFA_Handle = osThreadCreate(osThread(Task_VOFA_Handle), NULL);
-
   /* definition and creation of Task_J4310_onlineCheck_Handle */
   osThreadDef(Task_J4310_onlineCheck_Handle, J4310_onlineCheck, osPriorityAboveNormal, 0, 128);
   Task_J4310_onlineCheck_Handle = osThreadCreate(osThread(Task_J4310_onlineCheck_Handle), NULL);
@@ -212,7 +205,10 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for (;;)
   {
-    osDelay(1);
+    HAL_GPIO_WritePin(LED_PIN_GPIO_Port, LED_PIN_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(LED_PIN_GPIO_Port, LED_PIN_Pin, GPIO_PIN_RESET);
+    osDelay(100);
   }
   /* USER CODE END StartDefaultTask */
 }
