@@ -16,18 +16,12 @@
 #include "Task_CanReceive.h"
 #include "stm32f4xx_hal_can.h"
 
-#define J4310_READID_PITCH 0x01
-#define J4310_SENDID_Pitch 0x001
-#define J4310_MaxV 200
-#define J4310_MaxT 7
-#define J4310_ReductionRatio 10
-
-#define J4310_FIRSTANGLE 3800
-
-#define J4310_mAngleRatio 22.7527f /
+#define DM_READID_1 0x01
+#define DM_SENDID_1 0x001
+#define DM_P_MAX 3.1415926535f
+#define DM_V_MAX 200.0f
+#define DM_T_MAX 10.0f
 #define Pi 3.14159265f
-
-#define J4310_getRoundAngle(rAngle) rAngle / J4310_mAngleRatio
 
 #define DM_FunGroundInit  \
   {                          \
@@ -37,7 +31,6 @@
       &DM_getInfo,        \
       &DM_setTargetAngle, \
       &DM_Reset,          \
-      &Check_DM,          \
   }
 
 typedef struct
@@ -72,21 +65,14 @@ typedef struct
   uint8_t OffLineFlag;
 } DM_Motor_t;
 
-
-typedef enum
-{
-  J4310_PITCH = 0,
-} J4310Name_e;
-
 typedef struct
 {
   void (*DM_setParameter)(float uq1, float uq2, float uq3, float uq4, float uq5, uint8_t *data);
-  void (*DM_Enable)(void);
-  void (*DM_Save_Pos_Zero)(void);
+  void (*DM_Enable)(CAN_HandleTypeDef *hcanx, uint32_t id);
+  void (*DM_Save_Pos_Zero)(CAN_HandleTypeDef *hcanx, uint32_t id);
   void (*DM_getInfo)(Can_Export_Data_t RxMessage);
   void (*DM_setTargetAngle)(DM_Motor_t *DM, int32_t angle);
   void (*DM_Reset)(DM_Motor_t *DM);
-  void (*Check_DM)(void);
 } DM_Fun_t;
 
 extern DM_Motor_t DM_Array[6];

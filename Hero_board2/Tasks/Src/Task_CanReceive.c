@@ -54,7 +54,7 @@ void Can2Receives(void const *argument)
     {
       Board1_FUN.Board1_getGimbalInfo(Can_Export_Data);
     }
-    else if (DM_RxID == J4310_READID_PITCH)
+    else if (DM_RxID == DM_READID_1)
     {
       DM_Fun.DM_getInfo(Can_Export_Data);
     }
