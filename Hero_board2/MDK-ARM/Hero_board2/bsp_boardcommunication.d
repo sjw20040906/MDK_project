@@ -1,5 +1,5 @@
 .\hero_board2\bsp_boardcommunication.o: ..\BSP\Src\BSP_BoardCommunication.c
-.\hero_board2\bsp_boardcommunication.o: ..\BSP\Inc\BSP_BoardCommunication.h
+.\hero_board2\bsp_boardcommunication.o: ../BSP/Inc/BSP_BoardCommunication.h
 .\hero_board2\bsp_boardcommunication.o: ../Core/Inc/main.h
 .\hero_board2\bsp_boardcommunication.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 .\hero_board2\bsp_boardcommunication.o: ../Core/Inc/stm32f4xx_hal_conf.h
@@ -33,7 +33,7 @@
 .\hero_board2\bsp_boardcommunication.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 .\hero_board2\bsp_boardcommunication.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 .\hero_board2\bsp_boardcommunication.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-.\hero_board2\bsp_boardcommunication.o: ..\BSP\Inc\BSP_Can.h
+.\hero_board2\bsp_boardcommunication.o: ../BSP/Inc/BSP_Can.h
 .\hero_board2\bsp_boardcommunication.o: ../Core/Inc/can.h
 .\hero_board2\bsp_boardcommunication.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board2\bsp_boardcommunication.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
@@ -49,8 +49,8 @@
 .\hero_board2\bsp_boardcommunication.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 .\hero_board2\bsp_boardcommunication.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 .\hero_board2\bsp_boardcommunication.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
-.\hero_board2\bsp_boardcommunication.o: ..\BSP\Inc\typedef.h
+.\hero_board2\bsp_boardcommunication.o: ../BSP/Inc/typedef.h
 .\hero_board2\bsp_boardcommunication.o: D:\mdk\ARM\ARMCC\Bin\..\include\stdio.h
 .\hero_board2\bsp_boardcommunication.o: D:\mdk\ARM\ARMCC\Bin\..\include\string.h
-.\hero_board2\bsp_boardcommunication.o: ..\BSP\Inc\Extern_Handles.h
+.\hero_board2\bsp_boardcommunication.o: ../BSP/Inc/Extern_Handles.h
 .\hero_board2\bsp_boardcommunication.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h

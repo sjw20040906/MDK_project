@@ -1,6 +1,6 @@
 .\hero_board2\task_cansend.o: ..\Tasks\Src\Task_CanSend.c
-.\hero_board2\task_cansend.o: ..\Tasks\Inc\Task_CanSend.h
-.\hero_board2\task_cansend.o: ..\BSP\Inc\typedef.h
+.\hero_board2\task_cansend.o: ../Tasks/Inc/Task_CanSend.h
+.\hero_board2\task_cansend.o: ../BSP/Inc/typedef.h
 .\hero_board2\task_cansend.o: ../Core/Inc/can.h
 .\hero_board2\task_cansend.o: ../Core/Inc/main.h
 .\hero_board2\task_cansend.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
@@ -49,9 +49,9 @@
 .\hero_board2\task_cansend.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 .\hero_board2\task_cansend.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 .\hero_board2\task_cansend.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
-.\hero_board2\task_cansend.o: ..\BSP\Inc\Extern_Handles.h
+.\hero_board2\task_cansend.o: ../BSP/Inc/Extern_Handles.h
 .\hero_board2\task_cansend.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
-.\hero_board2\task_cansend.o: ..\BSP\Inc\BSP_CAN.h
+.\hero_board2\task_cansend.o: ../BSP/Inc/BSP_CAN.h
 .\hero_board2\task_cansend.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board2\task_cansend.o: D:\mdk\ARM\ARMCC\Bin\..\include\stdio.h
 .\hero_board2\task_cansend.o: D:\mdk\ARM\ARMCC\Bin\..\include\string.h

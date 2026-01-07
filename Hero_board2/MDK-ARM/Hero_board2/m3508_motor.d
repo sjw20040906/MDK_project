@@ -1,5 +1,5 @@
 .\hero_board2\m3508_motor.o: ..\DEV\Src\M3508_Motor.c
-.\hero_board2\m3508_motor.o: ..\DEV\Inc\M3508_Motor.h
+.\hero_board2\m3508_motor.o: ../DEV/Inc/M3508_Motor.h
 .\hero_board2\m3508_motor.o: ../Core/Inc/can.h
 .\hero_board2\m3508_motor.o: ../Core/Inc/main.h
 .\hero_board2\m3508_motor.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
@@ -34,6 +34,6 @@
 .\hero_board2\m3508_motor.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 .\hero_board2\m3508_motor.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 .\hero_board2\m3508_motor.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-.\hero_board2\m3508_motor.o: ..\BSP\Inc\typedef.h
+.\hero_board2\m3508_motor.o: ../BSP/Inc/typedef.h
 .\hero_board2\m3508_motor.o: D:\mdk\ARM\ARMCC\Bin\..\include\stdbool.h
 .\hero_board2\m3508_motor.o: D:\mdk\ARM\ARMCC\Bin\..\include\stdio.h

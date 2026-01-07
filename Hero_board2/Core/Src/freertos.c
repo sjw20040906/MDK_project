@@ -1,20 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * File Name          : freertos.c
-  * Description        : Code for freertos applications
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * File Name          : freertos.c
+ * Description        : Code for freertos applications
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2026 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "typedef.h"
+#include "Task_DM_onlineCheck.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,14 +47,15 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 /***********Queues************/
-QueueHandle_t CAN1_ReceiveHandle;              // can1接收队列
-QueueHandle_t CAN2_ReceiveHandle;              // can2接收队列
-QueueHandle_t CAN_SendHandle;                  // can发送队列
+QueueHandle_t CAN1_ReceiveHandle; // can1接收队列
+QueueHandle_t CAN2_ReceiveHandle; // can2接收队列
+QueueHandle_t CAN_SendHandle;     // can发送队列
 
 /***********Tasks************/
-osThreadId Task_Can1MsgRecHandle; 				// can1消息接收任务句柄
-osThreadId Task_Can2MsgRecHandle; 				// can2消息接收任务句柄
-osThreadId Task_CanSendHandle;    				// can发送任务句柄
+osThreadId Task_Can1MsgRecHandle;    // can1消息接收任务句柄
+osThreadId Task_Can2MsgRecHandle;    // can2消息接收任务句柄
+osThreadId Task_CanSendHandle;       // can发送任务句柄
+osThreadId Task_DMOnlineCheckHandle; // DM电机掉线检测任务句柄
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osThreadId StartTaskHandle;
@@ -63,6 +65,7 @@ osThreadId StartTaskHandle;
 extern void Can1Receives(void const *argument);
 extern void Can2Receives(void const *argument);
 extern void AllCanSend(void const *argument);
+extern void DM_onlineCheck(void const *argument); 
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
@@ -77,7 +80,7 @@ void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackTy
 static StaticTask_t xIdleTaskTCBBuffer;
 static StackType_t xIdleStack[configMINIMAL_STACK_SIZE];
 
-void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize )
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize)
 {
   *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
   *ppxIdleTaskStackBuffer = &xIdleStack[0];
@@ -122,7 +125,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityLow, 0, 128);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityIdle, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of StartTask */
@@ -142,22 +145,27 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of CanSendTask */
   osThreadDef(Can_SendTask, AllCanSend, osPriorityHigh, 0, 256);
   Task_CanSendHandle = osThreadCreate(osThread(Can_SendTask), NULL);
+
+  /* definition and creation of DMOnlineCheckTask */
+  osThreadDef(DM_OnlineCheckTask, DM_onlineCheck, osPriorityRealtime, 0, 128);
+  Task_DMOnlineCheckHandle = osThreadCreate(osThread(DM_OnlineCheckTask), NULL);
+  
   /* USER CODE END RTOS_THREADS */
 
 }
 
 /* USER CODE BEGIN Header_StartDefaultTask */
 /**
-  * @brief  Function implementing the defaultTask thread.
-  * @param  argument: Not used
-  * @retval None
-  */
+ * @brief  Function implementing the defaultTask thread.
+ * @param  argument: Not used
+ * @retval None
+ */
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
-  for(;;)
+  for (;;)
   {
     HAL_GPIO_WritePin(GPIOH, GPIO_PIN_10, GPIO_PIN_SET);
     osDelay(100);
@@ -169,16 +177,16 @@ void StartDefaultTask(void const * argument)
 
 /* USER CODE BEGIN Header_ALL_Init */
 /**
-* @brief Function implementing the StartTask thread.
-* @param argument: Not used
-* @retval None
-*/
+ * @brief Function implementing the StartTask thread.
+ * @param argument: Not used
+ * @retval None
+ */
 /* USER CODE END Header_ALL_Init */
 void ALL_Init(void const * argument)
 {
   /* USER CODE BEGIN ALL_Init */
   /* Infinite loop */
-  for(;;)
+  for (;;)
   {
     osDelay(1);
   }
