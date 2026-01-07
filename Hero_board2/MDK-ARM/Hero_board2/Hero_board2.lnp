@@ -41,6 +41,7 @@
 ".\hero_board2\m3508_motor.o"
 ".\hero_board2\task_canreceive.o"
 ".\hero_board2\task_cansend.o"
+".\hero_board2\task_dm_onlinecheck.o"
 ".\hero_board2\bsp_boardcommunication.o"
 ".\hero_board2\bsp_can.o"
 ".\hero_board2\bsp_usart.o"
