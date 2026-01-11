@@ -11,7 +11,6 @@
 #ifndef __DM_MOTOR_H
 #define __DM_MOTOR_H
 
-
 #include "typedef.h"
 #include "Task_CanReceive.h"
 #include "stm32f4xx_hal_can.h"
@@ -24,7 +23,7 @@
 #define Pi 3.14159265f
 
 #define DM_FunGroundInit  \
-  {                          \
+  {                       \
       &DM_setParameter,   \
       &DM_Enable,         \
       &DM_Save_Pos_Zero,  \

@@ -65,16 +65,16 @@ osThreadId StartTaskHandle;
 extern void Can1Receives(void const *argument);
 extern void Can2Receives(void const *argument);
 extern void AllCanSend(void const *argument);
-extern void DM_onlineCheck(void const *argument); 
+extern void DM_onlineCheck(void const *argument);
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const * argument);
-void ALL_Init(void const * argument);
+void StartDefaultTask(void const *argument);
+void ALL_Init(void const *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
-void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize);
 
 /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
 static StaticTask_t xIdleTaskTCBBuffer;
@@ -90,11 +90,12 @@ void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackTyp
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
-  * @brief  FreeRTOS initialization
-  * @param  None
-  * @retval None
-  */
-void MX_FREERTOS_Init(void) {
+ * @brief  FreeRTOS initialization
+ * @param  None
+ * @retval None
+ */
+void MX_FREERTOS_Init(void)
+{
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -149,9 +150,8 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of DMOnlineCheckTask */
   osThreadDef(DM_OnlineCheckTask, DM_onlineCheck, osPriorityRealtime, 0, 128);
   Task_DMOnlineCheckHandle = osThreadCreate(osThread(DM_OnlineCheckTask), NULL);
-  
-  /* USER CODE END RTOS_THREADS */
 
+  /* USER CODE END RTOS_THREADS */
 }
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -161,7 +161,7 @@ void MX_FREERTOS_Init(void) {
  * @retval None
  */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
+void StartDefaultTask(void const *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
@@ -182,7 +182,7 @@ void StartDefaultTask(void const * argument)
  * @retval None
  */
 /* USER CODE END Header_ALL_Init */
-void ALL_Init(void const * argument)
+void ALL_Init(void const *argument)
 {
   /* USER CODE BEGIN ALL_Init */
   /* Infinite loop */

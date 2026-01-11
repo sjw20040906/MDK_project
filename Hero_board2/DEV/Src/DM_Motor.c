@@ -147,7 +147,7 @@ void DM_getInfo(Can_Export_Data_t RxMessage)
   {
     DM_Array[StdId].turnCount--;
   }
-  DM_Array[StdId].realAngle = uint_to_float(DM_Array[StdId].angleInit, -DM_P_MAX, DM_P_MAX, 16);  
+  DM_Array[StdId].realAngle = uint_to_float(DM_Array[StdId].angleInit, -DM_P_MAX, DM_P_MAX, 16);
   DM_Array[StdId].realSpeed = uint_to_float(DM_Array[StdId].speedInit, -DM_V_MAX, DM_V_MAX, 12);
   DM_Array[StdId].torque = uint_to_float(DM_Array[StdId].torqueInit, -DM_T_MAX, DM_T_MAX, 12);
   DM_Array[StdId].temperatureMOS = (RxMessage.CANx_Export_RxMessage[6]);
