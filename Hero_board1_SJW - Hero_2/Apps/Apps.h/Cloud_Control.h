@@ -28,30 +28,21 @@
 #include "FuzzyPID.h"
 
 #define Cloud_Pitch_level 1.24f
-/* ????????? */
+
 typedef struct
 {
-  float Yaw_Raw;       // yaw?????
-  float Pitch_Raw;     // pitch?????
-  float Target_Yaw;    // ????yaw?
-  float Target_Pitch;  // ????pitch?
-  float AutoAim_Pitch; // ?????pithc???
+  float Yaw_Raw;       
+  float Pitch_Raw;     
+  float Target_Yaw;    
+  float Target_Pitch;  
+  float AutoAim_Pitch; 
 } Cloud_t;
 
-typedef struct
-{
-  void (*Cloud_Init)(void);            // ?????????
-  void (*Cloud_Sport_Out)(void);       // ??????????
-  void (*Cloud_Pitch_Angle_Set)(void); // Pitch?????????
-  void (*Remote_Change)(void);         // ?????????????
-
-} Cloud_FUN_t;
-
 void Cloud_Init(void);
+void Cloud_Sport_Out(void);
+void Remote_Change(void);
 
 extern Cloud_t Cloud;
-extern Cloud_FUN_t Cloud_FUN;
 
-#define Cloud_FUNGroundInit {&Cloud_Init, &Cloud_Sport_Out, &Cloud_Pitch_Angle_Set, &Remote_Change}
 
 #endif /* __CLOUD_CONTROL_H */

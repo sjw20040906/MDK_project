@@ -40,17 +40,6 @@ int Aim_Flag = 0;
 One_Kalman_t Cloud_PitchCurrent_Kalman; // Pitch轴电流的Kalman滤波器
 /******************卡尔曼滤波结构体创建 end*********/
 
-/*****************函数声明****************/
-void Cloud_Init(void);
-void Cloud_Pitch_Angle_Set(void);
-void Cloud_Sport_Out(void);
-void Remote_Change(void);
-/*****************函数声明end****************/
-
-/***************输出接口定义***************/
-Cloud_FUN_t Cloud_FUN = Cloud_FUNGroundInit;
-#undef Cloud_FUNGroundInit
-
 /**
  * @brief  云台初始化，配置参数并归位云台
  * @param  None
@@ -67,17 +56,6 @@ void Cloud_Init(void)
 	ControlMes.shoot_Speed = 2;
 	ControlMes.fric_Flag = 0;
 	ControlMes.redial = 0;
-}
-
-/**
- * @brief  低通滤波
- * @param  float float float 滤波对象，上一次滤波后的值，滤波系数
- * @retval void
- * @attention
- */
-float low_pass_filter(float current_value, float prev_value, float alpha)
-{
-	return alpha * current_value + (1 - alpha) * prev_value;
 }
 
 /**

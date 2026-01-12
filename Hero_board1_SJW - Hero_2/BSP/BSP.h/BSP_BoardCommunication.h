@@ -22,15 +22,8 @@
 // CAN报文的标识符和数据长度
 #define CAN_ID_CHASSIS 0x10f // 假设CAN报文底盘数据ID为0x10f
 #define CAN_ID_GIMBAL 0x11f	 // 云台数据ID为0x11f
-
 #define model_Normal 0
 #define model_Record 1
-
-#define Board1_FunGroundInit   \
-	{                          \
-		&Board1_To_2,          \
-		&Board1_getGimbalInfo, \
-	}
 
 // 定义CAN报文的结构体
 typedef struct
@@ -79,14 +72,11 @@ typedef struct
 	uint8_t InfoUpdataFlag;
 } ext_robot_keycommand_t;
 
-typedef struct
-{
-	void (*Board1_To_2)(void);
-	void (*Board1_getGimbalInfo)(Can_Export_Data_t RxMessage);
-} Board1_FUN_t;
+/*************函数声明***********/
+void Board1_To_2(void);
+void Board1_getGimbalInfo(Can_Export_Data_t RxMessage);
+/*************函数声明end***********/
 
-extern Board1_FUN_t Board1_FUN;
 extern ControlMessge ControlMes;
-// extern ext_robot_keycommand_t ext_robot_keycommand;
 
 #endif

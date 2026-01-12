@@ -60,14 +60,14 @@ QueueHandle_t CAN_SendHandle;                  // can发送队列
 QueueHandle_t Communicate_ReceivefromPCHandle; // 从PC接收到的数据队列
 
 /***********Tasks************/
-osThreadId Task_Can1MsgRecHandle; 				// can1消息接收任务句柄
-osThreadId Task_Can2MsgRecHandle; 				// can2消息接收任务句柄
-osThreadId Task_CanSendHandle;    				// can发送任务句柄
+osThreadId Task_Can1MsgRecHandle;         // can1消息接收任务句柄
+osThreadId Task_Can2MsgRecHandle;         // can2消息接收任务句柄
+osThreadId Task_CanSendHandle;            // can发送任务句柄
 osThreadId Robot_Control_Handle;          // 机器人控制任务句柄
 osThreadId Task_CommunicateFromPC_Handle; // 从PC通信任务句柄
 osThreadId Task_CommunicateToPC_Handle;   // 向PC通信任务句柄
 osThreadId Task_DT7_Handle;               // 遥控器任务句柄;
-osThreadId Task_J4310_onlineCheck_Handle;	// J4310电机在线检测
+osThreadId Task_J4310_onlineCheck_Handle; // J4310电机在线检测
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
@@ -85,14 +85,14 @@ extern void DT7_Control(void const *argument);
 extern void J4310_onlineCheck(void const *argument);
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const * argument);
-void ALL_Init(void const * argument);
+void StartDefaultTask(void const *argument);
+void ALL_Init(void const *argument);
 
 extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
-void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize);
 
 /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
 static StaticTask_t xIdleTaskTCBBuffer;
@@ -108,11 +108,12 @@ void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackTyp
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
-  * @brief  FreeRTOS initialization
-  * @param  None
-  * @retval None
-  */
-void MX_FREERTOS_Init(void) {
+ * @brief  FreeRTOS initialization
+ * @param  None
+ * @retval None
+ */
+void MX_FREERTOS_Init(void)
+{
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -187,7 +188,6 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(Task_J4310_onlineCheck_Handle, J4310_onlineCheck, osPriorityAboveNormal, 0, 128);
   Task_J4310_onlineCheck_Handle = osThreadCreate(osThread(Task_J4310_onlineCheck_Handle), NULL);
   /* USER CODE END RTOS_THREADS */
-
 }
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -197,7 +197,7 @@ void MX_FREERTOS_Init(void) {
  * @retval None
  */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
+void StartDefaultTask(void const *argument)
 {
   /* init code for USB_DEVICE */
   MX_USB_DEVICE_Init();
@@ -217,7 +217,7 @@ void StartDefaultTask(void const * argument)
  * @retval None
  */
 /* USER CODE END Header_ALL_Init */
-void ALL_Init(void const * argument)
+void ALL_Init(void const *argument)
 {
   /* USER CODE BEGIN ALL_Init */
   /* Infinite loop */
@@ -240,10 +240,8 @@ void ALL_Init(void const * argument)
     fuzzy_init(&fuzzy_pid_shoot_R, 100, -100, 25, 0.1, 10);
     /**********云台初始化*********/
     Cloud_Init();
-
     /**********大疆DT7遥控器初始化*********/
     DT7_Init();
-
     vTaskDelete(StartTaskHandle); // 删除启动任务
     taskEXIT_CRITICAL();          // 退出临界区
     osDelay(1);

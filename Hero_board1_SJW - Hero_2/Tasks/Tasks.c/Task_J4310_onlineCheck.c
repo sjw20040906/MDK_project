@@ -24,13 +24,13 @@ void J4310_onlineCheck(void const *argument)
     {
         if (pitch_Frame == J4310s_Pitch.InfoUpdateFrame)
         {
-            J4310_Fun.J4310_Enable();
+            J4310_Enable();
         }
         pitch_Frame = J4310s_Pitch.InfoUpdateFrame;
 
         if (dial_Frame == J3519_Array[J3519_Dail_Wheel].InfoUpdateFrame)
         {
-            J3519_Fun.J3519_Enable(&hcan1, 0x001);
+            J3519_Enable(&hcan1, 0x001);
         }
         dial_Frame = J3519_Array[J3519_Dail_Wheel].InfoUpdateFrame;
 

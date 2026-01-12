@@ -15,12 +15,7 @@ float Dial_Torque = 0;
 float Dial_v = 0;
 float Dial_Kp = 0;
 float Dial_Kd = 100;
-/**************用户数据定义****************/
-void Shoot_Processing(void);
 
-/****************接口定义******************/
-Shoot_Fun_t Shoot_Fun = Shoot_FunGroundInit;
-#undef Shoot_FunGroundInit
 Shoot_Data_t Shoot_Data = Shoot_DataGroundInit;
 #undef Shoot_DataGroundInit
 
@@ -35,7 +30,7 @@ incrementalpid_t J3519_DialI_Pid; // 拨弹内环pid
  * @retval void
  * @attention
  */
-void Shoot_Processing()
+void Shoot_Processing(void)
 {
 	J3519_Array[J3519_Dail_Wheel].outKp = Dial_Kp;
 	J3519_Array[J3519_Dail_Wheel].outKd = Dial_Kd;

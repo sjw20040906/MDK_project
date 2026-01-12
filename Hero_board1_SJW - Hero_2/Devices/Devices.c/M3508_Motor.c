@@ -18,13 +18,6 @@ M3508s_t M3508_Array[TotalNum] = {
 
 };
 
-/************3508电机函数声明**********/
-void M3508_getInfo(Can_Export_Data_t RxMessage);
-void M3508_setCurrent(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_t *data);
-
-M3508_FUN_t M3508_FUN = M3508_FunGroundInit;
-#undef M3508_FunGroundInit
-
 /**
  * @brief  3508电机参数整合
  * @param  iqx (x:1~4)

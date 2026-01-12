@@ -27,15 +27,6 @@
 #define J3519_mAngleRatio 22.7527f /
 #define J3519_getRoundAngle(rAngle) rAngle / J3519_mAngleRatio
 
-#define J3519_FunGroundInit  \
-  {                          \
-      &J3519_setParameter,   \
-      &J3519_Enable,         \
-      &J3519_Save_Pos_Zero,  \
-      &J3519_getInfo,        \
-      &J3519_Reset,          \
-      &Check_J3519,          \
-  }
 typedef struct
 {
   int16_t state;
@@ -45,9 +36,9 @@ typedef struct
   uint8_t temperatureRotor;
   float torqueInit;
   float torque;
-  float angleInit;
+  uint32_t angleInit;
   float speedInit;
-  float lastAngle;
+  uint32_t lastAngle;
   float outPosition;
   float outSpeed;
   float outTorque;
@@ -67,14 +58,11 @@ typedef enum
   J3519_Dail_Wheel = 0,
 } J3519Name_e;
 
-typedef struct
-{
-  void (*J3519_setParameter)(float uq1, float uq2, float uq3, float uq4, float uq5, uint8_t *data);
-  void (*J3519_Enable)(CAN_HandleTypeDef *hcanx, uint32_t id);
-  void (*J3519_Save_Pos_Zero)(void);
-  void (*J3519_getInfo)(Can_Export_Data_t RxMessage);
-  void (*J3519_Reset)(J3519s_t *J3519);
-  void (*Check_J3519)(void);
-} J3519_Fun_t;
-extern J3519_Fun_t J3519_Fun;
+void J3519_setParameter(float uq1, float uq2, float uq3, float uq4, float uq5, uint8_t *data);
+void J3519_Enable(CAN_HandleTypeDef *hcanx, uint32_t id);
+void J3519_Save_Pos_Zero(void);
+void J3519_getInfo(Can_Export_Data_t RxMessage);
+void J3519_Reset(J3519s_t *J3519);
+void Check_J3519(void);
+
 #endif

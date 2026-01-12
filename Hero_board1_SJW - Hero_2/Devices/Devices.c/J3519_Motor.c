@@ -10,17 +10,7 @@
  */
 #include "J3519_Motor.h"
 
-// 直接声明对应的电机的结构体而不用数组，直观便于后期调试观察数据使用。
 J3519s_t J3519_Array[1] = {0};
-void J3519_setParameter(float uq1, float uq2, float uq3, float uq4, float uq5, uint8_t *data);
-void J3519_Enable(CAN_HandleTypeDef *hcanx, uint32_t id);
-void J3519_Save_Pos_Zero(void);
-void J3519_getInfo(Can_Export_Data_t RxMessage);
-void J3519_Reset(J3519s_t *J3519);
-void Check_J3519(void);
-
-J3519_Fun_t J3519_Fun = J3519_FunGroundInit;
-#undef J3519_FunGroundInit
 
 /**
  * @brief  uint类型转换为float类型
@@ -199,7 +189,7 @@ void J3519_getInfo(Can_Export_Data_t RxMessage)
   J3519_Array[StdId].angleInit = ((RxMessage.CANx_Export_RxMessage[1] << 8) | RxMessage.CANx_Export_RxMessage[2]);
   J3519_Array[StdId].speedInit = ((RxMessage.CANx_Export_RxMessage[3] << 4) | (RxMessage.CANx_Export_RxMessage[4] >> 4));
   J3519_Array[StdId].torqueInit = ((RxMessage.CANx_Export_RxMessage[4] & 0xF << 8) | RxMessage.CANx_Export_RxMessage[5]);
-  float delta = J3519_Array[StdId].angleInit - J3519_Array[StdId].lastAngle;
+  int32_t delta = J3519_Array[StdId].angleInit - J3519_Array[StdId].lastAngle;
   if (delta < -(1 << 15))
   {
     J3519_Array[StdId].turnCount++;
