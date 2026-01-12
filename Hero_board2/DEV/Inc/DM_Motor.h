@@ -22,16 +22,6 @@
 #define DM_T_MAX 10.0f
 #define Pi 3.14159265f
 
-#define DM_FunGroundInit  \
-  {                       \
-      &DM_setParameter,   \
-      &DM_Enable,         \
-      &DM_Save_Pos_Zero,  \
-      &DM_getInfo,        \
-      &DM_setTargetAngle, \
-      &DM_Reset,          \
-  }
-
 typedef struct
 {
   int16_t state;
@@ -64,17 +54,14 @@ typedef struct
   uint8_t OffLineFlag;
 } DM_Motor_t;
 
-typedef struct
-{
-  void (*DM_setParameter)(float uq1, float uq2, float uq3, float uq4, float uq5, uint8_t *data);
-  void (*DM_Enable)(CAN_HandleTypeDef *hcanx, uint32_t id);
-  void (*DM_Save_Pos_Zero)(CAN_HandleTypeDef *hcanx, uint32_t id);
-  void (*DM_getInfo)(Can_Export_Data_t RxMessage);
-  void (*DM_setTargetAngle)(DM_Motor_t *DM, int32_t angle);
-  void (*DM_Reset)(DM_Motor_t *DM);
-} DM_Fun_t;
+void DM_setParameter(float uq1, float uq2, float uq3, float uq4, float uq5, uint8_t *data);
+void DM_Enable(CAN_HandleTypeDef *hcanx, uint32_t id);
+void DM_Save_Pos_Zero(CAN_HandleTypeDef *hcanx, uint32_t id);
+void DM_getInfo(Can_Export_Data_t RxMessage);
+void DM_setTargetAngle(DM_Motor_t *DM, int32_t angle);
+void DM_Reset(DM_Motor_t *DM);
+
 
 extern DM_Motor_t DM_Array[6];
-extern DM_Fun_t DM_Fun;
 
 #endif /* __DM_MOTOR_H */

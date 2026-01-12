@@ -13,12 +13,6 @@
 ControlMessge ControlMes;
 ext_robot_keycommand_t ext_robot_keycommand;
 
-void Board1_To_2(void);
-void Board1_getGimbalInfo(Can_Export_Data_t RxMessage);
-void Board1_getKeycommandInfo(Can_Export_Data_t RxMessage);
-
-Board1_FUN_t Board1_FUN = Board1_FunGroundInit;
-
 // 此函数用来按照报文规则生成数据并发送。
 void Board1_To_2(void)
 {

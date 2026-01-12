@@ -1,6 +1,6 @@
 /**
  * @file Task_CanMsg.c
- * @author why
+ * @author SJW
  * @brief
  * @version 0.1
  * @date 2021-03-30
@@ -27,10 +27,9 @@ void Can1Receives(void const *argument)
     xQueueReceive(CAN1_ReceiveHandle, &Can_Export_Data, portMAX_DELAY);
     ID = Can_Export_Data.CAN_RxHeader.StdId;
 
-    // 接收摩擦轮电机 拨盘电机 反馈数据
     if (ID >= M3508_READID_START && ID <= M3508_READID_END)
     {
-      M3508_FUN.M3508_getInfo(Can_Export_Data);
+      M3508_getInfo(Can_Export_Data);
     }
   }
 }
@@ -52,11 +51,11 @@ void Can2Receives(void const *argument)
     DM_RxID = (Can_Export_Data.CANx_Export_RxMessage[0]) & 0x0F;
     if (ID == CAN_ID_CHASSIS)
     {
-      Board1_FUN.Board1_getGimbalInfo(Can_Export_Data);
+      Board1_getGimbalInfo(Can_Export_Data);
     }
     else if (DM_RxID == DM_READID_1)
     {
-      DM_Fun.DM_getInfo(Can_Export_Data);
+      DM_getInfo(Can_Export_Data);
     }
 
     //        else if (ID == PowerFeedback_ID)

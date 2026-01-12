@@ -23,7 +23,7 @@ void DM_onlineCheck(void const *argument)
     {
         if (DM_Frame == DM_Array[0].InfoUpdateFrame)
         {
-            DM_Fun.DM_Enable(&hcan1, DM_SENDID_1);
+            DM_Enable(&hcan1, DM_SENDID_1);
         }
         DM_Frame = DM_Array[0].InfoUpdateFrame;
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);

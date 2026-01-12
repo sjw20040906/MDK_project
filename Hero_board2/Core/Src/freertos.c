@@ -169,8 +169,6 @@ void StartDefaultTask(void const *argument)
   {
     HAL_GPIO_WritePin(GPIOH, GPIO_PIN_10, GPIO_PIN_SET);
     osDelay(100);
-    HAL_GPIO_WritePin(GPIOH, GPIO_PIN_10, GPIO_PIN_RESET);
-    osDelay(100);
   }
   /* USER CODE END StartDefaultTask */
 }

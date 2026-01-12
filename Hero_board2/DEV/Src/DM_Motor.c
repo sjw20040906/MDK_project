@@ -11,15 +11,6 @@
 #include "DM_Motor.h"
 
 DM_Motor_t DM_Array[6] = {0};
-void DM_setParameter(float uq1, float uq2, float uq3, float uq4, float uq5, uint8_t *data);
-void DM_Enable(CAN_HandleTypeDef *hcanx, uint32_t id);
-void DM_Save_Pos_Zero(CAN_HandleTypeDef *hcanx, uint32_t id);
-void DM_getInfo(Can_Export_Data_t RxMessage);
-void DM_setTargetAngle(DM_Motor_t *DM, int32_t angle);
-void DM_Reset(DM_Motor_t *DM);
-
-DM_Fun_t DM_Fun = DM_FunGroundInit;
-#undef DM_FunGroundInit
 
 /**
  * @brief  uint类型转换为float类型

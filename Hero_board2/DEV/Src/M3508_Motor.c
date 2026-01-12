@@ -16,16 +16,7 @@ M3508s_t M3508_Array[TotalNum] = {
     [Chassis_Left_Front] = {0},
     [Chassis_Left_Back] = {0},
     [Chassis_Right_Back] = {0},
-    [FricL_Wheel] = {0},
-    [FricR_Wheel] = {0},
 };
-
-void M3508_getInfo(Can_Export_Data_t RxMessage);
-void M3508_Friction_getInfo(Can_Export_Data_t RxMessage);
-void M3508_setCurrent(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_t *data);
-
-M3508_FUN_t M3508_FUN = M3508_FunGroundInit;
-#undef M3508_FunGroundInit
 
 /**
  * @brief  设置M3508电机电流值（id号为1~4）
