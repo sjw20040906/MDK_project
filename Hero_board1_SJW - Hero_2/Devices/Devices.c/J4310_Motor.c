@@ -10,9 +10,8 @@
  */
 #include "J4310_Motor.h"
 
-// 直接声明对应的电机的结构体而不用数组，直观便于后期调试观察数据使用。
-J4310s_t J4310s_Pitch;                      // 8
-J4310s_t *J4310_Array[1] = {&J4310s_Pitch}; // 对应电机的ID必须为：索引+1
+J4310s_t J4310s_Pitch;                   
+J4310s_t *J4310_Array[1] = {&J4310s_Pitch}; 
 
 /**
  * @brief  uint类型转换为float类型
