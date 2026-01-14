@@ -26,10 +26,8 @@
 #define M3508_CurrentRatio 819.2f       // 16384/20A = 819.2->1A
 #define M3508_ReductionRatio 3591 / 187 // 3508电机减速比
 
-
 void M3508_getInfo(Can_Export_Data_t RxMessage);
 void M3508_setCurrent(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_t *data);
-
 
 /**
  * @brief  用以区别3508电机数组各个元素的归属
@@ -37,15 +35,13 @@ void M3508_setCurrent(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_
  *			Chassis_Left_Front  左前轮
  *			Chassis_Left_Back	左后轮
  *			Chassis_Right_Back	右后轮
- *			FricL_Wheel			左摩擦轮
- *			FricR_Wheel			右摩擦轮
  */
 typedef enum
 {
-    Chassis_Right_Front = 0,
-    Chassis_Left_Front,
+    Chassis_Left_Front = 0,
     Chassis_Left_Back,
     Chassis_Right_Back,
+    Chassis_Right_Front,
     TotalNum,
 } M3508_MotorName;
 

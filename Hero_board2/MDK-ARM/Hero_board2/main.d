@@ -29,6 +29,8 @@
 .\hero_board2\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
 .\hero_board2\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 .\hero_board2\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
+.\hero_board2\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h
+.\hero_board2\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h
 .\hero_board2\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 .\hero_board2\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 .\hero_board2\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
@@ -48,5 +50,6 @@
 .\hero_board2\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 .\hero_board2\main.o: ../Core/Inc/can.h
 .\hero_board2\main.o: ../Core/Inc/dma.h
+.\hero_board2\main.o: ../Core/Inc/rtc.h
 .\hero_board2\main.o: ../Core/Inc/usart.h
 .\hero_board2\main.o: ../Core/Inc/gpio.h

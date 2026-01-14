@@ -84,7 +84,7 @@ void DM_Enable(CAN_HandleTypeDef *hcanx, uint32_t id)
   Can_Send_Data.CANx_Send_RxMessage[6] = 0xFF;
   Can_Send_Data.CANx_Send_RxMessage[7] = 0xFC;
 
-  Can_Fun.CAN_SendData(CAN_SendHandle, hcanx, CAN_ID_STD, id, Can_Send_Data.CANx_Send_RxMessage);
+  CAN_SendData(CAN_SendHandle, hcanx, CAN_ID_STD, id, Can_Send_Data.CANx_Send_RxMessage);
 }
 /**
  * @brief  重新设置DM电机零点
@@ -109,7 +109,7 @@ void DM_Save_Pos_Zero(CAN_HandleTypeDef *hcanx, uint32_t id)
   Can_Send_Data.CANx_Send_RxMessage[6] = 0xFF;
   Can_Send_Data.CANx_Send_RxMessage[7] = 0xFE;
 
-  Can_Fun.CAN_SendData(CAN_SendHandle, hcanx, CAN_ID_STD, id, Can_Send_Data.CANx_Send_RxMessage);
+  CAN_SendData(CAN_SendHandle, hcanx, CAN_ID_STD, id, Can_Send_Data.CANx_Send_RxMessage);
 }
 
 /**
@@ -129,7 +129,7 @@ void DM_getInfo(Can_Export_Data_t RxMessage)
   DM_Array[StdId].angleInit = ((RxMessage.CANx_Export_RxMessage[1] << 8) | RxMessage.CANx_Export_RxMessage[2]);
   DM_Array[StdId].speedInit = ((RxMessage.CANx_Export_RxMessage[3] << 4) | (RxMessage.CANx_Export_RxMessage[4] >> 4));
   DM_Array[StdId].torqueInit = ((RxMessage.CANx_Export_RxMessage[4] & 0xF << 8) | RxMessage.CANx_Export_RxMessage[5]);
-  float delta = DM_Array[StdId].angleInit - DM_Array[StdId].lastAngle;
+  uint32_t delta = DM_Array[StdId].angleInit - DM_Array[StdId].lastAngle;
   if (delta < -(1 << 15))
   {
     DM_Array[StdId].turnCount++;

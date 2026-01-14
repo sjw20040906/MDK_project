@@ -31,10 +31,10 @@ typedef struct
   uint8_t temperatureRotor;
   float torqueInit;
   float torque;
-  float angleInit;
+  uint32_t angleInit;
   float speedInit;
 
-  uint16_t lastAngle;
+  uint32_t lastAngle;
 
   int32_t targetSpeed;
   int32_t targetAngle;
