@@ -14,7 +14,6 @@
 #include "can.h"
 #include "main.h"
 #include "typedef.h"
-// #include "Task_CanReceive.h"
 #include "PID.h"
 
 #define M2006_READID_START 0x207
@@ -29,11 +28,6 @@ typedef enum
     Dial_Motor = 0, // 拨弹电机
     Total_Num,
 } M2006_MotorName;
-
-#define M2006_FunGroundInit \
-    {                       \
-        &M2006_getInfo,     \
-        &M2006_setCurrent}
 
 typedef struct
 {
@@ -56,14 +50,10 @@ typedef struct
     uint8_t OffLineFlag;      // 设备离线标志
 } M2006s_t;
 
-typedef struct
-{
-    void (*M2006_getInfo)(Can_Export_Data_t RxMessage);
-    void (*M2006_setCurrent)(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_t *data);
-} M2006_FUN_t;
-
+void M2006_getInfo(Can_Export_Data_t RxMessage);
+void M2006_setCurrent(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_t *data);
 void M2006_Init(void);
-extern M2006_FUN_t M2006_FUN;
+
 extern M2006s_t M2006_Array[Total_Num]; // 四个2006电机的结构体数组
 
 #endif /* __M2006_MOTOR_H */

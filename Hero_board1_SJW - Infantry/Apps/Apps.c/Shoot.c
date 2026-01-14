@@ -10,13 +10,7 @@
  */
 #include "Shoot.h"
 
-/**************用户数据定义****************/
-void Shoot_Processing(void);
-void Shoot_Update_Status(void);
-
 /****************接口定义******************/
-Shoot_Fun_t Shoot_Fun = Shoot_FunGroundInit;
-#undef Shoot_FunGroundInit
 Shoot_Data_t Shoot_Data = Shoot_DataGroundInit;
 #undef Shoot_DataGroundInit
 
@@ -33,11 +27,9 @@ incrementalpid_t M2006_DialI_Pid; // 拨盘电机电流pid
  */
 void Shoot_Processing()
 {
-	Fric_Fun.Fric_Processing();
-
+	Fric_Processing();
 	Shoot_Update_Status();
-	/* 处理拨盘电机 */
-	Dial_Fun.Dial_Processing_2();
+	Dial_Processing_2();
 }
 
 /**

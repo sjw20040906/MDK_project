@@ -541,5 +541,5 @@ void DJI_VT13_Handle(void)
         }
     }
     // 用board1 CAN2发送给board2。
-    Board1_FUN.Board1_To_2();
+    Board1_To_2();
 }

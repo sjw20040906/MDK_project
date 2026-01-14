@@ -50,14 +50,6 @@ typedef enum
 		Fric_Off,           \
 	}
 
-#define Fric_FunGroundInit      \
-	{                           \
-		&Fric_Processing,       \
-		&Fric_Judge_ReadyOrNot, \
-		&PID_Clear_FricL,       \
-		&PID_Clear_FricR,       \
-	}
-
 typedef struct Fric_Data_t
 {
 	float Required_Speed; // 摩擦轮需要的速度
@@ -65,15 +57,9 @@ typedef struct Fric_Data_t
 	bool Fric_Switch;	  // 摩擦轮开关
 } Fric_Data_t;
 
-typedef struct Fric_Fun_t
-{
-	void (*Fric_Processing)();
-	void (*Fric_Judge_ReadyOrNot)();
-	void (*PID_Clear_FricL)(void);
-	void (*PID_Clear_FricR)(void);
-} Fric_Fun_t;
+void Fric_Processing(void);
+void Fric_Set_targetSpeed(void);
 
-extern Fric_Fun_t Fric_Fun;
 extern Fric_Data_t Fric_Data;
 
 #endif /*__FRICTIONWHEEL_H*/

@@ -28,12 +28,6 @@
 #define model_Record 1
 #define model_Follow 2
 
-#define Board1_FunGroundInit   \
-	{                          \
-		&Board1_To_2,          \
-		&Board1_getGimbalInfo, \
-	}
-
 // 定义FDCAN报文的结构体
 typedef struct
 {
@@ -81,14 +75,9 @@ typedef struct
 	uint8_t InfoUpdataFlag;
 } ext_robot_keycommand_t;
 
-typedef struct
-{
-	void (*Board1_To_2)(void);
-	void (*Board1_getGimbalInfo)(Can_Export_Data_t RxMessage);
-} Board1_FUN_t;
+void Board1_To_2(void);
+void Board1_getGimbalInfo(Can_Export_Data_t RxMessage);
 
-extern Board1_FUN_t Board1_FUN;
 extern ControlMessge ControlMes;
-// extern ext_robot_keycommand_t ext_robot_keycommand;
 
 #endif

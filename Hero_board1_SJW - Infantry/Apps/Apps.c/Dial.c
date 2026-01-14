@@ -10,14 +10,6 @@
  */
 #include "Dial.h"
 
-/**************相关函数定义****************/
-void Dial_Processing_1(void);
-void Dial_Processing_2(void);
-void Normal_Dial(void);
-void Bullet_Stuck_Processing(void);
-void Overheat_Detect(void);
-void Status_Refresh(void);
-
 /**************数据定义****************/
 static uint32_t last_check_time = 0;    // 上一次检测时间
 static int32_t last_angle = 0;          // 上一次角度
@@ -29,8 +21,6 @@ uint32_t delta_time = 0;
 float delta_ticks = 0;
 
 /****************函数结构体声明******************/
-Dial_Fun_t Dial_Fun = Dial_FunGroundInit;
-#undef Dial_FunGroundInit
 Dial_Data_t Dial_Data = Dial_DataGroundInit;
 #undef Dial_DataGroundInit
 Heat_Data_t Heat_Data = Heat_Data_Init_Burst_First_Level1; // 因为当前无法获取优先级模式，因此暂时默认为爆发优先

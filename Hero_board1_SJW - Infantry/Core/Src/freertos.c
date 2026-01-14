@@ -146,7 +146,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityLow, 0, 128);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of StartTask */
@@ -205,10 +205,7 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for (;;)
   {
-    HAL_GPIO_WritePin(LED_Pin_GPIO_Port, LED_Pin_Pin, GPIO_PIN_SET);
-    osDelay(100);
-    HAL_GPIO_WritePin(LED_Pin_GPIO_Port, LED_Pin_Pin, GPIO_PIN_RESET);
-    osDelay(100);
+    osDelay(1);
   }
   /* USER CODE END StartDefaultTask */
 }
@@ -227,9 +224,10 @@ void ALL_Init(void const * argument)
   for (;;)
   {
     taskENTER_CRITICAL();
+    HAL_GPIO_WritePin(LED_Pin_GPIO_Port, LED_Pin_Pin, GPIO_PIN_SET);
     /*********初始化两个CAN控制协议，使用中断模式*********/
-    Can_Fun.CAN_IT_Init(&hcan1, Can1_Type);
-    Can_Fun.CAN_IT_Init(&hcan2, Can2_Type);
+    CAN_IT_Init(&hcan1, Can1_Type);
+    CAN_IT_Init(&hcan2, Can2_Type);
     /*********初始化PID*********/
     fuzzy_init(&fuzzy_pid_shoot_l, 100, -100, 25, 0.1, 10);
     fuzzy_init(&fuzzy_pid_shoot_r, 100, -100, 25, 0.1, 10);

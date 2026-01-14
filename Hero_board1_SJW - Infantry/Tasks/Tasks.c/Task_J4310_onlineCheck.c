@@ -23,7 +23,7 @@ void J4310_onlineCheck(void const *argument)
     {
         if (pitch_Frame == J4310s_Pitch.InfoUpdateFrame)
         {
-            J4310_Fun.J4310_Enable();
+            J4310_Enable();
         }
         pitch_Frame = J4310s_Pitch.InfoUpdateFrame;
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);

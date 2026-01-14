@@ -15,11 +15,6 @@ M2006s_t M2006_Array[Total_Num] = {
     [Dial_Motor] = {0},
 };
 
-void M2006_getInfo(Can_Export_Data_t RxMessage);
-void M2006_setCurrent(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_t *data);
-
-M2006_FUN_t M2006_FUN = M2006_FunGroundInit;
-#undef M2006_FunGroundInit
 /**
  * @brief  设置M2006电机电流值（id号为7）M2006与6623共用发送函数
  * @param  iqx (x:5) 对应id号电机的电流值，范围-10000~0~10000

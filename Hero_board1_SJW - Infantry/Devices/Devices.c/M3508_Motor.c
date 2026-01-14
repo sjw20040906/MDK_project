@@ -20,13 +20,6 @@ M3508s_t M3508_Array[TotalNum] = {
     [FricR_Wheel] = {0},
 };
 
-void M3508_getInfo(Can_Export_Data_t RxMessage);
-void M3508_Friction_getInfo(Can_Export_Data_t RxMessage);
-void M3508_setCurrent(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_t *data);
-
-M3508_FUN_t M3508_FUN = M3508_FunGroundInit;
-#undef M3508_FunGroundInit
-
 /**
  * @brief  设置M3508电机电流值（id号为1~4）
  * @param  iqx (x:1~4) 对应id号电机的电流值，范围-16384~0~16384

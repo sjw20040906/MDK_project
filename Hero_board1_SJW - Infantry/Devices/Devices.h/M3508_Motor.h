@@ -27,16 +27,6 @@
 #define M3508_CurrentRatio 819.2f       // 16384/20A = 819.2->1A
 #define M3508_ReductionRatio 3591 / 187 // 3508电机减速比
 
-
-#define M3508_FunGroundInit \
-    {                       \
-        &M3508_getInfo,     \
-        &M3508_setCurrent,  \
-    }
-
-/******关键设定：pid跟3508电机数组的前四个是一一对应的四个轮子
-*******这会在其他地方用到************************************/
-
 /**
  * @brief  用以区别3508电机数组各个元素的归属
  * @param  Chassis_Right_Front	右前轮
@@ -79,12 +69,7 @@ typedef struct
 
 extern M3508s_t M3508_Array[TotalNum];
 
-typedef struct
-{
-    void (*M3508_getInfo)(Can_Export_Data_t RxMessage);
-    void (*M3508_setCurrent)(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_t *data);
-} M3508_FUN_t;
-
-extern M3508_FUN_t M3508_FUN;
+void M3508_getInfo(Can_Export_Data_t RxMessage);
+void M3508_setCurrent(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_t *data);
 
 #endif /*__M3508_MOTOR_H*/

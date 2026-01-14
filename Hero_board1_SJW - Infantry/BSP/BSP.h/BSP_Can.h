@@ -24,12 +24,6 @@
 #define Can1_Type 1
 #define Can2_Type 2
 
-#define Can_FunGroundInit \
-    {                     \
-        &CAN_IT_Init,     \
-        &CAN_SendData,    \
-    }
-
 #define Can_DataGroundInit \
     {                      \
         {0},               \
@@ -51,13 +45,8 @@ typedef struct
 
 } Can_Data_t;
 
-typedef struct
-{
-    void (*CAN_IT_Init)(CAN_HandleTypeDef *hcanx, uint8_t Can_type);
-    void (*CAN_SendData)(osMessageQId CANx_Handle, CAN_HandleTypeDef *CANx, uint8_t id_type, uint32_t id, uint8_t data[8]);
-} Can_Fun_t;
-
-extern Can_Fun_t Can_Fun;
+void CAN_IT_Init(CAN_HandleTypeDef *hcanx, uint8_t Can_type);
+void CAN_SendData(QueueHandle_t CANx_Handle, CAN_HandleTypeDef *CANx, uint8_t id_type, uint32_t id, uint8_t data[8]);
 
 // 用于向电调发送控制命令控制电调的电流输出
 extern uint8_t CAN1_0x1ff_Tx_Data[];

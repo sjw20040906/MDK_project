@@ -79,12 +79,6 @@ typedef enum
 		Dial_Off,           \
 	}
 
-#define Dial_FunGroundInit  \
-	{                       \
-		&Dial_Processing_1, \
-		&Dial_Processing_2, \
-	}
-
 typedef struct Heat_Data_t
 {
 	// 要储存的值有：当前热量(根据非卡弹倒拨时角度累计来增加，根据时间冷却来减少)，最大热量，冷却速率，过热标志
@@ -114,13 +108,13 @@ typedef struct Dial_Data_t
 	Dial_On_Off Dial_Switch; // 拨弹电机的开关
 } Dial_Data_t;
 
-typedef struct Dial_Fun_t
-{
-	void (*Dial_Processing_1)();
-	void (*Dial_Processing_2)();
-} Dial_Fun_t;
+void Dial_Processing_1(void);
+void Dial_Processing_2(void);
+void Normal_Dial(void);
+void Bullet_Stuck_Processing(void);
+void Overheat_Detect(void);
+void Status_Refresh(void);
 
-extern Dial_Fun_t Dial_Fun;
 extern Dial_Data_t Dial_Data;
 extern Heat_Data_t Heat_Data;
 

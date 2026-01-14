@@ -30,12 +30,12 @@ void Can1Receives(void const *argument)
     // 接收摩擦轮电机 拨盘电机 反馈数据
     if (ID >= M3508_READID_START && ID <= M3508_READID_END)
     {
-      M3508_FUN.M3508_getInfo(Can_Export_Data);
+      M3508_getInfo(Can_Export_Data);
     }
 
     else if (ID == M2006_DIAL_ID)
     {
-      M2006_FUN.M2006_getInfo(Can_Export_Data);
+      M2006_getInfo(Can_Export_Data);
     }
   }
 }
@@ -57,16 +57,11 @@ void Can2Receives(void const *argument)
     J4310_RxID = (Can_Export_Data.CANx_Export_RxMessage[0]) & 0x0F;
     if (ID == CAN_ID_CHASSIS)
     {
-      Board1_FUN.Board1_getGimbalInfo(Can_Export_Data);
+      Board1_getGimbalInfo(Can_Export_Data);
     }
     else if (J4310_RxID == J4310_READID_PITCH)
     {
-      J4310_Fun.J4310_getInfo(Can_Export_Data);
+      J4310_getInfo(Can_Export_Data);
     }
-
-    //        else if (ID == PowerFeedback_ID)
-    //        {
-    //            PowerControl_Fun.PowerControl_MsgRec(Can_Export_Data);
-    //        }
   }
 }

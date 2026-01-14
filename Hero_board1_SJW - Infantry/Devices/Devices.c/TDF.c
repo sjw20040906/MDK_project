@@ -306,5 +306,5 @@ void TDF_Handle()
     }
 		HAL_UARTEx_ReceiveToIdle_DMA(&huart3, SBUS_Rx_Data, sizeof(SBUS_Rx_Data));
     // 用board1 CAN2发送给board2。
-    Board1_FUN.Board1_To_2();
+    Board1_To_2();
 }

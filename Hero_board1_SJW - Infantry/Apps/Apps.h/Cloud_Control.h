@@ -38,20 +38,11 @@ typedef struct
   float AutoAim_Pitch; //
 } Cloud_t;
 
-typedef struct
-{
-  void (*Cloud_Init)(void);            //
-  void (*Cloud_Sport_Out)(void);       //
-  void (*Cloud_Pitch_Angle_Set)(void); //
-  void (*Remote_Change)(void);         //
-
-} Cloud_FUN_t;
-
 void Cloud_Init(void);
+void Cloud_Pitch_Angle_Set(void);
+void Cloud_Sport_Out(void);
+void Remote_Change(void);
 
 extern Cloud_t Cloud;
-extern Cloud_FUN_t Cloud_FUN;
-
-#define Cloud_FUNGroundInit {&Cloud_Init, &Cloud_Sport_Out, &Cloud_Pitch_Angle_Set, &Remote_Change}
 
 #endif /* __CLOUD_CONTROL_H */

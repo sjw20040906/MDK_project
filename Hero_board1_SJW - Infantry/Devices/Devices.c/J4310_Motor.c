@@ -10,20 +10,8 @@
  */
 #include "J4310_Motor.h"
 
-// 直接声明对应的电机的结构体而不用数组，直观便于后期调试观察数据使用。
-J4310s_t J4310s_Pitch;                      // 8
-J4310s_t *J4310_Array[1] = {&J4310s_Pitch}; // 对应电机的ID必须为：索引+1
-#define J4310_Amount 1
-void J4310_setParameter(float uq1, float uq2, float uq3, float uq4, float uq5, uint8_t *data);
-void J4310_Enable(void);
-void J4310_Save_Pos_Zero(void);
-void J4310_getInfo(Can_Export_Data_t RxMessage);
-void J4310_setTargetAngle(J4310s_t *J4310, int32_t angle);
-void J4310_Reset(J4310s_t *J4310);
-void Check_J4310(void);
-
-J4310_Fun_t J4310_Fun = J4310_FunGroundInit;
-#undef J4310_FunGroundInit
+J4310s_t J4310s_Pitch;                   
+J4310s_t *J4310_Array[1] = {&J4310s_Pitch}; 
 
 /**
  * @brief  uint类型转换为float类型
@@ -104,7 +92,7 @@ void J4310_Enable()
   Can_Send_Data.CANx_Send_RxMessage[6] = 0xFF;
   Can_Send_Data.CANx_Send_RxMessage[7] = 0xFC;
 
-  Can_Fun.CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, 0x001, Can_Send_Data.CANx_Send_RxMessage);
+  CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, 0x001, Can_Send_Data.CANx_Send_RxMessage);
 }
 /**
  * @brief  重新设置J4310电机零点
@@ -129,7 +117,7 @@ void J4310_Save_Pos_Zero(void)
   Can_Send_Data.CANx_Send_RxMessage[6] = 0xFF;
   Can_Send_Data.CANx_Send_RxMessage[7] = 0xFE;
 
-  Can_Fun.CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, 0x001, Can_Send_Data.CANx_Send_RxMessage);
+  CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, 0x001, Can_Send_Data.CANx_Send_RxMessage);
 }
 
 /**
@@ -195,7 +183,6 @@ void J4310_setTargetAngle(J4310s_t *J4310, int32_t angle)
  ************************************/
 void J4310_Reset(J4310s_t *J4310)
 {
-  // 解包数据，数据格式详见C620电调说明书P33
   J4310->lastAngle = J4310->realAngle;
   J4310->totalAngle = J4310->realAngle;
   J4310->turnCount = 0;
