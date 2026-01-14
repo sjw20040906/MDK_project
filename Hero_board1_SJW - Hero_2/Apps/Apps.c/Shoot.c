@@ -34,7 +34,7 @@ void Shoot_Processing(void)
 {
 	J3519_Array[J3519_Dail_Wheel].outKp = Dial_Kp;
 	J3519_Array[J3519_Dail_Wheel].outKd = Dial_Kd;
-	Fric_Fun.Fric_Processing();						  // 摩擦轮处理函数
-	Fric_Fun.Fric_Judge_ReadyOrNot();				  // 检测摩擦轮是否就绪
-	Dial_Fun.Dial_Update_Angel(Fric_Data.Fric_Ready); // 拨弹盘角度更新并处理
+	Fric_Processing();						  // 摩擦轮处理函数
+	Fric_Judge_ReadyOrNot();				  // 检测摩擦轮是否就绪
+	Dial_Update_Angel(Fric_Data.Fric_Ready); // 拨弹盘角度更新并处理
 }

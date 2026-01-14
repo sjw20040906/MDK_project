@@ -13,16 +13,6 @@
 
 #include "FeedForward.h"
 
-/**************用户数据定义****************/
-void FeedForward_Fric(void);
-void Compensator_Yaw(void);
-
-/****************接口定义******************/
-FeedForward_FUN_t FeedForward_FUN = FeedForward_FunGroundInit;
-#undef FeedForward_FunGroundInit
-
-#include "FeedForward.h"
-
 /**
  * @brief   给摩擦轮发送前馈
  * @param   M3508的外部接口

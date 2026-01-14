@@ -18,14 +18,6 @@ static float fric_target_speed = 0;
 static uint8_t fric_already_started = 0;
 
 /**************用户数据定义****************/
-void Fric_Processing(void);
-void Fric_Judge_ReadyOrNot(void);
-void Fric_Set_targetSpeed(void);
-float PID_Model4_Update(incrementalpid_t *pid, FUZZYPID_Data_t *PID, float _set_point, float _now_point);
-
-/****************接口定义******************/
-Fric_Fun_t Fric_Fun = Fric_FunGroundInit;
-#undef Fric_FunGroundInit
 Fric_Data_t Fric_Data = Fric_DataGroundInit;
 #undef Fric_DataGroundInit
 

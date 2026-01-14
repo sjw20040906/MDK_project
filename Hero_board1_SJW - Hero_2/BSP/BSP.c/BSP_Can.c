@@ -10,16 +10,9 @@
  */
 #include "BSP_Can.h"
 
-/*******************************用户数据定义************************************/
-void CAN_IT_Init(CAN_HandleTypeDef *hcanx, uint8_t Can_type);
-void CAN_SendData(QueueHandle_t CANx_Handle, CAN_HandleTypeDef *CANx, uint8_t id_type, uint32_t id, uint8_t data[8]);
-
 Can_Data_t Can_Data[2] = Can_DataGroundInit;
 #undef Can_DataGroundInit
-/***********************************接口赋值************************************/
-Can_Fun_t Can_Fun = Can_FunGroundInit;
-#undef Can_FunGroundInit
-/*******************************************************************************/
+
 
 // CAN通信发送缓冲区
 uint8_t CAN1_0x1ff_Tx_Data[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
@@ -64,14 +57,11 @@ static void CAN_FILTER_Init(CAN_FilterTypeDef *CAN_Filter, CAN_HandleTypeDef *hc
 void CAN_IT_Init(CAN_HandleTypeDef *hcanx, uint8_t Can_type)
 {
   uint8_t Canx_type = Can_type - 1;
-
   /*使能滤波器*/
   CAN_FILTER_Init(&Can_Data[Canx_type].CAN_FilterTypedef.CAN_Filter, hcanx);
   /*启用CAN*/
   HAL_CAN_Start(hcanx);
   /*使能CAN的IT中断*/
-  // HAL_CAN_Receive_IT(&hcan1, CAN_FIFO0);   //启动CAN接收中断
-  //__HAL_CAN_ENABLE_IT(hcanx, CAN_IT_RX_FIFO0_MSG_PENDING); //  CAN_IT_FMP0
   HAL_CAN_ActivateNotification(hcanx, CAN_IT_RX_FIFO0_MSG_PENDING);
 }
 

@@ -91,7 +91,7 @@
         <tLdApp>1</tLdApp>
         <tGomain>1</tGomain>
         <tRbreak>1</tRbreak>
-        <tRwatch>0</tRwatch>
+        <tRwatch>1</tRwatch>
         <tRmem>1</tRmem>
         <tRfunc>1</tRfunc>
         <tRbox>1</tRbox>

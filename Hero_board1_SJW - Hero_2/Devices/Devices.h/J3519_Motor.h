@@ -17,8 +17,8 @@
 #include "Task_CanReceive.h"
 #include "BSP_Can.h"
 
-#define J3519_READID_1 0x01
-#define J3519_SENDID_1 0x001
+#define J3519_READID 0x01
+#define J3519_SENDID 0x001
 #define J3519_P_MAX 3.1415926535f
 #define J3519_V_MAX 200.0f
 #define J3519_T_MAX 10.0f

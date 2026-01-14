@@ -224,10 +224,10 @@ void ALL_Init(void const *argument)
   for (;;)
   {
     taskENTER_CRITICAL();
+    HAL_GPIO_WritePin(LED_Pin_GPIO_Port, LED_Pin_Pin, GPIO_PIN_SET); // 为了方便观察，启动时先点亮LED
     /*********初始化两个CAN控制协议，使用中断模式*********/
-    Can_Fun.CAN_IT_Init(&hcan1, Can1_Type);
-    Can_Fun.CAN_IT_Init(&hcan2, Can2_Type);
-    /*********初始化PID*********/
+    CAN_IT_Init(&hcan1, Can1_Type);
+    CAN_IT_Init(&hcan2, Can2_Type);
     /*********初始化PID*********/
     fuzzy_init(&fuzzy_pid_shoot_L, 100, -100, 25, 0.1, 10);
     fuzzy_init(&fuzzy_pid_shoot_R, 100, -100, 25, 0.1, 10);

@@ -144,7 +144,7 @@ void J3519_Enable(CAN_HandleTypeDef *hcanx, uint32_t id)
   Can_Send_Data.CANx_Send_RxMessage[6] = 0xFF;
   Can_Send_Data.CANx_Send_RxMessage[7] = 0xFC;
 
-  Can_Fun.CAN_SendData(CAN_SendHandle, hcanx, CAN_ID_STD, id, Can_Send_Data.CANx_Send_RxMessage);
+  CAN_SendData(CAN_SendHandle, hcanx, CAN_ID_STD, id, Can_Send_Data.CANx_Send_RxMessage);
 }
 /**
  * @brief  重新设置3519电机零点
@@ -169,7 +169,7 @@ void J3519_Save_Pos_Zero(void)
   Can_Send_Data.CANx_Send_RxMessage[6] = 0xFF;
   Can_Send_Data.CANx_Send_RxMessage[7] = 0xFE;
 
-  Can_Fun.CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, 0x001, Can_Send_Data.CANx_Send_RxMessage);
+  CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, 0x001, Can_Send_Data.CANx_Send_RxMessage);
 }
 
 /**
@@ -182,7 +182,7 @@ void J3519_getInfo(Can_Export_Data_t RxMessage)
 {
   int32_t StdId;
   StdId = (RxMessage.CANx_Export_RxMessage[0]) & 0x0F;
-  StdId = (int32_t)RxMessage.CAN_RxHeader.StdId - J3519_READID_1; // 由0开始
+  StdId = (int32_t)RxMessage.CAN_RxHeader.StdId - J3519_READID; // 由0开始
 
   J3519_Array[StdId].lastAngle = J3519_Array[StdId].angleInit;
   J3519_Array[StdId].state = RxMessage.CANx_Export_RxMessage[0] >> 4;
@@ -208,7 +208,6 @@ void J3519_getInfo(Can_Export_Data_t RxMessage)
   J3519_Array[StdId].InfoUpdateFrame++;
   J3519_Array[StdId].InfoUpdateFlag = 1;
 }
-
 
 /*************************************
  * Method:    J3519_OverflowReset

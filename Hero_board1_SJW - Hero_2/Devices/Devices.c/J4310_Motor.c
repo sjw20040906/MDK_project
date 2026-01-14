@@ -93,7 +93,7 @@ void J4310_Enable()
   Can_Send_Data.CANx_Send_RxMessage[6] = 0xFF;
   Can_Send_Data.CANx_Send_RxMessage[7] = 0xFC;
 
-  Can_Fun.CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, 0x001, Can_Send_Data.CANx_Send_RxMessage);
+  CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, 0x001, Can_Send_Data.CANx_Send_RxMessage);
 }
 /**
  * @brief  重新设置J4310电机零点
@@ -118,7 +118,7 @@ void J4310_Save_Pos_Zero(void)
   Can_Send_Data.CANx_Send_RxMessage[6] = 0xFF;
   Can_Send_Data.CANx_Send_RxMessage[7] = 0xFE;
 
-  Can_Fun.CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, 0x001, Can_Send_Data.CANx_Send_RxMessage);
+  CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, 0x001, Can_Send_Data.CANx_Send_RxMessage);
 }
 
 /**

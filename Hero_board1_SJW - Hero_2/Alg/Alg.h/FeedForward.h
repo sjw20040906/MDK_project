@@ -24,13 +24,7 @@
 #define Yaw_R 0.6f	// Ω
 #define Yaw_L 0.02f // H
 
-#define FeedForward_FunGroundInit {&FeedForward_Fric, &Compensator_Yaw}
+void FeedForward_Fric(void);
+void Compensator_Yaw(void);
 
-typedef struct
-{
-	void (*FeedForward_Fric)(void);
-	void (*Compensator_Yaw)(void);
-} FeedForward_FUN_t;
-
-extern FeedForward_FUN_t FeedForward_FUN;
 #endif

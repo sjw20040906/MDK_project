@@ -11,12 +11,6 @@
 #include "Dial.h"
 
 /**************相关函数定义****************/
-void Dial_Processing(void);
-void Dial_Update_Angel(bool Fric_ReadyOrNot);
-void Dial_OneBullet(void);
-/****************函数结构体声明******************/
-Dial_Fun_t Dial_Fun = Dial_FunGroundInit;
-#undef Dial_FunGroundInit
 Dial_Data_t Dial_Data = Dial_DataGroundInit;
 #undef Dial_DataGroundInit
 
@@ -93,7 +87,7 @@ void Dial_Update_Angel(bool Fric_ReadyOrNot)
 	// 摩擦轮转速满足射定速度
 	if (Fric_ReadyOrNot)
 	{
-		Dial_Fun.Dial_Processing();
+		Dial_Processing();
 		Dial_Data.Bullet_Dialed++;
 	}
 	else

@@ -33,7 +33,7 @@ void Can1Receives(void const *argument)
     {
       M3508_getInfo(Can_Export_Data);
     }
-    else if (DM_J3519_RxID == J3519_READID_1)
+    else if (DM_J3519_RxID == J3519_READID)
     {
       J3519_getInfo(Can_Export_Data);
     }

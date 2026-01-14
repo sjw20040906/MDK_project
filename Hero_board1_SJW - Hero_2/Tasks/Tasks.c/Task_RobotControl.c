@@ -19,7 +19,6 @@ void Robot_Control(void const *argument)
 
     for (;;)
     {
-
         Remote_Change();    // 变速小陀螺
         Cloud_Sport_Out();  // 云台运动控制
         Shoot_Processing(); // 发射机构
@@ -30,9 +29,9 @@ void Robot_Control(void const *argument)
         J4310_setParameter(J4310s_Pitch.outPosition, J4310s_Pitch.outSpeed, J4310s_Pitch.outKp, J4310s_Pitch.outKd, J4310s_Pitch.outTorque, data2);
         J3519_setParameter(J3519_Array[J3519_Dail_Wheel].outPosition, J3519_Array[J3519_Dail_Wheel].outSpeed, J3519_Array[J3519_Dail_Wheel].outKp, J3519_Array[J3519_Dail_Wheel].outKd, J3519_Array[J3519_Dail_Wheel].outTorque, data3);
         /****************发送电流数据***************/
-        Can_Fun.CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, M3508_SENDID_Fric_Dial_1, data1);
-        Can_Fun.CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, J4310_SENDID_Pitch, data2);
-        Can_Fun.CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, J3519_SENDID_1, data3);
+        CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, M3508_SENDID_Fric_Dial, data1);
+        CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, J4310_SENDID_Pitch, data2);
+        CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, J3519_SENDID, data3);
         /****************发送电流数据 end***************/
 
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);

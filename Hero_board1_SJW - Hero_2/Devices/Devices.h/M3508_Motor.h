@@ -20,8 +20,7 @@
 
 /* 记录M3508各个电机ID
  */
-#define M3508_SENDID_Fric_Dial_1 0x200
-#define M3508_SENDID_Fric_Dial_2 0x1FF
+#define M3508_SENDID_Fric_Dial 0x200
 #define M3508_READID_START 0x201
 #define M3508_READID_END 0x203
 #define M3508_MaxOutput 16384           // 发送给电机的最大控制值

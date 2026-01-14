@@ -11,9 +11,7 @@
 
 #include "Cloud_Control.h"
 
-// 重新安装电机或移用代码时需要重新测量这些值（toalAngle）后再允许运动。
-
-/****************Pithch限位*****************/
+/***************Pithch限位*****************/
 const float Delta_Pitch_Min = -9;
 const float Delta_Pitch_Max = 10;
 const float Cloud_Pitch_Min = -9;
@@ -26,7 +24,6 @@ const float Cloud_Pitch_Derta = Cloud_Pitch_Center - Cloud_Pitch_Min;
 /*****************数据声明****************/
 Cloud_t Cloud;
 float Cloud_Target_Aim_Flag;
-float Cloud_Init_Angle;
 float Pitch_Torque = 3.f; // 云台所需扭矩
 float Pitch_v = 10;
 float Pitch_Kp = 60;

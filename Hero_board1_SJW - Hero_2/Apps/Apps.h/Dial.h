@@ -59,13 +59,6 @@ typedef enum
 		Dial_Off,           \
 	}
 
-#define Dial_FunGroundInit    \
-	{                         \
-		&Dial_Processing,   \
-		&Dial_Update_Angel,   \
-		&Dial_OneBullet,      \
-	}
-
 typedef struct Dial_Data_t
 {
 	uint8_t Number_ToBeFired; // 需要打击的弹丸数量
@@ -79,15 +72,10 @@ typedef struct Dial_Data_t
 	Dial_On_Off Dial_Switch;  // 拨盘开关状态
 } Dial_Data_t;
 
-typedef struct Dial_Fun_t
-{
-	void (*Dial_Processing)();
-	void (*Dial_Update_Angel)(bool Fric_ReadyOrNot);
-	void (*Dial_OneBullet)();
+void Dial_Processing(void);
+void Dial_Update_Angel(bool Fric_ReadyOrNot);
+void Dial_OneBullet(void);
 
-} Dial_Fun_t;
-
-extern Dial_Fun_t Dial_Fun;
 extern Dial_Data_t Dial_Data;
 
 #endif /*__DIAL_H*/
