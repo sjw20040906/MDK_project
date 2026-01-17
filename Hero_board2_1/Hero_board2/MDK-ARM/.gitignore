@@ -1,0 +1,25 @@
+# VS Code files
+.vscode/
+
+# Keil Assistant logs
+*.log
+
+# Build files
+*.uvoptx
+*.uvprojx
+*.axf
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+*.o
+*.d
+*.crf
+*.htm
+*.txt
+
+# Temporary files
+*.bak
+*.tmp
+*.swp
