@@ -1,0 +1,43 @@
+/**
+ * @file BSP_BoardCommunication.h
+ * @author lxr(784457420@qq.com)
+ * @brief
+ * @version 1.0
+ * @date 2023-9-15
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
+
+#ifndef BSP_BOARDCOMMUNICATION_H
+#define BSP_BOARDCOMMUNICATION_H
+
+#include "main.h"
+#include "BSP_Can.h"
+#include "Extern_Handles.h"
+#include "queue.h"
+
+// CAN报文的ID
+#define CAN_ID_B2_TRACK_DATA   0x250  // 履带数据 
+#define CAN_ID_B2_FLAG_DATA    0x251  // 发送标志位
+
+#define model_Normal 0
+#define model_Record 1
+#define model_Follow 2
+
+
+typedef struct
+{
+    uint8_t  upstairsFlag; // 上楼标志
+    uint16_t LF_track;     // 左前履带
+    uint16_t LR_track;     // 左后履带
+    uint16_t RR_track;     // 右后履带
+    uint16_t RF_track;     // 右前履带
+} ControlMessge_betweenBoard2;
+
+// void Board2_2_To_Board2_1(void);
+void Board2_2_getTrackInfo(Can_Export_Data_t RxMessage);
+
+extern ControlMessge_betweenBoard2 ControlMes_board2;
+
+#endif
