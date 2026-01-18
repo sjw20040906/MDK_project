@@ -12,7 +12,6 @@ Usart_Data_t Usart_Data = Usart_DataGroundInit;
  */
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
-//     // 如果数据来自USART2,即为遥控器数据
 //     if (huart->Instance == USART3)
 //     {
 // #if (RemoteControlMethod == TDF)
@@ -31,5 +30,4 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 //         // DJI_VT13遥控器
 //         DJI_VT13_RX_Finish = 1; // 已接受完一包数据
 // #endif
-// 		}
 }
