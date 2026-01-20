@@ -1,7 +1,6 @@
 #include "BSP_Usart.h"
 
 /***************用户数据声明****************/
-/******************接口声明*****************/
 Usart_Data_t Usart_Data = Usart_DataGroundInit;
 #undef Usart_DataGroundInit
 
@@ -12,7 +11,6 @@ Usart_Data_t Usart_Data = Usart_DataGroundInit;
  */
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
-    // 如果数据来自USART2,即为遥控器数据
     if (huart->Instance == USART3)
     {
 
@@ -20,5 +18,13 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
         // DT7遥控器
         DT7_RX_Finish = 1; // 已接受完一包数据
 #endif
+    }
+    if (huart->Instance == USART6)
+    {
+        // 老图传键鼠
+        KM_RX_Finish = 1;
+        // 这一句能救命：如果有错误标志，顺手清除掉，防止锁死
+        __HAL_UART_CLEAR_OREFLAG(huart);
+        HAL_UARTEx_ReceiveToIdle_DMA(&huart6, KM_RX_Buf, sizeof(KM_RX_Buf));
     }
 }

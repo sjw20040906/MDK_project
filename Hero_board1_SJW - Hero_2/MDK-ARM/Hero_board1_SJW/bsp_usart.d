@@ -98,3 +98,4 @@
 .\hero_board1_sjw\bsp_usart.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
 .\hero_board1_sjw\bsp_usart.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
 .\hero_board1_sjw\bsp_usart.o: ../Alg/Alg.h/SpeedRamp.h
+.\hero_board1_sjw\bsp_usart.o: ../Devices/Devices.h/Remote_KeyMouse.h

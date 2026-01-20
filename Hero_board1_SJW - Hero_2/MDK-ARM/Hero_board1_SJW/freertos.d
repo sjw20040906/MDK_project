@@ -99,4 +99,5 @@
 .\hero_board1_sjw\freertos.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
 .\hero_board1_sjw\freertos.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
 .\hero_board1_sjw\freertos.o: ../Alg/Alg.h/SpeedRamp.h
+.\hero_board1_sjw\freertos.o: ../Devices/Devices.h/Remote_KeyMouse.h
 .\hero_board1_sjw\freertos.o: ../Tasks/Tasks.h/Task_J4310_onlineCheck.h

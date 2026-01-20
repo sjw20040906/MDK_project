@@ -21,6 +21,7 @@
 #include "Cloud_Control.h"
 #include "SpeedRamp.h"
 
+
 /* ----------------------- RC Channel Definition---------------------------- */
 #define RC_CH_VALUE_MIN ((uint16_t)364)
 #define RC_CH_VALUE_OFFSET ((uint16_t)1024)
@@ -29,24 +30,16 @@
 #define RC_SW_UP ((uint16_t)1)
 #define RC_SW_MID ((uint16_t)3)
 #define RC_SW_DOWN ((uint16_t)2)
-/* ----------------------- PC Key Definition-------------------------------- */
-#define KEY_PRESSED_OFFSET_W ((uint16_t)0x01 << 0)
-#define KEY_PRESSED_OFFSET_S ((uint16_t)0x01 << 1)
-#define KEY_PRESSED_OFFSET_A ((uint16_t)0x01 << 2)
-#define KEY_PRESSED_OFFSET_D ((uint16_t)0x01 << 3)
-#define KEY_PRESSED_OFFSET_Q ((uint16_t)0x01 << 4)
-#define KEY_PRESSED_OFFSET_E ((uint16_t)0x01 << 5)
-#define KEY_PRESSED_OFFSET_SHIFT ((uint16_t)0x01 << 6)
-#define KEY_PRESSED_OFFSET_CTRL ((uint16_t)0x01 << 7)
 
 #define RC_FRAME_LENGTH 18u
 
-#define KEYMOUSE_AMOUNT 18    // ??????:18???
-#define IT_KEYMOUSE_AMOUNT 18 // ????????:18???
+#define KEYMOUSE_AMOUNT 18
+#define IT_KEYMOUSE_AMOUNT 18
+#define TIME_KeyMouse_Press 3
+#define TIME_KeyMouse_LongPress 60
 
-#define TIME_KeyMouse_Press 3 // ??????? ???
-// ??????? ??
-#define TIME_KeyMouse_LongPress 60 // ??????? ??
+#define PROTOCOL_SOF 0xA5
+#define PROTOCOL_CMD_ID 0x0304
 
 #define DR16_ExportDataGroundInit \
     {                             \
@@ -146,25 +139,24 @@ typedef struct
 
 typedef enum
 {
-    // ?DR16_Export_data.KeyMouse ?flag?????
-    KEY_W = 0, // ?
-    KEY_S = 1, // ?
-    KEY_A,     // ?
-    KEY_D,     // ?
+    KEY_W = 0, 
+    KEY_S = 1, 
+    KEY_A,     
+    KEY_D,     
     KEY_SHIFT,
-    KEY_CTRL, // ?????
-    KEY_Q,    // ???????
-    KEY_E,    // ???????
-    KEY_R,    // ?????
+    KEY_CTRL, 
+    KEY_Q,    
+    KEY_E,    
+    KEY_R,    
     KEY_F,
     KEY_G,
-    KEY_Z,      
-    KEY_X,      
-    KEY_C,      // ??1
-    KEY_V,      // ??2
-    KEY_B,      // ??3
-    MOUSE_Left, // ??
-    MOUSE_Right // ??
+    KEY_Z,
+    KEY_X,
+    KEY_C,      
+    KEY_V,      
+    KEY_B,      
+    MOUSE_Left, 
+    MOUSE_Right 
 } KeyList_e;
 
 typedef enum
@@ -172,7 +164,7 @@ typedef enum
     KeyAction_CLICK,
     KeyAction_PRESS,
     KeyAction_LONG_PRESS
-} KeyAction_e; 
+} KeyAction_e;
 
 typedef struct
 {
@@ -204,7 +196,7 @@ typedef struct
     uint8_t OffLineFlag;      // ??????
 } DR16_Export_Data_t;         // ?????????????
 
-// ??????
+
 typedef struct
 {
     struct
@@ -216,24 +208,24 @@ typedef struct
     struct
     {
 
-        uint32_t Press_Flag;                // ??????
-        uint32_t Click_Press_Flag;          // ??????
-        uint32_t Long_Press_Flag;           // ??????
-        uint8_t PressTime[KEYMOUSE_AMOUNT]; // ????????
-    } KeyMouse;                             // ????????
+        uint32_t Press_Flag;
+        uint32_t Click_Press_Flag;
+        uint32_t Long_Press_Flag;
+        uint8_t PressTime[KEYMOUSE_AMOUNT];
+    } KeyMouse;
 
     struct
     {
-        float Forward_Back_Value; // Vx
-        float Omega_Value;        // ????
-        float Left_Right_Value;   // Vy
+        float Forward_Back_Value;
+        float Omega_Value;
+        float Left_Right_Value;
         float Pitch_Value;
         float Yaw_Value;
-        float Dial_Wheel;           // ??
-    } Robot_TargetValue;            // ????????????
-    uint16_t infoUpdateFrame;       // ??
-    uint8_t OffLineFlag;            // ??????
-} Image_Transmission_Export_Data_t; // ?????????????
+        float Dial_Wheel;
+    } Robot_TargetValue;
+    uint16_t infoUpdateFrame;
+    uint8_t OffLineFlag;
+} Image_Transmission_Export_Data_t;
 
 extern RC_Ctl_t RC_CtrlData;
 extern uint8_t DT7_RX_Finish;

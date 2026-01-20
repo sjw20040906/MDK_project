@@ -11,7 +11,6 @@
 #include "BSP_BoardCommunication.h"
 
 ControlMessge ControlMes;
-ext_robot_keycommand_t ext_robot_keycommand;
 
 // 此函数用来按照报文规则生成数据并发送。
 void Board1_To_2(void)

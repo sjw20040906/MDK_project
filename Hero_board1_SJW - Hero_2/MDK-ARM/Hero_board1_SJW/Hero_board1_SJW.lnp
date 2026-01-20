@@ -64,6 +64,7 @@
 ".\hero_board1_sjw\dt7.o"
 ".\hero_board1_sjw\vofa.o"
 ".\hero_board1_sjw\j3519_motor.o"
+".\hero_board1_sjw\remote_keymouse.o"
 ".\hero_board1_sjw\cloud_control.o"
 ".\hero_board1_sjw\dial.o"
 ".\hero_board1_sjw\frictionwheel.o"
