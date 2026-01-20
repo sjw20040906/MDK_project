@@ -39,7 +39,6 @@ typedef enum
 typedef enum
 {
 	Single_Shoot = 0,
-	Continuous_Shoot,
 	No_Shoot,
 } Shoot_Modes;
 

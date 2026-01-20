@@ -34,7 +34,6 @@
 #include "DT7.h"
 #include "Protocol_UpperComputer.h"
 #include "Task_J4310_onlineCheck.h"
-#include "Remote_KeyMouse.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -242,8 +241,7 @@ void ALL_Init(void const * argument)
     /**********云台初始化*********/
     Cloud_Init();
     /**********大疆DT7遥控器初始化*********/
-    //DT7_Init();
-    Remote_KeyMouse_Init();
+    DT7_Init();
     vTaskDelete(StartTaskHandle); // 删除启动任务
     taskEXIT_CRITICAL();          // 退出临界区
     osDelay(1);

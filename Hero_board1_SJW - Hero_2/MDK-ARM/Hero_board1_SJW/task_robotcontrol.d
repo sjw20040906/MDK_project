@@ -96,8 +96,6 @@
 .\hero_board1_sjw\task_robotcontrol.o: ../Tasks/Tasks.h/Task_CanReceive.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board1_sjw\task_robotcontrol.o: ../BSP/BSP.h/BSP_Usart.h
-.\hero_board1_sjw\task_robotcontrol.o: ../Devices/Devices.h/Remote_KeyMouse.h
-.\hero_board1_sjw\task_robotcontrol.o: ../BSP/BSP.h/BSP_Usart.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Devices/Devices.h/J4310_Motor.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Devices/Devices.h/J3519_Motor.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Tasks/Tasks.h/Task_CanReceive.h

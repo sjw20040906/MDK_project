@@ -19,12 +19,5 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
         DT7_RX_Finish = 1; // 已接受完一包数据
 #endif
     }
-    if (huart->Instance == USART6)
-    {
-        // 老图传键鼠
-        KM_RX_Finish = 1;
-        // 这一句能救命：如果有错误标志，顺手清除掉，防止锁死
-        __HAL_UART_CLEAR_OREFLAG(huart);
-        HAL_UARTEx_ReceiveToIdle_DMA(&huart6, KM_RX_Buf, sizeof(KM_RX_Buf));
-    }
 }
+

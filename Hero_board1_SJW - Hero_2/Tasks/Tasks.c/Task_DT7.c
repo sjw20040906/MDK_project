@@ -9,17 +9,15 @@
  *
  */
 #include "DT7.h"
-//#include "Remote_KeyMouse.h"
 
 void DT7_Control(void const *argument)
 {
     portTickType xLastWakeTime;
     xLastWakeTime = xTaskGetTickCount();
-    const TickType_t TimeIncrement = pdMS_TO_TICKS(5); // 每5毫秒强制进入数据发送
+    const TickType_t TimeIncrement = pdMS_TO_TICKS(5); 
     for (;;)
     {
-        //DT7_Handle();
-        KeyMouse_Handle_Wrapper();
+        DT7_Handle();
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }
 }

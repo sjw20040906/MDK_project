@@ -169,10 +169,6 @@ void DT7_Handle(void)
 				{
 					Dial_Data.Dial_Switch = Dial_Off;
 				}
-				// else if (RC_CtrlData.wheel < -500)
-				// {
-				// 	Dial_Data.Dial_Switch = Dial_Back;
-				// }
 			}
 
 			else if (ControlMes.shoot_state == RC_SW_MID) // 正常模式
@@ -498,10 +494,12 @@ void RemoteControl_PC_Update(void)
 	if ((GetKeyMouseAction(MOUSE_Left, KeyAction_PRESS) || GetKeyMouseAction(MOUSE_Left, KeyAction_LONG_PRESS)) && ControlMes.fric_Flag == 1)
 	{
 		ControlMes.shoot_state = RC_SW_UP;
+		Dial_Data.Dial_Switch = Dial_On;	
 	}
 	else
 	{
 		ControlMes.shoot_state = RC_SW_MID;
+		Dial_Data.Dial_Switch = Dial_Off;	
 	}
 
 	/*运动档位控制*/ /*CVB*/

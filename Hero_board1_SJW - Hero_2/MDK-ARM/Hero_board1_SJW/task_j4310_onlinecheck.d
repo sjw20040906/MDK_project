@@ -95,7 +95,5 @@
 .\hero_board1_sjw\task_j4310_onlinecheck.o: ../Alg/Alg.h/SpeedRamp.h
 .\hero_board1_sjw\task_j4310_onlinecheck.o: ../Devices/Devices.h/J4310_Motor.h
 .\hero_board1_sjw\task_j4310_onlinecheck.o: ../BSP/BSP.h/BSP_Usart.h
-.\hero_board1_sjw\task_j4310_onlinecheck.o: ../Devices/Devices.h/Remote_KeyMouse.h
-.\hero_board1_sjw\task_j4310_onlinecheck.o: ../BSP/BSP.h/BSP_Usart.h
 .\hero_board1_sjw\task_j4310_onlinecheck.o: ../Devices/Devices.h/J3519_Motor.h
 .\hero_board1_sjw\task_j4310_onlinecheck.o: ../Tasks/Tasks.h/Task_CanReceive.h

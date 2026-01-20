@@ -41,7 +41,7 @@ static uint8_t e_combo_lock = 0;
  */
 void Remote_KeyMouse_Init(void)
 {
-    HAL_UARTEx_ReceiveToIdle_DMA(&huart6, KM_RX_Buf, sizeof(KM_RX_Buf));
+    HAL_UARTEx_ReceiveToIdle_DMA(&huart6, KM_RX_Buf, 256);
 }
 
 /**
@@ -124,15 +124,15 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const ext_robot_keycommand_t *raw_dat
 {
     // 1. 解包键盘位
     VTM_KeyboardBits temp_kb_bits;
-    unpack_keyboard_bits(raw_data->data.keyboard_value, &temp_kb_bits);
+    unpack_keyboard_bits(raw_data->keyboard_value, &temp_kb_bits);
 
     // 2. 更新鼠标物理量
-    km->dx = raw_data->data.mouse_x;
-    km->dy = raw_data->data.mouse_y;
-    km->dz = raw_data->data.mouse_z;
+    km->dx = raw_data->mouse_x;
+    km->dy = raw_data->mouse_y;
+    km->dz = raw_data->mouse_z;
 
-    KeyDetect_Update(&km->mouse_l, raw_data->data.left_button_down);
-    KeyDetect_Update(&km->mouse_r, raw_data->data.right_button_down);
+    KeyDetect_Update(&km->mouse_l, raw_data->left_button_down);
+    KeyDetect_Update(&km->mouse_r, raw_data->right_button_down);
     KeyDetect_Update(&km->W, temp_kb_bits.W);
     KeyDetect_Update(&km->S, temp_kb_bits.S);
     KeyDetect_Update(&km->A, temp_kb_bits.A);
@@ -153,8 +153,8 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const ext_robot_keycommand_t *raw_dat
     // ================== 业务逻辑区 ==================
 
     // ---- 云台控制 (鼠标移动) ----
-    ControlMes.yaw_velocity = km->dx * 5;
-    ControlMes.pitch_velocity = km->dy * 8;
+    ControlMes.yaw_velocity = km->dx * 20;
+    ControlMes.pitch_velocity = km->dy * 12;
 
     // ---- R键：重置状态 ----
     if (km->R.press_flag)
@@ -169,13 +169,15 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const ext_robot_keycommand_t *raw_dat
     // ---- 鼠标左键：射击 ----
     if ((km->mouse_l.press_flag) && ControlMes.fric_Flag == TURN_ON)
     {
-        Dial_Data.Shoot_Mode = Continuous_Shoot;
+        Dial_Data.Shoot_Mode = Single_Shoot;
         Shoot_Data.Shoot_Switch = TURN_ON;
+        Dial_Data.Dial_Switch = Dial_On;
     }
     else
     {
         Dial_Data.Shoot_Mode = No_Shoot;
         Shoot_Data.Shoot_Switch = TURN_OFF;
+        Dial_Data.Dial_Switch = Dial_Off;
     }
 
     // ---- 鼠标右键：自瞄开关 ----
@@ -203,7 +205,7 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const ext_robot_keycommand_t *raw_dat
         CountReset(&ChassisRamp_ForwardBack_test);
         ChassisRamp_ForwardBack_test.rate = 0;
     }
-    ControlMes.x_velocity = SpeedRampCalc(&ChassisRamp_ForwardBack_test);
+    ControlMes.x_velocity = -SpeedRampCalc(&ChassisRamp_ForwardBack_test);
 
     // ---- 底盘左右 (A/D) ----
     if (km->A.press_flag)
@@ -318,49 +320,48 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const ext_robot_keycommand_t *raw_dat
     }
 }
 
-/**
- * @brief 主处理函数 (只进行 SOF 和 CmdID 校验)
- */
-/* Remote_KeyMouse.c */
-
 void KeyMouse_Handle_Wrapper(void)
 {
-    // 如果没有标志位，说明没收到数据，直接退出
+
     if (KM_RX_Finish == 0)
         return;
 
-    // 1. 清除标志位
-    KM_RX_Finish = 0; // 注意：此时 DMA 已经在后台偷偷接收下一包数据了，不用管它
+    // 清除标志
+    KM_RX_Finish = 0;
 
-    // 2. 校验 SOF
-    if (KM_RX_Buf[0] != PROTOCOL_SOF)
-        return; // 校验失败直接返回，等待下一次中断自动覆盖 Buffer
+    for (int i = 0; i < 200; i++)
+    {
+        // 1. 找到帧头 A5
+        if (KM_RX_Buf[i] == PROTOCOL_SOF)
+        {
+            // 2. 校验 Command ID (防止正好有个数据是 A5 但不是帧头)
+            // Cmd ID 在帧头(Offset 0)后的第 5, 6 字节 -> 即 i+5, i+6
+            volatile uint8_t id_low = KM_RX_Buf[i + 5];
+            volatile uint8_t id_high = KM_RX_Buf[i + 6];
+            uint16_t current_cmd = (uint16_t)(id_low | (id_high << 8));
 
-    // 3. 校验 CMD_ID (防优化写法)
-    volatile uint8_t id_low = KM_RX_Buf[5];
-    volatile uint8_t id_high = KM_RX_Buf[6];
-    uint16_t current_cmd = (uint16_t)(id_low | (id_high << 8));
+            if (current_cmd == PROTOCOL_CMD_ID)
+            {
+                uint8_t *p = &KM_RX_Buf[i + 7];
 
-    if (current_cmd != PROTOCOL_CMD_ID)
-        return;
+                // 解析数据
+                Robot_KeyData.mouse_x = (int16_t)(p[0] | (p[1] << 8));
+                Robot_KeyData.mouse_y = (int16_t)(p[2] | (p[3] << 8));
+                Robot_KeyData.mouse_z = (int16_t)(p[4] | (p[5] << 8));
 
-    // 4. 解析数据 (移位法)
-    uint8_t *pData = &KM_RX_Buf[7];
+                Robot_KeyData.left_button_down = p[6];
+                Robot_KeyData.right_button_down = p[7];
 
-    Robot_KeyData.data.mouse_x = (int16_t)(pData[0] | (pData[1] << 8));
-    Robot_KeyData.data.mouse_y = (int16_t)(pData[2] | (pData[3] << 8));
-    Robot_KeyData.data.mouse_z = (int16_t)(pData[4] | (pData[5] << 8));
-    Robot_KeyData.data.left_button_down = pData[6];
-    Robot_KeyData.data.right_button_down = pData[7];
-    Robot_KeyData.data.keyboard_value = (uint16_t)(pData[8] | (pData[9] << 8));
-    Robot_KeyData.data.reserved = (uint16_t)(pData[10] | (pData[11] << 8));
+                Robot_KeyData.keyboard_value = (uint16_t)(p[8] | (p[9] << 8));
+                Robot_KeyData.reserved = (uint16_t)(p[10] | (p[11] << 8));
 
-    Robot_KeyData.InfoUpdataFlag = 1;
+                Robot_KeyData.InfoUpdataFlag = 1;
 
-    // 5. 更新逻辑
-    KeyMouse_Update(&KeyMouseDetect, &Robot_KeyData);
+                KeyMouse_Update(&KeyMouseDetect, &Robot_KeyData);
+                Board1_To_2();
 
-    // 6. 转发数据 (放在这里是为了防止数据没更新就狂发)
-    Board1_To_2();
-
+                return;
+            }
+        }
+    }
 }

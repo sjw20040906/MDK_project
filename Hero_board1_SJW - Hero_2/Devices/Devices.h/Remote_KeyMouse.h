@@ -8,7 +8,7 @@
 #ifndef __REMOTE_KEYMOUSE_H__
 #define __REMOTE_KEYMOUSE_H__
 
-#include "main.h" // 包含 HAL 库及项目基础定义
+#include "main.h" 
 #include "stdint.h"
 #include "string.h"
 #include "BSP_Usart.h"
@@ -20,8 +20,8 @@
 #define KM_RX_BUF_SIZE 256
 
 // 按键长短按时间阈值 (单位: ms)
-#define PRESS_THRESHOLD 20        // 消抖时间，超过这个时间才认为按下
-#define SHORT_PRESS_THRESHOLD 200 // 松开时小于这个时间视为短按
+#define PRESS_THRESHOLD 5        // 消抖时间，超过这个时间才认为按下
+#define SHORT_PRESS_THRESHOLD 100 // 松开时小于这个时间视为短按
 #define LONG_PRESS_THRESHOLD 800  // 超过这个时间视为长按
 
 // 协议常量
@@ -74,35 +74,21 @@ typedef struct
     uint8_t B;
 } VTM_KeyboardBits;
 
-/* 开启 1字节对齐 */
-#pragma pack(push, 1)
-
 /**
  * @brief 原始协议数据包结构体 (对应协议文档 0x0304)
  */
 typedef struct
 {
-    union
-    {
-        uint8_t dataBuff[12]; // 原始字节流 (12 Bytes
-        // 注意：这里去掉了 __packed 关键字，改由外部 pragma 控制
-        struct 
-        {
-            int16_t mouse_x;            // 鼠标 X轴速度
-            int16_t mouse_y;            // 鼠标 Y轴速度
-            int16_t mouse_z;            // 鼠标 滚轮速度
-            int8_t  left_button_down;   // 鼠标 左键 (0/1)
-            int8_t  right_button_down;  // 鼠标 右键 (0/1)
-            uint16_t keyboard_value;    // 键盘 16位 键值掩码
-            uint16_t reserved;          // 保留位
-        };
-    } data;
-    
+    int16_t mouse_x;            // 鼠标 X轴速度
+    int16_t mouse_y;            // 鼠标 Y轴速度
+    int16_t mouse_z;            // 鼠标 滚轮速度
+    int8_t  left_button_down;   // 鼠标 左键 (0/1)
+    int8_t  right_button_down;  // 鼠标 右键 (0/1)
+    uint16_t keyboard_value;    // 键盘 16位 键值掩码
+    uint16_t reserved;          // 保留位
     uint8_t InfoUpdataFlag; // 数据更新标志位
 } ext_robot_keycommand_t;
 
-/* 恢复默认对齐 */
-#pragma pack(pop)
 
 /**
  * @brief 键鼠应用层总控结构体
