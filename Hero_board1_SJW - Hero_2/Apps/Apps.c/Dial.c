@@ -73,7 +73,7 @@ void Dial_Processing(void)
  */
 void Dial_OneBullet()
 {
-	J3519_Array[J3519_Dail_Wheel].outPosition -= (float)Angle_DialOneBullet_42mm;
+	J3519_Array[J3519_Dail_Wheel].outPosition -= (float)Angle_DialOneBullet_42mm; 
 }
 
 /**

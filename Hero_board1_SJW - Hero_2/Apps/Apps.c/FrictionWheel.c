@@ -63,7 +63,7 @@ void Fric_Processing()
   // 应用当前速度到各个电机
   if (current_speed > 0)
   {
-    M3508_Array[Fric_Left].targetSpeed = current_speed;
+    M3508_Array[Fric_Left].targetSpeed = current_speed*0.95f;
     M3508_Array[Fric_Right].targetSpeed = -current_speed;
   }
   else
