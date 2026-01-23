@@ -431,19 +431,7 @@ void RemoteControl_PC_Update(void)
 	}
 
 	/*鼠标左键发射控制*/
-	// if ((GetKeyMouseAction(MOUSE_Left, KeyAction_PRESS) || GetKeyMouseAction(MOUSE_Left, KeyAction_LONG_PRESS)) && ControlMes.fric_Flag == 1)
-	// {
-	// 	ControlMes.shoot_state = RC_SW_UP;
-	// 	Dial_Data.Shoot_Mode = Continuous_Shoot;
-	// 	Shoot_Data.Shoot_Switch = 1;
-	// }
-	// else
-	// {
-	// 	ControlMes.shoot_state = RC_SW_MID;
-	// 	Shoot_Data.Shoot_Switch = 0;
-	// }
-	/*鼠标左键发射控制*/
-	if (((ControlMes.AutoAimFlag == 1 && GetKeyMouseAction(KEY_B, KeyAction_PRESS)) ||(ControlMes.AutoAimFlag == 0 && (GetKeyMouseAction(MOUSE_Left, KeyAction_PRESS) || GetKeyMouseAction(MOUSE_Left, KeyAction_LONG_PRESS)))) &&ControlMes.fric_Flag == 1)
+	if ((GetKeyMouseAction(MOUSE_Left, KeyAction_PRESS) || GetKeyMouseAction(MOUSE_Left, KeyAction_LONG_PRESS)) && ControlMes.fric_Flag == 1)
 	{
 		ControlMes.shoot_state = RC_SW_UP;
 		Dial_Data.Shoot_Mode = Continuous_Shoot;
@@ -474,6 +462,16 @@ void RemoteControl_PC_Update(void)
 		ChassisRamp_LeftRight.mincount = -900;
 		ChassisRamp_Rotate.maxcount = 1200;
 		ChassisRamp_Rotate.mincount = -1200;
+	}
+
+	if (GetKeyMouseAction(KEY_B, KeyAction_PRESS))
+	{
+		ChassisRamp_ForwardBack.maxcount = 1200;
+		ChassisRamp_ForwardBack.mincount = -1200;
+		ChassisRamp_LeftRight.maxcount = 1200;
+		ChassisRamp_LeftRight.mincount = -1200;
+		ChassisRamp_Rotate.maxcount = 1600;
+		ChassisRamp_Rotate.mincount = -1600;
 	}
 
 	/*发射档位控制*/

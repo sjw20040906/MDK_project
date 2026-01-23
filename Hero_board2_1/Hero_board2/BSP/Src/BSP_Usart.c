@@ -12,18 +12,18 @@ Usart_Data_t Usart_Data = Usart_DataGroundInit;
  */
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
-//     if (huart->Instance == USART3)
-//     {
-// #if (RemoteControlMethod == TDF)
-//         { // 天地飞遥控器
-//             memcpy(SBUS_RXBuffer, SBUS_Rx_Data, sizeof(SBUS_Rx_Data));
-//             SBUS_RX_Finish = 1; // 已接收完一包数据
-//         }
-// #elif (RemoteControlMethod == DT7)
-//         // DT7遥控器
-//         DT7_RX_Finish = 1; // 已接受完一包数据
-// #endif
-//     }
+    if (huart->Instance == USART3)
+    {
+#if (RemoteControlMethod == TDF)
+        { // 天地飞遥控器
+            memcpy(SBUS_RXBuffer, SBUS_Rx_Data, sizeof(SBUS_Rx_Data));
+            SBUS_RX_Finish = 1; // 已接收完一包数据
+        }
+#elif (RemoteControlMethod == DT7)
+        // DT7遥控器
+        DT7_RX_Finish = 1; // 已接受完一包数据
+#endif
+    }
 //     if (huart->Instance == USART6)
 //     {
 // #if (RemoteControlMethod == DJI_VT13)

@@ -58,7 +58,7 @@ void Fric_Set_targetSpeed(void)
  * @brief  左摩擦轮的PID重置
  * @param  void
  * @retval void
- * @attention//75 0.03 05 //3.0 0.03 0
+ * @attention
  */
 void PID_Clear_FricL(void)
 {

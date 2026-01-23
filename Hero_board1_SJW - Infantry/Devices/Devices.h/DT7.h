@@ -41,12 +41,12 @@
 
 #define RC_FRAME_LENGTH 18u
 
-#define KEYMOUSE_AMOUNT 18   
-#define IT_KEYMOUSE_AMOUNT 18 
+#define KEYMOUSE_AMOUNT 18
+#define IT_KEYMOUSE_AMOUNT 18
 
 #define TIME_KeyMouse_Press 3
 
-#define TIME_KeyMouse_LongPress 60 
+#define TIME_KeyMouse_LongPress 60
 
 #define DR16_ExportDataGroundInit \
     {                             \
@@ -147,24 +147,24 @@ typedef struct
 typedef enum
 {
 
-    KEY_W = 0, 
-    KEY_S = 1, 
-    KEY_A,     
-    KEY_D,     
+    KEY_W = 0,
+    KEY_S = 1,
+    KEY_A,
+    KEY_D,
     KEY_SHIFT,
-    KEY_CTRL, 
-    KEY_Q,    
-    KEY_E,    
-    KEY_R,   
+    KEY_CTRL,
+    KEY_Q,
+    KEY_E,
+    KEY_R,
     KEY_F,
     KEY_G,
-    KEY_Z,      
-    KEY_X,      
-    KEY_C,      
-    KEY_V,      
-    KEY_B,      
-    MOUSE_Left, 
-    MOUSE_Right 
+    KEY_Z,
+    KEY_X,
+    KEY_C,
+    KEY_V,
+    KEY_B,
+    MOUSE_Left,
+    MOUSE_Right
 } KeyList_e;
 
 typedef enum
@@ -172,7 +172,7 @@ typedef enum
     KeyAction_CLICK,
     KeyAction_PRESS,
     KeyAction_LONG_PRESS
-} KeyAction_e; 
+} KeyAction_e;
 
 typedef struct
 {
@@ -185,25 +185,24 @@ typedef struct
     struct
     {
 
-        uint32_t Press_Flag;                
-        uint32_t Click_Press_Flag;          
-        uint32_t Long_Press_Flag;          
-        uint8_t PressTime[KEYMOUSE_AMOUNT]; 
-    } KeyMouse;                             
+        uint32_t Press_Flag;
+        uint32_t Click_Press_Flag;
+        uint32_t Long_Press_Flag;
+        uint8_t PressTime[KEYMOUSE_AMOUNT];
+    } KeyMouse;
 
     struct
     {
-        float Forward_Back_Value; 
-        float Omega_Value;        
-        float Left_Right_Value;   
+        float Forward_Back_Value;
+        float Omega_Value;
+        float Left_Right_Value;
         float Pitch_Value;
         float Yaw_Value;
-        float Dial_Wheel;     
-    } Robot_TargetValue;      
+        float Dial_Wheel;
+    } Robot_TargetValue;
     uint16_t infoUpdateFrame;
-    uint8_t OffLineFlag;     
-} DR16_Export_Data_t;        
-
+    uint8_t OffLineFlag;
+} DR16_Export_Data_t;
 
 typedef struct
 {
@@ -216,24 +215,24 @@ typedef struct
     struct
     {
 
-        uint32_t Press_Flag;                
-        uint32_t Click_Press_Flag;          
-        uint32_t Long_Press_Flag;           
-        uint8_t PressTime[KEYMOUSE_AMOUNT]; 
-    } KeyMouse;                             
+        uint32_t Press_Flag;
+        uint32_t Click_Press_Flag;
+        uint32_t Long_Press_Flag;
+        uint8_t PressTime[KEYMOUSE_AMOUNT];
+    } KeyMouse;
 
     struct
     {
-        float Forward_Back_Value; 
-        float Omega_Value;        
-        float Left_Right_Value;   
+        float Forward_Back_Value;
+        float Omega_Value;
+        float Left_Right_Value;
         float Pitch_Value;
         float Yaw_Value;
-        float Dial_Wheel;           
-    } Robot_TargetValue;            
-    uint16_t infoUpdateFrame;       
-    uint8_t OffLineFlag;            
-} Image_Transmission_Export_Data_t; 
+        float Dial_Wheel;
+    } Robot_TargetValue;
+    uint16_t infoUpdateFrame;
+    uint8_t OffLineFlag;
+} Image_Transmission_Export_Data_t;
 
 extern RC_Ctl_t RC_CtrlData;
 extern uint8_t DT7_RX_Finish;

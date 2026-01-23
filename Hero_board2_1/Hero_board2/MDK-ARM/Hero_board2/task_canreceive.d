@@ -60,6 +60,7 @@
 .\hero_board2\task_canreceive.o: ../BSP/Inc/BSP_BoardCommunication.h
 .\hero_board2\task_canreceive.o: ../BSP/Inc/BSP_Usart.h
 .\hero_board2\task_canreceive.o: ../Core/Inc/usart.h
+.\hero_board2\task_canreceive.o: ../DEV/Inc/SBUS.h
 .\hero_board2\task_canreceive.o: ../DEV/Inc/M3508_Motor.h
 .\hero_board2\task_canreceive.o: D:\mdk\ARM\ARMCC\Bin\..\include\stdbool.h
 .\hero_board2\task_canreceive.o: ../DEV/Inc/DM_Motor.h

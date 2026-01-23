@@ -61,6 +61,7 @@
 .\hero_board2\dm_motor.o: ../BSP/Inc/BSP_BoardCommunication.h
 .\hero_board2\dm_motor.o: ../BSP/Inc/BSP_Usart.h
 .\hero_board2\dm_motor.o: ../Core/Inc/usart.h
+.\hero_board2\dm_motor.o: ../DEV/Inc/SBUS.h
 .\hero_board2\dm_motor.o: ../DEV/Inc/M3508_Motor.h
 .\hero_board2\dm_motor.o: D:\mdk\ARM\ARMCC\Bin\..\include\stdbool.h
 .\hero_board2\dm_motor.o: ../DEV/Inc/DM_Motor.h

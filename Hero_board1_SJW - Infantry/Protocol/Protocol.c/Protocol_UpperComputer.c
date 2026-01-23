@@ -19,9 +19,6 @@ float Auto_Aim_Pitch;
 bool Fire_Flag = 0;
 positionpid_t Auto_Aim_PID;
 
-// 测试debug显示用的变量
-float a, b;
-
 /**
  * @brief  UpperCom下位机与上位机通信，向上位机发送信息。使用USB
  * @param  void
@@ -48,13 +45,14 @@ void UpperCom_Send_To_Up(uint8_t COM)
 	{
 		if (mark++ >= 200)
 			mark = 0;
-		UpperCom_Send_Buffer[3] = 15; // 数据包包含的字节数
+		UpperCom_Send_Buffer[3] = 16; // 数据包包含的字节数
 		memcpy(&UpperCom_Send_Buffer[4], &bullet_velocity, sizeof(bullet_velocity));
 		memcpy(&UpperCom_Send_Buffer[8], &bullet_angle, sizeof(bullet_angle));
 		memcpy(&UpperCom_Send_Buffer[12], &gimbal_yaw, sizeof(gimbal_yaw));
 		memcpy(&UpperCom_Send_Buffer[14], &mark, sizeof(mark));
 		memcpy(&UpperCom_Send_Buffer[16], &ControlMes.tnndcolor, sizeof(ControlMes.tnndcolor));
 		memcpy(&UpperCom_Send_Buffer[17], &ControlMes.z_rotation_velocity, sizeof(ControlMes.z_rotation_velocity));
+		memcpy(&UpperCom_Send_Buffer[19], &ControlMes.AutoAimFlag, sizeof(ControlMes.AutoAimFlag));
 		Append_CRC8_Check_Sum(UpperCom_Send_Buffer, 5 + UpperCom_Send_Buffer[3]); // 5+x，x代表数据包包含的数据字节数。
 	}
 	CDC_Transmit_FS(UpperCom_Send_Buffer, sizeof(UpperCom_Send_Buffer)); // usb发送
@@ -104,9 +102,7 @@ void UpperCom_Receive_From_Up(uint8_t Rec[])
 			return;
 		Auto_Aim_Pitch = Cloud_Pitch_level + R2float(&Rec[4]) * 1303.8f; //  8192 / 2 / π;
 		Auto_Aim_Yaw = R2int16(&Rec[8]);
-		Fire_Flag = (Rec[10] == 0x01);  
-		a = R2float(&Rec[4]);
-		b = R2int16(&Rec[8]);
+		Fire_Flag = (Rec[10] == 0x01);
 		break;
 	default:
 		return;

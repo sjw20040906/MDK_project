@@ -38,6 +38,7 @@
 .\hero_board2\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 .\hero_board2\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 .\hero_board2\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+.\hero_board2\bsp_usart.o: ../DEV/Inc/SBUS.h
 .\hero_board2\bsp_usart.o: ../BSP/Inc/Extern_Handles.h
 .\hero_board2\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board2\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h

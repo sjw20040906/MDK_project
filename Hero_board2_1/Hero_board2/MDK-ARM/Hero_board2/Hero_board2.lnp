@@ -42,6 +42,7 @@
 ".\hero_board2\port.o"
 ".\hero_board2\dm_motor.o"
 ".\hero_board2\m3508_motor.o"
+".\hero_board2\sbus.o"
 ".\hero_board2\task_canreceive.o"
 ".\hero_board2\task_cansend.o"
 ".\hero_board2\task_dm_onlinecheck.o"

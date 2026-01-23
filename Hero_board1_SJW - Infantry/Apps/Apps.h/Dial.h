@@ -70,11 +70,11 @@ typedef enum
 /* Dial数据以及函数的接口结构体 */
 #define Dial_DataGroundInit \
 	{                       \
-		0,									\
+		0,                  \
 		330,                \
 		0,                  \
 		0,                  \
-		-900,               \
+		-4000,              \
 		Single_Shoot,       \
 		Dial_Off,           \
 	}
@@ -96,16 +96,13 @@ typedef struct Heat_Data_t
 
 typedef struct Dial_Data_t
 {
-	uint8_t  Number_ToBeFired;   //需要打击的弹丸数量
-	uint16_t Shoot_Interval; // 攻击间隔
-	// uint16_t Shoot_Period;       //连发的时间
-	uint32_t Time_NextShoot; // 下次射击的时间，即系统时间超过这个值才能射击
-	// uint32_t Time_StopShoot;     //连发停止发射的时间
-	uint16_t Bullet_Dialed; // 已经打出的子弹
-	int16_t Speed_Dial;		// 连发的拨盘电机速度
-
-	Shoot_Modes Shoot_Mode;	 // 发射模式，单发还是连发
-	Dial_On_Off Dial_Switch; // 拨弹电机的开关
+	uint8_t Number_ToBeFired; // 需要打击的弹丸数量
+	uint16_t Shoot_Interval;  // 攻击间隔
+	uint32_t Time_NextShoot;  // 下次射击的时间，即系统时间超过这个值才能射击
+	uint16_t Bullet_Dialed;	  // 已经打出的子弹
+	int16_t Speed_Dial;		  // 连发的拨盘电机速度
+	Shoot_Modes Shoot_Mode;	  // 发射模式，单发还是连发
+	Dial_On_Off Dial_Switch;  // 拨弹电机的开关
 } Dial_Data_t;
 
 void Dial_Processing_1(void);
