@@ -1,9 +1,9 @@
 #include "SBUS.h"
 
 SBUS_Buffer SBUS;
-MappedData mappedData; // 全局映射后的数据
+MappedData mappedData;
 uint8_t SBUS_RX_Finish = 0;
-uint8_t SBUS_RXBuffer[SBUS_RX_LEN] = {0}; // 接收缓冲
+uint8_t SBUS_RXBuffer[SBUS_RX_LEN] = {0};
 uint8_t SBUS_Rx_Data[25];
 
 /**
@@ -34,7 +34,7 @@ static int16_t map_to_1024(int16_t sbus_val)
 }
 
 /**
- * @brief 5-10通道档位转换：353→1，1024→2，1695→3
+ * @brief 通道档位转换：353→1，1024→2，1695→3
  * @param sbus_val: SBUS原始通道值
  * @retval 1/2/3档位
  */
@@ -56,7 +56,7 @@ static uint8_t map_to_3levels(int16_t sbus_val)
 }
 
 /**
- * @brief 11-12通道档位转换：353→1，1695→2
+ * @brief 通道档位转换：353→1，1695→2
  * @param sbus_val: SBUS原始通道值
  * @retval 1/2档位
  */
@@ -119,4 +119,3 @@ void SBUS_Handle()
         }
     }
 }
-

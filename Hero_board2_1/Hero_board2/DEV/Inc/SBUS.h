@@ -10,16 +10,13 @@
 
 #define StartByte 0x0f
 #define EndByte 0x00
-// SBUS原始数据范围（典型值）
+// SBUS原始数据范围
 #define SBUS_MIN 353
 #define SBUS_MAX 1695
-// 中间阈值（用于档位判断）
+// 中间阈值
 #define MID_VALUE 1024
-// 档位判断容差（避免数据抖动导致跳变）
+// 档位判断容差
 #define TOLERANCE 50
-#define SBUS_CH2_MIN 705
-#define SBUS_CH2_MID 2048
-#define SBUS_CH2_MAX 3359
 
 typedef struct
 {
@@ -57,12 +54,6 @@ typedef struct
 	int16_t Ch8;
 	int16_t Ch9;
 	int16_t Ch10;
-	int16_t Ch11;
-	int16_t Ch12;
-	int16_t Ch13;
-	int16_t Ch14;
-	int16_t Ch15;
-	int16_t Ch16;
 } MappedData;
 
 extern uint8_t SBUS_RX_Finish;
@@ -71,5 +62,5 @@ extern uint8_t SBUS_Rx_Data[25];
 
 void SBUS_Init(void);
 void SBUS_Handle(void);
-int Control_Cheak(void);
+
 #endif
