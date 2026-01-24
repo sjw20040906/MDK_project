@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Hero_board2\Hero_board2.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Hero_board2\Hero_board2.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Jan 24 11:49:00 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Jan 24 21:41:58 2026
 <BR><P>
 <H3>Maximum Stack Usage =        368 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1354,8 +1354,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_Init
 </UL>
 
-<P><STRONG><a name="[69]"></a>Robot_Control</STRONG> (Thumb, 198 bytes, Stack size 40 bytes, task_robotcontrol.o(i.Robot_Control))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = Robot_Control &rArr; CAN_SendData &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
+<P><STRONG><a name="[69]"></a>Robot_Control</STRONG> (Thumb, 314 bytes, Stack size 48 bytes, task_robotcontrol.o(i.Robot_Control))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = Robot_Control &rArr; CAN_SendData &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelayUntil

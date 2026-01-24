@@ -6,6 +6,10 @@
  */
 #include "mecanum_wheel.h"
 
+MecanumConfig Config_Mecanum = {0.0f, 0.0f, 0.0f};
+VelocityVector Velocity = {0.0f, 10.0f, 0.0f};
+WheelSpeeds Mecanum_Speeds = {0.0f, 0.0f, 0.0f, 0.0f};
+
 /**
  * @brief 初始化麦克纳姆轮配置
  * @param config 麦克纳姆轮配置结构体指针
@@ -103,25 +107,4 @@ void mecanum_limit_speeds(WheelSpeeds *speeds, float max_speed)
         speeds->wheel3 = max_speed;
     if (speeds->wheel3 < -max_speed)
         speeds->wheel3 = -max_speed;
-}
-
-/**
- * @brief 综合函数：计算轮子速度并限制在最大范围内
- * @param velocity 速度向量结构体指针
- * @param config 麦克纳姆轮配置结构体指针
- * @param max_speed 最大速度 (rad/s)
- * @param speeds 轮子速度结构体指针
- */
-void mecanum_calculate_wheel_speeds(const VelocityVector *velocity, const MecanumConfig *config, float max_speed, WheelSpeeds *speeds)
-{
-    if (velocity == NULL || config == NULL || speeds == NULL)
-    {
-        return;
-    }
-
-    // 首先计算轮子速度
-    mecanum_forward_kinematics(velocity, config, speeds);
-
-    // 然后限制轮子速度在最大范围内
-    mecanum_limit_speeds(speeds, max_speed);
 }

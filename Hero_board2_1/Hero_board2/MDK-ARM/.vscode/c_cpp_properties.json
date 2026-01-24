@@ -15,6 +15,7 @@
                 "d:\\RM\\myself\\myself_c\\MDK_project\\Hero_board2_1\\Hero_board2\\BSP\\Inc",
                 "d:\\RM\\myself\\myself_c\\MDK_project\\Hero_board2_1\\Hero_board2\\Tasks\\Inc",
                 "d:\\RM\\myself\\myself_c\\MDK_project\\Hero_board2_1\\Hero_board2\\APPS\\Inc",
+                "d:\\RM\\myself\\myself_c\\MDK_project\\Hero_board2_1\\Hero_board2\\ALG\\Inc",
                 "D:\\mdk\\ARM\\ARMCC\\include",
                 "D:\\mdk\\ARM\\ARMCC\\include\\arm_linux",
                 "D:\\mdk\\ARM\\ARMCC\\include\\arm_linux_compat",
@@ -27,7 +28,8 @@
                 "d:\\RM\\myself\\myself_c\\MDK_project\\Hero_board2_1\\Hero_board2\\DEV\\Src",
                 "d:\\RM\\myself\\myself_c\\MDK_project\\Hero_board2_1\\Hero_board2\\Tasks\\Src",
                 "d:\\RM\\myself\\myself_c\\MDK_project\\Hero_board2_1\\Hero_board2\\BSP\\Src",
-                "d:\\RM\\myself\\myself_c\\MDK_project\\Hero_board2_1\\Hero_board2\\APPS\\Src"
+                "d:\\RM\\myself\\myself_c\\MDK_project\\Hero_board2_1\\Hero_board2\\APPS\\Src",
+                "d:\\RM\\myself\\myself_c\\MDK_project\\Hero_board2_1\\Hero_board2\\ALG\\Src"
             ],
             "defines": [
                 "USE_HAL_DRIVER",

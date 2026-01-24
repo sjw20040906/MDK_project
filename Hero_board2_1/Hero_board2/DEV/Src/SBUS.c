@@ -118,4 +118,6 @@ void SBUS_Handle()
             mappedData.Ch10 = map_to_1024(SBUS.Ch10);
         }
     }
+
+    Board2_1_To_Board2_2();
 }

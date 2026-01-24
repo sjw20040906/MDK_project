@@ -5,6 +5,7 @@
 #include "usart.h"
 #include "string.h"
 #include <stdint.h>
+#include "BSP_BoardCommunication.h"
 
 #define SBUS_RX_LEN 25 // 25
 

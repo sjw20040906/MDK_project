@@ -26,7 +26,6 @@ void Can1Receives(void const *argument)
   {
     xQueueReceive(CAN1_ReceiveHandle, &Can_Export_Data, portMAX_DELAY);
     ID = Can_Export_Data.CAN_RxHeader.StdId;
-
     if (ID >= M3508_READID_START && ID <= M3508_READID_END)
     {
       M3508_getInfo(Can_Export_Data);
@@ -57,10 +56,5 @@ void Can2Receives(void const *argument)
     {
       DM_getInfo(Can_Export_Data);
     }
-
-    //        else if (ID == PowerFeedback_ID)
-    //        {
-    //            PowerControl_Fun.PowerControl_MsgRec(Can_Export_Data);
-    //        }
   }
 }

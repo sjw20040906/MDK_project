@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx,ARM_MATH_CM4,__TARGET_FPU_VFP,__CC_ARM,ARM_MATH_CM4,__FPU_PRESENT=1U</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../DEV/Inc;../BSP/Inc;../Tasks/Inc;../APPS/Inc</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../DEV/Inc;../BSP/Inc;../Tasks/Inc;../APPS/Inc;../ALG/Inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -807,6 +807,11 @@
               <FileType>1</FileType>
               <FilePath>..\Tasks\Src\Task_RobotControl.c</FilePath>
             </File>
+            <File>
+              <FileName>Task_RemoteControl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Tasks\Src\Task_RemoteControl.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -836,6 +841,26 @@
               <FileName>mecanum_wheel.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\APPS\Src\mecanum_wheel.c</FilePath>
+            </File>
+            <File>
+              <FileName>Chassis.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APPS\Src\Chassis.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ALG</GroupName>
+          <Files>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ALG\Src\pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>FuzzyPID.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ALG\Src\FuzzyPID.c</FilePath>
             </File>
           </Files>
         </Group>

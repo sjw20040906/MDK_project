@@ -39,7 +39,9 @@
 .\hero_board2\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 .\hero_board2\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 .\hero_board2\bsp_usart.o: ../DEV/Inc/SBUS.h
-.\hero_board2\bsp_usart.o: ../BSP/Inc/Extern_Handles.h
+.\hero_board2\bsp_usart.o: ../BSP/Inc/BSP_BoardCommunication.h
+.\hero_board2\bsp_usart.o: ../BSP/Inc/BSP_Can.h
+.\hero_board2\bsp_usart.o: ../Core/Inc/can.h
 .\hero_board2\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board2\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 .\hero_board2\bsp_usart.o: ../Core/Inc/FreeRTOSConfig.h
@@ -54,3 +56,6 @@
 .\hero_board2\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 .\hero_board2\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 .\hero_board2\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
+.\hero_board2\bsp_usart.o: ../BSP/Inc/typedef.h
+.\hero_board2\bsp_usart.o: ../BSP/Inc/Extern_Handles.h
+.\hero_board2\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h

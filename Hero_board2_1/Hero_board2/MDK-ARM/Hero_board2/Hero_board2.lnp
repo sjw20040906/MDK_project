@@ -47,10 +47,14 @@
 ".\hero_board2\task_cansend.o"
 ".\hero_board2\task_dm_onlinecheck.o"
 ".\hero_board2\task_robotcontrol.o"
+".\hero_board2\task_remotecontrol.o"
 ".\hero_board2\bsp_boardcommunication.o"
 ".\hero_board2\bsp_can.o"
 ".\hero_board2\bsp_usart.o"
 ".\hero_board2\mecanum_wheel.o"
+".\hero_board2\chassis.o"
+".\hero_board2\pid.o"
+".\hero_board2\fuzzypid.o"
 --strict --scatter ".\Hero_board2\Hero_board2.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
