@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "typedef.h"
 #include "Task_DM_onlineCheck.h"
+#include "Task_RobotControl.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,6 +57,7 @@ osThreadId Task_Can1MsgRecHandle;    // can1消息接收任务句柄
 osThreadId Task_Can2MsgRecHandle;    // can2消息接收任务句柄
 osThreadId Task_CanSendHandle;       // can发送任务句柄
 osThreadId Task_DMOnlineCheckHandle; // DM电机掉线检测任务句柄
+osThreadId Robot_Control_Handle;     // 机器人控制任务句柄
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osThreadId StartTaskHandle;
@@ -66,15 +68,16 @@ extern void Can1Receives(void const *argument);
 extern void Can2Receives(void const *argument);
 extern void AllCanSend(void const *argument);
 extern void DM_onlineCheck(void const *argument);
+extern void Robot_Control(void const *argument);
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const * argument);
-void ALL_Init(void const * argument);
+void StartDefaultTask(void const *argument);
+void ALL_Init(void const *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
-void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize);
 
 /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
 static StaticTask_t xIdleTaskTCBBuffer;
@@ -90,11 +93,12 @@ void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackTyp
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
-  * @brief  FreeRTOS initialization
-  * @param  None
-  * @retval None
-  */
-void MX_FREERTOS_Init(void) {
+ * @brief  FreeRTOS initialization
+ * @param  None
+ * @retval None
+ */
+void MX_FREERTOS_Init(void)
+{
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -114,13 +118,13 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* definition and creation of CAN1_Receive */
-  CAN1_ReceiveHandle = xQueueCreate(32, sizeof(Can_Export_Data_t));
+  CAN1_ReceiveHandle = xQueueCreate(16, sizeof(Can_Export_Data_t));
 
   /* definition and creation of CAN2_Receive */
-  CAN2_ReceiveHandle = xQueueCreate(32, sizeof(Can_Export_Data_t));
+  CAN2_ReceiveHandle = xQueueCreate(16, sizeof(Can_Export_Data_t));
 
   /* definition and creation of CAN_Send */
-  CAN_SendHandle = xQueueCreate(16, sizeof(Can_Send_Data_t));
+  CAN_SendHandle = xQueueCreate(32, sizeof(Can_Send_Data_t));
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -150,8 +154,11 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(DM_OnlineCheckTask, DM_onlineCheck, osPriorityRealtime, 0, 128);
   Task_DMOnlineCheckHandle = osThreadCreate(osThread(DM_OnlineCheckTask), NULL);
 
-  /* USER CODE END RTOS_THREADS */
+  /* definition and creation of Robot_Control_Task */
+  osThreadDef(Robot_Control_Task, Robot_Control, osPriorityHigh, 0, 512);
+  Robot_Control_Handle = osThreadCreate(osThread(Robot_Control_Task), NULL);
 
+  /* USER CODE END RTOS_THREADS */
 }
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -161,7 +168,7 @@ void MX_FREERTOS_Init(void) {
  * @retval None
  */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
+void StartDefaultTask(void const *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
@@ -179,13 +186,25 @@ void StartDefaultTask(void const * argument)
  * @retval None
  */
 /* USER CODE END Header_ALL_Init */
-void ALL_Init(void const * argument)
+void ALL_Init(void const *argument)
 {
   /* USER CODE BEGIN ALL_Init */
   /* Infinite loop */
   for (;;)
   {
+    taskENTER_CRITICAL();
     HAL_GPIO_WritePin(GPIOH, GPIO_PIN_10, GPIO_PIN_SET);
+    /*********初始化两个CAN控制协议，使用中断模式*********/
+    CAN_IT_Init(&hcan1, Can1_Type);
+    CAN_IT_Init(&hcan2, Can2_Type);
+
+    /*********初始化电机*********/
+    DM_Enable(&hcan1, DM_LF);
+    DM_Enable(&hcan1, DM_LR);
+    DM_Enable(&hcan2, DM_RR);
+    DM_Enable(&hcan2, DM_RF);
+    vTaskDelete(StartTaskHandle);
+    taskEXIT_CRITICAL();
     osDelay(1);
   }
   /* USER CODE END ALL_Init */

@@ -12,12 +12,10 @@
 
 ControlMessge ControlMes;
 ControlMessge_betweenBoard2 ControlMes_board2;
-ext_robot_keycommand_t ext_robot_keycommand;
 
 void Board2_1_To_Board2_2(void)
 {
   uint8_t data_track[8] = {0};
-  uint8_t data_flag[8] = {0};
 
   data_track[0] = ControlMes_board2.LF_track >> 8;
   data_track[1] = ControlMes_board2.LF_track;
@@ -27,13 +25,7 @@ void Board2_1_To_Board2_2(void)
   data_track[5] = ControlMes_board2.RR_track;
   data_track[6] = ControlMes_board2.RF_track >> 8;
   data_track[7] = ControlMes_board2.RF_track;
-  // 发送第1帧
-  CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, CAN_ID_B1_TRACK_DATA, data_track);
-
-  data_flag[0] = ControlMes_board2.upstairsFlag;
-
-  // 发送第2帧
-  CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, CAN_ID_B1_FLAG_DATA, data_flag);
+  CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, CAN_ID_B1_TRACK_DATA, data_track);
 }
 
 void Board1_getGimbalInfo(Can_Export_Data_t RxMessage)

@@ -59,6 +59,7 @@ typedef struct
 extern uint8_t SBUS_RX_Finish;
 extern uint8_t SBUS_RXBuffer[SBUS_RX_LEN];
 extern uint8_t SBUS_Rx_Data[25];
+extern MappedData mappedData;
 
 void SBUS_Init(void);
 void SBUS_Handle(void);

@@ -64,3 +64,4 @@
 .\hero_board2\freertos.o: ../BSP/Inc/BSP_Usart.h
 .\hero_board2\freertos.o: ../Core/Inc/usart.h
 .\hero_board2\freertos.o: ../DEV/Inc/DM_Motor.h
+.\hero_board2\freertos.o: ../Tasks/Inc/Task_RobotControl.h

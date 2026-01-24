@@ -40,10 +40,16 @@ enum DM_Motor_ReadID
   DM_RF_ReadID = 0x04,
 };
 
-#define DM_P_MAX 3.1415926535f
+#define DM_P_MAX 3.14159f
 #define DM_V_MAX 200.0f
 #define DM_T_MAX 10.0f
 #define Pi 3.14159265f
+#define DM_KP 20.0f          // 范围0-500
+#define DM_KD 1.0f           // 范围0-5
+#define DM_Torque 3.0f       // 额定扭矩
+#define DM_Speed 15.0f       // 速度
+#define DM_Offset -0.87f     // 偏移量
+#define DM_Offset_temp -2.0f  // 临时偏移量
 
 typedef struct
 {
@@ -82,4 +88,4 @@ void DM_Reset(DM_Motor_t *DM);
 
 extern DM_Motor_t DM_Array[totalMotor];
 
-#endif /* __DM_MOTOR_H */
+#endif

@@ -56,6 +56,7 @@ osThreadId Task_Can1MsgRecHandle;    // can1消息接收任务句柄
 osThreadId Task_Can2MsgRecHandle;    // can2消息接收任务句柄
 osThreadId Task_CanSendHandle;       // can发送任务句柄
 osThreadId Task_DMOnlineCheckHandle; // DM电机掉线检测任务句柄
+osThreadId Robot_Control_Handle;          // 机器人控制任务句柄
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osThreadId StartTaskHandle;
@@ -66,6 +67,7 @@ extern void Can1Receives(void const *argument);
 extern void Can2Receives(void const *argument);
 extern void AllCanSend(void const *argument);
 extern void DM_onlineCheck(void const *argument);
+extern void Robot_Control(void const *argument);
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const *argument);
@@ -150,6 +152,10 @@ void MX_FREERTOS_Init(void)
   /* definition and creation of DMOnlineCheckTask */
   osThreadDef(DM_OnlineCheckTask, DM_onlineCheck, osPriorityRealtime, 0, 128);
   Task_DMOnlineCheckHandle = osThreadCreate(osThread(DM_OnlineCheckTask), NULL);
+
+  /* definition and creation of Robot_ControlTask */
+  osThreadDef(Robot_ControlTask, Robot_Control, osPriorityHigh, 0, 512);
+  Robot_Control_Handle = osThreadCreate(osThread(Robot_ControlTask), NULL);
 
   /* USER CODE END RTOS_THREADS */
 }

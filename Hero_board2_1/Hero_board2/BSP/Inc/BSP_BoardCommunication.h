@@ -18,15 +18,13 @@
 #include "queue.h"
 
 // CAN报文的标识符和数据长度
-#define CAN_ID_CHASSIS 0x10f // 假设FDCAN报文底盘数据ID为0x10f
-#define CAN_ID_GIMBAL 0x11f	 // 云台数据ID为0x11f
-#define CAN_ID_B1_TRACK_DATA   0x250  // 发送4个履带数据 (8 Bytes)
-#define CAN_ID_B1_FLAG_DATA    0x251  // 发送标志位 (1 Byte)
+#define CAN_ID_CHASSIS 0x10f	   // 报文底盘数据ID为0x10f
+#define CAN_ID_GIMBAL 0x11f		   // 云台数据ID为0x11f
+#define CAN_ID_B1_TRACK_DATA 0x250 // 发送4个履带数据
 
 #define model_Normal 0
 #define model_Record 1
 #define model_Follow 2
-
 
 // 定义FDCAN报文的结构体
 typedef struct
@@ -46,7 +44,7 @@ typedef struct
 	uint8_t shoot_Speed;   // 射速
 	uint8_t change_Flag;   // 变速
 	uint8_t fric_Flag;	   // 摩擦轮
-	uint8_t reset_Flag;    // 复位标志
+	uint8_t reset_Flag;	   // 复位标志
 	uint8_t tnndcolor;	   // 己方颜色，1为红，2为蓝
 	uint8_t redial;
 	int16_t Gimbal_Chassis_Pitch_Angle; // 底盘正方向的pitch轴角度
@@ -57,34 +55,12 @@ typedef struct
 
 typedef struct
 {
-    uint8_t  upstairsFlag; // 上楼标志
-    uint16_t LF_track;     // 左前履带
-    uint16_t LR_track;     // 左后履带
-    uint16_t RR_track;     // 右后履带
-    uint16_t RF_track;     // 右前履带
+	uint16_t LF_track; // 左前履带
+	uint16_t LR_track; // 左后履带
+	uint16_t RR_track; // 右后履带
+	uint16_t RF_track; // 右前履带
 } ControlMessge_betweenBoard2;
 
-/* 图传遥控客户端下发键鼠遥控信息:0x0304  Byte 12*/
-typedef struct
-{
-	union
-	{
-		uint8_t dataBuff[12];
-		__packed struct
-		{
-			int16_t mouse_x;
-			int16_t mouse_y;
-			int16_t mouse_z; // 鼠标滚轮
-			int8_t left_button_down;
-			int8_t right_button_down;
-			uint16_t keyboard_value;
-			uint16_t reserved;
-		};
-	} data;
-	uint8_t InfoUpdataFlag;
-} ext_robot_keycommand_t;
-
-void Board1_To_2(void);
 void Board2_1_To_Board2_2(void);
 void Board1_getGimbalInfo(Can_Export_Data_t RxMessage);
 
