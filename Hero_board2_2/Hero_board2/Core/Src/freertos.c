@@ -71,13 +71,13 @@ extern void DM_onlineCheck(void const *argument);
 extern void Robot_Control(void const *argument);
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const *argument);
-void ALL_Init(void const *argument);
+void StartDefaultTask(void const * argument);
+void ALL_Init(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
-void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize);
+void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
 
 /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
 static StaticTask_t xIdleTaskTCBBuffer;
@@ -93,12 +93,11 @@ void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackTyp
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
- * @brief  FreeRTOS initialization
- * @param  None
- * @retval None
- */
-void MX_FREERTOS_Init(void)
-{
+  * @brief  FreeRTOS initialization
+  * @param  None
+  * @retval None
+  */
+void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -159,6 +158,7 @@ void MX_FREERTOS_Init(void)
   Robot_Control_Handle = osThreadCreate(osThread(Robot_Control_Task), NULL);
 
   /* USER CODE END RTOS_THREADS */
+
 }
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -168,13 +168,21 @@ void MX_FREERTOS_Init(void)
  * @retval None
  */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const *argument)
+void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
   for (;;)
   {
-    osDelay(1);
+    // /*********初始化电机*********/
+    DM_Enable(&hcan1, DM_LF);
+    osDelay(1000);
+    DM_Enable(&hcan1, DM_LR);
+    osDelay(1000);
+    DM_Enable(&hcan2, DM_RR);
+    osDelay(1000);
+    DM_Enable(&hcan2, DM_RF);
+    osDelay(1000);           // 延时10000毫秒 (10秒)，让出CPU给其他任务
   }
   /* USER CODE END StartDefaultTask */
 }
@@ -186,7 +194,7 @@ void StartDefaultTask(void const *argument)
  * @retval None
  */
 /* USER CODE END Header_ALL_Init */
-void ALL_Init(void const *argument)
+void ALL_Init(void const * argument)
 {
   /* USER CODE BEGIN ALL_Init */
   /* Infinite loop */
@@ -198,11 +206,6 @@ void ALL_Init(void const *argument)
     CAN_IT_Init(&hcan1, Can1_Type);
     CAN_IT_Init(&hcan2, Can2_Type);
 
-    /*********初始化电机*********/
-    DM_Enable(&hcan1, DM_LF);
-    DM_Enable(&hcan1, DM_LR);
-    DM_Enable(&hcan2, DM_RR);
-    DM_Enable(&hcan2, DM_RF);
     vTaskDelete(StartTaskHandle);
     taskEXIT_CRITICAL();
     osDelay(1);
