@@ -21,10 +21,10 @@ void Robot_Control(void const *argument)
     {
         /****************整合电流数据***************/
         uint8_t data1[8], data2[8], data3[8], data4[8];
-        DM_setParameter(DM_Offset+ControlMes_board2.LF_track/28.65f, DM_Speed, DM_KP, DM_KD, DM_Torque, data1);
-        DM_setParameter(DM_Offset-ControlMes_board2.LR_track/28.65f, DM_Speed, DM_KP, DM_KD, DM_Torque, data2);
-        DM_setParameter(DM_Offset+ControlMes_board2.RR_track/28.65f, DM_Speed, DM_KP, DM_KD, DM_Torque, data3);
-        DM_setParameter(DM_Offset-ControlMes_board2.RF_track/28.65f, DM_Speed, DM_KP, DM_KD, DM_Torque, data4);
+        DM_setParameter(DM_Offset + ControlMes_board2.LF_track / 28.25f, DM_Speed, DM_KP, DM_KD, DM_Torque, data1);
+        DM_setParameter(DM_Offset - ControlMes_board2.LR_track / 28.25f, DM_Speed, DM_KP, DM_KD, DM_Torque, data2);
+        DM_setParameter(DM_Offset + ControlMes_board2.RR_track / 28.25f, DM_Speed, DM_KP, DM_KD, DM_Torque, data3);
+        DM_setParameter(DM_Offset - ControlMes_board2.RF_track / 28.25f, DM_Speed, DM_KP, DM_KD, DM_Torque, data4);
         /****************发送电流数据***************/
         CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, DM_LF, data1);
         CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, DM_LR, data2);

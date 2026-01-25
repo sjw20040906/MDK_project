@@ -26,10 +26,10 @@
 
 typedef struct
 {
-    uint16_t LF_track;    // 左前履带
-    uint16_t LR_track;    // 左后履带
-    uint16_t RR_track;    // 右后履带
-    uint16_t RF_track;    // 右前履带
+    int16_t LF_track;    // 左前履带
+    int16_t LR_track;    // 左后履带
+    int16_t RR_track;    // 右后履带
+    int16_t RF_track;    // 右前履带
 } ControlMessge_betweenBoard2;
 
 void Board2_2_getTrackInfo(Can_Export_Data_t RxMessage);

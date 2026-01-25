@@ -162,7 +162,7 @@ void MX_FREERTOS_Init(void) {
   Robot_Control_Handle = osThreadCreate(osThread(Robot_ControlTask), NULL);
 
   /* definition and creation of RemoteControlTask */
-  osThreadDef(RemoteControlTask, RemoteControl_Processing, osPriorityRealtime, 0, 512);
+  osThreadDef(RemoteControlTask, RemoteControl_Processing, osPriorityRealtime, 0, 128);
   RemoteControl_Handle = osThreadCreate(osThread(RemoteControlTask), NULL);
   /* USER CODE END RTOS_THREADS */
 

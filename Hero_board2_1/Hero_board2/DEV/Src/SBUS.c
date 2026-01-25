@@ -17,23 +17,6 @@ void SBUS_Init()
 }
 
 /**
- * @brief 线性映射函数：将353~1695映射到-1024~1024
- * @param sbus_val: SBUS原始通道值
- * @retval 映射后的数值
- */
-static int16_t map_to_1024(int16_t sbus_val)
-{
-    // 限制输入范围，防止异常值
-    if (sbus_val < SBUS_MIN)
-        sbus_val = SBUS_MIN;
-    if (sbus_val > SBUS_MAX)
-        sbus_val = SBUS_MAX;
-
-    // 线性映射公式：y = (x - x_min) * (y_max - y_min)/(x_max - x_min) + y_min
-    return (int16_t)((sbus_val - SBUS_MIN) * 2048.0f / (SBUS_MAX - SBUS_MIN) - 1024);
-}
-
-/**
  * @brief 通道档位转换：353→1，1024→2，1695→3
  * @param sbus_val: SBUS原始通道值
  * @retval 1/2/3档位
@@ -106,16 +89,16 @@ void SBUS_Handle()
             SBUS.Ch16 = ((uint16_t)((SBUS_RXBuffer[21] & 0xe0) >> 5)) | (((uint16_t)SBUS_RXBuffer[22]) << 3);
 
             // 2. 通道数据映射
-            mappedData.Ch1 = map_to_1024(SBUS.Ch1);
-            mappedData.Ch2 = map_to_1024(SBUS.Ch2);
-            mappedData.Ch3 = map_to_1024(SBUS.Ch3);
-            mappedData.Ch4 = map_to_1024(SBUS.Ch4);
+            mappedData.Ch1 = SBUS.Ch1 - MID_VALUE;
+            mappedData.Ch2 = SBUS.Ch2 - MID_VALUE;
+            mappedData.Ch3 = SBUS.Ch3 - MID_VALUE;
+            mappedData.Ch4 = SBUS.Ch4 - MID_VALUE;
             mappedData.Ch5 = map_to_3levels(SBUS.Ch5);
             mappedData.Ch6 = map_to_3levels(SBUS.Ch6);
             mappedData.Ch7 = map_to_2levels(SBUS.Ch7);
             mappedData.Ch8 = map_to_2levels(SBUS.Ch8);
-            mappedData.Ch9 = map_to_1024(SBUS.Ch9);
-            mappedData.Ch10 = map_to_1024(SBUS.Ch10);
+            mappedData.Ch9 = SBUS.Ch9 - MID_VALUE;
+            mappedData.Ch10 = SBUS.Ch10 - MID_VALUE;
         }
     }
 
