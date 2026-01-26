@@ -7,5 +7,6 @@
  * @copyright Copyright (c) 2026
  */
 #include "SBUS.h"
+#include "Ramp.h"
 
 void RemoteControl_Processing(void const *argument);

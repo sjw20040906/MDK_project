@@ -9,6 +9,7 @@
 
 #include "Task_RemoteControl.h"
 
+int32_t output;
 /**
  * 线性映射函数：将 [-671, 671] 范围的 int16_t 映射到 [-60, 60]
  * @param x 输入值（范围：-671 ~ 671）
@@ -28,10 +29,10 @@ void RemoteControl_Processing(void const *argument)
     const TickType_t TimeIncrement = pdMS_TO_TICKS(5);
     for (;;)
     {
-        ControlMes_board2.LF_track = linear_map(mappedData.Ch9);
+        ControlMes_board2.LF_track = -60;
         ControlMes_board2.LR_track = linear_map(mappedData.Ch9);
         ControlMes_board2.RR_track = linear_map(mappedData.Ch9);
-        ControlMes_board2.RF_track = linear_map(mappedData.Ch9);
+        ControlMes_board2.RF_track = -60;
         SBUS_Handle();
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }

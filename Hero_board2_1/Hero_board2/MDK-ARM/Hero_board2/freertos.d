@@ -69,8 +69,10 @@
 .\hero_board2\freertos.o: ../DEV/Inc/DM_Motor.h
 .\hero_board2\freertos.o: ../APPS/Inc/mecanum_wheel.h
 .\hero_board2\freertos.o: ../Tasks/Inc/Task_RemoteControl.h
+.\hero_board2\freertos.o: ../ALG/Inc/Ramp.h
 .\hero_board2\freertos.o: ../APPS/Inc/Chassis.h
 .\hero_board2\freertos.o: ../ALG/Inc/pid.h
 .\hero_board2\freertos.o: D:\mdk\ARM\ARMCC\Bin\..\include\stdlib.h
 .\hero_board2\freertos.o: ../ALG/Inc/FuzzyPID.h
 .\hero_board2\freertos.o: D:\mdk\ARM\ARMCC\Bin\..\include\math.h
+.\hero_board2\freertos.o: ../Tasks/Inc/Task_RemoteControl.h

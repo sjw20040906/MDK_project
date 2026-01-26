@@ -55,6 +55,7 @@
 ".\hero_board2\chassis.o"
 ".\hero_board2\pid.o"
 ".\hero_board2\fuzzypid.o"
+".\hero_board2\ramp.o"
 --strict --scatter ".\Hero_board2\Hero_board2.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
