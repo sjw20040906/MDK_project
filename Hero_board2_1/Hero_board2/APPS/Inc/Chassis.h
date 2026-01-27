@@ -1,3 +1,7 @@
+#ifndef __CHASSIS_H__
+#define __CHASSIS_H__
+
+
 #include "pid.h"
 #include "mecanum_wheel.h"
 #include "M3508_Motor.h"
@@ -45,3 +49,5 @@ void Chassis_Init(void);
  * @retval void
  */
 void Chassis_motion_control(void);
+
+#endif

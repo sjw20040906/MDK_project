@@ -66,5 +66,15 @@
 .\hero_board2\chassis.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 .\hero_board2\chassis.o: ../BSP/Inc/Extern_Handles.h
 .\hero_board2\chassis.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
+.\hero_board2\chassis.o: ../APPS/Inc/Chassis.h
+.\hero_board2\chassis.o: ../APPS/Inc/Gimbal.h
+.\hero_board2\chassis.o: ../DEV/Inc/DM_Motor.h
+.\hero_board2\chassis.o: ../Tasks/Inc/Task_CanReceive.h
+.\hero_board2\chassis.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
+.\hero_board2\chassis.o: ../BSP/Inc/BSP_BoardCommunication.h
+.\hero_board2\chassis.o: ../BSP/Inc/BSP_Usart.h
+.\hero_board2\chassis.o: ../DEV/Inc/SBUS.h
+.\hero_board2\chassis.o: ../DEV/Inc/DM_Motor.h
+.\hero_board2\chassis.o: ../DEV/Inc/wit_imu.h
 .\hero_board2\chassis.o: ../Tasks/Inc/Task_RemoteControl.h
 .\hero_board2\chassis.o: ../ALG/Inc/Ramp.h

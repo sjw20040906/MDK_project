@@ -91,7 +91,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h)(0x68CA5213)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x68CA5213)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x68CA5213)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x68CA5213)
-F (../Core/Src/freertos.c)(0x69785A96)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\freertos.o --omf_browse .\hero_board2\freertos.crf --depend .\hero_board2\freertos.d)
+F (../Core/Src/freertos.c)(0x6978B42C)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\freertos.o --omf_browse .\hero_board2\freertos.crf --depend .\hero_board2\freertos.d)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x68CA5124)
 I (D:\mdk\ARM\ARMCC\include\stddef.h)(0x5E8E3CC2)
 I (D:\mdk\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
@@ -149,22 +149,22 @@ I (../BSP/Inc/Extern_Handles.h)(0x68A285CC)
 I (../BSP/Inc/BSP_CAN.h)(0x69679A19)
 I (D:\mdk\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (D:\mdk\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
-I (../BSP/Inc/BSP_BoardCommunication.h)(0x6974CD83)
-I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
-I (../Core/Inc/usart.h)(0x695E430F)
-I (../DEV/Inc/SBUS.h)(0x69746854)
-I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
-I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
-I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
-I (../Tasks/Inc/Task_RemoteControl.h)(0x6976F752)
-I (../ALG/Inc/Ramp.h)(0x6976F828)
-I (../APPS/Inc/Chassis.h)(0x6978A71A)
+I (../BSP/Inc/BSP_BoardCommunication.h)(0x6978AF3A)
+I (../APPS/Inc/Chassis.h)(0x6978B3CB)
 I (../ALG/Inc/pid.h)(0x6978592A)
 I (D:\mdk\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
 I (../ALG/Inc/FuzzyPID.h)(0x69781A8F)
 I (D:\mdk\ARM\ARMCC\include\math.h)(0x67FBA23D)
-I (../APPS/Inc/Gimbal.h)(0x69784A58)
+I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
+I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
+I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
+I (../DEV/Inc/SBUS.h)(0x69746854)
+I (../Core/Inc/usart.h)(0x695E430F)
+I (../Tasks/Inc/Task_RemoteControl.h)(0x6976F752)
+I (../ALG/Inc/Ramp.h)(0x6976F828)
+I (../APPS/Inc/Gimbal.h)(0x6978AEA5)
 I (../DEV/Inc/wit_imu.h)(0x69783225)
+I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
 F (../Core/Src/can.c)(0x6974BEDC)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\can.o --omf_browse .\hero_board2\can.crf --depend .\hero_board2\can.d)
 I (../Core/Inc/can.h)(0x695E430E)
 I (../Core/Inc/main.h)(0x69721DC2)
@@ -1295,12 +1295,22 @@ I (../BSP/Inc/Extern_Handles.h)(0x68A285CC)
 I (../BSP/Inc/BSP_CAN.h)(0x69679A19)
 I (D:\mdk\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (D:\mdk\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
-I (../BSP/Inc/BSP_BoardCommunication.h)(0x6974CD83)
-I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
-I (../Core/Inc/usart.h)(0x695E430F)
-I (../DEV/Inc/SBUS.h)(0x69746854)
+I (../BSP/Inc/BSP_BoardCommunication.h)(0x6978AF3A)
+I (../APPS/Inc/Chassis.h)(0x6978B3CB)
+I (../ALG/Inc/pid.h)(0x6978592A)
+I (D:\mdk\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
+I (../ALG/Inc/FuzzyPID.h)(0x69781A8F)
+I (D:\mdk\ARM\ARMCC\include\math.h)(0x67FBA23D)
+I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
 I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
 I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
+I (../DEV/Inc/SBUS.h)(0x69746854)
+I (../Core/Inc/usart.h)(0x695E430F)
+I (../Tasks/Inc/Task_RemoteControl.h)(0x6976F752)
+I (../ALG/Inc/Ramp.h)(0x6976F828)
+I (../APPS/Inc/Gimbal.h)(0x6978AEA5)
+I (../DEV/Inc/wit_imu.h)(0x69783225)
+I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
 F (..\DEV\Src\M3508_Motor.c)(0x696799E3)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\m3508_motor.o --omf_browse .\hero_board2\m3508_motor.crf --depend .\hero_board2\m3508_motor.d)
 I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
 I (../Core/Inc/can.h)(0x695E430E)
@@ -1379,7 +1389,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x68CA5213)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x68CA5213)
 I (../Core/Inc/usart.h)(0x695E430F)
 I (D:\mdk\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
-I (../BSP/Inc/BSP_BoardCommunication.h)(0x6974CD83)
+I (../BSP/Inc/BSP_BoardCommunication.h)(0x6978AF3A)
 I (../BSP/Inc/BSP_Can.h)(0x69679A19)
 I (../Core/Inc/can.h)(0x695E430E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x68CA5124)
@@ -1399,6 +1409,21 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x68CA5124
 I (../BSP/Inc/typedef.h)(0x6923FC25)
 I (D:\mdk\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (../BSP/Inc/Extern_Handles.h)(0x68A285CC)
+I (../APPS/Inc/Chassis.h)(0x6978B3CB)
+I (../ALG/Inc/pid.h)(0x6978592A)
+I (D:\mdk\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
+I (../ALG/Inc/FuzzyPID.h)(0x69781A8F)
+I (D:\mdk\ARM\ARMCC\include\math.h)(0x67FBA23D)
+I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
+I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
+I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
+I (../Tasks/Inc/Task_RemoteControl.h)(0x6976F752)
+I (../ALG/Inc/Ramp.h)(0x6976F828)
+I (../APPS/Inc/Gimbal.h)(0x6978AEA5)
+I (../DEV/Inc/DM_Motor.h)(0x69783044)
+I (../Tasks/Inc/Task_CanReceive.h)(0x6924010F)
+I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
+I (../DEV/Inc/wit_imu.h)(0x69783225)
 F (..\DEV\Src\wit_imu.c)(0x69783155)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\wit_imu.o --omf_browse .\hero_board2\wit_imu.crf --depend .\hero_board2\wit_imu.d)
 I (../DEV/Inc/wit_imu.h)(0x69783225)
 I (../Core/Inc/main.h)(0x69721DC2)
@@ -1436,7 +1461,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x68CA5213)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x68CA5213)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x68CA5213)
 I (../Core/Inc/usart.h)(0x695E430F)
-F (..\Tasks\Src\Task_CanReceive.c)(0x69785A2F)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\task_canreceive.o --omf_browse .\hero_board2\task_canreceive.crf --depend .\hero_board2\task_canreceive.d)
+F (..\Tasks\Src\Task_CanReceive.c)(0x6978B310)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\task_canreceive.o --omf_browse .\hero_board2\task_canreceive.crf --depend .\hero_board2\task_canreceive.d)
 I (../Tasks/Inc/Task_CanReceive.h)(0x6924010F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x68CA5124)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x68CA5124)
@@ -1492,13 +1517,23 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x68CA5213)
 I (../BSP/Inc/typedef.h)(0x6923FC25)
 I (D:\mdk\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (D:\mdk\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
-I (../BSP/Inc/BSP_BoardCommunication.h)(0x6974CD83)
-I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
-I (../Core/Inc/usart.h)(0x695E430F)
-I (../DEV/Inc/SBUS.h)(0x69746854)
+I (../BSP/Inc/BSP_BoardCommunication.h)(0x6978AF3A)
+I (../APPS/Inc/Chassis.h)(0x6978B3CB)
+I (../ALG/Inc/pid.h)(0x6978592A)
+I (D:\mdk\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
+I (../ALG/Inc/FuzzyPID.h)(0x69781A8F)
+I (D:\mdk\ARM\ARMCC\include\math.h)(0x67FBA23D)
+I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
 I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
 I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
+I (../DEV/Inc/SBUS.h)(0x69746854)
+I (../Core/Inc/usart.h)(0x695E430F)
+I (../Tasks/Inc/Task_RemoteControl.h)(0x6976F752)
+I (../ALG/Inc/Ramp.h)(0x6976F828)
+I (../APPS/Inc/Gimbal.h)(0x6978AEA5)
 I (../DEV/Inc/DM_Motor.h)(0x69783044)
+I (../DEV/Inc/wit_imu.h)(0x69783225)
+I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
 F (..\Tasks\Src\Task_CanSend.c)(0x68A285CC)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\task_cansend.o --omf_browse .\hero_board2\task_cansend.crf --depend .\hero_board2\task_cansend.d)
 I (../Tasks/Inc/Task_CanSend.h)(0x692401EE)
 I (../BSP/Inc/typedef.h)(0x6923FC25)
@@ -1613,13 +1648,23 @@ I (../BSP/Inc/Extern_Handles.h)(0x68A285CC)
 I (../BSP/Inc/BSP_CAN.h)(0x69679A19)
 I (D:\mdk\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (D:\mdk\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
-I (../BSP/Inc/BSP_BoardCommunication.h)(0x6974CD83)
-I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
-I (../Core/Inc/usart.h)(0x695E430F)
-I (../DEV/Inc/SBUS.h)(0x69746854)
+I (../BSP/Inc/BSP_BoardCommunication.h)(0x6978AF3A)
+I (../APPS/Inc/Chassis.h)(0x6978B3CB)
+I (../ALG/Inc/pid.h)(0x6978592A)
+I (D:\mdk\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
+I (../ALG/Inc/FuzzyPID.h)(0x69781A8F)
+I (D:\mdk\ARM\ARMCC\include\math.h)(0x67FBA23D)
+I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
 I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
 I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
-F (..\Tasks\Src\Task_RobotControl.c)(0x697859B8)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\task_robotcontrol.o --omf_browse .\hero_board2\task_robotcontrol.crf --depend .\hero_board2\task_robotcontrol.d)
+I (../DEV/Inc/SBUS.h)(0x69746854)
+I (../Core/Inc/usart.h)(0x695E430F)
+I (../Tasks/Inc/Task_RemoteControl.h)(0x6976F752)
+I (../ALG/Inc/Ramp.h)(0x6976F828)
+I (../APPS/Inc/Gimbal.h)(0x6978AEA5)
+I (../DEV/Inc/wit_imu.h)(0x69783225)
+I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
+F (..\Tasks\Src\Task_RobotControl.c)(0x6978B5D1)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\task_robotcontrol.o --omf_browse .\hero_board2\task_robotcontrol.crf --depend .\hero_board2\task_robotcontrol.d)
 I (../Tasks/Inc/Task_RobotControl.h)(0x69785A5E)
 I (../BSP/Inc/BSP_Can.h)(0x69679A19)
 I (../Core/Inc/can.h)(0x695E430E)
@@ -1675,20 +1720,20 @@ I (../BSP/Inc/typedef.h)(0x6923FC25)
 I (D:\mdk\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (D:\mdk\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../BSP/Inc/Extern_Handles.h)(0x68A285CC)
-I (../BSP/Inc/BSP_BoardCommunication.h)(0x6974CD83)
-I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
-I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
-I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
-I (../APPS/Inc/Chassis.h)(0x6978A71A)
+I (../BSP/Inc/BSP_BoardCommunication.h)(0x6978AF3A)
+I (../APPS/Inc/Chassis.h)(0x6978B3CB)
 I (../ALG/Inc/pid.h)(0x6978592A)
 I (D:\mdk\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
 I (../ALG/Inc/FuzzyPID.h)(0x69781A8F)
 I (D:\mdk\ARM\ARMCC\include\math.h)(0x67FBA23D)
+I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
+I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
+I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
 I (../DEV/Inc/SBUS.h)(0x69746854)
 I (../Core/Inc/usart.h)(0x695E430F)
 I (../Tasks/Inc/Task_RemoteControl.h)(0x6976F752)
 I (../ALG/Inc/Ramp.h)(0x6976F828)
-I (../APPS/Inc/Gimbal.h)(0x69784A58)
+I (../APPS/Inc/Gimbal.h)(0x6978AEA5)
 I (../DEV/Inc/DM_Motor.h)(0x69783044)
 I (../Tasks/Inc/Task_CanReceive.h)(0x6924010F)
 I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
@@ -1732,7 +1777,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x68CA5213)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x68CA5213)
 I (../Core/Inc/usart.h)(0x695E430F)
 I (D:\mdk\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
-I (../BSP/Inc/BSP_BoardCommunication.h)(0x6974CD83)
+I (../BSP/Inc/BSP_BoardCommunication.h)(0x6978AF3A)
 I (../BSP/Inc/BSP_Can.h)(0x69679A19)
 I (../Core/Inc/can.h)(0x695E430E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x68CA5124)
@@ -1752,10 +1797,22 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x68CA5124
 I (../BSP/Inc/typedef.h)(0x6923FC25)
 I (D:\mdk\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (../BSP/Inc/Extern_Handles.h)(0x68A285CC)
-I (../ALG/Inc/Ramp.h)(0x6976F828)
+I (../APPS/Inc/Chassis.h)(0x6978B3CB)
+I (../ALG/Inc/pid.h)(0x6978592A)
+I (D:\mdk\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
+I (../ALG/Inc/FuzzyPID.h)(0x69781A8F)
+I (D:\mdk\ARM\ARMCC\include\math.h)(0x67FBA23D)
+I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
+I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
 I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
-F (..\BSP\Src\BSP_BoardCommunication.c)(0x6974CDFF)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\bsp_boardcommunication.o --omf_browse .\hero_board2\bsp_boardcommunication.crf --depend .\hero_board2\bsp_boardcommunication.d)
-I (../BSP/Inc/BSP_BoardCommunication.h)(0x6974CD83)
+I (../ALG/Inc/Ramp.h)(0x6976F828)
+I (../APPS/Inc/Gimbal.h)(0x6978AEA5)
+I (../DEV/Inc/DM_Motor.h)(0x69783044)
+I (../Tasks/Inc/Task_CanReceive.h)(0x6924010F)
+I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
+I (../DEV/Inc/wit_imu.h)(0x69783225)
+F (..\BSP\Src\BSP_BoardCommunication.c)(0x6978B3E2)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\bsp_boardcommunication.o --omf_browse .\hero_board2\bsp_boardcommunication.crf --depend .\hero_board2\bsp_boardcommunication.d)
+I (../BSP/Inc/BSP_BoardCommunication.h)(0x6978AF3A)
 I (../Core/Inc/main.h)(0x69721DC2)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x68CA5213)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x696798C1)
@@ -1810,6 +1867,23 @@ I (../BSP/Inc/typedef.h)(0x6923FC25)
 I (D:\mdk\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (D:\mdk\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../BSP/Inc/Extern_Handles.h)(0x68A285CC)
+I (../APPS/Inc/Chassis.h)(0x6978B3CB)
+I (../ALG/Inc/pid.h)(0x6978592A)
+I (D:\mdk\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
+I (../ALG/Inc/FuzzyPID.h)(0x69781A8F)
+I (D:\mdk\ARM\ARMCC\include\math.h)(0x67FBA23D)
+I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
+I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
+I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
+I (../DEV/Inc/SBUS.h)(0x69746854)
+I (../Core/Inc/usart.h)(0x695E430F)
+I (../Tasks/Inc/Task_RemoteControl.h)(0x6976F752)
+I (../ALG/Inc/Ramp.h)(0x6976F828)
+I (../APPS/Inc/Gimbal.h)(0x6978AEA5)
+I (../DEV/Inc/DM_Motor.h)(0x69783044)
+I (../Tasks/Inc/Task_CanReceive.h)(0x6924010F)
+I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
+I (../DEV/Inc/wit_imu.h)(0x69783225)
 F (..\BSP\Src\BSP_Can.c)(0x69679A07)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\bsp_can.o --omf_browse .\hero_board2\bsp_can.crf --depend .\hero_board2\bsp_can.d)
 I (../BSP/Inc/BSP_Can.h)(0x69679A19)
 I (../Core/Inc/can.h)(0x695E430E)
@@ -1905,7 +1979,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x68CA5213)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x68CA5213)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x68CA5213)
 I (../DEV/Inc/SBUS.h)(0x69746854)
-I (../BSP/Inc/BSP_BoardCommunication.h)(0x6974CD83)
+I (../BSP/Inc/BSP_BoardCommunication.h)(0x6978AF3A)
 I (../BSP/Inc/BSP_Can.h)(0x69679A19)
 I (../Core/Inc/can.h)(0x695E430E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x68CA5124)
@@ -1924,11 +1998,25 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x68CA5124)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x68CA5124)
 I (../BSP/Inc/typedef.h)(0x6923FC25)
 I (../BSP/Inc/Extern_Handles.h)(0x68A285CC)
+I (../APPS/Inc/Chassis.h)(0x6978B3CB)
+I (../ALG/Inc/pid.h)(0x6978592A)
+I (D:\mdk\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
+I (../ALG/Inc/FuzzyPID.h)(0x69781A8F)
+I (D:\mdk\ARM\ARMCC\include\math.h)(0x67FBA23D)
+I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
+I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
+I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
+I (../Tasks/Inc/Task_RemoteControl.h)(0x6976F752)
+I (../ALG/Inc/Ramp.h)(0x6976F828)
+I (../APPS/Inc/Gimbal.h)(0x6978AEA5)
+I (../DEV/Inc/DM_Motor.h)(0x69783044)
+I (../Tasks/Inc/Task_CanReceive.h)(0x6924010F)
+I (../DEV/Inc/wit_imu.h)(0x69783225)
 F (..\APPS\Src\mecanum_wheel.c)(0x697819E2)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\mecanum_wheel.o --omf_browse .\hero_board2\mecanum_wheel.crf --depend .\hero_board2\mecanum_wheel.d)
 I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
 I (D:\mdk\ARM\ARMCC\include\stddef.h)(0x5E8E3CC2)
-F (..\APPS\Src\Chassis.c)(0x6978A6DE)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\chassis.o --omf_browse .\hero_board2\chassis.crf --depend .\hero_board2\chassis.d)
-I (../APPS/Inc/Chassis.h)(0x6978A71A)
+F (..\APPS\Src\Chassis.c)(0x6978B276)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\chassis.o --omf_browse .\hero_board2\chassis.crf --depend .\hero_board2\chassis.d)
+I (../APPS/Inc/Chassis.h)(0x6978B3CB)
 I (../ALG/Inc/pid.h)(0x6978592A)
 I (D:\mdk\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
 I (D:\mdk\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
@@ -1976,7 +2064,7 @@ I (../BSP/Inc/typedef.h)(0x6923FC25)
 I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
 I (../DEV/Inc/SBUS.h)(0x69746854)
 I (../Core/Inc/usart.h)(0x695E430F)
-I (../BSP/Inc/BSP_BoardCommunication.h)(0x6974CD83)
+I (../BSP/Inc/BSP_BoardCommunication.h)(0x6978AF3A)
 I (../BSP/Inc/BSP_Can.h)(0x69679A19)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x68CA5124)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x68CA5124)
@@ -1993,10 +2081,15 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x68CA5124)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x68CA5124)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x68CA5124)
 I (../BSP/Inc/Extern_Handles.h)(0x68A285CC)
+I (../APPS/Inc/Gimbal.h)(0x6978AEA5)
+I (../DEV/Inc/DM_Motor.h)(0x69783044)
+I (../Tasks/Inc/Task_CanReceive.h)(0x6924010F)
+I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
+I (../DEV/Inc/wit_imu.h)(0x69783225)
 I (../Tasks/Inc/Task_RemoteControl.h)(0x6976F752)
 I (../ALG/Inc/Ramp.h)(0x6976F828)
 F (..\APPS\Src\Gimbal.c)(0x69784A34)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\gimbal.o --omf_browse .\hero_board2\gimbal.crf --depend .\hero_board2\gimbal.d)
-I (../APPS/Inc/Gimbal.h)(0x69784A58)
+I (../APPS/Inc/Gimbal.h)(0x6978AEA5)
 I (../DEV/Inc/DM_Motor.h)(0x69783044)
 I (../BSP/Inc/typedef.h)(0x6923FC25)
 I (../Core/Inc/can.h)(0x695E430E)
@@ -2053,17 +2146,21 @@ I (../BSP/Inc/Extern_Handles.h)(0x68A285CC)
 I (../BSP/Inc/BSP_CAN.h)(0x69679A19)
 I (D:\mdk\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (D:\mdk\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
-I (../BSP/Inc/BSP_BoardCommunication.h)(0x6974CD83)
-I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
-I (../Core/Inc/usart.h)(0x695E430F)
-I (../DEV/Inc/SBUS.h)(0x69746854)
-I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
-I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
-I (../DEV/Inc/wit_imu.h)(0x69783225)
+I (../BSP/Inc/BSP_BoardCommunication.h)(0x6978AF3A)
+I (../APPS/Inc/Chassis.h)(0x6978B3CB)
 I (../ALG/Inc/pid.h)(0x6978592A)
 I (D:\mdk\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
 I (../ALG/Inc/FuzzyPID.h)(0x69781A8F)
 I (D:\mdk\ARM\ARMCC\include\math.h)(0x67FBA23D)
+I (../APPS/Inc/mecanum_wheel.h)(0x697819EA)
+I (../DEV/Inc/M3508_Motor.h)(0x6974C355)
+I (D:\mdk\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
+I (../DEV/Inc/SBUS.h)(0x69746854)
+I (../Core/Inc/usart.h)(0x695E430F)
+I (../Tasks/Inc/Task_RemoteControl.h)(0x6976F752)
+I (../ALG/Inc/Ramp.h)(0x6976F828)
+I (../BSP/Inc/BSP_Usart.h)(0x69721D25)
+I (../DEV/Inc/wit_imu.h)(0x69783225)
 F (..\ALG\Src\pid.c)(0x69785949)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../DEV/Inc -I ../BSP/Inc -I ../Tasks/Inc -I ../APPS/Inc -I ../ALG/Inc-I.\RTE\_Hero_board2-ID:\mdk\ARM\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="542" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__TARGET_FPU_VFP -D__CC_ARM -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o .\hero_board2\pid.o --omf_browse .\hero_board2\pid.crf --depend .\hero_board2\pid.d)
 I (../ALG/Inc/pid.h)(0x6978592A)
 I (D:\mdk\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)

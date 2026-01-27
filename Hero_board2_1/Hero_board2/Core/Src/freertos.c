@@ -205,6 +205,8 @@ void ALL_Init(void const *argument)
     /*********初始化两个CAN控制协议，使用中断模式*********/
     CAN_IT_Init(&hcan1, Can1_Type);
     CAN_IT_Init(&hcan2, Can2_Type);
+    /*********初始化IMU*********/
+    IMU_Init();
     /**********遥控器初始化*********/
     SBUS_Init();
     /**********云台初始化*********/

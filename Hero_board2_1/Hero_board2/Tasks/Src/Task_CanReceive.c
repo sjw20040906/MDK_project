@@ -53,7 +53,7 @@ void Can2Receives(void const *argument)
     ID = Can_Export_Data.CAN_RxHeader.StdId;
     if (ID == CAN_ID_CHASSIS)
     {
-      Board1_getGimbalInfo(Can_Export_Data);
+      Board2_1_getChassisInfo(Can_Export_Data);
     }
   }
 }

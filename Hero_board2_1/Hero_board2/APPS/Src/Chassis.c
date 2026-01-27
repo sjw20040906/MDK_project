@@ -101,7 +101,7 @@ void Chassis_Init(void)
  * @param angle 云台相对于底盘的角度
  * @retval
  */
-void v_cloud_convertto_chassis(float angle)
+void v_cloud_to_chassis(float angle)
 {
     float angle_hd = angle * pi / 180;
     chassis_control.Speed_ToChassis.vx = chassis_control.Speed_ToCloud.vx * cos(angle_hd) - chassis_control.Speed_ToCloud.vy * sin(angle_hd);
@@ -116,7 +116,7 @@ void v_cloud_convertto_chassis(float angle)
  */
 void chassis_target_calc(void)
 {
-    v_cloud_convertto_chassis(chassis_control.Angle_ChassisToCloud);
+    v_cloud_to_chassis(chassis_control.Angle_ChassisToCloud);
     // chassis_follow_mode(chassis_control.Angle_ChassisToCloud, follow);
 }
 
