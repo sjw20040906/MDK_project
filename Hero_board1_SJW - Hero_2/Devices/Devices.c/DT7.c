@@ -194,7 +194,6 @@ void DT7_Handle(void)
 			ControlMes.AutoAimFlag = 0;
 			ControlMes.pitch_velocity = RC_CtrlData.rc.ch1; // 右手上下
 			ControlMes.yaw_velocity = RC_CtrlData.rc.ch0;	// 右手左右
-			// ControlMes.z_rotation_velocity = RC_CtrlData.wheel * 2; // 滑轮左右
 			ControlMes.yaw_position = Auto_Aim_Yaw;
 		}
 

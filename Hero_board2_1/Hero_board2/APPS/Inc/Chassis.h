@@ -4,6 +4,35 @@
 #include "SBUS.h"
 #include "Task_RemoteControl.h"
 
+
+#define pi 3.14159f
+
+// 底盘数据结构体
+typedef struct
+{
+    struct
+    {
+        float vx;
+        float vy;
+        float wz;
+    } Speed_ToCloud;
+
+    struct
+    {
+        float vx;
+        float vy;
+        float wz;
+    } Speed_ToChassis;
+
+    float Angle_ChassisToCloud;
+    float max_speed;
+    float chassis_r;
+    float chassis_s;
+    int16_t motor_omega[4];
+    float motor_location[4];
+} CHASSIS_Manage_Object;
+
+extern CHASSIS_Manage_Object chassis_control;
 /**
  * @brief 底盘初始化
  * @param  void

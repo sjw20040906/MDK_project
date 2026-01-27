@@ -16,6 +16,8 @@
 #include "BSP_Can.h"
 #include "Extern_Handles.h"
 #include "queue.h"
+#include "Chassis.h"
+#include "Gimbal.h"
 
 // CAN报文的标识符和数据长度
 #define CAN_ID_CHASSIS 0x10f	   // 报文底盘数据ID为0x10f
@@ -62,7 +64,8 @@ typedef struct
 } ControlMessge_betweenBoard2;
 
 void Board2_1_To_Board2_2(void);
-void Board1_getGimbalInfo(Can_Export_Data_t RxMessage);
+void Board2_1_getChassisInfo(Can_Export_Data_t RxMessage);
+void Board2_1_getGimbalInfo(Can_Export_Data_t RxMessage);
 
 extern ControlMessge ControlMes;
 extern ControlMessge_betweenBoard2 ControlMes_board2;

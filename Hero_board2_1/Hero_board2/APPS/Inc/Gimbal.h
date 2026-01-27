@@ -22,6 +22,8 @@ typedef struct
     float Vision_Yaw_Delta; // 视觉Yaw偏差(增量)
 } Gimbal_t;
 
+extern Gimbal_t Gimbal;
+
 void Gimbal_Init(void);
 void Gimbal_motion_Control(void);
 
