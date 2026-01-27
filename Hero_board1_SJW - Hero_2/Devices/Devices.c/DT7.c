@@ -160,6 +160,7 @@ void DT7_Handle(void)
 				// ControlMes.Check_In_Flag = 1;
 				Fric_Data.Fric_Switch = Fric_On;
 				ControlMes.fric_Flag = 1;
+				ControlMes.modelFlag = model_Normal;
 				if (RC_CtrlData.wheel != 0)
 				{
 					Dial_Data.Dial_Switch = Dial_On;
@@ -178,6 +179,7 @@ void DT7_Handle(void)
 				Fric_Data.Fric_Switch = Fric_Off;
 				ControlMes.fric_Flag = 0;
 				ControlMes.Check_In_Flag = 0;
+				ControlMes.modelFlag = model_Normal;
 				if (ControlMes.shoot_state != RC_SW_UP)
 					ControlMes.z_rotation_velocity = RC_CtrlData.wheel; // 滑轮左右
 			}
