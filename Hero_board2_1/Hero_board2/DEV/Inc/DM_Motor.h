@@ -21,6 +21,7 @@
 #define DM_V_MAX 200.0f
 #define DM_T_MAX 10.0f
 #define Pi 3.14159265f
+#define Gimbal_Motor 0
 
 typedef struct
 {
@@ -33,22 +34,14 @@ typedef struct
   float torque;
   uint32_t angleInit;
   float speedInit;
-
   uint32_t lastAngle;
-
-  int32_t targetSpeed;
-  int32_t targetAngle;
-
   float outPosition;
   float outSpeed;
   float outTorque;
-
   int16_t turnCount;
   float totalAngle;
-
   int8_t outKp;
   int8_t outKd;
-
   uint8_t InfoUpdateFlag;
   uint16_t InfoUpdateFrame;
   uint8_t OffLineFlag;
@@ -59,7 +52,6 @@ void DM_Enable(CAN_HandleTypeDef *hcanx, uint32_t id);
 void DM_Save_Pos_Zero(CAN_HandleTypeDef *hcanx, uint32_t id);
 void DM_getInfo(Can_Export_Data_t RxMessage);
 void DM_Reset(DM_Motor_t *DM);
-
 
 extern DM_Motor_t DM_Array[1];
 

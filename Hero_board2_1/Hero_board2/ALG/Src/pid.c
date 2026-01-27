@@ -219,3 +219,91 @@ void Clear_PositionPIDData(positionpid_t *pid_t)
   pid_t->d_out = 0;
   pid_t->pwm = 0;
 }
+
+/**
+ * @brief  角度环绕帮助函数
+ * @param err 差值
+ * @param ecd_max_range 编码器全量程 (例如 8192)
+ * @return 经过最短路径环绕的差值
+ */
+static float angle_wrap(float err, float ecd_max_range)
+{
+  if (fabs(err) > ecd_max_range / 2.0f)
+  {
+    if (err > 0)
+    {
+      err -= ecd_max_range;
+    }
+    else
+    {
+      err += ecd_max_range;
+    }
+  }
+  return err;
+}
+
+/**
+ * @brief  清除高级PID控制器数据
+ */
+void PID_Advanced_Clear(pid_advanced_t *pid_t)
+{
+  pid_t->Target = 0;
+  pid_t->Measured = 0;
+  pid_t->err = 0;
+  pid_t->err_last = 0;
+  pid_t->measured_last = 0;
+  pid_t->measured_beforeLast = 0;
+  pid_t->target_last = 0;
+  pid_t->p_out = 0;
+  pid_t->i_out = 0;
+  pid_t->d_out = 0;
+  pid_t->f_out = 0;
+  pid_t->delta_pwm = 0;
+  pid_t->pwm = 0;
+}
+
+
+/**
+ * @brief 初始化高级PID控制器
+ */
+void PID_Advanced_Init(pid_advanced_t *pid_t, float Kp, float Kd, float Ki, float kf, float MaxOutput, float IntegralLimit)
+{
+  pid_t->Kp = Kp;
+  pid_t->Ki = Ki;
+  pid_t->Kd = Kd;
+  pid_t->Kf = kf;
+  pid_t->MaxOutput = MaxOutput;
+  pid_t->IntegralLimit = IntegralLimit;
+
+  PID_Advanced_Clear(pid_t);
+}
+
+float PID_Advanced_Angle_Calc_Positional(pid_advanced_t *pid_t, float target, float measured, float ecd_max)
+{
+  float ecd_range = ecd_max + 1.0f; // e.g., 8191 -> 8192
+
+  pid_t->Target = target;
+  pid_t->Measured = measured;
+  pid_t->err = pid_t->Target - pid_t->Measured;
+  pid_t->err = angle_wrap(pid_t->err, ecd_range);
+
+  pid_t->p_out = pid_t->Kp * pid_t->err;
+  pid_t->i_out += pid_t->Ki * pid_t->err;
+  abs_limit(&pid_t->i_out, pid_t->IntegralLimit);
+
+  float delta_measured = pid_t->Measured - pid_t->measured_last;
+  delta_measured = angle_wrap(delta_measured, ecd_range);
+  pid_t->d_out = pid_t->Kd * delta_measured;
+  float delta_err = pid_t->err - pid_t->err_last;
+  pid_t->d_out = pid_t->Kd * delta_err;
+  pid_t->f_out = 0;
+  pid_t->pwm = pid_t->p_out + pid_t->i_out + pid_t->d_out + pid_t->f_out;
+
+  abs_limit(&pid_t->pwm, pid_t->MaxOutput);
+
+  pid_t->err_last = pid_t->err;
+  pid_t->measured_last = pid_t->Measured;
+  pid_t->target_last = pid_t->Target;
+
+  return pid_t->pwm;
+}

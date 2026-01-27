@@ -782,6 +782,11 @@
               <FileType>1</FileType>
               <FilePath>..\DEV\Src\SBUS.c</FilePath>
             </File>
+            <File>
+              <FileName>wit_imu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEV\Src\wit_imu.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -846,6 +851,11 @@
               <FileName>Chassis.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\APPS\Src\Chassis.c</FilePath>
+            </File>
+            <File>
+              <FileName>Gimbal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APPS\Src\Gimbal.c</FilePath>
             </File>
           </Files>
         </Group>

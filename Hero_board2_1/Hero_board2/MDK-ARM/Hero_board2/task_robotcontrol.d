@@ -69,3 +69,10 @@
 .\hero_board2\task_robotcontrol.o: ../Core/Inc/usart.h
 .\hero_board2\task_robotcontrol.o: ../Tasks/Inc/Task_RemoteControl.h
 .\hero_board2\task_robotcontrol.o: ../ALG/Inc/Ramp.h
+.\hero_board2\task_robotcontrol.o: ../APPS/Inc/Gimbal.h
+.\hero_board2\task_robotcontrol.o: ../DEV/Inc/DM_Motor.h
+.\hero_board2\task_robotcontrol.o: ../Tasks/Inc/Task_CanReceive.h
+.\hero_board2\task_robotcontrol.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
+.\hero_board2\task_robotcontrol.o: ../BSP/Inc/BSP_Usart.h
+.\hero_board2\task_robotcontrol.o: ../DEV/Inc/DM_Motor.h
+.\hero_board2\task_robotcontrol.o: ../DEV/Inc/wit_imu.h

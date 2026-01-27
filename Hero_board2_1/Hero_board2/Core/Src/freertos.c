@@ -30,6 +30,7 @@
 #include "mecanum_wheel.h"
 #include "Task_RemoteControl.h"
 #include "Chassis.h"
+#include "Gimbal.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -75,13 +76,13 @@ extern void Robot_Control(void const *argument);
 extern void RemoteControl_Processing(void const *argument);
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const * argument);
-void ALL_Init(void const * argument);
+void StartDefaultTask(void const *argument);
+void ALL_Init(void const *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
-void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize);
 
 /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
 static StaticTask_t xIdleTaskTCBBuffer;
@@ -97,11 +98,12 @@ void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackTyp
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
-  * @brief  FreeRTOS initialization
-  * @param  None
-  * @retval None
-  */
-void MX_FREERTOS_Init(void) {
+ * @brief  FreeRTOS initialization
+ * @param  None
+ * @retval None
+ */
+void MX_FREERTOS_Init(void)
+{
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -165,7 +167,6 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(RemoteControlTask, RemoteControl_Processing, osPriorityRealtime, 0, 128);
   RemoteControl_Handle = osThreadCreate(osThread(RemoteControlTask), NULL);
   /* USER CODE END RTOS_THREADS */
-
 }
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -175,7 +176,7 @@ void MX_FREERTOS_Init(void) {
  * @retval None
  */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
+void StartDefaultTask(void const *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
@@ -193,7 +194,7 @@ void StartDefaultTask(void const * argument)
  * @retval None
  */
 /* USER CODE END Header_ALL_Init */
-void ALL_Init(void const * argument)
+void ALL_Init(void const *argument)
 {
   /* USER CODE BEGIN ALL_Init */
   /* Infinite loop */
@@ -206,6 +207,8 @@ void ALL_Init(void const * argument)
     CAN_IT_Init(&hcan2, Can2_Type);
     /**********遥控器初始化*********/
     SBUS_Init();
+    /**********云台初始化*********/
+    Gimbal_Init();
     /**********底盘初始化*********/
     Chassis_Init();
     vTaskDelete(StartTaskHandle);

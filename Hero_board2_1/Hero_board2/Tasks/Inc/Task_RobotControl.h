@@ -15,6 +15,8 @@
 #include "mecanum_wheel.h"
 #include "M3508_Motor.h"
 #include "Chassis.h"
+#include "Gimbal.h"
+#include "DM_Motor.h"
 
 void Robot_Control(void const *argument);
 

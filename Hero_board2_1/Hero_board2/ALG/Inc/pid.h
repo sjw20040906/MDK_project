@@ -97,15 +97,35 @@ typedef struct Struct_PID_Manage_Object_Fuzzy
     float output;              // 总输出
 } Struct_PID_Manage_Object_Fuzzy;
 
-extern Struct_PID_Manage_Object_Fuzzy M3508s_DialPID;
-extern Struct_PID_Manage_Object_Fuzzy M2006s_FricLPID;
-extern Struct_PID_Manage_Object_Fuzzy M2006s_FricRPID;
+/******** (新增) 高级PID结构体 ********/
+/**
+ * @brief (新增) 高级增量式PID结构体 (带前馈和微分先行)
+ * @note 专为高性能伺服控制优化 (如云台Yaw轴)
+ */
+typedef struct pid_advanced_t
+{
+    float Target;              // 设定目标值
+    float Measured;            // 测量值
+    float err;                 // e(k) 本次偏差
+    float err_last;            // e(k-1) 上一次偏差
+    float measured_last;       // PV(k-1)
+    float measured_beforeLast; // PV(k-2)
+    float target_last;         // Target(k-1)
+    float Kp, Ki, Kd, Kf;
+    float p_out, i_out, d_out, f_out;
+    float delta_pwm;     // 本次总增量
+    float pwm;           // 累计总输出
+    float MaxOutput;     // 最大输出限幅
+    float IntegralLimit; // 积分限幅
+} pid_advanced_t;
 
-extern float Incremental_PID(incrementalpid_t *pid_t, float target, float measured);
-extern float Position_PID(positionpid_t *pid_t, float target, float measured);
-extern void Incremental_PIDInit(incrementalpid_t *pid_t, float Kp, float Kd, float Ki, uint32_t MaxOutput, uint32_t IntegralLimit);
-extern void Position_PIDInit(positionpid_t *pid_t, float Kp, float Kd, float Ki, float Kf, float MaxOutput, float IntegralLimit, float Integral_Separation);
-extern float Position_PID_Pitch(positionpid_t *pid_t, FUZZYPID_Data_t *fuzzy_t, float target, float measured);
-extern float PID_Model4_Update(incrementalpid_t *pid, FUZZYPID_Data_t *PID, float _set_point, float _now_point);
+float Incremental_PID(incrementalpid_t *pid_t, float target, float measured);
+float Position_PID(positionpid_t *pid_t, float target, float measured);
+void Incremental_PIDInit(incrementalpid_t *pid_t, float Kp, float Kd, float Ki, uint32_t MaxOutput, uint32_t IntegralLimit);
+void Position_PIDInit(positionpid_t *pid_t, float Kp, float Kd, float Ki, float Kf, float MaxOutput, float IntegralLimit, float Integral_Separation);
+float Position_PID_Pitch(positionpid_t *pid_t, FUZZYPID_Data_t *fuzzy_t, float target, float measured);
+float PID_Model4_Update(incrementalpid_t *pid, FUZZYPID_Data_t *PID, float _set_point, float _now_point);
+void PID_Advanced_Init(pid_advanced_t *pid_t, float Kp, float Kd, float Ki, float kf, float MaxOutput, float IntegralLimit);
+float PID_Advanced_Angle_Calc_Positional(pid_advanced_t *pid_t, float target, float measured, float ecd_max);
 
 #endif
