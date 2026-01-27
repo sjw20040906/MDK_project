@@ -28,7 +28,7 @@
 #define model_Record 1
 #define model_Follow 2
 
-// 定义FDCAN报文的结构体
+// 定义CAN报文的结构体
 typedef struct
 {
 	int16_t x_velocity;

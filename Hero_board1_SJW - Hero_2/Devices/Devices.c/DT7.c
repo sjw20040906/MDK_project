@@ -19,7 +19,6 @@ static SpeedRamp_t ChassisRamp_LeftRight = LeftRightGroundInit;
 // 底盘遥控左右转斜坡
 static SpeedRamp_t ChassisRamp_Rotate = RotateGroundInit;
 
-
 /* ----------------------- Internal Data ----------------------------------- */
 RC_Ctl_t RC_CtrlData;
 static uint8_t DT7_Rx_Data[RC_FRAME_LENGTH];
@@ -183,17 +182,10 @@ void DT7_Handle(void)
 					ControlMes.z_rotation_velocity = RC_CtrlData.wheel; // 滑轮左右
 			}
 
-			else if (ControlMes.shoot_state == RC_SW_DOWN) // 部署模式
+			else if (ControlMes.shoot_state == RC_SW_DOWN) // 跟随模式
 			{
-				deployment_count++;
-				if (deployment_count % 2 == 1)
-				{
-					ControlMes.Deployment_Flag = 1;
-				}
-				else if (deployment_count % 2 == 0)
-				{
-					ControlMes.Deployment_Flag = 0;
-				}
+				ControlMes.modelFlag = model_Follow;
+				ControlMes.fric_Flag = 0;
 			}
 
 			// 云台运动控制
@@ -494,12 +486,12 @@ void RemoteControl_PC_Update(void)
 	if ((GetKeyMouseAction(MOUSE_Left, KeyAction_PRESS) || GetKeyMouseAction(MOUSE_Left, KeyAction_LONG_PRESS)) && ControlMes.fric_Flag == 1)
 	{
 		ControlMes.shoot_state = RC_SW_UP;
-		Dial_Data.Dial_Switch = Dial_On;	
+		Dial_Data.Dial_Switch = Dial_On;
 	}
 	else
 	{
 		ControlMes.shoot_state = RC_SW_MID;
-		Dial_Data.Dial_Switch = Dial_Off;	
+		Dial_Data.Dial_Switch = Dial_Off;
 	}
 
 	/*运动档位控制*/ /*CVB*/
@@ -608,5 +600,3 @@ void RemoteControl_PC_Update(void)
 		ControlMes.redial = 0;
 	}
 }
-
-
