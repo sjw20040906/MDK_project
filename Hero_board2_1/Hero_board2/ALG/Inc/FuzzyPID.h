@@ -1,15 +1,15 @@
 /**
  * @file FuzzyPID.h
  * @author Why/xyz
- * @brief ÕâÀïµÄº¯ÊıÉè¼ÆÏë·¨ÊÇĞ´µ½PIDµÄ¼ÆËãÄÚ²¿È¥£¬ÊµÏÖFuzzyÔÚÏßµ÷ÕûPID²ÎÊı
- *		  ĞèÒªµ÷µÄÊıÖ»ÓĞPIDµÄ×î´ó¸Ä±ä·¶Î§
+ * @brief ï¿½ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë·¨ï¿½ï¿½Ğ´ï¿½ï¿½PIDï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ú²ï¿½È¥ï¿½ï¿½Êµï¿½ï¿½Fuzzyï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½PIDï¿½ï¿½ï¿½ï¿½
+ *		  ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½PIDï¿½ï¿½ï¿½ï¿½ï¿½Ä±ä·¶Î§
  * @version 0.1
  * @date 2024-10-21
  *
  */
 #ifndef __FUZZY_PID_H
 #define __FUZZY_PID_H
-// ³õÊ¼»¯½á¹¹Ìå²ÎÊı
+// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½
 #include "stm32f4xx_hal.h"
 
 #define FUZZYPID_Pitch_GroupInit \
@@ -24,27 +24,27 @@
 		0,                       \
 	}
 
-// ¶¨ÒåÄ£ºıPID½á¹¹Ìå
+// ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½PIDï¿½á¹¹ï¿½ï¿½
 typedef struct
 {
-	float delta_kp; // ±ÈÀıÖµÔöÁ¿±ÈÀı
-	float delta_ki; // »ı·ÖÖµÔöÁ¿±ÈÀı
-	float delta_kd; // Î¢·ÖÖµÔöÁ¿±ÈÀı
+	float delta_kp; // ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	float delta_ki; // ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	float delta_kd; // Î¢ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	float error_maximum; // Êä³öÖµµÄÎó²îÉÏÏŞ
-	float error_minimum; // Êä³öÖµµÄÎó²îÏÂÏŞ
+	float error_maximum; // ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	float error_minimum; // ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	float qKp; // kpÔöÁ¿µÄĞŞÕı·¶Î§
-	float qKi; // kiÔöÁ¿µÄĞŞÕı·¶Î§
-	float qKd; // kdÔöÁ¿µÄĞŞÕı·¶Î§
+	float qKp; // kpï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§
+	float qKi; // kiï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§
+	float qKd; // kdï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§
 
-	float error_map[2]; // error/d_errorÄ£ºı»¯µÃµ½µÄÖµ
+	float error_map[2]; // error/d_errorÄ£ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½Öµ
 
-	float error_membership_degree[2]; // errorÄ£ºı»¯Á¥Êô¶È
-	int8_t error_membership_index[2]; // errorÄ£ºı»¯Ë÷Òı
+	float error_membership_degree[2]; // errorÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int8_t error_membership_index[2]; // errorÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	float d_error_membership_degree[2]; // d_errorÄ£ºı»¯Á¥Êô¶È
-	int8_t d_error_membership_index[2]; // d_errorÄ£ºı»¯Ë÷Òı
+	float d_error_membership_degree[2]; // d_errorÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int8_t d_error_membership_index[2]; // d_errorÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 } FUZZYPID_Data_t;
 extern void Linear_Quantization(FUZZYPID_Data_t *PID, float thisError, float lastError, float *qValue);

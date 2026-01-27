@@ -75,12 +75,12 @@ void Chassis_motion_control(void)
         ControlMes_board2.RF_track = 70;
     else if (ControlMes_board2.RF_track < -70)
         ControlMes_board2.RF_track = -70;
+        
+    /***************麦克纳姆轮控制策略*****************/
     if (mappedData.Ch3 < 10 && mappedData.Ch3 > -10)
         mappedData.Ch3 = 0;
     if (mappedData.Ch4 < 10 && mappedData.Ch4 > -10)
         mappedData.Ch4 = 0;
-
-    /***************麦克纳姆轮控制策略*****************/
     Velocity.vx = mappedData.Ch3 * 0.8;
     Velocity.vy = -mappedData.Ch4 * 0.8;
     if (mappedData.Ch5 == 2)

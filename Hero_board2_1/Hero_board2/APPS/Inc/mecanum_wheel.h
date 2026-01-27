@@ -42,6 +42,5 @@ extern WheelSpeeds Mecanum_Speeds;
 void mecanum_init(MecanumConfig *config, float wheel_radius, float wheel_base_x, float wheel_base_y);
 void mecanum_forward_kinematics(const VelocityVector *velocity, const MecanumConfig *config, WheelSpeeds *speeds);
 void mecanum_inverse_kinematics(const WheelSpeeds *speeds, const MecanumConfig *config, VelocityVector *velocity);
-void mecanum_limit_speeds(WheelSpeeds *speeds, float max_speed);
 
 #endif // MECANUM_WHEEL_H

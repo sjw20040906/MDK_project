@@ -7,7 +7,7 @@
 #include "mecanum_wheel.h"
 
 MecanumConfig Config_Mecanum = {0.0f, 0.0f, 0.0f};
-VelocityVector Velocity = {0.0f, 10.0f, 0.0f};
+VelocityVector Velocity = {0.0f, 0.0f, 0.0f};
 WheelSpeeds Mecanum_Speeds = {0.0f, 0.0f, 0.0f, 0.0f};
 
 /**
@@ -73,38 +73,4 @@ void mecanum_inverse_kinematics(const WheelSpeeds *speeds, const MecanumConfig *
     velocity->vx = (speeds->wheel0 + speeds->wheel1 + speeds->wheel2 + speeds->wheel3) * wheel_radius / 4.0f;
     velocity->vy = (-speeds->wheel0 + speeds->wheel1 - speeds->wheel2 + speeds->wheel3) * wheel_radius / 4.0f;
     velocity->wz = (-speeds->wheel0 - speeds->wheel1 + speeds->wheel2 + speeds->wheel3) * wheel_radius / (4.0f * (wheel_base_x + wheel_base_y));
-}
-
-/**
- * @brief 限制轮子速度在最大范围内
- * @param speeds 轮子速度结构体指针
- * @param max_speed 最大速度 (rad/s)
- */
-void mecanum_limit_speeds(WheelSpeeds *speeds, float max_speed)
-{
-    if (speeds == NULL)
-    {
-        return;
-    }
-
-    // 检查并限制每个轮子的速度
-    if (speeds->wheel0 > max_speed)
-        speeds->wheel0 = max_speed;
-    if (speeds->wheel0 < -max_speed)
-        speeds->wheel0 = -max_speed;
-
-    if (speeds->wheel1 > max_speed)
-        speeds->wheel1 = max_speed;
-    if (speeds->wheel1 < -max_speed)
-        speeds->wheel1 = -max_speed;
-
-    if (speeds->wheel2 > max_speed)
-        speeds->wheel2 = max_speed;
-    if (speeds->wheel2 < -max_speed)
-        speeds->wheel2 = -max_speed;
-
-    if (speeds->wheel3 > max_speed)
-        speeds->wheel3 = max_speed;
-    if (speeds->wheel3 < -max_speed)
-        speeds->wheel3 = -max_speed;
 }
