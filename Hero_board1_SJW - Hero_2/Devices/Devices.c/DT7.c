@@ -210,7 +210,6 @@ void DT7_Handle(void)
 			// 自瞄云台运动控制（这里添加额外的遥控器控制是为了补偿自瞄精度，自己用遥控器微调一下辅助瞄准）
 			ControlMes.pitch_velocity = RC_CtrlData.rc.ch1 * 0.2; // 右手上下
 			ControlMes.yaw_velocity = RC_CtrlData.rc.ch0;		  // 右手左右
-			ControlMes.z_rotation_velocity = RC_CtrlData.wheel;	  // 滑轮左右
 			ControlMes.AutoAimFlag = 1;
 			// 上位机视觉得到的正负与电机的正负是一样的，通信两边的正负号要对好
 			ControlMes.yaw_position = Auto_Aim_Yaw;

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Hero_board1_SJW\Hero_board1_SJW.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Hero_board1_SJW\Hero_board1_SJW.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Jan 27 15:21:08 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Jan 28 20:36:08 2026
 <BR><P>
 <H3>Maximum Stack Usage =        456 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -830,7 +830,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
 </UL>
-<P><STRONG><a name="[c9]"></a>DT7_Handle</STRONG> (Thumb, 1128 bytes, Stack size 24 bytes, dt7.o(i.DT7_Handle))
+<P><STRONG><a name="[c9]"></a>DT7_Handle</STRONG> (Thumb, 1124 bytes, Stack size 24 bytes, dt7.o(i.DT7_Handle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = DT7_Handle &rArr; Board1_To_2 &rArr; CAN_SendData &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RemoteControl_PC_Update
@@ -2735,7 +2735,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBCommunicateTask_Receive
 </UL>
 
-<P><STRONG><a name="[191]"></a>UpperCom_Send_To_Up</STRONG> (Thumb, 190 bytes, Stack size 48 bytes, protocol_uppercomputer.o(i.UpperCom_Send_To_Up))
+<P><STRONG><a name="[191]"></a>UpperCom_Send_To_Up</STRONG> (Thumb, 198 bytes, Stack size 48 bytes, protocol_uppercomputer.o(i.UpperCom_Send_To_Up))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204<LI>Call Chain = UpperCom_Send_To_Up &rArr; CDC_Transmit_FS &rArr; USBD_CDC_TransmitPacket &rArr; USBD_LL_Transmit &rArr; HAL_PCD_EP_Transmit &rArr; USB_EPStartXfer &rArr; USB_WritePacket
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Transmit_FS
