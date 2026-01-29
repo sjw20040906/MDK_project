@@ -30,4 +30,10 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
     //         // DJI_VT13遥控器
     //         DJI_VT13_RX_Finish = 1; // 已接受完一包数据
     // #endif
+    if (huart->Instance == USART1)
+    {
+        IMU_ProcessData(IMU_RxRawBuffer, Size);
+        /* 重新启动UART DMA接收 */
+        HAL_UARTEx_ReceiveToIdle_DMA(&huart1, IMU_RxRawBuffer, sizeof(IMU_RxRawBuffer));
+    }
 }

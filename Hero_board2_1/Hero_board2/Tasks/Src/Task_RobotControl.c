@@ -17,8 +17,6 @@ void Robot_Control(void const *argument)
   for (;;)
   {
     uint8_t data_1[8], data_2[8] = {0};
-    /************* 处理IMU数据 **************/
-    IMU_ProcessData(IMU_RxRawBuffer, sizeof(IMU_RxRawBuffer));
     /*********** 云台底盘运动控制 ************/
     Gimbal_motion_Control();
     Chassis_motion_control();
