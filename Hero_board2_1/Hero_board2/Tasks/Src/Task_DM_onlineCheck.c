@@ -11,8 +11,6 @@
 
 #include "Task_DM_onlineCheck.h"
 
-uint16_t DM_Frame = 0;
-
 void DM_onlineCheck(void const *argument)
 {
 
@@ -21,11 +19,10 @@ void DM_onlineCheck(void const *argument)
     const TickType_t TimeIncrement = pdMS_TO_TICKS(1);
     for (;;)
     {
-        if (DM_Frame == DM_Array[0].InfoUpdateFrame)
+        if (!DM_Array[Gimbal_Motor].state)
         {
             DM_Enable(&hcan1, DM_SENDID_1);
         }
-        DM_Frame = DM_Array[0].InfoUpdateFrame;
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }
 }
