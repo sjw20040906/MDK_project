@@ -11,42 +11,30 @@
 
 #include "Task_DM_onlineCheck.h"
 
-uint16_t DM_Frame_LF = 0;
-uint16_t DM_Frame_LR = 0;
-uint16_t DM_Frame_RR = 0;
-uint16_t DM_Frame_RF = 0;
-
 void DM_onlineCheck(void const *argument)
 {
 
     portTickType xLastWakeTime;
     xLastWakeTime = xTaskGetTickCount();
-    const TickType_t TimeIncrement = pdMS_TO_TICKS(5);
+    const TickType_t TimeIncrement = pdMS_TO_TICKS(3);
     for (;;)
     {
-        if (DM_Frame_LF == DM_Array[LF].InfoUpdateFrame)
+        if (!DM_Array[LF].state)
         {
             DM_Enable(&hcan1, DM_LF);
         }
-        DM_Frame_LF = DM_Array[LF].InfoUpdateFrame;
-        osDelay(2);
-        if (DM_Frame_LR == DM_Array[LR].InfoUpdateFrame)
+        if (!DM_Array[LR].state)
         {
             DM_Enable(&hcan1, DM_LR);
         }
-        DM_Frame_LR = DM_Array[LR].InfoUpdateFrame;
-        osDelay(2);
-        if (DM_Frame_RR == DM_Array[RR].InfoUpdateFrame)
+        if (!DM_Array[RR].state)
         {
             DM_Enable(&hcan2, DM_RR);
         }
-        DM_Frame_RR = DM_Array[RR].InfoUpdateFrame;
-        osDelay(2);
-        if (DM_Frame_RF == DM_Array[RF].InfoUpdateFrame)
+        if (!DM_Array[RF].state)
         {
             DM_Enable(&hcan2, DM_RF);
         }
-        DM_Frame_RF = DM_Array[RF].InfoUpdateFrame;
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }
 }
