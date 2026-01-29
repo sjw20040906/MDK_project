@@ -102,5 +102,5 @@ void SBUS_Handle()
         }
     }
 
-    Board2_1_To_Board2_2();
+
 }
