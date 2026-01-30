@@ -20,6 +20,7 @@ void Robot_Control(void const *argument)
     /*********** 云台底盘运动控制 ************/
     Gimbal_motion_Control();
     Chassis_motion_control();
+    Track_motion_control();
     /************* 电机参数设定 **************/
     M3508_setCurrent(M3508_Array[Chassis_Left_Front].outCurrent, M3508_Array[Chassis_Left_Back].outCurrent, M3508_Array[Chassis_Right_Back].outCurrent, M3508_Array[Chassis_Right_Front].outCurrent, data_1);
     DM_setParameter(0, DM_Array[Gimbal_Motor].outSpeed, 0, 1.5, 0, data_2);
@@ -28,4 +29,4 @@ void Robot_Control(void const *argument)
     CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, DM_SENDID_1, data_2);
     vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
   }
-}
+} 

@@ -55,6 +55,7 @@
 ".\hero_board2\mecanum_wheel.o"
 ".\hero_board2\chassis.o"
 ".\hero_board2\gimbal.o"
+".\hero_board2\track.o"
 ".\hero_board2\pid.o"
 ".\hero_board2\fuzzypid.o"
 ".\hero_board2\ramp.o"

@@ -77,3 +77,4 @@
 .\hero_board2\task_robotcontrol.o: ../BSP/Inc/BSP_Usart.h
 .\hero_board2\task_robotcontrol.o: ../DEV/Inc/DM_Motor.h
 .\hero_board2\task_robotcontrol.o: ../DEV/Inc/wit_imu.h
+.\hero_board2\task_robotcontrol.o: ../APPS/Inc/Track.h
