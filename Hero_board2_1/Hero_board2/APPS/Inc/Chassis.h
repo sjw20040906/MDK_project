@@ -50,4 +50,11 @@ void Chassis_Init(void);
  */
 void Chassis_motion_control(void);
 
+/**
+ * @brief 获取底盘相对于云台的角度
+ * @param  angle 云台相对于底盘的角度
+ * @retval void
+ */
+void steer_getangle(float angle);
+
 #endif

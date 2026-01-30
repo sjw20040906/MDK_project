@@ -102,7 +102,7 @@ void SBUS_Handle()
         }
         chassis_control.Speed_ToCloud.vx = mappedData.Ch3;
         chassis_control.Speed_ToCloud.vy = mappedData.Ch4;
-        chassis_control.Speed_ToCloud.wz = -1 * mappedData.Ch10 / 200;
-        Gimbal.Target_Yaw += -1 * mappedData.Ch1 * 0.8f;
+        chassis_control.Speed_ToCloud.wz = -1 * mappedData.Ch10 ;
+        Gimbal.Target_Yaw += -1 * mappedData.Ch1 * 0.9f;
     }
 }
