@@ -1,7 +1,7 @@
 /**
  * @file Chassis.c
  * @author SJW
- * @brief
+ * @brief 底盘控制任务，处理底盘运动控制
  * @version 1.0
  * @date 2026-01-24
  * @copyright Copyright (c) 2026
