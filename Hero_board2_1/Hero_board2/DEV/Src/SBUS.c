@@ -100,7 +100,9 @@ void SBUS_Handle()
             mappedData.Ch9 = SBUS.Ch9 - MID_VALUE;
             mappedData.Ch10 = SBUS.Ch10 - MID_VALUE;
         }
+        chassis_control.Speed_ToCloud.vx = mappedData.Ch3;
+        chassis_control.Speed_ToCloud.vy = mappedData.Ch4;
+        chassis_control.Speed_ToCloud.wz = -1 * mappedData.Ch10 / 200;
+        Gimbal.Target_Yaw += -1 * mappedData.Ch1 * 0.8f;
     }
-
-
 }

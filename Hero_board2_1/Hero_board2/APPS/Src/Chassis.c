@@ -136,8 +136,8 @@ void Chassis_motion_control(void)
     M3508_Array[Chassis_Left_Back].outCurrent = Position_PID(&PID_Wheel1, Mecanum_Speeds.wheel1, M3508_Array[Chassis_Left_Back].realSpeed);
     M3508_Array[Chassis_Right_Back].outCurrent = Position_PID(&PID_Wheel2, -Mecanum_Speeds.wheel2, M3508_Array[Chassis_Right_Back].realSpeed);
     M3508_Array[Chassis_Right_Front].outCurrent = Position_PID(&PID_Wheel3, -Mecanum_Speeds.wheel3, M3508_Array[Chassis_Right_Front].realSpeed);
-    ControlMes_board2.LF_track = 60;
-    ControlMes_board2.LR_track = 60;
-    ControlMes_board2.RR_track = 60;
-    ControlMes_board2.RF_track = 60;
+    ControlMes_board2.LF_track = -60;
+    ControlMes_board2.LR_track = -60;
+    ControlMes_board2.RR_track = -60;
+    ControlMes_board2.RF_track = -60;
 }

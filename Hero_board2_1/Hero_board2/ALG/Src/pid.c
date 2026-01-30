@@ -266,12 +266,12 @@ void PID_Advanced_Clear(pid_advanced_t *pid_t)
 /**
  * @brief 初始化高级PID控制器
  */
-void PID_Advanced_Init(pid_advanced_t *pid_t, float Kp, float Kd, float Ki, float kf, float MaxOutput, float IntegralLimit)
+void PID_Advanced_Init(pid_advanced_t *pid_t, float Kp, float Kd, float Ki, float Kf, float MaxOutput, float IntegralLimit)
 {
   pid_t->Kp = Kp;
   pid_t->Ki = Ki;
   pid_t->Kd = Kd;
-  pid_t->Kf = kf;
+  pid_t->Kf = Kf;
   pid_t->MaxOutput = MaxOutput;
   pid_t->IntegralLimit = IntegralLimit;
 

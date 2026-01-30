@@ -197,11 +197,7 @@ void ALL_Init(void const *argument)
     /*********初始化两个CAN控制协议，使用中断模式*********/
     CAN_IT_Init(&hcan1, Can1_Type);
     CAN_IT_Init(&hcan2, Can2_Type);
-    // /*********初始化电机*********/
-    DM_Enable(&hcan1, DM_LF);
-    DM_Enable(&hcan1, DM_LR);
-    DM_Enable(&hcan2, DM_RR);
-    DM_Enable(&hcan2, DM_RF);
+    
     vTaskDelete(StartTaskHandle);
     taskEXIT_CRITICAL();
     osDelay(1);

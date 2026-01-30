@@ -25,9 +25,9 @@ pid_advanced_t AutoAim_M6020s_YawOPID;
  */
 void Gimbal_Init(void)
 {
-    /****************** (pid_t*) ******** Kp ***** Kd ****** Ki ***** Ki ***** MaxOutput ******* IntegralLimit*******/
-    PID_Advanced_Init(&M6020s_YawOPID,   0.8f,   0.4f,  0.000002f, 0.3f,  80000.0f,  10.0f);
-    PID_Advanced_Init(&AutoAim_M6020s_YawOPID,   0.8f,   0.4f,  0.000002f, 0.3f,  80000.0f,  10.0f);
+    /****************** (pid_t*) ******** Kp ***** Kd ****** Ki ***** Kf ***** MaxOutput ******* IntegralLimit*******/
+    PID_Advanced_Init(&M6020s_YawOPID,   0.0003f,   0.0f,  0.000001f, 0.0f,  10.0f,  10.0f);
+    PID_Advanced_Init(&AutoAim_M6020s_YawOPID,   0.8f,   0.4f,  0.000002f, 0.3f,  10.0f,  10.0f);
 }
 
 

@@ -85,7 +85,7 @@ void IMU_ProcessData(uint8_t *pData, uint16_t Size)
                     }
                     IMU_Angle.RoLL = imu_data.angle[0];
                     IMU_Angle.Pitch = imu_data.angle[1];
-                    IMU_Angle.Yaw = 360 - (imu_data.angle[2] + 180.0f); // 将yaw调整到0-360度范围
+                    IMU_Angle.Yaw = -(360 - (imu_data.angle[2] + 180.0f)); // 将yaw调整到0-360度范围
                     break;
                 }
                 i += 11; /* 移动到下一个数据包 */

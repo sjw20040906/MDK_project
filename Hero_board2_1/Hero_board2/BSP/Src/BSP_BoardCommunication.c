@@ -40,9 +40,9 @@ void Board2_1_getChassisInfo(Can_Export_Data_t RxMessage)
   float vw = (int16_t)(RxMessage.CANx_Export_RxMessage[4] << 8 | RxMessage.CANx_Export_RxMessage[5]);
   ControlMes.yaw_velocity = -(int16_t)(RxMessage.CANx_Export_RxMessage[6] << 8 | RxMessage.CANx_Export_RxMessage[7]);
 
-  chassis_control.Speed_ToCloud.vx = vx;
-  chassis_control.Speed_ToCloud.vy = vy;
-  chassis_control.Speed_ToCloud.wz = -1 * vw / 200;
+  // chassis_control.Speed_ToCloud.vx = vx;
+  // chassis_control.Speed_ToCloud.vy = vy;
+  // chassis_control.Speed_ToCloud.wz = -1 * vw / 200;
   if (!ControlMes.AutoAimFlag)
   {
     Gimbal.Target_Yaw += -1 * ControlMes.yaw_velocity * 0.06f;
