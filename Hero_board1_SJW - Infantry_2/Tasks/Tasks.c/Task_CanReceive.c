@@ -57,7 +57,7 @@ void Can2Receives(void const *argument)
     {
       Board1_getGimbalInfo(Can_Export_Data);
     }
-    else if (ID == M2006_READID_Dial)
+    if (ID == M2006_READID_Dial)
     {
       M2006_getInfo(Can_Export_Data);
     }

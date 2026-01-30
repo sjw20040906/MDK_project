@@ -4,9 +4,7 @@
  * @brief
  * @version 0.1
  * @date 2024-12-20
- *
  * @copyright Copyright (c)
- *
  */
 #ifndef __J4310_MOTOR_H
 #define __J4310_MOTOR_H
@@ -17,14 +15,12 @@
 #include "Task_CanReceive.h"
 #include "PID.h"
 #include "BSP_Can.h"
-#include "stm32f4xx_hal_can.h"
 
 #define J4310_READID_PITCH 0x01
 #define J4310_SENDID_Pitch 0x001
 #define J4310_MaxV 200
 #define J4310_MaxT 7
 #define Pi 3.14159265f
-
 
 typedef struct
 {

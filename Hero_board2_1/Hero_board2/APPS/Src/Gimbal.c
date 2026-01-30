@@ -14,7 +14,7 @@ Gimbal_t Gimbal;
 float world_target_speed = 0;
 float chassis_real_speed = 0;
 float Angle_Cloud = 0; 
-float Setup_Angleoffset = 40300; 
+float Setup_Angleoffset = 56907; 
 /************云台PID***********/
 pid_advanced_t M6020s_YawOPID;
 pid_advanced_t AutoAim_M6020s_YawOPID;
