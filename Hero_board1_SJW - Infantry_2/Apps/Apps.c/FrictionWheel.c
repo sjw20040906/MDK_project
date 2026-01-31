@@ -27,8 +27,8 @@ void Fric_Processing()
   /* 设定目标值 */
   Fric_Set_targetSpeed();
 
-  M3508_Array[FricL_Wheel].targetSpeed = -1 * Fric_Data.Required_Speed;
-  M3508_Array[FricR_Wheel].targetSpeed = Fric_Data.Required_Speed;
+  M3508_Array[FricL_Wheel].targetSpeed = Fric_Data.Required_Speed;
+  M3508_Array[FricR_Wheel].targetSpeed = -Fric_Data.Required_Speed;
 
   M3508_Array[FricL_Wheel].outCurrent = PID_Model4_Update(&M3508_FricL_Pid, &fuzzy_pid_shoot_l, M3508_Array[FricL_Wheel].targetSpeed, M3508_Array[FricL_Wheel].realSpeed);
   M3508_Array[FricR_Wheel].outCurrent = PID_Model4_Update(&M3508_FricR_Pid, &fuzzy_pid_shoot_r, M3508_Array[FricR_Wheel].targetSpeed, M3508_Array[FricR_Wheel].realSpeed);

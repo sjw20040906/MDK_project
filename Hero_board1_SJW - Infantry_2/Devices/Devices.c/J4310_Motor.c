@@ -50,7 +50,7 @@ void J4310_setParameter(float uq1, float uq2, float uq3, float uq4, float uq5, u
   float P_MAX, V_MAX, T_MAX;
   P_MAX = 3.141593f;
   V_MAX = 200.f;
-  T_MAX = 7.f;
+  T_MAX = 10.f;
 
   Postion_Tmp = float_to_uint(Postion, -P_MAX, P_MAX, 16);
   Velocity_Tmp = float_to_uint(uq2, -V_MAX, V_MAX, 12);
@@ -133,9 +133,9 @@ void J4310_getInfo(Can_Export_Data_t RxMessage)
   StdId = (int32_t)RxMessage.CAN_RxHeader.StdId - J4310_READID_PITCH; // 由0开始
   float P_MAX, V_MAX, T_MAX;
 
-  P_MAX = 12.5f;
+  P_MAX = 3.141593f;
   V_MAX = 200.f;
-  T_MAX = 7.f; // J4310电机数据
+  T_MAX = 10.f; // J4310电机数据
 
   J4310_Array[StdId]->lastAngle = J4310_Array[StdId]->realAngle;
   J4310_Array[StdId]->state = RxMessage.CANx_Export_RxMessage[0] >> 4;

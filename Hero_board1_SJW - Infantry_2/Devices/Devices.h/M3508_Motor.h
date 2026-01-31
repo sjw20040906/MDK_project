@@ -20,29 +20,22 @@
 
 /* 记录M3508各个电机ID
  */
-#define M3508_SENDID_Fric_Dial 0x1FF
-#define M3508_READID_START 0x205
-#define M3508_READID_END 0x206
+#define M3508_SENDID_Fric_Dial 0x200
+#define M3508_READID_START 0x201
+#define M3508_READID_END 0x202
 #define M3508_MaxOutput 16384           // 发送给电机的最大控制值
 #define M3508_CurrentRatio 819.2f       // 16384/20A = 819.2->1A
 #define M3508_ReductionRatio 3591 / 187 // 3508电机减速比
 
 /**
  * @brief  用以区别3508电机数组各个元素的归属
- * @param  Chassis_Right_Front	右前轮
- *			Chassis_Left_Front  左前轮
- *			Chassis_Left_Back	左后轮
- *			Chassis_Right_Back	右后轮
+ * @param  
  *			FricL_Wheel			左摩擦轮
  *			FricR_Wheel			右摩擦轮
  */
 typedef enum
 {
-    Chassis_Right_Front = 0,
-    Chassis_Left_Front,
-    Chassis_Left_Back,
-    Chassis_Right_Back,
-    FricL_Wheel,
+    FricL_Wheel=0,
     FricR_Wheel,
     TotalNum,
 } M3508_MotorName;

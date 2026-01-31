@@ -12,10 +12,6 @@
 
 /* M3508所有电机的数组 */
 M3508s_t M3508_Array[TotalNum] = {
-    [Chassis_Right_Front] = {0},
-    [Chassis_Left_Front] = {0},
-    [Chassis_Left_Back] = {0},
-    [Chassis_Right_Back] = {0},
     [FricL_Wheel] = {0},
     [FricR_Wheel] = {0},
 };

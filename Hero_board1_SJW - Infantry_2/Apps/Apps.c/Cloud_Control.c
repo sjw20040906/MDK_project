@@ -16,12 +16,12 @@ Cloud_t Cloud;
 // 重新安装电机或移用代码时需要重新测量这些值（toalAngle）后再允许运动。
 
 /****************Pithch限位*****************/
-const float Delta_Pitch_Min = -11;
-const float Delta_Pitch_Max = 11;
-const float Cloud_Pitch_Min = -11;
-const float Cloud_Pitch_Max = 11;
-const float Pitch_Angle_Init = 0;
-const float Cloud_Pitch_Center = 0;
+const float Delta_Pitch_Min = -9;
+const float Delta_Pitch_Max = 15;
+const float Cloud_Pitch_Min = -9;
+const float Cloud_Pitch_Max = 15;
+const float Pitch_Angle_Init = 5.2;
+const float Cloud_Pitch_Center = 5.2;
 const float Cloud_Pitch_Derta = Cloud_Pitch_Center - Cloud_Pitch_Min;
 /****************Pitch限位End*****************/
 
@@ -87,7 +87,7 @@ void Cloud_Pitch_Angle_Set(void)
 	/********************自瞄******************/
 	if (ControlMes.AutoAimFlag == 1)
 	{
-		Delta_Pitch += (float)ControlMes.pitch_velocity * Pitch_RC_Sen;
+		Delta_Pitch -= (float)ControlMes.pitch_velocity * Pitch_RC_Sen;
 
 		/**********Delta_Pitch限位**********/
 		if (Delta_Pitch > Delta_Pitch_Max)
@@ -107,7 +107,7 @@ void Cloud_Pitch_Angle_Set(void)
 	/********************手瞄******************/
 	else
 	{
-		Delta_Pitch += (float)ControlMes.pitch_velocity * Pitch_RC_Sen;
+		Delta_Pitch -= (float)ControlMes.pitch_velocity * Pitch_RC_Sen;
 
 		/**********Delta_Pitch限位**********/
 		if (Delta_Pitch > Delta_Pitch_Max)
