@@ -99,3 +99,4 @@
 .\hero_board1_sjw\remote_keymouse.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
 .\hero_board1_sjw\remote_keymouse.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
 .\hero_board1_sjw\remote_keymouse.o: ../Alg/Alg.h/SpeedRamp.h
+.\hero_board1_sjw\remote_keymouse.o: ../Devices/Devices.h/DJI_VT13.h

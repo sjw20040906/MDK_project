@@ -11,13 +11,13 @@
 #include "DT7.h"
 
 // 底盘遥控前后斜坡
-static SpeedRamp_t ChassisRamp_ForwardBack = ForwardBackGroundInit;
+SpeedRamp_t ChassisRamp_ForwardBack = ForwardBackGroundInit;
 
 // 底盘遥控左右斜坡
-static SpeedRamp_t ChassisRamp_LeftRight = LeftRightGroundInit;
+SpeedRamp_t ChassisRamp_LeftRight = LeftRightGroundInit;
 
 // 底盘遥控左右转斜坡
-static SpeedRamp_t ChassisRamp_Rotate = RotateGroundInit;
+SpeedRamp_t ChassisRamp_Rotate = RotateGroundInit;
 
 /* ----------------------- Internal Data ----------------------------------- */
 RC_Ctl_t RC_CtrlData;

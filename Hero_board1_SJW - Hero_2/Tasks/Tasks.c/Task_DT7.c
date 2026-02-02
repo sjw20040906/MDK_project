@@ -17,7 +17,8 @@ void DT7_Control(void const *argument)
     const TickType_t TimeIncrement = pdMS_TO_TICKS(5); 
     for (;;)
     {
-        DT7_Handle();
+        //DT7_Handle();
+        DJI_VT13_Handle();
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }
 }

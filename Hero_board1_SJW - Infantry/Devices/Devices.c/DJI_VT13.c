@@ -416,7 +416,7 @@ void DJI_VT13_Handle(void)
             ControlMes.AutoAimFlag = TURN_OFF;
             ControlMes.pitch_velocity = DJI_VT13_Data.ch[1];
             ControlMes.yaw_velocity = DJI_VT13_Data.ch[0];
-            ControlMes.z_rotation_velocity = -DJI_VT13_Data.wheel;
+            ControlMes.z_rotation_velocity = DJI_VT13_Data.wheel;
             ControlMes.yaw_position = Auto_Aim_Yaw;
 
             KeyDetect_Update(&btn_right_detect, DJI_VT13_Data.btn_right);

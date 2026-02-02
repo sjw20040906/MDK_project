@@ -4,15 +4,15 @@ Set JLink Project File to "d:\RM\myself\myself_c\MDK_project\Hero_board1_SJW - I
 JLink info:
 ------------
 DLL: V8.82 , compiled Oct 29 2025 11:42:48
-Firmware: J-Link V9 compiled May  7 2021 16:26:12
-Hardware: V9.40
-S/N : 69409646 
-Feature(s) : RDI, GDB, FlashDL, FlashBP, JFlash 
+Firmware: J-Link Pro V4 V12 PLUS Dec compiled 9 2041 12:59:59
+Hardware: V12.00
+S/N : 608888288 
+Feature(s) : GDB, RDI, FlashBP, FlashDL, JFlash 
 
 * JLink Info: InitTarget() start
 * JLink Info: SWD selected. Executing JTAG -> SWD switching sequence.
 * JLink Info: DAP initialized successfully.
-* JLink Info: InitTarget() end - Took 6.36ms
+* JLink Info: InitTarget() end - Took 3.80ms
 * JLink Info: Found SW-DP with ID 0x2BA01477
 * JLink Info: DPIDR: 0x2BA01477
 * JLink Info: CoreSight SoC-400 or earlier
@@ -41,12 +41,12 @@ ROMTableAddr = 0xE00FF000
 Target info:
 ------------
 Device: STM32F407IGHx
-VTarget = 3.282V
+VTarget = 3.422V
 State of Pins: TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 0
 Hardware-Breakpoints: 6
 Software-Breakpoints: 8192
 Watchpoints:          4
-JTAG speed: 4000 kHz
+JTAG speed: 5000 kHz
 
 * JLink Info: Memory map 'after startup completion point' is active
 Erase Done.Programming Done.Verify OK.* JLink Info: Memory map 'before startup completion point' is active
@@ -56,5 +56,5 @@ Erase Done.Programming Done.Verify OK.* JLink Info: Memory map 'before startup c
 * JLink Info: Memory map 'after startup completion point' is active
 Application running ...
 * JLink Info: OnDisconnectTarget() start
-* JLink Info: OnDisconnectTarget() end - Took 704us
-Flash Load finished at 10:42:30
+* JLink Info: OnDisconnectTarget() end - Took 414us
+Flash Load finished at 21:56:10

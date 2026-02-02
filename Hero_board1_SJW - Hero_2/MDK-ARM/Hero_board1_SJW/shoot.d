@@ -95,6 +95,7 @@
 .\hero_board1_sjw\shoot.o: ../Tasks/Tasks.h/Task_CanReceive.h
 .\hero_board1_sjw\shoot.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board1_sjw\shoot.o: ../BSP/BSP.h/BSP_Usart.h
+.\hero_board1_sjw\shoot.o: ../Devices/Devices.h/DJI_VT13.h
 .\hero_board1_sjw\shoot.o: ../Devices/Devices.h/J4310_Motor.h
 .\hero_board1_sjw\shoot.o: ../Devices/Devices.h/J3519_Motor.h
 .\hero_board1_sjw\shoot.o: ../Tasks/Tasks.h/Task_CanReceive.h

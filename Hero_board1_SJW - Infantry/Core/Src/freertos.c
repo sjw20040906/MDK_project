@@ -243,8 +243,8 @@ void ALL_Init(void const * argument)
     Cloud_Init();
 
     /**********遥控器初始化*********/
-    DT7_Init();
-		//DJI_VT13_Init();
+    //DT7_Init();
+		DJI_VT13_Init();
 
     vTaskDelete(StartTaskHandle); // 删除启动任务
     taskEXIT_CRITICAL();          // 退出临界区

@@ -83,9 +83,7 @@
 .\hero_board1_sjw\dt7.o: ../Tasks/Tasks.h/Task_CanReceive.h
 .\hero_board1_sjw\dt7.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board1_sjw\dt7.o: ../BSP/BSP.h/BSP_Usart.h
-.\hero_board1_sjw\dt7.o: ../Devices/Devices.h/J4310_Motor.h
-.\hero_board1_sjw\dt7.o: ../Devices/Devices.h/J3519_Motor.h
-.\hero_board1_sjw\dt7.o: ../Tasks/Tasks.h/Task_CanReceive.h
+.\hero_board1_sjw\dt7.o: ../Devices/Devices.h/DJI_VT13.h
 .\hero_board1_sjw\dt7.o: ../Protocol/Protocol.h/Protocol_UpperComputer.h
 .\hero_board1_sjw\dt7.o: ../Protocol/Protocol.h/CRC.h
 .\hero_board1_sjw\dt7.o: ../USB_DEVICE/App/usbd_cdc_if.h
@@ -97,3 +95,6 @@
 .\hero_board1_sjw\dt7.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
 .\hero_board1_sjw\dt7.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
 .\hero_board1_sjw\dt7.o: ../Alg/Alg.h/SpeedRamp.h
+.\hero_board1_sjw\dt7.o: ../Devices/Devices.h/J4310_Motor.h
+.\hero_board1_sjw\dt7.o: ../Devices/Devices.h/J3519_Motor.h
+.\hero_board1_sjw\dt7.o: ../Tasks/Tasks.h/Task_CanReceive.h

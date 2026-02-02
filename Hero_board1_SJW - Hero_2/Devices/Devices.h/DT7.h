@@ -177,24 +177,24 @@ typedef struct
     struct
     {
 
-        uint32_t Press_Flag;                // ??????
-        uint32_t Click_Press_Flag;          // ??????
-        uint32_t Long_Press_Flag;           // ??????
-        uint8_t PressTime[KEYMOUSE_AMOUNT]; // ????????
-    } KeyMouse;                             // ????????
+        uint32_t Press_Flag;              
+        uint32_t Click_Press_Flag;       
+        uint32_t Long_Press_Flag;          
+        uint8_t PressTime[KEYMOUSE_AMOUNT]; 
+    } KeyMouse;                          
 
     struct
     {
-        float Forward_Back_Value; // Vx
-        float Omega_Value;        // ????
-        float Left_Right_Value;   // Vy
+        float Forward_Back_Value; 
+        float Omega_Value;        
+        float Left_Right_Value;   
         float Pitch_Value;
         float Yaw_Value;
-        float Dial_Wheel;     // ??
-    } Robot_TargetValue;      // ????????????
-    uint16_t infoUpdateFrame; // ??
-    uint8_t OffLineFlag;      // ??????
-} DR16_Export_Data_t;         // ?????????????
+        float Dial_Wheel;     
+    } Robot_TargetValue;     
+    uint16_t infoUpdateFrame; 
+    uint8_t OffLineFlag;      
+} DR16_Export_Data_t;      
 
 
 typedef struct
@@ -230,6 +230,9 @@ typedef struct
 extern RC_Ctl_t RC_CtrlData;
 extern uint8_t DT7_RX_Finish;
 extern uint8_t DT7_Rx_Data[RC_FRAME_LENGTH];
+extern SpeedRamp_t ChassisRamp_ForwardBack;
+extern SpeedRamp_t ChassisRamp_LeftRight;
+extern SpeedRamp_t ChassisRamp_Rotate;
 
 void DT7_Init(void);
 void DT7_Handle(void);

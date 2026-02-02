@@ -913,9 +913,9 @@
               <FilePath>..\Devices\Devices.c\J3519_Motor.c</FilePath>
             </File>
             <File>
-              <FileName>Remote_KeyMouse.c</FileName>
+              <FileName>DJI_VT13.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Devices\Devices.c\Remote_KeyMouse.c</FilePath>
+              <FilePath>..\Devices\Devices.c\DJI_VT13.c</FilePath>
             </File>
           </Files>
         </Group>

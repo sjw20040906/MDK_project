@@ -241,8 +241,9 @@ void ALL_Init(void const * argument)
     /**********云台拨弹初始化*********/
     Cloud_Init();
     J3519_Array[J3519_Dail_Wheel].outPosition = -5.97f;
-    /**********大疆DT7遥控器初始化*********/
-    DT7_Init();
+    /**********遥控器初始化*********/
+    DJI_VT13_Init();
+    //DT7_Init();
     vTaskDelete(StartTaskHandle); // 删除启动任务
     taskEXIT_CRITICAL();          // 退出临界区
     osDelay(1);
