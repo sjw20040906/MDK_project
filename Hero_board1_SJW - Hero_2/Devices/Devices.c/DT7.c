@@ -153,8 +153,6 @@ void DT7_Handle(void)
 			ControlMes.x_velocity = -RC_CtrlData.rc.ch3; // 左手上下
 			ControlMes.y_velocity = -RC_CtrlData.rc.ch2; // 左手左右
 
-			// 发射状态设置（右拨杆）（UP 单发模式（顺时针右滚动滚轮拨弹，逆时针左退弹）；MID 禁止发射 ；DOWN 部署模式）
-
 			if (ControlMes.shoot_state == RC_SW_UP)
 			{
 				// ControlMes.Check_In_Flag = 1;

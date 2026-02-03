@@ -433,17 +433,18 @@ void DJI_VT13_Handle(void)
                 if (DJI_VT13_Data.trigger == PRESS_flag_YES)
                 {
                     Dial_Data.Shoot_Mode = Single_Shoot;
-                    Shoot_Data.Shoot_Switch = TURN_ON;
+                    Dial_Data.Dial_Switch = Dial_On;
                 }
                 else
                 {
                     Dial_Data.Shoot_Mode = Single_Shoot;
-                    Shoot_Data.Shoot_Switch = TURN_OFF;
+                    Dial_Data.Dial_Switch = Dial_Off;
                 }
             }
             else
             {
                 Shoot_Data.Shoot_Switch = TURN_OFF;
+                Dial_Data.Dial_Switch = Dial_On;
             }
 
             // 模式设置
