@@ -1,5 +1,5 @@
 /**
- * @file Task_RobotControl.c
+ * @file Task_RemoteControl.c
  * @author ZS
  * @brief
  * @version 0.1
@@ -8,9 +8,9 @@
  * @copyright Copyright (c) 2021
  *
  */
-#include "SBUS.h"
+#include "Task_RemoteControl.h"
 
-void SBUS_Control(void const *argument)
+void Remote_Control(void const *argument)
 {
     portTickType xLastWakeTime;
     xLastWakeTime = xTaskGetTickCount();

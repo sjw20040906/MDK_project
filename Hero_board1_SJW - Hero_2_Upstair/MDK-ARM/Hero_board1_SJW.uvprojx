@@ -948,11 +948,6 @@
               <FilePath>..\Tasks\Tasks.c\Task_CommunicateWithPC.c</FilePath>
             </File>
             <File>
-              <FileName>Task_DT7.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Tasks\Tasks.c\Task_DT7.c</FilePath>
-            </File>
-            <File>
               <FileName>Task_RobotControl.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Tasks\Tasks.c\Task_RobotControl.c</FilePath>
@@ -971,6 +966,11 @@
               <FileName>Task_J4310_onlineCheck.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Tasks\Tasks.c\Task_J4310_onlineCheck.c</FilePath>
+            </File>
+            <File>
+              <FileName>Task_RemoteControl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Tasks\Tasks.c\Task_RemoteControl.c</FilePath>
             </File>
           </Files>
         </Group>

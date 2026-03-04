@@ -29,11 +29,12 @@
 #include "pid.h"
 #include "BSP_Can.h"
 #include "BSP_Usart.h"
-#include "Cloud_Control.h"
-#include "Shoot.h"
 #include "SBUS.h"
-#include "Protocol_UpperComputer.h"
 #include "Task_J4310_onlineCheck.h"
+#include "Task_CanSend.h"
+#include "Task_RemoteControl.h"
+#include "Task_RobotControl.h"
+#include "Task_CommunicateWithPC.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,14 +61,14 @@ QueueHandle_t CAN_SendHandle;                  // can发送队列
 QueueHandle_t Communicate_ReceivefromPCHandle; // 从PC接收到的数据队列
 
 /***********Tasks************/
-osThreadId Task_Can1MsgRecHandle; 				// can1消息接收任务句柄
-osThreadId Task_Can2MsgRecHandle; 				// can2消息接收任务句柄
-osThreadId Task_CanSendHandle;    				// can发送任务句柄
+osThreadId Task_Can1MsgRecHandle;         // can1消息接收任务句柄
+osThreadId Task_Can2MsgRecHandle;         // can2消息接收任务句柄
+osThreadId Task_CanSendHandle;            // can发送任务句柄
 osThreadId Robot_Control_Handle;          // 机器人控制任务句柄
 osThreadId Task_CommunicateFromPC_Handle; // 从PC通信任务句柄
 osThreadId Task_CommunicateToPC_Handle;   // 向PC通信任务句柄
-osThreadId Task_RemoteControl_Handle;               // 遥控器任务句柄;
-osThreadId Task_J4310_onlineCheck_Handle;	// J4310电机在线检测
+osThreadId Task_RemoteControl_Handle;     // 遥控器任务句柄;
+osThreadId Task_J4310_onlineCheck_Handle; // J4310电机在线检测
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
@@ -75,24 +76,17 @@ osThreadId StartTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-extern void Can1Receives(void const *argument);
-extern void Can2Receives(void const *argument);
-extern void AllCanSend(void const *argument);
-extern void Robot_Control(void const *argument);
-extern void USBCommunicateTask_Receive(void const *argument);
-extern void USBCommunicateTask_Send(void const *argument);
-extern void SBUS_Control(void const *argument);
-extern void J4310_onlineCheck(void const *argument);
+
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const * argument);
-void ALL_Init(void const * argument);
+void StartDefaultTask(void const *argument);
+void ALL_Init(void const *argument);
 
 extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
-void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize);
 
 /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
 static StaticTask_t xIdleTaskTCBBuffer;
@@ -108,11 +102,12 @@ void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackTyp
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
-  * @brief  FreeRTOS initialization
-  * @param  None
-  * @retval None
-  */
-void MX_FREERTOS_Init(void) {
+ * @brief  FreeRTOS initialization
+ * @param  None
+ * @retval None
+ */
+void MX_FREERTOS_Init(void)
+{
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -180,14 +175,13 @@ void MX_FREERTOS_Init(void) {
   Task_CommunicateFromPC_Handle = osThreadCreate(osThread(Task_CommunicateFromPC_Task), NULL);
 
   /* definition and creation of Task_RemoteControl_Task */
-  osThreadDef(Task_RemoteControl_Task, SBUS_Control, osPriorityHigh, 0, 256);
+  osThreadDef(Task_RemoteControl_Task, Remote_Control, osPriorityHigh, 0, 256);
   Task_RemoteControl_Handle = osThreadCreate(osThread(Task_RemoteControl_Task), NULL);
 
   /* definition and creation of Task_J4310_onlineCheck_Task */
   osThreadDef(Task_J4310_onlineCheck_Task, J4310_onlineCheck, osPriorityAboveNormal, 0, 128);
   Task_J4310_onlineCheck_Handle = osThreadCreate(osThread(Task_J4310_onlineCheck_Task), NULL);
   /* USER CODE END RTOS_THREADS */
-
 }
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -197,7 +191,7 @@ void MX_FREERTOS_Init(void) {
  * @retval None
  */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
+void StartDefaultTask(void const *argument)
 {
   /* init code for USB_DEVICE */
   MX_USB_DEVICE_Init();
@@ -217,13 +211,14 @@ void StartDefaultTask(void const * argument)
  * @retval None
  */
 /* USER CODE END Header_ALL_Init */
-void ALL_Init(void const * argument)
+void ALL_Init(void const *argument)
 {
   /* USER CODE BEGIN ALL_Init */
   /* Infinite loop */
   for (;;)
   {
     taskENTER_CRITICAL();
+    HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
     /*********初始化两个CAN控制协议，使用中断模式*********/
     CAN_IT_Init(&hcan1, Can1_Type);
     CAN_IT_Init(&hcan2, Can2_Type);

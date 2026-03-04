@@ -23,8 +23,7 @@
 #define __MAIN_H
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -40,29 +39,31 @@ extern "C"
 #define DT7 1
 #define TDF 2
 #define RemoteControlMethod TDF
-  /* USER CODE END ET */
+/* USER CODE END ET */
 
-  /* Exported constants --------------------------------------------------------*/
-  /* USER CODE BEGIN EC */
-  /* USER CODE END EC */
+/* Exported constants --------------------------------------------------------*/
+/* USER CODE BEGIN EC */
+/* USER CODE END EC */
 
-  /* Exported macro ------------------------------------------------------------*/
-  /* USER CODE BEGIN EM */
+/* Exported macro ------------------------------------------------------------*/
+/* USER CODE BEGIN EM */
 
-  /* USER CODE END EM */
+/* USER CODE END EM */
 
-  /* Exported functions prototypes ---------------------------------------------*/
-  void Error_Handler(void);
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
 
-  /* USER CODE BEGIN EFP */
+/* USER CODE BEGIN EFP */
 
-  /* USER CODE END EFP */
+/* USER CODE END EFP */
 
-  /* Private defines -----------------------------------------------------------*/
+/* Private defines -----------------------------------------------------------*/
+#define LED_Pin GPIO_PIN_10
+#define LED_GPIO_Port GPIOH
 
-  /* USER CODE BEGIN Private defines */
+/* USER CODE BEGIN Private defines */
 
-  /* USER CODE END Private defines */
+/* USER CODE END Private defines */
 
 #ifdef __cplusplus
 }

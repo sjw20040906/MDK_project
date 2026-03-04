@@ -1175,18 +1175,6 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Tasks\Tasks.c\Task_DT7.c</PathWithFileName>
-      <FilenameWithoutPath>Task_DT7.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>13</GroupNumber>
-      <FileNumber>72</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
       <PathWithFileName>..\Tasks\Tasks.c\Task_RobotControl.c</PathWithFileName>
       <FilenameWithoutPath>Task_RobotControl.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
@@ -1194,7 +1182,7 @@
     </File>
     <File>
       <GroupNumber>13</GroupNumber>
-      <FileNumber>73</FileNumber>
+      <FileNumber>72</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1206,7 +1194,7 @@
     </File>
     <File>
       <GroupNumber>13</GroupNumber>
-      <FileNumber>74</FileNumber>
+      <FileNumber>73</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1218,13 +1206,25 @@
     </File>
     <File>
       <GroupNumber>13</GroupNumber>
-      <FileNumber>75</FileNumber>
+      <FileNumber>74</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\Tasks\Tasks.c\Task_J4310_onlineCheck.c</PathWithFileName>
       <FilenameWithoutPath>Task_J4310_onlineCheck.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>13</GroupNumber>
+      <FileNumber>75</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\Tasks\Tasks.c\Task_RemoteControl.c</PathWithFileName>
+      <FilenameWithoutPath>Task_RemoteControl.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

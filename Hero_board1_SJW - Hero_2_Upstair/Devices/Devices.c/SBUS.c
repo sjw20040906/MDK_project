@@ -100,5 +100,22 @@ void SBUS_Handle()
             mappedData.Ch9 = SBUS.Ch9 - MID_VALUE;
             mappedData.Ch10 = SBUS.Ch10 - MID_VALUE;
         }
+        /* prevent remote control zero deviation */
+        if (mappedData.Ch1 <= 5 && mappedData.Ch1 >= -5)
+        {
+            mappedData.Ch1 = 0;
+        }
+        if (mappedData.Ch2 <= 5 && mappedData.Ch2 >= -5)
+        {
+            mappedData.Ch2 = 0;
+        }
+        if (mappedData.Ch3 <= 5 && mappedData.Ch3 >= -5)
+        {
+            mappedData.Ch3 = 0;
+        }
+        if (mappedData.Ch4 <= 5 && mappedData.Ch4 >= -5)
+        {
+            mappedData.Ch4 = 0;
+        }
     }
 }
