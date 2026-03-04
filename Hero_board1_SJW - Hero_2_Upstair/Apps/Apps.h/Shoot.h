@@ -39,10 +39,7 @@ typedef enum
 	Shoot_Off,                 \
 }
 
-#define Shoot_FunGroundInit \
-	{                       \
-		&Shoot_Processing,  \
-	}
+void Shoot_Processing(void);
 
 typedef struct Shoot_Data_t
 {
@@ -51,12 +48,6 @@ typedef struct Shoot_Data_t
 	uint16_t Shoot_Switch; // 发射开关
 } Shoot_Data_t;
 
-typedef struct Shoot_Fun_t
-{
-	void (*Shoot_Processing)();
-} Shoot_Fun_t;
-
-extern Shoot_Fun_t Shoot_Fun;
 extern Shoot_Data_t Shoot_Data;
 extern incrementalpid_t M3508_FricL_Pid;
 extern incrementalpid_t M3508_FricR_Pid;

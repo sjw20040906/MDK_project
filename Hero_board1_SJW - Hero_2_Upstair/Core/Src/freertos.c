@@ -232,8 +232,8 @@ void ALL_Init(void const * argument)
   {
     taskENTER_CRITICAL();
     /*********初始化两个CAN控制协议，使用中断模式*********/
-    Can_Fun.CAN_IT_Init(&hcan1, Can1_Type);
-    Can_Fun.CAN_IT_Init(&hcan2, Can2_Type);
+    CAN_IT_Init(&hcan1, Can1_Type);
+    CAN_IT_Init(&hcan2, Can2_Type);
     /*********初始化PID*********/
     /*********初始化PID*********/
     fuzzy_init(&fuzzy_pid_shoot_L, 100, -100, 25, 0.1, 10);

@@ -10,15 +10,8 @@
  */
 #include "BSP_Can.h"
 
-/*******************************用户数据定义************************************/
-void CAN_IT_Init(CAN_HandleTypeDef *hcanx, uint8_t Can_type);
-void CAN_SendData(QueueHandle_t CANx_Handle, CAN_HandleTypeDef *CANx, uint8_t id_type, uint32_t id, uint8_t data[8]);
-
 Can_Data_t Can_Data[2] = Can_DataGroundInit;
 #undef Can_DataGroundInit
-/***********************************接口赋值************************************/
-Can_Fun_t Can_Fun = Can_FunGroundInit;
-#undef Can_FunGroundInit
 /*******************************************************************************/
 
 // CAN通信发送缓冲区

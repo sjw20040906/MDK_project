@@ -10,12 +10,6 @@
  */
 #include "Shoot.h"
 
-/**************用户数据定义****************/
-void Shoot_Processing(void);
-
-/****************接口定义******************/
-Shoot_Fun_t Shoot_Fun = Shoot_FunGroundInit;
-#undef Shoot_FunGroundInit
 Shoot_Data_t Shoot_Data = Shoot_DataGroundInit;
 #undef Shoot_DataGroundInit
 
@@ -32,7 +26,7 @@ incrementalpid_t M3508_DialI_Pid; // 拨弹内环pid
  */
 void Shoot_Processing()
 {
-	Fric_Fun.Fric_Processing();						  // 摩擦轮处理函数
-	Fric_Fun.Fric_Judge_ReadyOrNot();				  // 检测摩擦轮是否就绪
+	Fric_Processing();						 // 摩擦轮处理函数
+	Fric_Judge_ReadyOrNot();				 // 检测摩擦轮是否就绪
 	Dial_Update_Angel(Fric_Data.Fric_Ready); // 拨弹盘角度更新并处理
 }
