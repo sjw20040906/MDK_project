@@ -21,18 +21,8 @@
 /* 记录M3508各个电机ID
  */
 #define M3508_SENDID_Fric_Dial_1 0x200
-#define M3508_SENDID_Fric_Dial_2 0x1FF
 #define M3508_READID_START 0x201
 #define M3508_READID_END 0x203
-#define M3508_MaxOutput 16384           // 发送给电机的最大控制值
-#define M3508_CurrentRatio 819.2f       // 16384/20A = 819.2->1A
-#define M3508_ReductionRatio 3591 / 187 // 3508电机减速比
-
-#define M3508_FunGroundInit \
-    {                       \
-        &M3508_getInfo,     \
-        &M3508_setCurrent,  \
-    }
 
 /**
  * @brief  用以区别3508电机数组各个元素的归属
@@ -65,12 +55,8 @@ typedef struct
 
 extern M3508s_t M3508_Array[TotalNum];
 
-typedef struct
-{
-    void (*M3508_getInfo)(Can_Export_Data_t RxMessage);
-    void (*M3508_setCurrent)(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_t *data);
-} M3508_FUN_t;
-
-extern M3508_FUN_t M3508_FUN;
+/************3508电机函数声明**********/
+void M3508_getInfo(Can_Export_Data_t RxMessage);
+void M3508_setCurrent(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4, uint8_t *data);
 
 #endif /*__M3508_MOTOR_H*/

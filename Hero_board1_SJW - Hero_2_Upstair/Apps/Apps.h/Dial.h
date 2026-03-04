@@ -74,7 +74,7 @@ typedef struct Dial_Data_t
 	Dial_On_Off Dial_Switch;  // 拨盘开关状态
 } Dial_Data_t;
 
-void Dial_Processing_2(void);
+void Dial_Processing(void);
 void Dial_Update_Angel(bool Fric_ReadyOrNot);
 void Dial_OneBullet(void);
 

@@ -33,7 +33,6 @@
 #include "Shoot.h"
 #include "DT7.h"
 #include "Protocol_UpperComputer.h"
-#include "Task_vofa.h"
 #include "Task_J4310_onlineCheck.h"
 /* USER CODE END Includes */
 
@@ -68,7 +67,6 @@ osThreadId Robot_Control_Handle;          // 机器人控制任务句柄
 osThreadId Task_CommunicateFromPC_Handle; // 从PC通信任务句柄
 osThreadId Task_CommunicateToPC_Handle;   // 向PC通信任务句柄
 osThreadId Task_DT7_Handle;               // 遥控器任务句柄;
-osThreadId Task_VOFA_Handle;							// VOFA任务句柄
 osThreadId Task_J4310_onlineCheck_Handle;	// J4310电机在线检测
 
 /* USER CODE END Variables */
@@ -84,7 +82,6 @@ extern void Robot_Control(void const *argument);
 extern void USBCommunicateTask_Receive(void const *argument);
 extern void USBCommunicateTask_Send(void const *argument);
 extern void DT7_Control(void const *argument);
-extern void VOFA_Handle(void const *argument);
 extern void J4310_onlineCheck(void const *argument);
 /* USER CODE END FunctionPrototypes */
 
@@ -186,10 +183,6 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(Task_DT7_Handle, DT7_Control, osPriorityHigh, 0, 256);
   Task_DT7_Handle = osThreadCreate(osThread(Task_DT7_Handle), NULL);
 
-  /* definition and creation of Task_VOFA_Handle */
-  osThreadDef(Task_VOFA_Handle, VOFA_Handle, osPriorityNormal, 0, 128);
-  Task_VOFA_Handle = osThreadCreate(osThread(Task_VOFA_Handle), NULL);
-
   /* definition and creation of Task_J4310_onlineCheck_Handle */
   osThreadDef(Task_J4310_onlineCheck_Handle, J4310_onlineCheck, osPriorityAboveNormal, 0, 128);
   Task_J4310_onlineCheck_Handle = osThreadCreate(osThread(Task_J4310_onlineCheck_Handle), NULL);
@@ -238,22 +231,16 @@ void ALL_Init(void const * argument)
     /*********初始化PID*********/
     fuzzy_init(&fuzzy_pid_shoot_L, 100, -100, 25, 0.1, 10);
     fuzzy_init(&fuzzy_pid_shoot_R, 100, -100, 25, 0.1, 10);
-
     fuzzy_init(&fuzzy_pid_bullet_v, 30, -30, 5, 0.01, 3);
     fuzzy_init(&fuzzy_pid_bullet_l, 10, -10, 0.1, 0.01, 1);
-
     Incremental_PIDInit(&M3508_FricL_Pid, 40.f, 0, 30, 20000, 5000);
     Incremental_PIDInit(&M3508_FricR_Pid, 40.f, 0, 30, 20000, 5000);
-
     Position_PIDInit(&M3508_DialV_Pid, 0.4f, 0.015f, 0.3, 0.5, 2000, 1000, 500);
     Incremental_PIDInit(&M3508_DialI_Pid, 15.0f, 2.5f, 8, 25000, 10000);
-
     /**********云台初始化*********/
     Cloud_Init();
-
     /**********大疆DT7遥控器初始化*********/
     DT7_Init();
-
     vTaskDelete(StartTaskHandle); // 删除启动任务
     taskEXIT_CRITICAL();          // 退出临界区
     osDelay(1);

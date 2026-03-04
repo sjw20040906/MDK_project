@@ -11,8 +11,6 @@
 
 #include "Task_J4310_onlineCheck.h"
 
-uint16_t pitch_Frame = 0;
-
 void J4310_onlineCheck(void const *argument)
 {
 
@@ -21,11 +19,10 @@ void J4310_onlineCheck(void const *argument)
     const TickType_t TimeIncrement = pdMS_TO_TICKS(1);
     for (;;)
     {
-        if (pitch_Frame == J4310s_Pitch.InfoUpdateFrame)
+        if (J4310s_Pitch.state == 0)
         {
-            J4310_Fun.J4310_Enable();
+            J4310_Enable();
         }
-        pitch_Frame = J4310s_Pitch.InfoUpdateFrame;
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }
 }

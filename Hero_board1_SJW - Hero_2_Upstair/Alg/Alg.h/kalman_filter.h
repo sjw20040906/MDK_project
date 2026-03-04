@@ -82,8 +82,4 @@ typedef struct
   } Parameter;
 } Kalman_Data_t;
 
-void Two_Kalman_Filter_Init(Two_Kalman_Filter_t *F, Two_Kalman_Filter_Init_t *I);
-float *Two_Kalman_Filter_Calc(Two_Kalman_Filter_t *F, float signal1, float signal2);
-/*************二阶卡尔曼 END**************/
-
 #endif

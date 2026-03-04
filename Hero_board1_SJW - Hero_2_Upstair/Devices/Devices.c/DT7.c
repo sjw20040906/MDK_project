@@ -28,7 +28,6 @@ static uint8_t DT7_Rx_Data[RC_FRAME_LENGTH];
 uint8_t DT7_RX_Finish;
 
 void RemoteControl_PC_Update(void);
-void IT_RemoteControl_PC_Update(void);
 
 DR16_Export_Data_t DR16_Export_Data = DR16_ExportDataGroundInit;
 Image_Transmission_Export_Data_t Image_Transmission_Export_Data = Image_Transmission_ExportDataGroundInit;
@@ -205,9 +204,9 @@ void DT7_Handle(void)
 
 			// 云台运动控制
 			ControlMes.AutoAimFlag = 0;
-			ControlMes.pitch_velocity = RC_CtrlData.rc.ch1;			// 右手上下
-			ControlMes.yaw_velocity = RC_CtrlData.rc.ch0;			// 右手左右
-			//ControlMes.z_rotation_velocity = RC_CtrlData.wheel * 2; // 滑轮左右
+			ControlMes.pitch_velocity = RC_CtrlData.rc.ch1; // 右手上下
+			ControlMes.yaw_velocity = RC_CtrlData.rc.ch0;	// 右手左右
+			// ControlMes.z_rotation_velocity = RC_CtrlData.wheel * 2; // 滑轮左右
 			ControlMes.yaw_position = Auto_Aim_Yaw;
 		}
 
@@ -309,7 +308,7 @@ void DT7_Handle(void)
 		}
 	}
 	// 用board1 CAN2发送给board2。
-	Board1_FUN.Board1_To_2();
+	Board1_To_2();
 }
 
 /**

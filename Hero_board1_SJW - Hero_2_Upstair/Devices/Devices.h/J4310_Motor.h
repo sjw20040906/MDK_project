@@ -32,17 +32,6 @@
 
 #define J4310_getRoundAngle(rAngle) rAngle / J4310_mAngleRatio
 
-#define J4310_FunGroundInit  \
-  {                          \
-      &J4310_setParameter,   \
-      &J4310_Enable,         \
-      &J4310_Save_Pos_Zero,  \
-      &J4310_getInfo,        \
-      &J4310_setTargetAngle, \
-      &J4310_Reset,          \
-      &Check_J4310,          \
-  }
-
 typedef struct
 {
   int16_t state;
@@ -82,18 +71,14 @@ typedef enum
   J4310_PITCH = 0,
 } J4310Name_e;
 
-typedef struct
-{
-  void (*J4310_setParameter)(float uq1, float uq2, float uq3, float uq4, float uq5, uint8_t *data);
-  void (*J4310_Enable)(void);
-  void (*J4310_Save_Pos_Zero)(void);
-  void (*J4310_getInfo)(Can_Export_Data_t RxMessage);
-  void (*J4310_setTargetAngle)(J4310s_t *J4310, int32_t angle);
-  void (*J4310_Reset)(J4310s_t *J4310);
-  void (*Check_J4310)(void);
-} J4310_Fun_t;
+void J4310_setParameter(float uq1, float uq2, float uq3, float uq4, float uq5, uint8_t *data);
+void J4310_Enable(void);
+void J4310_Save_Pos_Zero(void);
+void J4310_getInfo(Can_Export_Data_t RxMessage);
+void J4310_setTargetAngle(J4310s_t *J4310, int32_t angle);
+void J4310_Reset(J4310s_t *J4310);
+void Check_J4310(void);
 
 extern J4310s_t J4310s_Pitch;
-extern J4310_Fun_t J4310_Fun;
 
 #endif /* __J4310_MOTOR_H */

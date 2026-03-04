@@ -10,9 +10,6 @@
  */
 #include "Dial.h"
 
-/**************相关函数定义****************/
-float PID_Model4_Update(incrementalpid_t *pid, FUZZYPID_Data_t *PID, float _set_point, float _now_point);
-
 /****************函数结构体声明******************/
 Dial_Data_t Dial_Data = Dial_DataGroundInit;
 #undef Dial_DataGroundInit
@@ -23,7 +20,7 @@ Dial_Data_t Dial_Data = Dial_DataGroundInit;
  * @retval void
  * @attention
  */
-void Dial_Processing_2(void)
+void Dial_Processing(void)
 {
 
 	static uint32_t last_dial_time = 0;
@@ -70,7 +67,7 @@ void Dial_Update_Angel(bool Fric_ReadyOrNot)
 	// 摩擦轮转速满足射定速度
 	if (Fric_ReadyOrNot)
 	{
-		Dial_Processing_2();
+		Dial_Processing();
 		Dial_Data.Bullet_Dialed++;
 	}
 	else
@@ -79,4 +76,3 @@ void Dial_Update_Angel(bool Fric_ReadyOrNot)
 		M3508_Array[Dial_Wheel].outCurrent = Incremental_PID(&M3508_DialI_Pid, M3508_Array[Dial_Wheel].targetSpeed, M3508_Array[Dial_Wheel].realSpeed);
 	}
 }
-
