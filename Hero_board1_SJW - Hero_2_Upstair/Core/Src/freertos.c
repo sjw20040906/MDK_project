@@ -31,7 +31,7 @@
 #include "BSP_Usart.h"
 #include "Cloud_Control.h"
 #include "Shoot.h"
-#include "DT7.h"
+#include "SBUS.h"
 #include "Protocol_UpperComputer.h"
 #include "Task_J4310_onlineCheck.h"
 /* USER CODE END Includes */
@@ -66,7 +66,7 @@ osThreadId Task_CanSendHandle;    				// can发送任务句柄
 osThreadId Robot_Control_Handle;          // 机器人控制任务句柄
 osThreadId Task_CommunicateFromPC_Handle; // 从PC通信任务句柄
 osThreadId Task_CommunicateToPC_Handle;   // 向PC通信任务句柄
-osThreadId Task_DT7_Handle;               // 遥控器任务句柄;
+osThreadId Task_RemoteControl_Handle;               // 遥控器任务句柄;
 osThreadId Task_J4310_onlineCheck_Handle;	// J4310电机在线检测
 
 /* USER CODE END Variables */
@@ -81,7 +81,7 @@ extern void AllCanSend(void const *argument);
 extern void Robot_Control(void const *argument);
 extern void USBCommunicateTask_Receive(void const *argument);
 extern void USBCommunicateTask_Send(void const *argument);
-extern void DT7_Control(void const *argument);
+extern void SBUS_Control(void const *argument);
 extern void J4310_onlineCheck(void const *argument);
 /* USER CODE END FunctionPrototypes */
 
@@ -172,20 +172,20 @@ void MX_FREERTOS_Init(void) {
   Robot_Control_Handle = osThreadCreate(osThread(Robot_Control_Task), NULL);
 
   /* definition and creation of Task_CommunicateToPC_Handle */
-  osThreadDef(Task_CommunicateToPC_Handle, USBCommunicateTask_Send, osPriorityAboveNormal, 0, 256);
-  Task_CommunicateToPC_Handle = osThreadCreate(osThread(Task_CommunicateToPC_Handle), NULL);
+  osThreadDef(Task_CommunicateToPC_Task, USBCommunicateTask_Send, osPriorityAboveNormal, 0, 256);
+  Task_CommunicateToPC_Handle = osThreadCreate(osThread(Task_CommunicateToPC_Task), NULL);
 
-  /* definition and creation of Task_CommunicateFromPC_Handle */
-  osThreadDef(Task_CommunicateFromPC_Handle, USBCommunicateTask_Receive, osPriorityAboveNormal, 0, 256);
-  Task_CommunicateFromPC_Handle = osThreadCreate(osThread(Task_CommunicateFromPC_Handle), NULL);
+  /* definition and creation of Task_CommunicateFromPC_Task */
+  osThreadDef(Task_CommunicateFromPC_Task, USBCommunicateTask_Receive, osPriorityAboveNormal, 0, 256);
+  Task_CommunicateFromPC_Handle = osThreadCreate(osThread(Task_CommunicateFromPC_Task), NULL);
 
-  /* definition and creation of Task_DT7_Handle */
-  osThreadDef(Task_DT7_Handle, DT7_Control, osPriorityHigh, 0, 256);
-  Task_DT7_Handle = osThreadCreate(osThread(Task_DT7_Handle), NULL);
+  /* definition and creation of Task_RemoteControl_Task */
+  osThreadDef(Task_RemoteControl_Task, SBUS_Control, osPriorityHigh, 0, 256);
+  Task_RemoteControl_Handle = osThreadCreate(osThread(Task_RemoteControl_Task), NULL);
 
-  /* definition and creation of Task_J4310_onlineCheck_Handle */
-  osThreadDef(Task_J4310_onlineCheck_Handle, J4310_onlineCheck, osPriorityAboveNormal, 0, 128);
-  Task_J4310_onlineCheck_Handle = osThreadCreate(osThread(Task_J4310_onlineCheck_Handle), NULL);
+  /* definition and creation of Task_J4310_onlineCheck_Task */
+  osThreadDef(Task_J4310_onlineCheck_Task, J4310_onlineCheck, osPriorityAboveNormal, 0, 128);
+  Task_J4310_onlineCheck_Handle = osThreadCreate(osThread(Task_J4310_onlineCheck_Task), NULL);
   /* USER CODE END RTOS_THREADS */
 
 }
@@ -239,8 +239,8 @@ void ALL_Init(void const * argument)
     Incremental_PIDInit(&M3508_DialI_Pid, 15.0f, 2.5f, 8, 25000, 10000);
     /**********云台初始化*********/
     Cloud_Init();
-    /**********大疆DT7遥控器初始化*********/
-    DT7_Init();
+    /**********遥控器初始化*********/
+    SBUS_Init();
     vTaskDelete(StartTaskHandle); // 删除启动任务
     taskEXIT_CRITICAL();          // 退出临界区
     osDelay(1);

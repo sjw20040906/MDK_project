@@ -903,9 +903,9 @@
               <FilePath>..\Devices\Devices.c\DT7.c</FilePath>
             </File>
             <File>
-              <FileName>vofa.c</FileName>
+              <FileName>SBUS.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Devices\Devices.c\vofa.c</FilePath>
+              <FilePath>..\Devices\Devices.c\SBUS.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -966,11 +966,6 @@
               <FileName>Task_CanSend.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Tasks\Tasks.c\Task_CanSend.c</FilePath>
-            </File>
-            <File>
-              <FileName>Task_VOFA.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Tasks\Tasks.c\Task_VOFA.c</FilePath>
             </File>
             <File>
               <FileName>Task_J4310_onlineCheck.c</FileName>

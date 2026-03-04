@@ -94,3 +94,4 @@
 .\hero_board1_sjw\task_canreceive.o: ../Devices/Devices.h/J4310_Motor.h
 .\hero_board1_sjw\task_canreceive.o: ../Tasks/Tasks.h/Task_CanReceive.h
 .\hero_board1_sjw\task_canreceive.o: ../BSP/BSP.h/BSP_Usart.h
+.\hero_board1_sjw\task_canreceive.o: ../Devices/Devices.h/SBUS.h

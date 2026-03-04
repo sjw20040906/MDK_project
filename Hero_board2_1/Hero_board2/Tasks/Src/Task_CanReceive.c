@@ -55,5 +55,10 @@ void Can2Receives(void const *argument)
     {
       Board2_1_getChassisInfo(Can_Export_Data);
     }
+
+    else if(ID == CAN_ID_GIMBAL)
+    {
+      Board2_1_getGimbalInfo(Can_Export_Data);
+    }
   }
 }

@@ -93,4 +93,5 @@
 .\hero_board1_sjw\cloud_control.o: ../Tasks/Tasks.h/Task_CanReceive.h
 .\hero_board1_sjw\cloud_control.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board1_sjw\cloud_control.o: ../BSP/BSP.h/BSP_Usart.h
+.\hero_board1_sjw\cloud_control.o: ../Devices/Devices.h/SBUS.h
 .\hero_board1_sjw\cloud_control.o: ../Devices/Devices.h/J4310_Motor.h

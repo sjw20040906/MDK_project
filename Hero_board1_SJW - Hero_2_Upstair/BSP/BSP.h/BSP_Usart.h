@@ -8,6 +8,7 @@
 #include "DT7.h"
 #include "Extern_Handles.h"
 #include "FrictionWheel.h"
+#include "SBUS.h"
 
 #define Usart_DMA_Idle_Length 128
 

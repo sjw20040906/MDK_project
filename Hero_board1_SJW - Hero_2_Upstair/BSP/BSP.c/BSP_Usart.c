@@ -19,6 +19,12 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 #if (RemoteControlMethod == DT7)
         // DT7遥控器
         DT7_RX_Finish = 1; // 已接受完一包数据
+#elif (RemoteControlMethod == TDF)
+        // TDF遥控器
+        {
+            memcpy(SBUS_RXBuffer, SBUS_Rx_Data, sizeof(SBUS_Rx_Data));
+            SBUS_RX_Finish = 1;
+        }
 #endif
     }
 }

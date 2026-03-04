@@ -90,6 +90,7 @@
 .\hero_board1_sjw\task_communicatewithpc.o: ../Tasks/Tasks.h/Task_CanReceive.h
 .\hero_board1_sjw\task_communicatewithpc.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board1_sjw\task_communicatewithpc.o: ../BSP/BSP.h/BSP_Usart.h
+.\hero_board1_sjw\task_communicatewithpc.o: ../Devices/Devices.h/SBUS.h
 .\hero_board1_sjw\task_communicatewithpc.o: ../Devices/Devices.h/J4310_Motor.h
 .\hero_board1_sjw\task_communicatewithpc.o: ../Alg/Alg.h/FeedForward.h
 .\hero_board1_sjw\task_communicatewithpc.o: ../USB_DEVICE/App/usbd_cdc_if.h
