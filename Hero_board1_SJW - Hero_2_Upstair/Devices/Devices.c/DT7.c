@@ -171,10 +171,6 @@ void DT7_Handle(void)
 				{
 					Dial_Data.Dial_Switch = Dial_Off;
 				}
-				// else if (RC_CtrlData.wheel < -500)
-				// {
-				// 	Dial_Data.Dial_Switch = Dial_Back;
-				// }
 			}
 
 			else if (ControlMes.shoot_state == RC_SW_MID) // 正常模式

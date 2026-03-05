@@ -6,6 +6,7 @@
 #include "string.h"
 #include <stdint.h>
 #include "BSP_BoardCommunication.h"
+#include "DT7.h"
 
 #define SBUS_RX_LEN 25 // 25
 
@@ -18,6 +19,10 @@
 #define MID_VALUE 1024
 // 档位判断容差
 #define TOLERANCE 50
+
+#define SBUS_RC_DOWN 3
+#define SBUS_RC_MID 2
+#define SBUS_RC_UP 1
 
 typedef struct
 {

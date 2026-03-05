@@ -117,5 +117,16 @@ void SBUS_Handle()
         {
             mappedData.Ch4 = 0;
         }
+        if (mappedData.Ch5 == SBUS_RC_MID)
+        {
+            ControlMes.x_velocity = mappedData.Ch3;
+            ControlMes.y_velocity = mappedData.Ch4;
+            ControlMes.z_rotation_velocity = mappedData.Ch10;
+            ControlMes.pitch_velocity = -mappedData.Ch2;
+            ControlMes.yaw_velocity = mappedData.Ch1;
+            ControlMes.AutoAimFlag = 0;
+            ControlMes.yaw_position = Auto_Aim_Yaw;
+        }
     }
+    Board1_To_2();
 }

@@ -14,10 +14,10 @@
 // 重新安装电机或移用代码时需要重新测量这些值（toalAngle）后再允许运动。
 
 /****************Pithch限位*****************/
-const float Delta_Pitch_Min = -14;
-const float Delta_Pitch_Max = 10;
-const float Cloud_Pitch_Min = -14;
-const float Cloud_Pitch_Max = 10;
+const float Delta_Pitch_Min = -28;
+const float Delta_Pitch_Max = 40;
+const float Cloud_Pitch_Min = -28;
+const float Cloud_Pitch_Max = 40;
 const float Pitch_Angle_Init = 0;
 const float Cloud_Pitch_Center = 0;
 const float Cloud_Pitch_Derta = Cloud_Pitch_Center - Cloud_Pitch_Min;
@@ -28,8 +28,8 @@ Cloud_t Cloud;
 float Cloud_Target_Aim_Flag;
 float Cloud_Init_Angle;
 float Pitch_Torque = 3.f; // 云台所需扭矩
-float Pitch_v = 10;
-float Pitch_Kp = 18;
+float Pitch_v = 5;
+float Pitch_Kp = 50;
 float Pitch_Kd = 2.2;
 float Pitch_RC_Sen = 0.0005;
 int16_t Cloud_Aim_Pitch_Flag;
@@ -50,7 +50,6 @@ void Cloud_Init(void)
 	Cloud.Target_Pitch = Cloud_Pitch_Min;
 	Cloud.Pitch_Raw = Cloud_Pitch_Min;
 	Cloud.AutoAim_Pitch = 0;
-
 	One_Kalman_Create(&Cloud_PitchCurrent_Kalman, 6, 10);
 	ControlMes.change_Flag = 0;
 	ControlMes.shoot_Speed = 2;
