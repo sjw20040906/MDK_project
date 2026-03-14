@@ -99,3 +99,4 @@
 .\hero_board1_sjw\task_cansend.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
 .\hero_board1_sjw\task_cansend.o: ../Alg/Alg.h/SpeedRamp.h
 .\hero_board1_sjw\task_cansend.o: ../Devices/Devices.h/SBUS.h
+.\hero_board1_sjw\task_cansend.o: ../Devices/Devices.h/DJI_VT13.h

@@ -14,6 +14,7 @@
 #include "Saber_C3.h"
 #include "DT7.h"
 #include "BSP_Can.h"
+#include "Reset.h"
 
 void Robot_Control(void const *argument);
 

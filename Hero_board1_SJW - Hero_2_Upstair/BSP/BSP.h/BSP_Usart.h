@@ -9,6 +9,7 @@
 #include "Extern_Handles.h"
 #include "FrictionWheel.h"
 #include "SBUS.h"
+#include "DJI_VT13.h"
 
 #define Usart_DMA_Idle_Length 128
 

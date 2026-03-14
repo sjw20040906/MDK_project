@@ -171,21 +171,21 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(Robot_Control_Task, Robot_Control, osPriorityRealtime, 0, 512);
   Robot_Control_Handle = osThreadCreate(osThread(Robot_Control_Task), NULL);
 
-  /* definition and creation of Task_CommunicateToPC_Handle */
-  osThreadDef(Task_CommunicateToPC_Handle, USBCommunicateTask_Send, osPriorityAboveNormal, 0, 256);
-  Task_CommunicateToPC_Handle = osThreadCreate(osThread(Task_CommunicateToPC_Handle), NULL);
+  /* definition and creation of Task_CommunicateToPC_Task */
+  osThreadDef(Task_CommunicateToPC_Task, USBCommunicateTask_Send, osPriorityAboveNormal, 0, 256);
+  Task_CommunicateToPC_Handle = osThreadCreate(osThread(Task_CommunicateToPC_Task), NULL);
 
-  /* definition and creation of Task_CommunicateFromPC_Handle */
-  osThreadDef(Task_CommunicateFromPC_Handle, USBCommunicateTask_Receive, osPriorityAboveNormal, 0, 256);
-  Task_CommunicateFromPC_Handle = osThreadCreate(osThread(Task_CommunicateFromPC_Handle), NULL);
+  /* definition and creation of Task_CommunicateFromPC_Task */
+  osThreadDef(Task_CommunicateFromPC_Task, USBCommunicateTask_Receive, osPriorityAboveNormal, 0, 256);
+  Task_CommunicateFromPC_Handle = osThreadCreate(osThread(Task_CommunicateFromPC_Task), NULL);
 
-  /* definition and creation of Task_DT7_Handle */
-  osThreadDef(Task_DT7_Handle, DT7_Control, osPriorityHigh, 0, 256);
-  Task_DT7_Handle = osThreadCreate(osThread(Task_DT7_Handle), NULL);
+  /* definition and creation of Task_DT7_Task */
+  osThreadDef(Task_DT7_Task, DT7_Control, osPriorityHigh, 0, 256);
+  Task_DT7_Handle = osThreadCreate(osThread(Task_DT7_Task), NULL);
 
-  /* definition and creation of Task_J4310_onlineCheck_Handle */
-  osThreadDef(Task_J4310_onlineCheck_Handle, J4310_onlineCheck, osPriorityAboveNormal, 0, 128);
-  Task_J4310_onlineCheck_Handle = osThreadCreate(osThread(Task_J4310_onlineCheck_Handle), NULL);
+  /* definition and creation of Task_J4310_onlineCheck_Task */
+  osThreadDef(Task_J4310_onlineCheck_Task, J4310_onlineCheck, osPriorityAboveNormal, 0, 128);
+  Task_J4310_onlineCheck_Handle = osThreadCreate(osThread(Task_J4310_onlineCheck_Task), NULL);
   /* USER CODE END RTOS_THREADS */
 
 }

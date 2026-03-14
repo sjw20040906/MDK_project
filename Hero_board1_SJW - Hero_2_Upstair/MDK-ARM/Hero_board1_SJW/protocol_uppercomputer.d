@@ -89,6 +89,7 @@
 .\hero_board1_sjw\protocol_uppercomputer.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board1_sjw\protocol_uppercomputer.o: ../BSP/BSP.h/BSP_Usart.h
 .\hero_board1_sjw\protocol_uppercomputer.o: ../Devices/Devices.h/SBUS.h
+.\hero_board1_sjw\protocol_uppercomputer.o: ../Devices/Devices.h/DJI_VT13.h
 .\hero_board1_sjw\protocol_uppercomputer.o: ../Devices/Devices.h/J4310_Motor.h
 .\hero_board1_sjw\protocol_uppercomputer.o: ../Alg/Alg.h/FeedForward.h
 .\hero_board1_sjw\protocol_uppercomputer.o: ../USB_DEVICE/App/usbd_cdc_if.h

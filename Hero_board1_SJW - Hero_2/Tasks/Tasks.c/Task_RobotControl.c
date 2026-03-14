@@ -19,10 +19,10 @@ void Robot_Control(void const *argument)
 
     for (;;)
     {
+        System_Reset();     // 系统复位
         Remote_Change();    // 变速小陀螺
         Cloud_Sport_Out();  // 云台运动控制
-        Shoot_Processing(); // 发射机构
-
+        Shoot_Processing(); // 发射机构控制
         /****************整合电流数据***************/
         uint8_t data1[8], data2[8], data3[8];
         M3508_setCurrent(M3508_Array[Fric_Left].outCurrent, M3508_Array[Fric_Right].outCurrent, M3508_Array[Dial_Wheel].outCurrent, 0, data1);
@@ -33,7 +33,6 @@ void Robot_Control(void const *argument)
         CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, J4310_SENDID_Pitch, data2);
         CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, J3519_SENDID, data3);
         /****************发送电流数据 end***************/
-
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }
 }

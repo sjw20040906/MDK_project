@@ -180,7 +180,7 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const VTM_Frame *data)
     }
     else
     {
-        Dial_Data.Shoot_Mode = No_Shoot;
+        Dial_Data.Shoot_Mode = Single_Shoot;
         Shoot_Data.Shoot_Switch = TURN_OFF;
     }
 
@@ -286,7 +286,7 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const VTM_Frame *data)
     float target_wz = (float)spin_gear * step;
 
     // —— 平滑斜坡（避免瞬变）：按固定坡度逼近目标 —— //
-    const float rate_per_tick = 30.0f; // 例如每周期最多变化 30（与原来每步±10、累计80步相当的平滑感）
+    const float rate_per_tick = 30.0f;
     if (ControlMes.z_rotation_velocity < target_wz)
     {
         ControlMes.z_rotation_velocity += rate_per_tick;
@@ -470,7 +470,7 @@ void DJI_VT13_Handle(void)
         {
             /******************************遥控器数值传递******************************/
             // 底盘运动控制
-            ControlMes.x_velocity = DJI_VT13_Data.ch[2];
+            ControlMes.x_velocity = -DJI_VT13_Data.ch[2];
             ControlMes.y_velocity = -DJI_VT13_Data.ch[3];
 
             // 云台运动控制

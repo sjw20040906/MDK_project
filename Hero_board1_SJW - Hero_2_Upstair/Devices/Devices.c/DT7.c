@@ -185,19 +185,6 @@ void DT7_Handle(void)
 					ControlMes.z_rotation_velocity = RC_CtrlData.wheel; // 滑轮左右
 			}
 
-			else if (ControlMes.shoot_state == RC_SW_DOWN) // 部署模式
-			{
-				deployment_count++;
-				if (deployment_count % 2 == 1)
-				{
-					ControlMes.Deployment_Flag = 1;
-				}
-				else if (deployment_count % 2 == 0)
-				{
-					ControlMes.Deployment_Flag = 0;
-				}
-			}
-
 			// 云台运动控制
 			ControlMes.AutoAimFlag = 0;
 			ControlMes.pitch_velocity = RC_CtrlData.rc.ch1; // 右手上下

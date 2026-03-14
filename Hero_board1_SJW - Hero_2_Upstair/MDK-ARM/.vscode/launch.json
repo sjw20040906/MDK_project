@@ -14,7 +14,7 @@
       "servertype": "jlink",
       "device": "STM32F407IG",
       "interface": "swd",
-      "serverpath": "C:/Program Files/SEGGER/JLink_V882/JLinkGDBServerCL.exe",
+      "serverpath": "C:/Program Files/SEGGER/JLink/JLinkGDBServerCL.exe",
       "armToolchainPath": "D:/app/STM32CubeCLT/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin",
       "svdFile": "",
       "liveWatch": {

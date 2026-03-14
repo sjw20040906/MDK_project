@@ -35,16 +35,16 @@ void Board2_1_To_Board2_2(void)
  */
 void Board2_1_getChassisInfo(Can_Export_Data_t RxMessage)
 {
-  float vx = -(int16_t)(RxMessage.CANx_Export_RxMessage[0] << 8 | RxMessage.CANx_Export_RxMessage[1]);
+  float vx = (int16_t)(RxMessage.CANx_Export_RxMessage[0] << 8 | RxMessage.CANx_Export_RxMessage[1]);
   float vy = (int16_t)(RxMessage.CANx_Export_RxMessage[2] << 8 | RxMessage.CANx_Export_RxMessage[3]);
   float vw = (int16_t)(RxMessage.CANx_Export_RxMessage[4] << 8 | RxMessage.CANx_Export_RxMessage[5]);
-  ControlMes.yaw_velocity = -(int16_t)(RxMessage.CANx_Export_RxMessage[6] << 8 | RxMessage.CANx_Export_RxMessage[7]);
+  ControlMes.yaw_velocity = (int16_t)(RxMessage.CANx_Export_RxMessage[6] << 8 | RxMessage.CANx_Export_RxMessage[7]);
   chassis_control.Speed_ToCloud.vx = vx;
   chassis_control.Speed_ToCloud.vy = vy;
-  chassis_control.Speed_ToCloud.wz = -1 * vw;
+  chassis_control.Speed_ToCloud.wz = vw;
   if (!ControlMes.AutoAimFlag)
   {
-    Gimbal.Target_Yaw += -1 * ControlMes.yaw_velocity * 0.06f;
+    Gimbal.Target_Yaw += ControlMes.yaw_velocity * 0.5f;
   }
 }
 
@@ -62,7 +62,8 @@ void Board2_1_getGimbalInfo(Can_Export_Data_t RxMessage)
   ControlMes.fric_Flag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 0) & 0x01;
   ControlMes.AutoAimFlag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 1) & 0x01;
   ControlMes.change_Flag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 2) & 0x01;
-  ControlMes.modelFlag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 3) & 0x01;
+  ControlMes.reset_Flag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 3) & 0x01;
+  ControlMes.modelFlag = (uint8_t)(RxMessage.CANx_Export_RxMessage[4]) ;
 
   if (ControlMes.AutoAimFlag == 1)
   {

@@ -238,6 +238,9 @@ typedef struct
 extern RC_Ctl_t RC_CtrlData;
 extern uint8_t DT7_RX_Finish;
 extern uint8_t DT7_Rx_Data[RC_FRAME_LENGTH];
+extern SpeedRamp_t ChassisRamp_ForwardBack;
+extern SpeedRamp_t ChassisRamp_LeftRight;
+extern SpeedRamp_t ChassisRamp_Rotate;
 
 void DT7_Init(void);
 void DT7_Handle(void);

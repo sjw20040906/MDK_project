@@ -3,7 +3,7 @@ Set JLink Project File to "d:\RM\myself\myself_c\MDK_project\Hero_board1_SJW - H
 
 JLink info:
 ------------
-DLL: V8.82 , compiled Oct 29 2025 11:42:48
+DLL: V9.24a, compiled Mar  5 2026 10:55:30
 Firmware: J-Link Pro V4 V12 PLUS Dec compiled 9 2041 12:59:59
 Hardware: V12.00
 S/N : 608888288 
@@ -12,7 +12,7 @@ Feature(s) : GDB, RDI, FlashBP, FlashDL, JFlash
 * JLink Info: InitTarget() start
 * JLink Info: SWD selected. Executing JTAG -> SWD switching sequence.
 * JLink Info: DAP initialized successfully.
-* JLink Info: InitTarget() end - Took 3.69ms
+* JLink Info: InitTarget() end - Took 3.26ms
 * JLink Info: Found SW-DP with ID 0x2BA01477
 * JLink Info: DPIDR: 0x2BA01477
 * JLink Info: CoreSight SoC-400 or earlier
@@ -56,5 +56,5 @@ Erase Done.Programming Done.Verify OK.* JLink Info: Memory map 'before startup c
 * JLink Info: Memory map 'after startup completion point' is active
 Application running ...
 * JLink Info: OnDisconnectTarget() start
-* JLink Info: OnDisconnectTarget() end - Took 585us
-Flash Load finished at 20:58:29
+* JLink Info: OnDisconnectTarget() end - Took 394us
+Flash Load finished at 15:32:06

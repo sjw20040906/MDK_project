@@ -95,4 +95,5 @@
 .\hero_board1_sjw\feedforward.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board1_sjw\feedforward.o: ../BSP/BSP.h/BSP_Usart.h
 .\hero_board1_sjw\feedforward.o: ../Devices/Devices.h/SBUS.h
+.\hero_board1_sjw\feedforward.o: ../Devices/Devices.h/DJI_VT13.h
 .\hero_board1_sjw\feedforward.o: ../Devices/Devices.h/J4310_Motor.h

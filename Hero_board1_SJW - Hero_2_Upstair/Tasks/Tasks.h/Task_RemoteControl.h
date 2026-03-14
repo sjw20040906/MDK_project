@@ -12,7 +12,7 @@
 #ifndef __TASK_REMOTE_CONTROL_H__
 #define __TASK_REMOTE_CONTROL_H__
 
-#include "SBUS.h"
+#include "DJI_VT13.h"
 
 void Remote_Control(void const *argument);
 

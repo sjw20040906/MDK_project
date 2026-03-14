@@ -863,6 +863,11 @@
           <GroupName>BSP</GroupName>
           <Files>
             <File>
+              <FileName>BSP_BoardCommunication.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\BSP.c\BSP_BoardCommunication.c</FilePath>
+            </File>
+            <File>
               <FileName>BSP_Can.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\BSP\BSP.c\BSP_Can.c</FilePath>
@@ -876,11 +881,6 @@
               <FileName>BSP_Delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\BSP\BSP.c\BSP_Delay.c</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_BoardCommunication.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\BSP\BSP.c\BSP_BoardCommunication.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -946,6 +946,11 @@
               <FileName>Time_Stamp.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Apps\Apps.c\Time_Stamp.c</FilePath>
+            </File>
+            <File>
+              <FileName>Reset.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Apps\Apps.c\Reset.c</FilePath>
             </File>
           </Files>
         </Group>

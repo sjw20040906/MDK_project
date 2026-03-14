@@ -96,3 +96,4 @@
 .\hero_board1_sjw\task_j4310_onlinecheck.o: ../Devices/Devices.h/J4310_Motor.h
 .\hero_board1_sjw\task_j4310_onlinecheck.o: ../BSP/BSP.h/BSP_Usart.h
 .\hero_board1_sjw\task_j4310_onlinecheck.o: ../Devices/Devices.h/SBUS.h
+.\hero_board1_sjw\task_j4310_onlinecheck.o: ../Devices/Devices.h/DJI_VT13.h

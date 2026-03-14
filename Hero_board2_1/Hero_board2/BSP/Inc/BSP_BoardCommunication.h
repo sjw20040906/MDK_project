@@ -42,17 +42,18 @@ typedef struct
 	int16_t yaw_realAngle; // 下板传上来的yaw轴角度信息
 	float Speed_Bullet;	   // 裁判系统传来的弹速
 	int16_t heat_remain;   // 裁判系统传来的剩余热量
-	uint8_t modelFlag;	   // 比赛、检录，地盘跟随标模式
+	uint8_t modelFlag;	   // 比赛、检录模式
 	uint8_t shoot_Speed;   // 射速
+	uint8_t reset_Flag;	   // 复位标志
 	uint8_t change_Flag;   // 变速
 	uint8_t fric_Flag;	   // 摩擦轮
-	uint8_t reset_Flag;	   // 复位标志
+	uint8_t Check_In_Flag; // 检录开关
 	uint8_t tnndcolor;	   // 己方颜色，1为红，2为蓝
 	uint8_t redial;
 	int16_t Gimbal_Chassis_Pitch_Angle; // 底盘正方向的pitch轴角度
-	uint8_t jump_Flag;
-	uint16_t Blood_Volume; // 机器人当前血量
-	uint16_t game_start;   // 比赛开始标志（未开始为1，准备、自检、比赛中为1）
+	uint8_t Deployment_Flag;			// 部署模式开关
+	uint16_t Blood_Volume;				// 机器人当前血量
+	uint16_t game_start;				// 比赛开始标志（未开始为1，准备、自检、比赛中为1）
 } ControlMessge;
 
 typedef struct

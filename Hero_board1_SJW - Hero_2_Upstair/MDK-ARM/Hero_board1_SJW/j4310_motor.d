@@ -95,3 +95,4 @@
 .\hero_board1_sjw\j4310_motor.o: ../Devices/Devices.h/J4310_Motor.h
 .\hero_board1_sjw\j4310_motor.o: ../BSP/BSP.h/BSP_Usart.h
 .\hero_board1_sjw\j4310_motor.o: ../Devices/Devices.h/SBUS.h
+.\hero_board1_sjw\j4310_motor.o: ../Devices/Devices.h/DJI_VT13.h

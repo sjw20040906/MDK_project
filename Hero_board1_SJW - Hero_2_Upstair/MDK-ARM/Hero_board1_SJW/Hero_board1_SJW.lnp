@@ -63,6 +63,7 @@
 ".\hero_board1_sjw\m3508_motor.o"
 ".\hero_board1_sjw\dt7.o"
 ".\hero_board1_sjw\sbus.o"
+".\hero_board1_sjw\dji_vt13.o"
 ".\hero_board1_sjw\cloud_control.o"
 ".\hero_board1_sjw\dial.o"
 ".\hero_board1_sjw\frictionwheel.o"

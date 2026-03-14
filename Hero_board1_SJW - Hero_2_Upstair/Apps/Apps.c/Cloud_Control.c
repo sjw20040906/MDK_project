@@ -31,7 +31,7 @@ float Pitch_Torque = 3.f; // 云台所需扭矩
 float Pitch_v = 5;
 float Pitch_Kp = 50;
 float Pitch_Kd = 2.2;
-float Pitch_RC_Sen = 0.0005;
+float Pitch_RC_Sen = 0.001;
 int16_t Cloud_Aim_Pitch_Flag;
 int Aim_Flag = 0;
 /*****************数据声明end****************/

@@ -11,9 +11,6 @@
 
 #include "Task_J4310_onlineCheck.h"
 
-uint16_t pitch_Frame = 0;
-uint16_t dial_Frame = 0;
-
 void J4310_onlineCheck(void const *argument)
 {
 
@@ -22,18 +19,14 @@ void J4310_onlineCheck(void const *argument)
     const TickType_t TimeIncrement = pdMS_TO_TICKS(1);
     for (;;)
     {
-        if (pitch_Frame == J4310s_Pitch.InfoUpdateFrame)
+        if (J4310s_Pitch.state == 0)
         {
             J4310_Enable();
         }
-        pitch_Frame = J4310s_Pitch.InfoUpdateFrame;
-
-        if (dial_Frame == J3519_Array[J3519_Dail_Wheel].InfoUpdateFrame)
+        if (J3519_Array[J3519_Dail_Wheel].state == 0)
         {
             J3519_Enable(&hcan1, 0x001);
         }
-        dial_Frame = J3519_Array[J3519_Dail_Wheel].InfoUpdateFrame;
-
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }
 }

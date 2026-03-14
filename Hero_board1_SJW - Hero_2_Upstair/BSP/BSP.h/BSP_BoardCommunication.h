@@ -41,6 +41,7 @@ typedef struct
 	int16_t heat_remain;   // 裁判系统传来的剩余热量
 	uint8_t modelFlag;	   // 比赛、检录模式
 	uint8_t shoot_Speed;   // 射速
+	uint8_t reset_Flag;	   // 复位标志
 	uint8_t change_Flag;   // 变速
 	uint8_t fric_Flag;	   // 摩擦轮
 	uint8_t Check_In_Flag; // 检录开关
@@ -53,24 +54,7 @@ typedef struct
 } ControlMessge;
 
 /* 图传遥控客户端下发键鼠遥控信息:0x0304  Byte 12*/
-typedef struct
-{
-	union
-	{
-		uint8_t dataBuff[12];
-		__packed struct
-		{
-			int16_t mouse_x;
-			int16_t mouse_y;
-			int16_t mouse_z; // 鼠标滚轮
-			int8_t left_button_down;
-			int8_t right_button_down;
-			uint16_t keyboard_value;
-			uint16_t reserved;
-		};
-	} data;
-	uint8_t InfoUpdataFlag;
-} ext_robot_keycommand_t;
+
 
 void Board1_To_2(void);
 void Board1_getGimbalInfo(Can_Export_Data_t RxMessage);

@@ -98,6 +98,7 @@
 .\hero_board1_sjw\freertos.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
 .\hero_board1_sjw\freertos.o: ../Alg/Alg.h/SpeedRamp.h
 .\hero_board1_sjw\freertos.o: ../Devices/Devices.h/SBUS.h
+.\hero_board1_sjw\freertos.o: ../Devices/Devices.h/DJI_VT13.h
 .\hero_board1_sjw\freertos.o: ../Tasks/Tasks.h/Task_J4310_onlineCheck.h
 .\hero_board1_sjw\freertos.o: ../Tasks/Tasks.h/Task_CanSend.h
 .\hero_board1_sjw\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
