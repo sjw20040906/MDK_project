@@ -19,7 +19,6 @@ uint8_t DJI_VT13_RX_Finish;
 static int RampRate_ForwardBack = 80; // 斜坡函数叠加值
 static int RampRate_LeftRight = 80;   // 斜坡函数叠加值
 static int F_Lock = 0;
-static int ctrl_Lock = 0;
 static int8_t spin_gear = 0;     // 档位：-3,-2,-1,0,1,2,3
 static uint8_t q_combo_lock = 0; // Shift+Q 组合按键沿检测锁
 static uint8_t e_combo_lock = 0; // Shift+E 组合按键沿检测锁

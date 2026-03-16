@@ -40,7 +40,7 @@ extern "C"
 #define DT7 1
 #define TDF 2
 #define DJI_VT13 3
-#define RemoteControlMethod DT7
+#define RemoteControlMethod DJI_VT13
   /* USER CODE END ET */
 
   /* Exported constants --------------------------------------------------------*/
