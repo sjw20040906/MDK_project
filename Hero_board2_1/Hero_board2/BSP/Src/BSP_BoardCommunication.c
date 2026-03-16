@@ -64,7 +64,9 @@ void Board2_1_getGimbalInfo(Can_Export_Data_t RxMessage)
   ControlMes.change_Flag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 2) & 0x01;
   ControlMes.reset_Flag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 3) & 0x01;
   ControlMes.modelFlag = (uint8_t)(RxMessage.CANx_Export_RxMessage[4]) ;
-
+  ControlMes.F_Track_Angle = (int8_t)(RxMessage.CANx_Export_RxMessage[5]);
+  ControlMes.R_Track_Angle = (int8_t)(RxMessage.CANx_Export_RxMessage[6]);
+  
   if (ControlMes.AutoAimFlag == 1)
   {
     if (yaw_position == 0.0f)

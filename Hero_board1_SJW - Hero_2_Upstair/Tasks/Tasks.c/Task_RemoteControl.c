@@ -17,7 +17,7 @@ void Remote_Control(void const *argument)
     const TickType_t TimeIncrement = pdMS_TO_TICKS(5); // 每5毫秒强制进入数据发送
     for (;;)
     {
-        DJI_VT13_Handle(); // 处理DJVT13遥控器数据
+        SBUS_Handle(); // 处理遥控器数据
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }
 }

@@ -586,12 +586,4 @@ void RemoteControl_PC_Update(void)
 		F_Lock = 0;
 	}
 
-	if (GetKeyMouseAction(KEY_G, KeyAction_PRESS))
-	{
-		ControlMes.redial = 1;
-	}
-	else
-	{
-		ControlMes.redial = 0;
-	}
 }

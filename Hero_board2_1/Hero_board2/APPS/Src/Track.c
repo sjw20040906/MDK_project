@@ -17,8 +17,8 @@
  */
 void Track_motion_control(void)
 {
-    ControlMes_board2.LF_track = -50;
-    ControlMes_board2.LR_track = -50;
-    ControlMes_board2.RR_track = -50;
-    ControlMes_board2.RF_track = -50;
+    ControlMes_board2.LF_track = (int16_t)(ControlMes.F_Track_Angle);
+    ControlMes_board2.LR_track = (int16_t)(ControlMes.R_Track_Angle);
+    ControlMes_board2.RR_track = (int16_t)(ControlMes.R_Track_Angle);
+    ControlMes_board2.RF_track = (int16_t)(ControlMes.F_Track_Angle);
 }

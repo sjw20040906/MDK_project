@@ -104,5 +104,6 @@
 .\hero_board1_sjw\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board1_sjw\freertos.o: ../Tasks/Tasks.h/Task_RemoteControl.h
 .\hero_board1_sjw\freertos.o: ../Tasks/Tasks.h/Task_RobotControl.h
+.\hero_board1_sjw\freertos.o: ../Apps/Apps.h/Track.h
 .\hero_board1_sjw\freertos.o: ../Tasks/Tasks.h/Task_CommunicateWithPC.h
 .\hero_board1_sjw\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h

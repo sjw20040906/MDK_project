@@ -100,3 +100,4 @@
 .\hero_board1_sjw\task_robotcontrol.o: ../Devices/Devices.h/DJI_VT13.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Devices/Devices.h/J4310_Motor.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Alg/Alg.h/FeedForward.h
+.\hero_board1_sjw\task_robotcontrol.o: ../Apps/Apps.h/Track.h

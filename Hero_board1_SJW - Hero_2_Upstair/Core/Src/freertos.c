@@ -235,7 +235,9 @@ void ALL_Init(void const * argument)
     /**********云台初始化*********/
     Cloud_Init();
     /**********遥控器初始化*********/
-    DJI_VT13_Init();
+    SBUS_Init();
+    /**********履带初始化*********/
+    Track_Init();
     vTaskDelete(StartTaskHandle); // 删除启动任务
     taskEXIT_CRITICAL();          // 退出临界区
     osDelay(1);

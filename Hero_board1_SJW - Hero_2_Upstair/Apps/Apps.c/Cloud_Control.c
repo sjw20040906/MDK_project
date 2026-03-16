@@ -54,7 +54,6 @@ void Cloud_Init(void)
 	ControlMes.change_Flag = 0;
 	ControlMes.shoot_Speed = 2;
 	ControlMes.fric_Flag = 0;
-	ControlMes.redial = 0;
 }
 
 /**

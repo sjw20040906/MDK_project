@@ -95,35 +95,35 @@ void SBUS_Handle()
             mappedData.Ch4 = SBUS.Ch4 - MID_VALUE;
             mappedData.Ch5 = map_to_3levels(SBUS.Ch5);
             mappedData.Ch6 = map_to_3levels(SBUS.Ch6);
-            mappedData.Ch7 = map_to_2levels(SBUS.Ch7);
+            mappedData.Ch7 = map_to_3levels(SBUS.Ch7);
             mappedData.Ch8 = map_to_2levels(SBUS.Ch8);
             mappedData.Ch9 = SBUS.Ch9 - MID_VALUE;
             mappedData.Ch10 = SBUS.Ch10 - MID_VALUE;
         }
         /* prevent remote control zero deviation */
-        if (mappedData.Ch1 <= 5 && mappedData.Ch1 >= -5)
+        if (mappedData.Ch1 <= 10 && mappedData.Ch1 >= -10)
         {
             mappedData.Ch1 = 0;
         }
-        if (mappedData.Ch2 <= 5 && mappedData.Ch2 >= -5)
+        if (mappedData.Ch2 <= 10 && mappedData.Ch2 >= -10)
         {
             mappedData.Ch2 = 0;
         }
-        if (mappedData.Ch3 <= 5 && mappedData.Ch3 >= -5)
+        if (mappedData.Ch3 <= 10 && mappedData.Ch3 >= -10)
         {
             mappedData.Ch3 = 0;
         }
-        if (mappedData.Ch4 <= 5 && mappedData.Ch4 >= -5)
+        if (mappedData.Ch4 <= 10 && mappedData.Ch4 >= -10)  
         {
             mappedData.Ch4 = 0;
         }
-        if (mappedData.Ch5 == SBUS_RC_MID)
+        if (mappedData.Ch5 == SBUS_RC_MID && mappedData.Ch7 == SBUS_RC_MID)
         {
-            ControlMes.x_velocity = mappedData.Ch3;
+            ControlMes.x_velocity = -mappedData.Ch3;
             ControlMes.y_velocity = mappedData.Ch4;
             ControlMes.z_rotation_velocity = mappedData.Ch10;
             ControlMes.pitch_velocity = -mappedData.Ch2;
-            ControlMes.yaw_velocity = mappedData.Ch1;
+            ControlMes.yaw_velocity = -mappedData.Ch1;
             ControlMes.AutoAimFlag = 0;
             ControlMes.yaw_position = Auto_Aim_Yaw;
         }

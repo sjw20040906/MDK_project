@@ -69,6 +69,7 @@
 ".\hero_board1_sjw\frictionwheel.o"
 ".\hero_board1_sjw\shoot.o"
 ".\hero_board1_sjw\time_stamp.o"
+".\hero_board1_sjw\track.o"
 ".\hero_board1_sjw\task_communicatewithpc.o"
 ".\hero_board1_sjw\task_robotcontrol.o"
 ".\hero_board1_sjw\task_canreceive.o"
