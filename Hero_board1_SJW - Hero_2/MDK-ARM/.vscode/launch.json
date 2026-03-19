@@ -1,27 +1,24 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Cortex Debug",
-            "cwd": "${workspaceFolder}",
-            "executable": "${workspaceFolder}/Hero_board1_SJW/Hero_board1_SJW.axf",
-            "request": "launch",
-            "type": "cortex-debug",
-            "runToEntryPoint": "main",
-            "servertype": "jlink",
-            "device": "STM32F407IG",
-            "interface": "swd",
-            "serverpath": "C:/Program Files/SEGGER/JLink_V882/JLinkGDBServerCL.exe",
-            "armToolchainPath": "D:/app/STM32CubeCLT/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin",
-            "svdFile": "", // 如果有 .svd 文件，请在此处填写路径以查看寄存器
-            "liveWatch": {
-                "enabled": true,
-                "samplesPerSecond": 4
-            },
-            "overrideLaunchCommands": [
-                "monitor reset",
-                "monitor halt"
-            ]
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Cortex Debug",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/Hero_board1_SJW/Hero_board1_SJW.axf",
+      "request": "launch",
+      "type": "cortex-debug",
+      "runToEntryPoint": "main",
+      "servertype": "jlink",
+      "device": "STM32F407IG",
+      "interface": "swd",
+      "serverpath": "C:/Program Files/SEGGER/JLink/JLinkGDBServerCL.exe",
+      "armToolchainPath": "D:/app/STM32CubeCLT/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin",
+      "svdFile": "", // 如果有 .svd 文件，请在此处填写路径以查看寄存器
+      "liveWatch": {
+        "enabled": true,
+        "samplesPerSecond": 4
+      },
+      "overrideLaunchCommands": ["monitor reset", "monitor halt"]
+    }
+  ]
 }

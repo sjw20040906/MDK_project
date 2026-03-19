@@ -51,7 +51,7 @@ void Shoot_Processing(void);
 extern Shoot_Data_t Shoot_Data;
 extern incrementalpid_t M3508_FricL_Pid;
 extern incrementalpid_t M3508_FricR_Pid;
-extern positionpid_t J3519_DialV_Pid;
-extern incrementalpid_t J3519_DialI_Pid;
+extern positionpid_t M3508_DialV_Pid;
+extern incrementalpid_t M3508_DialI_Pid;
 
 #endif /*__SHOOT_H*/

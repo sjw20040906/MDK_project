@@ -233,14 +233,10 @@ void ALL_Init(void const * argument)
     fuzzy_init(&fuzzy_pid_shoot_R, 100, -100, 25, 0.1, 10);
     Incremental_PIDInit(&M3508_FricL_Pid, 100.f, 0.01f, 30, 20000, 5000);
     Incremental_PIDInit(&M3508_FricR_Pid, 100.f, 0.01f, 30, 20000, 5000);
-
-    Position_PIDInit(&J3519_DialV_Pid, 2.5f, 0.003f, 10.f, 0.2, 200, 1000, 5000);
-    Incremental_PIDInit(&J3519_DialI_Pid, 15.0f, 2.5f, 8, 25, 10000);
-    fuzzy_init(&fuzzy_pid_shoot_L, 100, -100, 25, 0.1, 10);
-    fuzzy_init(&fuzzy_pid_shoot_R, 100, -100, 25, 0.1, 10);
+    Position_PIDInit(&M3508_DialV_Pid, 0.4f, 0.015f, 0.3, 0.5, 2000, 1000, 500);
+    Incremental_PIDInit(&M3508_DialI_Pid, 15.0f, 2.5f, 8, 25000, 10000);
     /**********云台拨弹初始化*********/
     Cloud_Init();
-    J3519_Array[J3519_Dail_Wheel].outPosition = -5.97f;
     /**********遥控器初始化*********/
     DJI_VT13_Init();
     //DT7_Init();

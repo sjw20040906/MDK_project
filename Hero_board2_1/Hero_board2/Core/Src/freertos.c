@@ -31,6 +31,7 @@
 #include "Task_RemoteControl.h"
 #include "Chassis.h"
 #include "Gimbal.h"
+#include "Track.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -213,6 +214,8 @@ void ALL_Init(void const * argument)
     Gimbal_Init();
     /**********底盘初始化*********/
     Chassis_Init();
+    /**********履带初始化*********/
+    Track_Init();
     vTaskDelete(StartTaskHandle);
     taskEXIT_CRITICAL();
     osDelay(1);

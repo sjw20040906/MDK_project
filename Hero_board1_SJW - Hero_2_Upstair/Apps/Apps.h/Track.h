@@ -15,8 +15,8 @@
 #include "BSP_BoardCommunication.h"
 #include "SBUS.h"
 
-#define TRACK_MAX_ANGLE 60
-#define TRACK_MIN_ANGLE -50
+#define TRACK_MAX_ANGLE 100
+#define TRACK_MIN_ANGLE -100
 
 void Track_Motion(void);
 void Track_Init(void);

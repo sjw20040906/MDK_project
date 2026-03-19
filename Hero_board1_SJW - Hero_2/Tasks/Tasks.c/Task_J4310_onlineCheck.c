@@ -23,10 +23,6 @@ void J4310_onlineCheck(void const *argument)
         {
             J4310_Enable();
         }
-        if (J3519_Array[J3519_Dail_Wheel].state == 0)
-        {
-            J3519_Enable(&hcan1, 0x001);
-        }
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }
 }

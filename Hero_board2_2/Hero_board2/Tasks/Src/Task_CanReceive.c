@@ -25,7 +25,7 @@ void Can1Receives(void const *argument)
   {
     xQueueReceive(CAN1_ReceiveHandle, &Can_Export_Data, portMAX_DELAY);
     DM_RxID_CAN1 = (Can_Export_Data.CANx_Export_RxMessage[0]) & 0x0F;
-    if (DM_RxID_CAN1 == DM_LF_ReadID || DM_RxID_CAN1  == DM_LR_ReadID)
+    if (DM_RxID_CAN1 == DM_LF_ReadID || DM_RxID_CAN1  == DM_LR_ReadID || DM_RxID_CAN1 == DM_RR_ReadID || DM_RxID_CAN1 == DM_RF_ReadID)
     {
       DM_getInfo(Can_Export_Data);
     }
@@ -47,10 +47,10 @@ void Can2Receives(void const *argument)
     xQueueReceive(CAN2_ReceiveHandle, &Can_Export_Data, portMAX_DELAY);
     ID = Can_Export_Data.CAN_RxHeader.StdId;
     DM_RxID_CAN2 = (Can_Export_Data.CANx_Export_RxMessage[0]) & 0x0F;
-    if (DM_RxID_CAN2 == DM_RR_ReadID || DM_RxID_CAN2 == DM_RF_ReadID)  
-    {
-      DM_getInfo(Can_Export_Data);
-    }
+    // if (DM_RxID_CAN2 == DM_RR_ReadID || DM_RxID_CAN2 == DM_RF_ReadID)  
+    // {
+    //   DM_getInfo(Can_Export_Data);
+    // }
     if (ID == CAN_ID_B2_TRACK_DATA )
     {
       Board2_2_getTrackInfo(Can_Export_Data);

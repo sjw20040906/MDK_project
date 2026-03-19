@@ -74,7 +74,7 @@ typedef enum
 		330,                \
 		0,                  \
 		0,                  \
-		4000,              \
+		2000,              \
 		Single_Shoot,       \
 		Dial_Off,           \
 	}

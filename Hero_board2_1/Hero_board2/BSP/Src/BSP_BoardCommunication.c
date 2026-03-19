@@ -25,7 +25,7 @@ void Board2_1_To_Board2_2(void)
   data_track[5] = ControlMes_board2.RR_track;
   data_track[6] = ControlMes_board2.RF_track >> 8;
   data_track[7] = ControlMes_board2.RF_track;
-  CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, CAN_ID_B1_TRACK_DATA, data_track);
+  CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, CAN_ID_B1_TRACK_DATA, data_track);
 }
 
 /**
@@ -63,10 +63,10 @@ void Board2_1_getGimbalInfo(Can_Export_Data_t RxMessage)
   ControlMes.AutoAimFlag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 1) & 0x01;
   ControlMes.change_Flag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 2) & 0x01;
   ControlMes.reset_Flag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 3) & 0x01;
-  ControlMes.modelFlag = (uint8_t)(RxMessage.CANx_Export_RxMessage[4]) ;
-  ControlMes.F_Track_Angle = (int8_t)(RxMessage.CANx_Export_RxMessage[5]);
-  ControlMes.R_Track_Angle = (int8_t)(RxMessage.CANx_Export_RxMessage[6]);
-  
+  //ControlMes.modelFlag = (uint8_t)(RxMessage.CANx_Export_RxMessage[4]);
+  ControlMes.F_Track_Angle = (int16_t)(RxMessage.CANx_Export_RxMessage[4] << 8 | RxMessage.CANx_Export_RxMessage[5]);
+  ControlMes.R_Track_Angle = (int16_t)(RxMessage.CANx_Export_RxMessage[6] << 8 | RxMessage.CANx_Export_RxMessage[7]);
+
   if (ControlMes.AutoAimFlag == 1)
   {
     if (yaw_position == 0.0f)

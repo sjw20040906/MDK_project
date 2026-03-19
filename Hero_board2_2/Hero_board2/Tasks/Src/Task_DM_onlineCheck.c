@@ -16,7 +16,7 @@ void DM_onlineCheck(void const *argument)
 
     portTickType xLastWakeTime;
     xLastWakeTime = xTaskGetTickCount();
-    const TickType_t TimeIncrement = pdMS_TO_TICKS(3);
+    const TickType_t TimeIncrement = pdMS_TO_TICKS(2);
     for (;;)
     {
         if (!DM_Array[LF].state)
@@ -27,13 +27,14 @@ void DM_onlineCheck(void const *argument)
         {
             DM_Enable(&hcan1, DM_LR);
         }
+        osDelay(1);
         if (!DM_Array[RR].state)
         {
-            DM_Enable(&hcan2, DM_RR);
+            DM_Enable(&hcan1, DM_RR);
         }
         if (!DM_Array[RF].state)
         {
-            DM_Enable(&hcan2, DM_RF);
+            DM_Enable(&hcan1, DM_RF);
         }
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }

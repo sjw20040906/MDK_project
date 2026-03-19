@@ -31,7 +31,7 @@ void Track_Motion(void)
 
     if (mappedData.Ch7 == SBUS_RC_UP)
     {
-        ControlMes.F_Track_Angle = (int8_t)(mappedData.Ch10);
+        ControlMes.F_Track_Angle = mappedData.Ch10;
     }
     else
     {
@@ -39,27 +39,10 @@ void Track_Motion(void)
     }
     if (mappedData.Ch7 == SBUS_RC_DOWN)
     {
-        ControlMes.R_Track_Angle = (int8_t)(mappedData.Ch10);
+        ControlMes.R_Track_Angle = mappedData.Ch10;
     }
     else
     {
         ControlMes.R_Track_Angle = 0;
-    }
-
-    if (ControlMes.F_Track_Angle < TRACK_MIN_ANGLE)
-    {
-        ControlMes.F_Track_Angle = TRACK_MIN_ANGLE;
-    }
-    else if (ControlMes.F_Track_Angle > TRACK_MAX_ANGLE)
-    {
-        ControlMes.F_Track_Angle = TRACK_MAX_ANGLE;
-    }
-    if (ControlMes.R_Track_Angle < TRACK_MIN_ANGLE)
-    {
-        ControlMes.R_Track_Angle = TRACK_MIN_ANGLE;
-    }
-    else if (ControlMes.R_Track_Angle > TRACK_MAX_ANGLE)
-    {
-        ControlMes.R_Track_Angle = TRACK_MAX_ANGLE;
     }
 }

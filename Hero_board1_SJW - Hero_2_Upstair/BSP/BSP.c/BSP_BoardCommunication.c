@@ -37,9 +37,11 @@ void Board1_To_2(void)
   data2[3] |= (uint8_t)(ControlMes.AutoAimFlag & 0x01) << 1;
   data2[3] |= (uint8_t)(ControlMes.change_Flag & 0x01) << 2;
   data2[3] |= (uint8_t)(ControlMes.reset_Flag & 0x01) << 3;
-  data2[4] = (uint8_t)(ControlMes.modelFlag);
+  //data2[4] = (uint8_t)(ControlMes.modelFlag);
+  data2[4] = ControlMes.F_Track_Angle >> 8;
   data2[5] = ControlMes.F_Track_Angle;
-  data2[6] = ControlMes.R_Track_Angle;
+  data2[6] = ControlMes.R_Track_Angle >> 8;
+  data2[7] = ControlMes.R_Track_Angle;
   // 数据发送
   CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, CAN_ID_GIMBAL, data2);
 }

@@ -53,8 +53,8 @@ typedef struct
 	uint8_t Deployment_Flag;			// 部署模式开关
 	uint16_t Blood_Volume;				// 机器人当前血量
 	uint16_t game_start;				// 比赛开始标志（未开始为1，准备、自检、比赛中为1）
-	int8_t F_Track_Angle;				// 前履带角度
-	int8_t R_Track_Angle;				// 后履带角度
+	int16_t F_Track_Angle;				// 前履带角度
+	int16_t R_Track_Angle;				// 后履带角度
 } ControlMessge;
 
 typedef struct

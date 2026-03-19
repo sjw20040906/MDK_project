@@ -9,9 +9,6 @@
 
 #include "Chassis.h"
 
-float Delta_F = 0;
-float Delta_R = 0;
-
 positionpid_t PID_Wheel0; // 左前轮
 positionpid_t PID_Wheel1; // 左后轮
 positionpid_t PID_Wheel2; // 右后轮

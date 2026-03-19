@@ -79,3 +79,4 @@
 .\hero_board2\freertos.o: ../DEV/Inc/wit_imu.h
 .\hero_board2\freertos.o: ../BSP/Inc/BSP_Usart.h
 .\hero_board2\freertos.o: ../Tasks/Inc/Task_RemoteControl.h
+.\hero_board2\freertos.o: ../APPS/Inc/Track.h

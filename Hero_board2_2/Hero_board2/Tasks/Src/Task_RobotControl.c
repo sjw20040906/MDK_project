@@ -28,8 +28,9 @@ void Robot_Control(void const *argument)
         /****************发送电流数据***************/
         CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, DM_LF, data1);
         CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, DM_LR, data2);
-        CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, DM_RR, data3);
-        CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, DM_RF, data4);
+        osDelay(1);
+        CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, DM_RR, data3);
+        CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, DM_RF, data4);
         /****************发送电流数据end***************/
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }

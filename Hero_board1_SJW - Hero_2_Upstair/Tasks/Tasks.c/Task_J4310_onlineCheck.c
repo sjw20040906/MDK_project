@@ -19,7 +19,7 @@ void J4310_onlineCheck(void const *argument)
     const TickType_t TimeIncrement = pdMS_TO_TICKS(1);
     for (;;)
     {
-        if (J4310s_Pitch.state == 0)
+        if (!J4310s_Pitch.state)
         {
             J4310_Enable();
         }

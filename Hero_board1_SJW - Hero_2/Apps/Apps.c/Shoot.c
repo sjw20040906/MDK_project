@@ -10,19 +10,13 @@
  */
 #include "Shoot.h"
 
-/**************相关数据定义****************/
-float Dial_Torque = 0;
-float Dial_v = 0;
-float Dial_Kp = 0;
-float Dial_Kd = 100;
-
 Shoot_Data_t Shoot_Data = Shoot_DataGroundInit;
 #undef Shoot_DataGroundInit
 
 incrementalpid_t M3508_FricL_Pid; // 左摩擦轮pid
 incrementalpid_t M3508_FricR_Pid; // 右摩擦轮pid
-positionpid_t J3519_DialV_Pid;	  // 拨弹外环pid
-incrementalpid_t J3519_DialI_Pid; // 拨弹内环pid
+positionpid_t M3508_DialV_Pid;	  // 拨弹外环pid
+incrementalpid_t M3508_DialI_Pid; // 拨弹内环pid
 
 /**
  * @brief  射击总处理函数
@@ -32,8 +26,6 @@ incrementalpid_t J3519_DialI_Pid; // 拨弹内环pid
  */
 void Shoot_Processing(void)
 {
-	J3519_Array[J3519_Dail_Wheel].outKp = Dial_Kp;
-	J3519_Array[J3519_Dail_Wheel].outKd = Dial_Kd;
 	Fric_Processing();						  // 摩擦轮处理函数
 	Fric_Judge_ReadyOrNot();				  // 检测摩擦轮是否就绪
 	Dial_Update_Angel(Fric_Data.Fric_Ready); // 拨弹盘角度更新并处理

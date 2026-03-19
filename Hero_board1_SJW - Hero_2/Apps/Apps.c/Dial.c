@@ -37,11 +37,13 @@ void Dial_Processing(void)
 				Dial_OneBullet();
 				last_dial_time = current_time;
 			}
-			J3519_Array[J3519_Dail_Wheel].outSpeed = Position_PID(&J3519_DialV_Pid, J3519_Array[J3519_Dail_Wheel].outPosition, J3519_Array[J3519_Dail_Wheel].totalAngle);
+		M3508_Array[Dial_Wheel].targetSpeed = Position_PID_Dial(&M3508_DialV_Pid, &FuzzyPID_Dial, M3508_Array[Dial_Wheel].targetAngle, M3508_Array[Dial_Wheel].totalAngle);
+		M3508_Array[Dial_Wheel].outCurrent = Incremental_PID(&M3508_DialI_Pid, M3508_Array[Dial_Wheel].targetSpeed, M3508_Array[Dial_Wheel].realSpeed);
 		}
 		else
 		{
-			J3519_Array[J3519_Dail_Wheel].outSpeed = 0;
+		M3508_Array[Dial_Wheel].targetSpeed = 0;
+		M3508_Array[Dial_Wheel].outCurrent = Incremental_PID(&M3508_DialI_Pid, M3508_Array[Dial_Wheel].targetSpeed, M3508_Array[Dial_Wheel].realSpeed);
 		}
 	}
 
@@ -55,11 +57,13 @@ void Dial_Processing(void)
 				Dial_OneBullet();
 				last_dial_time = current_time;
 			}
-			J3519_Array[J3519_Dail_Wheel].outSpeed = Position_PID(&J3519_DialV_Pid, J3519_Array[J3519_Dail_Wheel].outPosition, J3519_Array[J3519_Dail_Wheel].totalAngle);
+		M3508_Array[Dial_Wheel].targetSpeed = Position_PID_Dial(&M3508_DialV_Pid, &FuzzyPID_Dial, M3508_Array[Dial_Wheel].targetAngle, M3508_Array[Dial_Wheel].totalAngle);
+		M3508_Array[Dial_Wheel].outCurrent = Incremental_PID(&M3508_DialI_Pid, M3508_Array[Dial_Wheel].targetSpeed, M3508_Array[Dial_Wheel].realSpeed);
 		}
 		else
 		{
-			J3519_Array[J3519_Dail_Wheel].outSpeed = 0;
+		M3508_Array[Dial_Wheel].targetSpeed = 0;
+		M3508_Array[Dial_Wheel].outCurrent = Incremental_PID(&M3508_DialI_Pid, M3508_Array[Dial_Wheel].targetSpeed, M3508_Array[Dial_Wheel].realSpeed);
 		}
 	}
 }
@@ -73,8 +77,9 @@ void Dial_Processing(void)
  */
 void Dial_OneBullet()
 {
-	J3519_Array[J3519_Dail_Wheel].outPosition -= (float)Angle_DialOneBullet_42mm; 
+	M3508_Array[Dial_Wheel].targetAngle += (float)Angle_DialOneBullet_42mm;
 }
+
 
 /**
  * @brief  更新拨盘电机的角度值
@@ -92,7 +97,8 @@ void Dial_Update_Angel(bool Fric_ReadyOrNot)
 	}
 	else
 	{
-		J3519_Array[J3519_Dail_Wheel].outPosition = J3519_Array[J3519_Dail_Wheel].outPosition;
+		M3508_Array[Dial_Wheel].targetSpeed = 0;
+		M3508_Array[Dial_Wheel].outCurrent = Incremental_PID(&M3508_DialI_Pid, M3508_Array[Dial_Wheel].targetSpeed, M3508_Array[Dial_Wheel].realSpeed);
 	}
 }
 

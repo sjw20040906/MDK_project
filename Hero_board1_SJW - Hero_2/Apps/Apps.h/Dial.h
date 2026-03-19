@@ -42,7 +42,7 @@ typedef enum
 	No_Shoot,
 } Shoot_Modes;
 
-#define Angle_DialOneBullet_42mm 20.106193
+#define Angle_DialOneBullet_42mm 26214.4 // 8192/6*19.2
 
 /* Dial函数数据以及函数的接口结构体 */
 #define Dial_DataGroundInit \
