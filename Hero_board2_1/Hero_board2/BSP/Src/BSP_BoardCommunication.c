@@ -57,13 +57,11 @@ void Board2_1_getGimbalInfo(Can_Export_Data_t RxMessage)
 {
   static float AutoAim_Offset = 0;
   float yaw_position = (int16_t)(RxMessage.CANx_Export_RxMessage[0] << 8 | RxMessage.CANx_Export_RxMessage[1]);
-  ControlMes.shoot_Speed = (uint8_t)RxMessage.CANx_Export_RxMessage[2];
-  ControlMes.shoot_Speed /= 2;
+  ControlMes.modelFlag = (uint8_t)(RxMessage.CANx_Export_RxMessage[2]);
   ControlMes.fric_Flag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 0) & 0x01;
   ControlMes.AutoAimFlag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 1) & 0x01;
   ControlMes.change_Flag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 2) & 0x01;
   ControlMes.reset_Flag = (uint8_t)(RxMessage.CANx_Export_RxMessage[3] >> 3) & 0x01;
-  //ControlMes.modelFlag = (uint8_t)(RxMessage.CANx_Export_RxMessage[4]);
   ControlMes.F_Track_Angle = (int16_t)(RxMessage.CANx_Export_RxMessage[4] << 8 | RxMessage.CANx_Export_RxMessage[5]);
   ControlMes.R_Track_Angle = (int16_t)(RxMessage.CANx_Export_RxMessage[6] << 8 | RxMessage.CANx_Export_RxMessage[7]);
 

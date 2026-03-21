@@ -36,10 +36,7 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-#define DT7 1
-#define TDF 2
-#define DJI_VT13 3
-#define RemoteControlMethod TDF
+
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

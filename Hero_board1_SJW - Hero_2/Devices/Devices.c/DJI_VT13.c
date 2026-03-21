@@ -16,8 +16,8 @@ VTM_Frame DJI_VT13_Data;
 KeyMouseDetect_t KeyMouseDetect;
 uint8_t DJI_VT13_RX_Buf[VTM_FRAME_LEN];
 uint8_t DJI_VT13_RX_Finish;
-static int RampRate_ForwardBack = 50; // 斜坡函数叠加值
-static int RampRate_LeftRight = 50;   // 斜坡函数叠加值
+static int RampRate_ForwardBack = 20; // 斜坡函数叠加值
+static int RampRate_LeftRight = 20;   // 斜坡函数叠加值
 static int F_Lock = 0;
 static int8_t spin_gear = 0;     // 档位：-3,-2,-1,0,1,2,3
 static uint8_t q_combo_lock = 0; // Shift+Q 组合按键沿检测锁
