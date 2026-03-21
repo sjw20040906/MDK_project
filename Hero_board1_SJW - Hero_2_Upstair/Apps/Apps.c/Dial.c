@@ -53,7 +53,7 @@ void Dial_Processing(void)
  */
 void Dial_OneBullet()
 {
-	M3508_Array[Dial_Wheel].targetAngle -= (float)Angle_DialOneBullet_42mm;
+	M3508_Array[Dial_Wheel].targetAngle += (float)Angle_DialOneBullet_42mm;
 }
 
 /**

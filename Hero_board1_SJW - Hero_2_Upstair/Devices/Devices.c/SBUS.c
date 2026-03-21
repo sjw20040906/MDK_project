@@ -113,19 +113,91 @@ void SBUS_Handle()
         {
             mappedData.Ch3 = 0;
         }
-        if (mappedData.Ch4 <= 10 && mappedData.Ch4 >= -10)  
+        if (mappedData.Ch4 <= 10 && mappedData.Ch4 >= -10)
         {
             mappedData.Ch4 = 0;
         }
-        if (mappedData.Ch5 == SBUS_RC_MID && mappedData.Ch7 == SBUS_RC_MID)
+        // 正常模式
+        if (mappedData.Ch5 == SBUS_RC_MID)
         {
             ControlMes.x_velocity = -mappedData.Ch3;
             ControlMes.y_velocity = mappedData.Ch4;
-            ControlMes.z_rotation_velocity = mappedData.Ch10;
             ControlMes.pitch_velocity = -mappedData.Ch2;
             ControlMes.yaw_velocity = -mappedData.Ch1;
             ControlMes.AutoAimFlag = 0;
             ControlMes.yaw_position = Auto_Aim_Yaw;
+            // 小陀螺 or 履带
+            if (mappedData.Ch7 == SBUS_RC_MID)
+            {
+                ControlMes.z_rotation_velocity = mappedData.Ch10;
+            }
+            else
+            {
+                ControlMes.z_rotation_velocity = 0;
+            }
+            // 发射状态
+            if (mappedData.Ch6 == SBUS_RC_UP)
+            {
+                Fric_Data.Fric_Switch = Fric_On;
+                ControlMes.fric_Flag = 1;
+                if (mappedData.Ch8 == SBUS_RC_UP)
+                {
+                    Dial_Data.Dial_Switch = Dial_On;
+                }
+                else if (mappedData.Ch8 == SBUS_RC_MID)
+                {
+                    Dial_Data.Dial_Switch = Dial_Off;
+                }
+            }
+            else if (mappedData.Ch6 == SBUS_RC_MID)
+            {
+                Dial_Data.Dial_Switch = Dial_Off;
+                Dial_Data.Speed_Dial = 0;
+                Dial_Data.Number_ToBeFired = 0;
+                Fric_Data.Fric_Switch = Fric_Off;
+                ControlMes.fric_Flag = 0;
+                ControlMes.Check_In_Flag = 0;
+            }
+        }
+        else if (mappedData.Ch5 == SBUS_RC_UP)
+        {
+            ControlMes.x_velocity = -mappedData.Ch3;
+            ControlMes.y_velocity = mappedData.Ch4;
+            ControlMes.AutoAimFlag = 1;
+            ControlMes.yaw_position = Auto_Aim_Yaw;
+            Cloud.AutoAim_Pitch = Auto_Aim_Pitch;
+            // 小陀螺 or 履带
+            if (mappedData.Ch7 == SBUS_RC_MID)
+            {
+                ControlMes.z_rotation_velocity = mappedData.Ch10;
+            }
+            else
+            {
+                ControlMes.z_rotation_velocity = 0;
+            }
+            // 发射状态
+            if (mappedData.Ch6 == SBUS_RC_UP)
+            {
+                Fric_Data.Fric_Switch = Fric_On;
+                ControlMes.fric_Flag = 1;
+                if (mappedData.Ch8 == SBUS_RC_UP)
+                {
+                    Dial_Data.Dial_Switch = Dial_On;
+                }
+                else if (mappedData.Ch8 == SBUS_RC_MID)
+                {
+                    Dial_Data.Dial_Switch = Dial_Off;
+                }
+            }
+            else if (mappedData.Ch6 == SBUS_RC_MID)
+            {
+                Dial_Data.Dial_Switch = Dial_Off;
+                Dial_Data.Speed_Dial = 0;
+                Dial_Data.Number_ToBeFired = 0;
+                Fric_Data.Fric_Switch = Fric_Off;
+                ControlMes.fric_Flag = 0;
+                ControlMes.Check_In_Flag = 0;
+            }
         }
     }
     Board1_To_2();
