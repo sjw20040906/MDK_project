@@ -10,8 +10,6 @@
  */
 #include "FrictionWheel.h"
 
-/**************用户数据定义****************/
-float PID_Model4_Update(incrementalpid_t *pid, FUZZYPID_Data_t *PID, float _set_point, float _now_point);
 /****************接口定义******************/
 Fric_Data_t Fric_Data = Fric_DataGroundInit;
 #undef Fric_DataGroundInit
@@ -43,12 +41,12 @@ void Fric_Processing()
 void Fric_Set_targetSpeed(void)
 {
 
-  if (ControlMes.fric_Flag == 0 || Heat_Data.overheat)
+  if (ControlMes.fric_Flag == 0)
   {
     Fric_Data.Required_Speed = 0;
     return;
   }
-  else if (ControlMes.fric_Flag == 1 && !Heat_Data.overheat)
+  else if (ControlMes.fric_Flag == 1)
   {
     Fric_Data.Required_Speed = Fric_SpeedLevel1;
   }

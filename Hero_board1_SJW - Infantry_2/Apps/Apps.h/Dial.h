@@ -1,12 +1,9 @@
 /**
  * @file Dial.h
- * @author Why
+ * @author sjw
  * @brief 处理拨盘电机的控制问题
  * @version 0.1
  * @date 2023-08-14
- *
- * @copyright Copyright (c) 2021
- *
  */
 
 #ifndef __DIAL_H
@@ -22,97 +19,61 @@
 
 /**
  * @brief  拨弹电机的开关
- * @param
  */
 typedef enum
 {
-	Dial_Off = 0,
-	Dial_On,
-	Dial_Back,
+    Dial_Off = 0,
+    Dial_On,
+    Dial_Back,
 } Dial_On_Off;
 
 /**
  * @brief  发射模式
- * @param  单发和连发
  */
 typedef enum
 {
-	Single_Shoot = 0,
-	Continuous_Shoot,
-	No_Shoot,
+    Single_Shoot = 0,
+    Continuous_Shoot,
+    No_Shoot,
 } Shoot_Modes;
 
 /* 拨出一个弹丸，电机需要转动的角度，映射为360°-8192 */
-#define Angle_DialOneBullet_17mm 36864.0f // 1024*36  //8192*36/8
-#define Burst_First_Level1_Max_Heat 220
-#define Burst_First_Level1_Cooling_Rate 40
-#define Cooling_First_Level1_Max_Heat 50
-#define Cooling_First_Level1_Cooling_Rate 40
-#define CONTINUOUS_ROTATION_SPEED 50.0f //
-#define CHECK_INTERVAL 400				// 检测间隔
-#define REVERSE_DURATION 200			// 反转时间
-#define ANGLE_CHANGE_THRESHOLD 50		// 角度变化阈值
+#define Angle_DialOneBullet_17mm 36864.0f
 
-/* Heat数据的接口结构体*/
-#define Heat_Data_Init_Burst_First_Level1 \
-	{                                     \
-		0,                                \
-		Burst_First_Level1_Max_Heat,      \
-		Burst_First_Level1_Cooling_Rate,  \
-		0,                                \
-		0,                                \
-		0,                                \
-		0,                                \
-		0,                                \
-		0,                                \
-	}
+/* 拨盘相关参数 */
+#define CHECK_INTERVAL          20      // 扭矩检测间隔(ms)
+#define REVERSE_DURATION        200     // 反转持续时间(ms)
+#define DIAL_REVERSE_SPEED      1000    // 反转速度
+#define DIAL_TORQUE_THRESHOLD   7000    // 堵转扭矩阈值，根据实测调整
 
-/* Dial数据以及函数的接口结构体 */
+/* Dial数据接口结构体 */
 #define Dial_DataGroundInit \
-	{                       \
-		0,                  \
-		330,                \
-		0,                  \
-		0,                  \
-		2000,              \
-		Single_Shoot,       \
-		Dial_Off,           \
-	}
-
-typedef struct Heat_Data_t
-{
-	// 要储存的值有：当前热量(根据非卡弹倒拨时角度累计来增加，根据时间冷却来减少)，最大热量，冷却速率，过热标志
-	float current_heat; // 当前热量
-	int max_heat;		// 最高热量
-	float cooling_rate; // 冷却速率
-	int overheat;		// 是否过热的标志
-
-	uint32_t current_time;		// 获取当前时间
-	int32_t last_normal_angle;	// 上一次正常拨弹时的总角度值
-	int32_t total_normal_angle; // 累计的正常拨弹角度（绝对值）
-	uint32_t last_cooling_time; // 上一次记录冷却的时间
-	uint32_t cooling_ticks;		// 累计的冷却tick数
-} Heat_Data_t;
+    {                       \
+        0,                  \
+        330,                \
+        0,                  \
+        0,                  \
+        2000,               \
+        Single_Shoot,       \
+        Dial_Off,           \
+    }
 
 typedef struct Dial_Data_t
 {
-	uint8_t Number_ToBeFired; // 需要打击的弹丸数量
-	uint16_t Shoot_Interval;  // 攻击间隔
-	uint32_t Time_NextShoot;  // 下次射击的时间，即系统时间超过这个值才能射击
-	uint16_t Bullet_Dialed;	  // 已经打出的子弹
-	int16_t Speed_Dial;		  // 连发的拨盘电机速度
-	Shoot_Modes Shoot_Mode;	  // 发射模式，单发还是连发
-	Dial_On_Off Dial_Switch;  // 拨弹电机的开关
+    uint8_t Number_ToBeFired; // 需要打击的弹丸数量
+    uint16_t Shoot_Interval;  // 攻击间隔
+    uint32_t Time_NextShoot;  // 下次射击时间
+    uint16_t Bullet_Dialed;   // 已打出的子弹
+    int16_t Speed_Dial;       // 连发拨盘速度
+    Shoot_Modes Shoot_Mode;   // 发射模式
+    Dial_On_Off Dial_Switch;  // 拨盘开关
 } Dial_Data_t;
 
-void Dial_Processing_1(void);
-void Dial_Processing_2(void);
+void Dial_Processing(void);
 void Normal_Dial(void);
 void Bullet_Stuck_Processing(void);
-void Overheat_Detect(void);
 void Status_Refresh(void);
 
 extern Dial_Data_t Dial_Data;
-extern Heat_Data_t Heat_Data;
 
-#endif /*__DIAL_H*/
+#endif /* __DIAL_H */
