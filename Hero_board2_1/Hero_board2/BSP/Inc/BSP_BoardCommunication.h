@@ -68,6 +68,7 @@ typedef struct
 void Board2_1_To_Board2_2(void);
 void Board2_1_getChassisInfo(Can_Export_Data_t RxMessage);
 void Board2_1_getGimbalInfo(Can_Export_Data_t RxMessage);
+void Board2_To_1(void);
 
 extern ControlMessge ControlMes;
 extern ControlMessge_betweenBoard2 ControlMes_board2;

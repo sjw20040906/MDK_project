@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx,ARM_MATH_CM4,__TARGET_FPU_VFP,__CC_ARM,ARM_MATH_CM4,__FPU_PRESENT=1U</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../DEV/Inc;../BSP/Inc;../Tasks/Inc;../APPS/Inc;../ALG/Inc</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../DEV/Inc;../BSP/Inc;../Tasks/Inc;../APPS/Inc;../ALG/Inc;..\PROTOCOL\Inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -817,6 +817,11 @@
               <FileType>1</FileType>
               <FilePath>..\Tasks\Src\Task_RemoteControl.c</FilePath>
             </File>
+            <File>
+              <FileName>Task_RobotUI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Tasks\Src\Task_RobotUI.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -862,6 +867,11 @@
               <FileType>1</FileType>
               <FilePath>..\APPS\Src\Track.c</FilePath>
             </File>
+            <File>
+              <FileName>PowerControl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APPS\Src\PowerControl.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -881,6 +891,21 @@
               <FileName>Ramp.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ALG\Src\Ramp.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>PROTOCOL</GroupName>
+          <Files>
+            <File>
+              <FileName>Protocol_Judgement.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\PROTOCOL\Src\Protocol_Judgement.c</FilePath>
+            </File>
+            <File>
+              <FileName>UI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\PROTOCOL\Src\UI.c</FilePath>
             </File>
           </Files>
         </Group>

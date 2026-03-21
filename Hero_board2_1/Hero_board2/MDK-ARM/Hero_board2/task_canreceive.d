@@ -76,3 +76,5 @@
 .\hero_board2\task_canreceive.o: ../Tasks/Inc/Task_CanReceive.h
 .\hero_board2\task_canreceive.o: ../DEV/Inc/wit_imu.h
 .\hero_board2\task_canreceive.o: ../BSP/Inc/BSP_Usart.h
+.\hero_board2\task_canreceive.o: ..\PROTOCOL\Inc\Protocol_Judgement.h
+.\hero_board2\task_canreceive.o: ../BSP/Inc/bsp_usart.h

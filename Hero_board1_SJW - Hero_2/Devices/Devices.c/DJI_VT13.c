@@ -176,11 +176,13 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const VTM_Frame *data)
     {
         Dial_Data.Shoot_Mode = Single_Shoot;
         Shoot_Data.Shoot_Switch = TURN_ON;
+        Dial_Data.Dial_Switch = Dial_On;
     }
     else
     {
         Dial_Data.Shoot_Mode = Single_Shoot;
         Shoot_Data.Shoot_Switch = TURN_OFF;
+        Dial_Data.Dial_Switch = Dial_Off;
     }
 
     /*****************自瞄开关右键****************/

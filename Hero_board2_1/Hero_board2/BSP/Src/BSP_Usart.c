@@ -25,4 +25,8 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
         /* 重新启动UART DMA接收 */
         HAL_UARTEx_ReceiveToIdle_DMA(&huart1, IMU_RxRawBuffer, sizeof(IMU_RxRawBuffer));
     }
+    if(huart->Instance == USART6)
+    {
+        JudgeSystem_Handler(&huart6);
+    }
 }

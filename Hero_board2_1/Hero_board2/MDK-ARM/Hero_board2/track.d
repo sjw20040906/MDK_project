@@ -75,5 +75,7 @@
 .\hero_board2\track.o: ../Tasks/Inc/Task_CanReceive.h
 .\hero_board2\track.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board2\track.o: ../BSP/Inc/BSP_Usart.h
+.\hero_board2\track.o: ..\PROTOCOL\Inc\Protocol_Judgement.h
+.\hero_board2\track.o: ../BSP/Inc/bsp_usart.h
 .\hero_board2\track.o: ../DEV/Inc/DM_Motor.h
 .\hero_board2\track.o: ../DEV/Inc/wit_imu.h

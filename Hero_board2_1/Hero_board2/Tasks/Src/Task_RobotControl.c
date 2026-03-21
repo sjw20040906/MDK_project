@@ -21,6 +21,8 @@ void Robot_Control(void const *argument)
     Gimbal_motion_Control();
     Chassis_motion_control();
     Track_motion_control();
+    /*********** 机器人上下板通信 ************/
+    Board2_To_1();
     /************* 电机参数设定 **************/
     M3508_setCurrent(M3508_Array[Chassis_Left_Front].outCurrent, M3508_Array[Chassis_Left_Back].outCurrent, M3508_Array[Chassis_Right_Back].outCurrent, M3508_Array[Chassis_Right_Front].outCurrent, data_1);
     DM_setParameter(0, DM_Array[Gimbal_Motor].outSpeed, 0, 1.5, 0, data_2);

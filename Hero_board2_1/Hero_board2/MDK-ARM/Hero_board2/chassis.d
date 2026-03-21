@@ -74,6 +74,8 @@
 .\hero_board2\chassis.o: ../BSP/Inc/BSP_BoardCommunication.h
 .\hero_board2\chassis.o: ../BSP/Inc/BSP_Usart.h
 .\hero_board2\chassis.o: ../DEV/Inc/SBUS.h
+.\hero_board2\chassis.o: ..\PROTOCOL\Inc\Protocol_Judgement.h
+.\hero_board2\chassis.o: ../BSP/Inc/bsp_usart.h
 .\hero_board2\chassis.o: ../DEV/Inc/DM_Motor.h
 .\hero_board2\chassis.o: ../DEV/Inc/wit_imu.h
 .\hero_board2\chassis.o: ../Tasks/Inc/Task_RemoteControl.h

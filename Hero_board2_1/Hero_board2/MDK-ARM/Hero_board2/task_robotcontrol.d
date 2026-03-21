@@ -75,6 +75,8 @@
 .\hero_board2\task_robotcontrol.o: ../Tasks/Inc/Task_CanReceive.h
 .\hero_board2\task_robotcontrol.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board2\task_robotcontrol.o: ../BSP/Inc/BSP_Usart.h
+.\hero_board2\task_robotcontrol.o: ..\PROTOCOL\Inc\Protocol_Judgement.h
+.\hero_board2\task_robotcontrol.o: ../BSP/Inc/bsp_usart.h
 .\hero_board2\task_robotcontrol.o: ../DEV/Inc/DM_Motor.h
 .\hero_board2\task_robotcontrol.o: ../DEV/Inc/wit_imu.h
 .\hero_board2\task_robotcontrol.o: ../APPS/Inc/Track.h
