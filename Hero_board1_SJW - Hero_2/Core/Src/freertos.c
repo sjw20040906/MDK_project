@@ -231,8 +231,8 @@ void ALL_Init(void const * argument)
     /*********初始化PID*********/
     fuzzy_init(&fuzzy_pid_shoot_L, 100, -100, 25, 0.1, 10);
     fuzzy_init(&fuzzy_pid_shoot_R, 100, -100, 25, 0.1, 10);
-    Incremental_PIDInit(&M3508_FricL_Pid, 100.f, 0.01f, 30, 20000, 5000);
-    Incremental_PIDInit(&M3508_FricR_Pid, 100.f, 0.01f, 30, 20000, 5000);
+    Incremental_PIDInit(&M3508_FricL_Pid, 50.0f, 0.01f, 30, 20000, 5000);
+    Incremental_PIDInit(&M3508_FricR_Pid, 50.0f, 0.01f, 30, 20000, 5000);
     Position_PIDInit(&M3508_DialV_Pid, 0.4f, 0.015f, 0.3, 0.5, 2000, 1000, 500);
     Incremental_PIDInit(&M3508_DialI_Pid, 15.0f, 2.5f, 8, 25000, 10000);
     /**********云台拨弹初始化*********/
