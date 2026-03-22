@@ -22,7 +22,6 @@
 #include "BSP_BoardCommunication.h"
 
 #define SENDID_Fric_Dial 0x1FF // 摩擦轮和拨盘电机的ID号
-#define Heat_17mm 10
 
 /**
  * @brief  发射机构的开关

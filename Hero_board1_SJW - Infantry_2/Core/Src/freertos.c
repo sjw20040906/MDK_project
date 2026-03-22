@@ -236,8 +236,8 @@ void ALL_Init(void const * argument)
 
     Incremental_PIDInit(&M3508_FricL_Pid, 40.f, 0, 30, 20000, 5000);
     Incremental_PIDInit(&M3508_FricR_Pid, 40.f, 0, 30, 20000, 5000);
-    Position_PIDInit(&M2006_DialV_Pid, 50.0f, 0.01f, 0.5, 0.5, 20000, 8000, 700);
-    Incremental_PIDInit(&M2006_DialI_Pid, 40.0f, 0.5f, 3, 20000, 1000);
+    Position_PIDInit(&M2006_DialV_Pid, 30.0f, 0.01f, 0.5, 0.5, 20000, 8000, 700);
+    Incremental_PIDInit(&M2006_DialI_Pid, 20.0f, 0.5f, 3, 20000, 1000);
 
     /**********云台初始化*********/
     Cloud_Init();

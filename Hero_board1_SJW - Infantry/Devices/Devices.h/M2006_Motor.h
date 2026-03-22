@@ -31,20 +31,16 @@ typedef enum
 
 typedef struct
 {
-    uint16_t realAngle; // 读回来的机械角度
-    int16_t realSpeed;  // 读回来的速度
-    int16_t realTorque; // 读回来的实际转矩
-
-    int16_t targetSpeed; // 目标速度
-    int32_t targetAngle; // 目标角度
-
-    uint16_t lastAngle; // 上次的角度
-    int32_t totalAngle; // 累积总共角度
-    int16_t turnCount;  // 转过的圈数
-
-    int16_t outCurrent;      // 输出电流
-    int16_t inneroutCurrent; // 输出电流
-
+    uint16_t realAngle;       // 读回来的机械角度
+    int16_t realSpeed;        // 读回来的速度
+    int16_t realTorque;       // 读回来的实际转矩
+    int16_t targetSpeed;      // 目标速度
+    int32_t targetAngle;      // 目标角度
+    uint16_t lastAngle;       // 上次的角度
+    int32_t totalAngle;       // 累积总共角度
+    int16_t turnCount;        // 转过的圈数
+    int16_t outCurrent;       // 输出电流
+    int16_t inneroutCurrent;  // 输出电流
     uint8_t InfoUpdateFlag;   // 信息读取更新标志
     uint16_t InfoUpdateFrame; // 帧率
     uint8_t OffLineFlag;      // 设备离线标志

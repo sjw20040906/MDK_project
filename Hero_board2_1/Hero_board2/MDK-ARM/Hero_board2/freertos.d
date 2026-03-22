@@ -82,3 +82,9 @@
 .\hero_board2\freertos.o: ../BSP/Inc/bsp_usart.h
 .\hero_board2\freertos.o: ../Tasks/Inc/Task_RemoteControl.h
 .\hero_board2\freertos.o: ../APPS/Inc/Track.h
+.\hero_board2\freertos.o: ../Tasks/Inc/Task_RobotUI.h
+.\hero_board2\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
+.\hero_board2\freertos.o: ..\PROTOCOL\Inc\UI.h
+.\hero_board2\freertos.o: ../APPS/Inc/PowerControl.h
+.\hero_board2\freertos.o: ../ALG/Inc/arm_math.h
+.\hero_board2\freertos.o: ../Drivers/CMSIS/Include/core_cm4.h

@@ -17,6 +17,9 @@ void RemoteControl_Processing(void const *argument)
     for (;;)
     {
         //SBUS_Handle();
+        /*********** 机器人上下板通信 ************/
+        Board2_To_1();
+        osDelay(2);
         Board2_1_To_Board2_2();
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }

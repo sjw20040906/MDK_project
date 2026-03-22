@@ -29,7 +29,7 @@ void Shoot_Processing()
 {
 	Fric_Processing();
 	Shoot_Update_Status();
-	Dial_Processing_2();
+	Dial_Processing();
 }
 
 /**

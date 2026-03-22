@@ -172,14 +172,14 @@ void UI_Draw_Init_8()
 					 UI_Line_Width_1, UI_Init_X_1, UI_Init_Y_1 - UI_Line_Spacing_1 * 4, temp_string);
 	UI_FUN.UI_PushUp_String(&UI_String1);
 }
-// void UI_Draw_Init_9() {
-// 	char temp_string[30];
-// 	memset(temp_string, 0, sizeof(temp_string));
-// 	sprintf(temp_string, "Rotate Speed: %.1f Degree/s", Saber_Angle.Z_Vel);
-// 	UI_FUN.Char_Draw(&UI_String1.String,"113",UI_Graph_Add, 3, UI_Color_Orange, UI_Font_Size_1, sizeof(temp_string),
-// 					  UI_Line_Width_1, UI_Init_X_1, UI_Init_Y_1 - UI_Line_Spacing_1 * 5, temp_string);
-// 	UI_FUN.UI_PushUp_String(&UI_String1);
-// }
+void UI_Draw_Init_9() {
+	// char temp_string[30];
+	// memset(temp_string, 0, sizeof(temp_string));
+	// sprintf(temp_string, "Rotate Speed: %.1f Degree/s", Saber_Angle.Z_Vel);
+	// UI_FUN.Char_Draw(&UI_String1.String,"113",UI_Graph_Add, 3, UI_Color_Orange, UI_Font_Size_1, sizeof(temp_string),
+	// 				  UI_Line_Width_1, UI_Init_X_1, UI_Init_Y_1 - UI_Line_Spacing_1 * 5, temp_string);
+	// UI_FUN.UI_PushUp_String(&UI_String1);
+}
 void UI_Draw_Init_10()
 {
 	CAP_Ratio = ((float)PowerRxData.capEnergy) * 1.0f / 255.0f;
@@ -239,33 +239,33 @@ void UI_Draw_Init_UL_Center()
 	}
 	UI_FUN.UI_PushUp_String(&UI_String1);
 }
-// UI-----------------------------------------------------------------------------
-//  void UI_Draw_Update_1() {
-//  	static uint32_t changeable_value_1_last = 0;
-//  	static uint32_t changeable_value_2_last = 0;
-//  	static uint32_t changeable_value_3_last = 0;
+	//UI-----------------------------------------------------------------------------
+void UI_Draw_Update_1() {
+ 	// static uint32_t changeable_value_1_last = 0;
+ 	// static uint32_t changeable_value_2_last = 0;
+ 	// static uint32_t changeable_value_3_last = 0;
 
-// 	CAP_Ratio = ((float)PowerRxData.capEnergy) * 1.0f/255.0f;
-// 	uint32_t changeable_value_1 = 1600+cos(2*PI*M6020s_Yaw.realAngle/8192 - PI/4)*100;
-// 	uint32_t changeable_value_2 = 800+sin(2*PI*M6020s_Yaw.realAngle/8192 - PI/4)*100;
-// 	uint32_t changeable_value_3 = UI_Init_X_1 + (int)(6.0 + (494.0 - 6.0) * CAP_Ratio);
-// 	if (
-// 		changeable_value_1 == changeable_value_1_last &&
-// 		changeable_value_2 == changeable_value_2_last &&
-// 		changeable_value_3 == changeable_value_3_last
-// 	) {
-// 		if ((UI_PushUp_Counter_Dynamic + 1) % UI_Dynamic_Max_Num != 0) {
-// 			UI_PushUp_Counter_Dynamic += 1;
-// 		}
-// 	} else {
-// 		changeable_value_1_last = changeable_value_1;
-// 		changeable_value_2_last = changeable_value_2;
-// 		changeable_value_3_last = changeable_value_3;
-// 		UI_FUN.Line_Draw(&UI_Graph2.imageData[0], "107", UI_Graph_Change, 1, UI_Color_Green, 5, 1600, 800, changeable_value_1, changeable_value_2);
-// 		UI_FUN.Line_Draw(&UI_Graph2.imageData[1], "116", UI_Graph_Change, 1, UI_Color_Orange, 20, UI_Init_X_1 + 6 , UI_Init_Y_1 - (int)((float)UI_Line_Spacing_1 * 7.5), changeable_value_3, UI_Init_Y_1 - (int)((float)UI_Line_Spacing_1 * 7.5));
-// 		UI_FUN.UI_PushUp_Graphs(2, &UI_Graph2);
-// 	}
-// }
+	// CAP_Ratio = ((float)PowerRxData.capEnergy) * 1.0f/255.0f;
+	// uint32_t changeable_value_1 = 1600+cos(2*PI*M6020s_Yaw.realAngle/8192 - PI/4)*100;
+	// uint32_t changeable_value_2 = 800+sin(2*PI*M6020s_Yaw.realAngle/8192 - PI/4)*100;
+	// uint32_t changeable_value_3 = UI_Init_X_1 + (int)(6.0 + (494.0 - 6.0) * CAP_Ratio);
+	// if (
+	// 	changeable_value_1 == changeable_value_1_last &&
+	// 	changeable_value_2 == changeable_value_2_last &&
+	// 	changeable_value_3 == changeable_value_3_last
+	// ) {
+	// 	if ((UI_PushUp_Counter_Dynamic + 1) % UI_Dynamic_Max_Num != 0) {
+	// 		UI_PushUp_Counter_Dynamic += 1;
+	// 	}
+	// } else {
+	// 	changeable_value_1_last = changeable_value_1;
+	// 	changeable_value_2_last = changeable_value_2;
+	// 	changeable_value_3_last = changeable_value_3;
+	// 	UI_FUN.Line_Draw(&UI_Graph2.imageData[0], "107", UI_Graph_Change, 1, UI_Color_Green, 5, 1600, 800, changeable_value_1, changeable_value_2);
+	// 	UI_FUN.Line_Draw(&UI_Graph2.imageData[1], "116", UI_Graph_Change, 1, UI_Color_Orange, 20, UI_Init_X_1 + 6 , UI_Init_Y_1 - (int)((float)UI_Line_Spacing_1 * 7.5), changeable_value_3, UI_Init_Y_1 - (int)((float)UI_Line_Spacing_1 * 7.5));
+	// 	UI_FUN.UI_PushUp_Graphs(2, &UI_Graph2);
+	// }
+}
 void UI_Draw_Update_2()
 {
 	static uint8_t changeable_value_1_last = 0;
@@ -435,26 +435,26 @@ void UI_Draw_Update_7()
 		UI_FUN.UI_PushUp_String(&UI_String1);
 	}
 }
-// void UI_Draw_Update_8() {
-// 	static float32_t changeable_value_1_last = 0;
+void UI_Draw_Update_8() {
+	// static float32_t changeable_value_1_last = 0;
 
-// 	float32_t changeable_value_1 = Saber_Angle.Z_Vel;
-// 	if (
-// 		changeable_value_1 == changeable_value_1_last
-// 	) {
-// 		if ((UI_PushUp_Counter_Dynamic + 1) % UI_Dynamic_Max_Num != 0) {
-// 			UI_PushUp_Counter_Dynamic += 1;
-// 		}
-// 	} else {
-// 		changeable_value_1_last = changeable_value_1;
-// 		char temp_string[30];
-// 		memset(temp_string, 0, sizeof(temp_string));
-// 		sprintf(temp_string, "Rotate Speed: %.1f Degree/s", changeable_value_1);
-// 		UI_FUN.Char_Draw(&UI_String1.String,"113",UI_Graph_Change, 3, UI_Color_Orange, UI_Font_Size_1, sizeof(temp_string),
-// 						UI_Line_Width_1, UI_Init_X_1, UI_Init_Y_1 - UI_Line_Spacing_1 * 5, temp_string);
-// 		UI_FUN.UI_PushUp_String(&UI_String1);
-// 	}
-// }
+	// float32_t changeable_value_1 = Saber_Angle.Z_Vel;
+	// if (
+	// 	changeable_value_1 == changeable_value_1_last
+	// ) {
+	// 	if ((UI_PushUp_Counter_Dynamic + 1) % UI_Dynamic_Max_Num != 0) {
+	// 		UI_PushUp_Counter_Dynamic += 1;
+	// 	}
+	// } else {
+	// 	changeable_value_1_last = changeable_value_1;
+	// 	char temp_string[30];
+	// 	memset(temp_string, 0, sizeof(temp_string));
+	// 	sprintf(temp_string, "Rotate Speed: %.1f Degree/s", changeable_value_1);
+	// 	UI_FUN.Char_Draw(&UI_String1.String,"113",UI_Graph_Change, 3, UI_Color_Orange, UI_Font_Size_1, sizeof(temp_string),
+	// 					UI_Line_Width_1, UI_Init_X_1, UI_Init_Y_1 - UI_Line_Spacing_1 * 5, temp_string);
+	// 	UI_FUN.UI_PushUp_String(&UI_String1);
+	// }
+}
 void UI_Draw_Update_9()
 {
 	static float32_t changeable_value_1_last = 0;
@@ -480,77 +480,77 @@ void UI_Draw_Update_9()
 		UI_FUN.UI_PushUp_String(&UI_String1);
 	}
 }
-// void UI_Draw_Update_10() {
-// 	static float32_t changeable_value_1_last = 0;
-// 	static uint8_t changeable_value_2_last = 0;
-// 	static float32_t changeable_value_3_last = 0;
+void UI_Draw_Update_10() {
+	// static float32_t changeable_value_1_last = 0;
+	// static uint8_t changeable_value_2_last = 0;
+	// static float32_t changeable_value_3_last = 0;
 
-// 	uint8_t hurt_armor_id = UI_Hurt_Data.armor_id;
-// 	if (UI_Hurt_Data.is_new_received) {
-// 		UI_Hurt_Data.is_new_received = 0;
-// 		UI_Hurt_Show_Time_Counter = 0;
-// 	}
-// 	uint8_t show_hurt_flag;
-// 	if (UI_Hurt_Show_Time_Counter * 35 > UI_Hurt_Show_Time_MS) {
-// 		UI_Hurt_Show_Time_Counter = UI_Hurt_Show_Time_MS / 35 + 1;
-// 		show_hurt_flag = 0;
-// 	} else {
-// 		show_hurt_flag = 1;
-// 	}
+	// uint8_t hurt_armor_id = UI_Hurt_Data.armor_id;
+	// if (UI_Hurt_Data.is_new_received) {
+	// 	UI_Hurt_Data.is_new_received = 0;
+	// 	UI_Hurt_Show_Time_Counter = 0;
+	// }
+	// uint8_t show_hurt_flag;
+	// if (UI_Hurt_Show_Time_Counter * 35 > UI_Hurt_Show_Time_MS) {
+	// 	UI_Hurt_Show_Time_Counter = UI_Hurt_Show_Time_MS / 35 + 1;
+	// 	show_hurt_flag = 0;
+	// } else {
+	// 	show_hurt_flag = 1;
+	// }
 
-// 	show_hurt_flag = 1;
+	// show_hurt_flag = 1;
 
-// 	float UI_Chassis_Angle = 2.0*PI*(float)M6020s_Yaw.realAngle/8192.0;
-// 	float UI_Hurt_Angle = UI_Chassis_Angle;
-// 	switch (hurt_armor_id)
-// 	{
-// 		case 2:
-// 			UI_Hurt_Angle += PI/2.0 * 0.0;
-// 			break;
-// 		case 1:
-// 			UI_Hurt_Angle += PI/2.0 * 1.0;
-// 			break;
-// 		case 3:
-// 			UI_Hurt_Angle += PI/2.0 * 2.0;
-// 			break;
-// 		case 0:
-// 			UI_Hurt_Angle += PI/2.0 * 3.0;
-// 			break;
+	// float UI_Chassis_Angle = 2.0*PI*(float)M6020s_Yaw.realAngle/8192.0;
+	// float UI_Hurt_Angle = UI_Chassis_Angle;
+	// switch (hurt_armor_id)
+	// {
+	// 	case 2:
+	// 		UI_Hurt_Angle += PI/2.0 * 0.0;
+	// 		break;
+	// 	case 1:
+	// 		UI_Hurt_Angle += PI/2.0 * 1.0;
+	// 		break;
+	// 	case 3:
+	// 		UI_Hurt_Angle += PI/2.0 * 2.0;
+	// 		break;
+	// 	case 0:
+	// 		UI_Hurt_Angle += PI/2.0 * 3.0;
+	// 		break;
 
-// 		default:
-// 			break;
-// 	}
-// 	UI_Hurt_Angle = show_hurt_flag ? UI_Hurt_Angle : 0.0;
-// 	float32_t changeable_value_1 = UI_Hurt_Angle;
-// 	uint8_t changeable_value_2 = show_hurt_flag;
-// 	float32_t changeable_value_3 = UI_Chassis_Angle + PI/2.0;
-// 	if (
-// 		changeable_value_1 == changeable_value_1_last &&
-// 		changeable_value_2 == changeable_value_2_last &&
-// 		changeable_value_3 == changeable_value_3_last
-// 	) {
-// 		if ((UI_PushUp_Counter_Dynamic + 1) % UI_Dynamic_Max_Num != 0) {
-// 			UI_PushUp_Counter_Dynamic += 1;
-// 		}
-// 	} else {
-// 		changeable_value_1_last = changeable_value_1;
-// 		changeable_value_2_last = changeable_value_2;
-// 		changeable_value_3_last = changeable_value_3;
+	// 	default:
+	// 		break;
+	// }
+	// UI_Hurt_Angle = show_hurt_flag ? UI_Hurt_Angle : 0.0;
+	// float32_t changeable_value_1 = UI_Hurt_Angle;
+	// uint8_t changeable_value_2 = show_hurt_flag;
+	// float32_t changeable_value_3 = UI_Chassis_Angle + PI/2.0;
+	// if (
+	// 	changeable_value_1 == changeable_value_1_last &&
+	// 	changeable_value_2 == changeable_value_2_last &&
+	// 	changeable_value_3 == changeable_value_3_last
+	// ) {
+	// 	if ((UI_PushUp_Counter_Dynamic + 1) % UI_Dynamic_Max_Num != 0) {
+	// 		UI_PushUp_Counter_Dynamic += 1;
+	// 	}
+	// } else {
+	// 	changeable_value_1_last = changeable_value_1;
+	// 	changeable_value_2_last = changeable_value_2;
+	// 	changeable_value_3_last = changeable_value_3;
 
-// 		UI_Draw_Arrow(&UI_Graph7.imageData[0], &UI_Graph7.imageData[1], &UI_Graph7.imageData[2],
-// 			960 +cos(changeable_value_1)*300,
-// 			540 +sin(changeable_value_1)*300,
-// 			960 +cos(changeable_value_1)*400,
-// 			540 +sin(changeable_value_1)*400,
-// 			40,40,
-// 			UI_Graph_Change, 4, show_hurt_flag ? 5 : 0, UI_Color_Pink, "117", "118", "119");
-// 		// UI_Graph5.imageData[3].operate_tpye = 0;
-// 		// UI_Graph5.imageData[4].operate_tpye = 0;
-// 		UI_Draw_Rotate_Rectangle(&UI_Graph7.imageData[3], &UI_Graph7.imageData[4], &UI_Graph7.imageData[5], &UI_Graph7.imageData[6], 960, 150, 120, 60,
-// 								 changeable_value_3, UI_Graph_Change, 4, 3, UI_Color_White, "121", "122", "123", "124");
-// 		UI_FUN.UI_PushUp_Graphs(7, &UI_Graph7);
-// 	}
-// }
+	// 	UI_Draw_Arrow(&UI_Graph7.imageData[0], &UI_Graph7.imageData[1], &UI_Graph7.imageData[2],
+	// 		960 +cos(changeable_value_1)*300,
+	// 		540 +sin(changeable_value_1)*300,
+	// 		960 +cos(changeable_value_1)*400,
+	// 		540 +sin(changeable_value_1)*400,
+	// 		40,40,
+	// 		UI_Graph_Change, 4, show_hurt_flag ? 5 : 0, UI_Color_Pink, "117", "118", "119");
+	// 	// UI_Graph5.imageData[3].operate_tpye = 0;
+	// 	// UI_Graph5.imageData[4].operate_tpye = 0;
+	// 	UI_Draw_Rotate_Rectangle(&UI_Graph7.imageData[3], &UI_Graph7.imageData[4], &UI_Graph7.imageData[5], &UI_Graph7.imageData[6], 960, 150, 120, 60,
+	// 							 changeable_value_3, UI_Graph_Change, 4, 3, UI_Color_White, "121", "122", "123", "124");
+	// 	UI_FUN.UI_PushUp_Graphs(7, &UI_Graph7);
+	// }
+}
 #ifdef UI_What_Can_I_Say
 void UI_Draw_Update_WCIS()
 {

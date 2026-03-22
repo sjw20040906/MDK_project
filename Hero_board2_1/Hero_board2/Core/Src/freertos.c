@@ -32,6 +32,7 @@
 #include "Chassis.h"
 #include "Gimbal.h"
 #include "Track.h"
+#include "Task_RobotUI.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,6 +64,7 @@ osThreadId Task_CanSendHandle;       // can发送任务句柄
 osThreadId Task_DMOnlineCheckHandle; // DM电机掉线检测任务句柄
 osThreadId Robot_Control_Handle;     // 机器人控制任务句柄
 osThreadId RemoteControl_Handle;     // 遥控器处理任务句柄
+osThreadId RobotUI_Handle;           // 机器人UI任务句柄
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osThreadId StartTaskHandle;
@@ -75,6 +77,7 @@ extern void AllCanSend(void const *argument);
 extern void DM_onlineCheck(void const *argument);
 extern void Robot_Control(void const *argument);
 extern void RemoteControl_Processing(void const *argument);
+extern void Robot_UI(void const *argument);
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
@@ -166,6 +169,10 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of RemoteControlTask */
   osThreadDef(RemoteControlTask, RemoteControl_Processing, osPriorityRealtime, 0, 128);
   RemoteControl_Handle = osThreadCreate(osThread(RemoteControlTask), NULL);
+
+  /* definition and creation of RobotUITask */
+  osThreadDef(RobotUITask, Robot_UI, osPriorityAboveNormal, 0, 128);
+  RobotUI_Handle = osThreadCreate(osThread(RobotUITask), NULL);
   /* USER CODE END RTOS_THREADS */
 
 }
