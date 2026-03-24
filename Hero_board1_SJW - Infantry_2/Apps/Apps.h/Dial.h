@@ -44,7 +44,7 @@ typedef enum
 #define CHECK_INTERVAL          20      // 扭矩检测间隔(ms)
 #define REVERSE_DURATION        400     // 反转持续时间(ms)
 #define DIAL_REVERSE_SPEED      1000    // 反转速度
-#define DIAL_TORQUE_THRESHOLD   5000    // 堵转扭矩阈值，根据实测调整
+#define DIAL_TORQUE_THRESHOLD   70000    // 堵转扭矩阈值，根据实测调整
 
 /* Dial数据接口结构体 */
 #define Dial_DataGroundInit \
@@ -53,7 +53,7 @@ typedef enum
         330,                \
         0,                  \
         0,                  \
-        8000,               \
+        4000,               \
         Single_Shoot,       \
         Dial_Off,           \
     }

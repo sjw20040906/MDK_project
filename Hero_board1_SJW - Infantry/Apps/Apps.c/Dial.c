@@ -46,7 +46,7 @@ void Dial_Processing(void)
 
 /**
  * @brief  正常拨弹执行
- * @attention 【修改】移除了热量计算公式，移除了 !Heat_Data.overheat 的判断
+ * @attention 
  */
 void Normal_Dial(void)
 {
