@@ -1,5 +1,5 @@
 .\hero_board2\protocol_judgement.o: ..\PROTOCOL\Src\Protocol_Judgement.c
-.\hero_board2\protocol_judgement.o: ..\PROTOCOL\Inc\Protocol_Judgement.h
+.\hero_board2\protocol_judgement.o: ../PROTOCOL/Inc/Protocol_Judgement.h
 .\hero_board2\protocol_judgement.o: ../Core/Inc/usart.h
 .\hero_board2\protocol_judgement.o: ../Core/Inc/main.h
 .\hero_board2\protocol_judgement.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
@@ -79,4 +79,5 @@
 .\hero_board2\protocol_judgement.o: ../BSP/Inc/BSP_Usart.h
 .\hero_board2\protocol_judgement.o: ../DEV/Inc/DM_Motor.h
 .\hero_board2\protocol_judgement.o: ../DEV/Inc/wit_imu.h
-.\hero_board2\protocol_judgement.o: ..\PROTOCOL\Inc\Protocol_Judgement.h
+.\hero_board2\protocol_judgement.o: ../PROTOCOL/Inc/Protocol_Judgement.h
+.\hero_board2\protocol_judgement.o: ../DEV/Inc/imu760.h

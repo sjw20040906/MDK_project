@@ -49,8 +49,8 @@
 .\hero_board2\task_robotui.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 .\hero_board2\task_robotui.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 .\hero_board2\task_robotui.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
-.\hero_board2\task_robotui.o: ..\PROTOCOL\Inc\UI.h
-.\hero_board2\task_robotui.o: ..\PROTOCOL\Inc\Protocol_Judgement.h
+.\hero_board2\task_robotui.o: ../PROTOCOL/Inc/UI.h
+.\hero_board2\task_robotui.o: ../PROTOCOL/Inc/Protocol_Judgement.h
 .\hero_board2\task_robotui.o: ../Core/Inc/usart.h
 .\hero_board2\task_robotui.o: ../BSP/Inc/bsp_usart.h
 .\hero_board2\task_robotui.o: D:\mdk\ARM\ARMCC\Bin\..\include\stdio.h
@@ -82,7 +82,8 @@
 .\hero_board2\task_robotui.o: ../BSP/Inc/BSP_Usart.h
 .\hero_board2\task_robotui.o: ../DEV/Inc/DM_Motor.h
 .\hero_board2\task_robotui.o: ../DEV/Inc/wit_imu.h
-.\hero_board2\task_robotui.o: ..\PROTOCOL\Inc\Protocol_Judgement.h
+.\hero_board2\task_robotui.o: ../PROTOCOL/Inc/Protocol_Judgement.h
+.\hero_board2\task_robotui.o: ../DEV/Inc/imu760.h
 .\hero_board2\task_robotui.o: ../APPS/Inc/PowerControl.h
 .\hero_board2\task_robotui.o: ../ALG/Inc/arm_math.h
 .\hero_board2\task_robotui.o: ../Drivers/CMSIS/Include/core_cm4.h

@@ -173,12 +173,12 @@ void UI_Draw_Init_8()
 	UI_FUN.UI_PushUp_String(&UI_String1);
 }
 void UI_Draw_Init_9() {
-	// char temp_string[30];
-	// memset(temp_string, 0, sizeof(temp_string));
-	// sprintf(temp_string, "Rotate Speed: %.1f Degree/s", Saber_Angle.Z_Vel);
-	// UI_FUN.Char_Draw(&UI_String1.String,"113",UI_Graph_Add, 3, UI_Color_Orange, UI_Font_Size_1, sizeof(temp_string),
-	// 				  UI_Line_Width_1, UI_Init_X_1, UI_Init_Y_1 - UI_Line_Spacing_1 * 5, temp_string);
-	// UI_FUN.UI_PushUp_String(&UI_String1);
+	char temp_string[30];
+	memset(temp_string, 0, sizeof(temp_string));
+	sprintf(temp_string, "Rotate Speed: %.1f Degree/s", IMU_Angle.Z_Vel);
+	UI_FUN.Char_Draw(&UI_String1.String,"113",UI_Graph_Add, 3, UI_Color_Orange, UI_Font_Size_1, sizeof(temp_string),
+					  UI_Line_Width_1, UI_Init_X_1, UI_Init_Y_1 - UI_Line_Spacing_1 * 5, temp_string);
+	UI_FUN.UI_PushUp_String(&UI_String1);
 }
 void UI_Draw_Init_10()
 {
@@ -436,24 +436,24 @@ void UI_Draw_Update_7()
 	}
 }
 void UI_Draw_Update_8() {
-	// static float32_t changeable_value_1_last = 0;
+	static float32_t changeable_value_1_last = 0;
 
-	// float32_t changeable_value_1 = Saber_Angle.Z_Vel;
-	// if (
-	// 	changeable_value_1 == changeable_value_1_last
-	// ) {
-	// 	if ((UI_PushUp_Counter_Dynamic + 1) % UI_Dynamic_Max_Num != 0) {
-	// 		UI_PushUp_Counter_Dynamic += 1;
-	// 	}
-	// } else {
-	// 	changeable_value_1_last = changeable_value_1;
-	// 	char temp_string[30];
-	// 	memset(temp_string, 0, sizeof(temp_string));
-	// 	sprintf(temp_string, "Rotate Speed: %.1f Degree/s", changeable_value_1);
-	// 	UI_FUN.Char_Draw(&UI_String1.String,"113",UI_Graph_Change, 3, UI_Color_Orange, UI_Font_Size_1, sizeof(temp_string),
-	// 					UI_Line_Width_1, UI_Init_X_1, UI_Init_Y_1 - UI_Line_Spacing_1 * 5, temp_string);
-	// 	UI_FUN.UI_PushUp_String(&UI_String1);
-	// }
+	float32_t changeable_value_1 = IMU_Angle.Z_Vel;
+	if (
+		changeable_value_1 == changeable_value_1_last
+	) {
+		if ((UI_PushUp_Counter_Dynamic + 1) % UI_Dynamic_Max_Num != 0) {
+			UI_PushUp_Counter_Dynamic += 1;
+		}
+	} else {
+		changeable_value_1_last = changeable_value_1;
+		char temp_string[30];
+		memset(temp_string, 0, sizeof(temp_string));
+		sprintf(temp_string, "Rotate Speed: %.1f Degree/s", changeable_value_1);
+		UI_FUN.Char_Draw(&UI_String1.String,"113",UI_Graph_Change, 3, UI_Color_Orange, UI_Font_Size_1, sizeof(temp_string),
+						UI_Line_Width_1, UI_Init_X_1, UI_Init_Y_1 - UI_Line_Spacing_1 * 5, temp_string);
+		UI_FUN.UI_PushUp_String(&UI_String1);
+	}
 }
 void UI_Draw_Update_9()
 {
@@ -627,7 +627,6 @@ void UI_Draw_Update_UL_Center()
 void Robot_UI(void const *argument)
 {
 	vTaskDelay(300);
-	TickType_t last_time;
 	for (;;)
 	{
 		UI_FUN.ID_Judge();

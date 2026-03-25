@@ -33,6 +33,7 @@
 #include "Gimbal.h"
 #include "Track.h"
 #include "Task_RobotUI.h"
+#include "imu760.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -214,7 +215,9 @@ void ALL_Init(void const * argument)
     CAN_IT_Init(&hcan1, Can1_Type);
     CAN_IT_Init(&hcan2, Can2_Type);
     /*********初始化IMU*********/
-    IMU_Init();
+    IMU760_Init();
+	  IMU760_SetOutputRate(IMU760_RATE_100HZ, IMU760_OP_RAM);
+    IMU760_SetOutputMask(IMU760_OUTPUT_ACC | IMU760_OUTPUT_GYRO | IMU760_OUTPUT_EULER, IMU760_OP_RAM);
     /**********遥控器初始化*********/
     SBUS_Init();
     /**********云台初始化*********/

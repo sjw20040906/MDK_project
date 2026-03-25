@@ -8,6 +8,7 @@
 #include "SBUS.h"
 #include "Extern_Handles.h"
 #include "Protocol_Judgement.h"
+#include "imu760.h"
 
 
 #define Usart_DMA_Idle_Length 128

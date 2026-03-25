@@ -21,9 +21,14 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
     }
     if (huart->Instance == USART1)
     {
-        IMU_ProcessData(IMU_RxRawBuffer, Size);
-        /* 重新启动UART DMA接收 */
-        HAL_UARTEx_ReceiveToIdle_DMA(&huart1, IMU_RxRawBuffer, sizeof(IMU_RxRawBuffer));
+        IMU760_ProcessData(imu760_rx_raw_buffer, Size);
+
+        HAL_UARTEx_ReceiveToIdle_DMA(&IMU760_UART_HANDLE, imu760_rx_raw_buffer, sizeof(imu760_rx_raw_buffer));
+
+        if (IMU760_UART_HANDLE.hdmarx != NULL)
+        {
+            __HAL_DMA_DISABLE_IT(IMU760_UART_HANDLE.hdmarx, DMA_IT_HT);
+        }
     }
     if(huart->Instance == USART6)
     {

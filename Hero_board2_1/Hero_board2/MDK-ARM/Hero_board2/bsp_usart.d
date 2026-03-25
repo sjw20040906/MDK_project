@@ -78,4 +78,5 @@
 .\hero_board2\bsp_usart.o: ../BSP/Inc/BSP_Usart.h
 .\hero_board2\bsp_usart.o: ../DEV/Inc/DM_Motor.h
 .\hero_board2\bsp_usart.o: ../DEV/Inc/wit_imu.h
-.\hero_board2\bsp_usart.o: ..\PROTOCOL\Inc\Protocol_Judgement.h
+.\hero_board2\bsp_usart.o: ../PROTOCOL/Inc/Protocol_Judgement.h
+.\hero_board2\bsp_usart.o: ../DEV/Inc/imu760.h

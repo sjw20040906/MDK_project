@@ -1,6 +1,6 @@
 .\hero_board2\powercontrol.o: ..\APPS\Src\PowerControl.c
 .\hero_board2\powercontrol.o: ../APPS/Inc/PowerControl.h
-.\hero_board2\powercontrol.o: ..\PROTOCOL\Inc\Protocol_Judgement.h
+.\hero_board2\powercontrol.o: ../PROTOCOL/Inc/Protocol_Judgement.h
 .\hero_board2\powercontrol.o: ../Core/Inc/usart.h
 .\hero_board2\powercontrol.o: ../Core/Inc/main.h
 .\hero_board2\powercontrol.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
@@ -80,4 +80,5 @@
 .\hero_board2\powercontrol.o: ../BSP/Inc/BSP_Usart.h
 .\hero_board2\powercontrol.o: ../DEV/Inc/DM_Motor.h
 .\hero_board2\powercontrol.o: ../DEV/Inc/wit_imu.h
-.\hero_board2\powercontrol.o: ..\PROTOCOL\Inc\Protocol_Judgement.h
+.\hero_board2\powercontrol.o: ../PROTOCOL/Inc/Protocol_Judgement.h
+.\hero_board2\powercontrol.o: ../DEV/Inc/imu760.h
