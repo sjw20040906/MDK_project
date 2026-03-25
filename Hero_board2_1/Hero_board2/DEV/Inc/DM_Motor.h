@@ -15,8 +15,8 @@
 #include "Task_CanReceive.h"
 #include "stm32f4xx_hal_can.h"
 
-#define DM_READID_1 0x02
-#define DM_SENDID_1 0x002
+#define DM_READID_1 0x05
+#define DM_SENDID_1 0x005
 #define DM_P_MAX 3.1415926535f
 #define DM_V_MAX 200.0f
 #define DM_T_MAX 10.0f

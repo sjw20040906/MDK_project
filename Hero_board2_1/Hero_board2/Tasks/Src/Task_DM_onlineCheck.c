@@ -21,7 +21,7 @@ void DM_onlineCheck(void const *argument)
     {
         if (!DM_Array[Gimbal_Motor].state)
         {
-            DM_Enable(&hcan2, DM_SENDID_1);
+            DM_Enable(&hcan1, DM_SENDID_1);
         }
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }
