@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Hero_board1_SJW\Hero_board1_SJW.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Hero_board1_SJW\Hero_board1_SJW.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Mar 21 15:23:33 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Mar 26 20:21:11 2026
 <BR><P>
 <H3>Maximum Stack Usage =        456 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -682,7 +682,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SBUS_Handle
 </UL>
 
-<P><STRONG><a name="[bc]"></a>Board1_getGimbalInfo</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, bsp_boardcommunication.o(i.Board1_getGimbalInfo))
+<P><STRONG><a name="[bd]"></a>Board1_getGimbalInfo</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, bsp_boardcommunication.o(i.Board1_getGimbalInfo))
 <BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Can2Receives
 </UL>
 
@@ -751,20 +751,20 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UpperCom_Send_To_Up
 </UL>
 
-<P><STRONG><a name="[7e]"></a>Can1Receives</STRONG> (Thumb, 56 bytes, Stack size 56 bytes, task_canreceive.o(i.Can1Receives))
+<P><STRONG><a name="[7e]"></a>Can1Receives</STRONG> (Thumb, 94 bytes, Stack size 56 bytes, task_canreceive.o(i.Can1Receives))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = Can1Receives &rArr; xQueueReceive &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;J4310_getInfo
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508_getInfo
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
 </UL>
-<P><STRONG><a name="[7f]"></a>Can2Receives</STRONG> (Thumb, 100 bytes, Stack size 56 bytes, task_canreceive.o(i.Can2Receives))
+<P><STRONG><a name="[7f]"></a>Can2Receives</STRONG> (Thumb, 56 bytes, Stack size 56 bytes, task_canreceive.o(i.Can2Receives))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = Can2Receives &rArr; xQueueReceive &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;J4310_getInfo
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Board1_getGimbalInfo
+<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Board1_getGimbalInfo
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
@@ -1667,12 +1667,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;J4310_onlineCheck
 </UL>
 
-<P><STRONG><a name="[bd]"></a>J4310_getInfo</STRONG> (Thumb, 426 bytes, Stack size 40 bytes, j4310_motor.o(i.J4310_getInfo))
+<P><STRONG><a name="[bc]"></a>J4310_getInfo</STRONG> (Thumb, 426 bytes, Stack size 40 bytes, j4310_motor.o(i.J4310_getInfo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = J4310_getInfo
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uint_to_float
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Can2Receives
+<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Can1Receives
 </UL>
 
 <P><STRONG><a name="[85]"></a>J4310_onlineCheck</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, task_j4310_onlinecheck.o(i.J4310_onlineCheck))
@@ -3390,7 +3390,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[15b]"></a>uint_to_float</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, j4310_motor.o(i.uint_to_float))
-<BR><BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;J4310_getInfo
+<BR><BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;J4310_getInfo
 </UL>
 
 <P><STRONG><a name="[176]"></a>map_to_3levels</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, sbus.o(i.map_to_3levels))

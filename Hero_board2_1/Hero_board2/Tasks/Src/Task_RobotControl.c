@@ -26,7 +26,7 @@ void Robot_Control(void const *argument)
     DM_setParameter(0, DM_Array[Gimbal_Motor].outSpeed, 0, 1.5, 0, data_2);
     /************* 电机参数发送 **************/
     CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, M3508_ID_Chassis, data_1);;
-    CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, DM_SENDID_1, data_2);
+    CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, DM_SENDID_1, data_2);
     vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
   }
 } 

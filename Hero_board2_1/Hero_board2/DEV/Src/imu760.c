@@ -129,12 +129,13 @@ void IMU760_ProcessData(uint8_t *pData, uint16_t Size)
             imu760_frame_length--;
         }
     }
-    IMU_Angle.X_Vel = imu760_data.gyro[0];
-    IMU_Angle.Y_Vel = imu760_data.gyro[1];
-    IMU_Angle.Z_Vel = imu760_data.gyro[2];
-    IMU_Angle.RoLL = imu760_data.euler[0];
-    IMU_Angle.Pitch = imu760_data.euler[1];
+    // IMU_Angle.X_Vel = imu760_data.gyro[0];
+    // IMU_Angle.Y_Vel = imu760_data.gyro[1];
+    //IMU_Angle.Z_Vel = imu760_data.gyro[2];
+    // IMU_Angle.RoLL = imu760_data.euler[0];
+    // IMU_Angle.Pitch = imu760_data.euler[1];
     IMU_Angle.Yaw = imu760_data.euler[2];
+    IMU760_ClearUpdateFlag();
 }
 
 /**

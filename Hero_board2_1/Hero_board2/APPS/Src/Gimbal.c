@@ -63,9 +63,9 @@ void Yaw_Angle_Set(void)
     {
         Angle_Yaw_Cloud += 65536.0f;
     }
-    ControlMes.yaw_realAngle = Angle_Yaw_Cloud/4;
+    ControlMes.yaw_realAngle = Angle_Yaw_Cloud;
     /*********************** PID控制逻辑 ***********************/
-    chassis_real_speed = IMU_Angle.Z_Vel * (65536.0f / 360.0f);
+    chassis_real_speed = IMU_Angle.Z_Vel* (65536.0f / 360.0f);
     // 手动遥控模式
     if (ControlMes.AutoAimFlag == 0)
     {

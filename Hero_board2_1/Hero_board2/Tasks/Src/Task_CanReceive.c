@@ -24,16 +24,12 @@ void Can1Receives(void const *argument)
   for (;;)
   {
     xQueueReceive(CAN1_ReceiveHandle, &Can_Export_Data, portMAX_DELAY);
-    DM_RxID = (Can_Export_Data.CANx_Export_RxMessage[0]) & 0x0F;
     ID = Can_Export_Data.CAN_RxHeader.StdId;
     if (ID >= M3508_READID_START && ID <= M3508_READID_END)
     {
       M3508_getInfo(Can_Export_Data);
     }
-    else if (DM_RxID == DM_READID_1)
-    {
-      DM_getInfo(Can_Export_Data);
-    }
+
   }
 }
 
@@ -50,6 +46,7 @@ void Can2Receives(void const *argument)
   for (;;)
   {
     xQueueReceive(CAN2_ReceiveHandle, &Can_Export_Data, portMAX_DELAY);
+    DM_RxID = (Can_Export_Data.CANx_Export_RxMessage[0]) & 0x0F;
     ID = Can_Export_Data.CAN_RxHeader.StdId;
     if (ID == CAN_ID_CHASSIS)
     {
@@ -59,6 +56,9 @@ void Can2Receives(void const *argument)
     {
       Board2_1_getGimbalInfo(Can_Export_Data);
     }
-
+    else if (DM_RxID == DM_READID_1)
+    {
+      DM_getInfo(Can_Export_Data);
+    }
   }
 }

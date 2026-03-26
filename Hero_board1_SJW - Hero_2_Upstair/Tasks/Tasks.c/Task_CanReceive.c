@@ -31,6 +31,12 @@ void Can1Receives(void const *argument)
     {
       M3508_getInfo(Can_Export_Data);
     }
+    J4310_RxID = (Can_Export_Data.CANx_Export_RxMessage[0]) & 0x0F;
+    // 接收Pitch电机状态信息
+    if (J4310_RxID == J4310_READID_PITCH)
+    {
+      J4310_getInfo(Can_Export_Data);
+    }
   }
 }
 
@@ -48,14 +54,8 @@ void Can2Receives(void const *argument)
   {
     xQueueReceive(CAN2_ReceiveHandle, &Can_Export_Data, portMAX_DELAY);
     ID = Can_Export_Data.CAN_RxHeader.StdId;
-    J4310_RxID = (Can_Export_Data.CANx_Export_RxMessage[0]) & 0x0F;
-    // 接收Pitch电机状态信息
-    if (J4310_RxID == J4310_READID_PITCH)
-    {
-      J4310_getInfo(Can_Export_Data);
-    }
-    // 接收底盘信息
-    else if (ID == CAN_ID_CHASSIS)
+
+    if (ID == CAN_ID_CHASSIS)
     {
       Board1_getGimbalInfo(Can_Export_Data);
     }

@@ -29,7 +29,7 @@ void Robot_Control(void const *argument)
         J4310_setParameter(J4310s_Pitch.outPosition, J4310s_Pitch.outSpeed, J4310s_Pitch.outKp, J4310s_Pitch.outKd, J4310s_Pitch.outTorque, Tx_data2);
         /****************发送电流数据***************/
         CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, M3508_SENDID_Fric_Dial_1, Tx_data1);
-        CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, J4310_SENDID_Pitch, Tx_data2); 
+        CAN_SendData(CAN_SendHandle, &hcan1, CAN_ID_STD, J4310_SENDID_Pitch, Tx_data2); 
         /****************发送电流数据 end***************/
         vTaskDelayUntil(&xLastWakeTime, TimeIncrement);
     }
