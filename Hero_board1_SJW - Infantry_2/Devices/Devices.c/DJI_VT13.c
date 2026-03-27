@@ -348,18 +348,6 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const VTM_Frame *data)
 
     //                                                                                                            if (km->B.long_press_flag)
 
-    /**********************切换模式Ctrl*******************/
-    if (km->Ctrl.short_press_flag)
-    {
-        if (ControlMes.modelFlag == 2)
-        {
-            ControlMes.modelFlag = 0;
-        }
-        else if (ControlMes.modelFlag == 0)
-        {
-            ControlMes.modelFlag = 2;
-        }
-    }
 }
 void DJI_VT13_Handle(void)
 {
