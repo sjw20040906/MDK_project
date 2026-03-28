@@ -19,6 +19,7 @@ uint8_t DJI_VT13_RX_Finish;
 static int RampRate_ForwardBack = 80; // 斜坡函数叠加值
 static int RampRate_LeftRight = 80;   // 斜坡函数叠加值
 static int F_Lock = 0;
+static int B_Lock = 0;
 static int8_t spin_gear = 0;     // 档位：-3,-2,-1,0,1,2,3
 static uint8_t q_combo_lock = 0; // Shift+Q 组合按键沿检测锁
 static uint8_t e_combo_lock = 0; // Shift+E 组合按键沿检测锁
@@ -344,9 +345,19 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const VTM_Frame *data)
 
     //                                                                                                    if (km->V.long_press_flag)
 
-    //                                                                                                        if (km->B.short_press_flag)
-
-    //                                                                                                            if (km->B.long_press_flag)
+    /********************B键发射频率*******************/
+    if (km->B.press_flag)
+    {
+        if (B_Lock == 0)
+        {
+            Dial_Data.Dial_Gear = Dial_Data.Dial_Gear == Dial_Gear_Low ? Dial_Gear_High : Dial_Gear_Low;
+            B_Lock = 1;
+        }
+    }
+    else
+    {
+        B_Lock = 0;
+    }
 
 }
 void DJI_VT13_Handle(void)

@@ -13,26 +13,23 @@
 ControlMessge ControlMes;
 ControlMessge_betweenBoard2 ControlMes_board2;
 
-
 void Board2_To_1(void)
 {
-	int16_t bullet_speed;
-	uint8_t data[8] = {0};
+  int16_t bullet_speed;
+  uint8_t data[8] = {0};
 
-	data[0] = ControlMes.yaw_realAngle >> 8;
-	data[1] = ControlMes.yaw_realAngle;
-	data[2] = ControlMes.Blood_Volume >> 8;
-	data[3] = ControlMes.Blood_Volume;
-	bullet_speed = (int16_t)(g_referee.shoot_data_.initial_speed * 1000);
-	data[4] = bullet_speed >> 8;
-	data[5] = bullet_speed;
-	data[6] |= (uint8_t)(ControlMes.tnndcolor & 0x01) << 0;
-	data[7] |= (uint8_t)(ControlMes.game_start & 0x01) << 1;
+  data[0] = ControlMes.yaw_realAngle >> 8;
+  data[1] = ControlMes.yaw_realAngle;
+  data[2] = ControlMes.Blood_Volume >> 8;
+  data[3] = ControlMes.Blood_Volume;
+  bullet_speed = (int16_t)(g_referee.shoot_data_.initial_speed * 1000);
+  data[4] = bullet_speed >> 8;
+  data[5] = bullet_speed;
+  data[6] |= (uint8_t)(ControlMes.tnndcolor & 0x01) << 0;
+  data[7] |= (uint8_t)(ControlMes.game_start & 0x01) << 1;
 
-	CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, CAN_ID_CHASSIS, data);
+  CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, CAN_ID_CHASSIS, data);
 }
-
-
 
 /**
  * @brief 从Board2_1发送底盘速度信息到Board2_2

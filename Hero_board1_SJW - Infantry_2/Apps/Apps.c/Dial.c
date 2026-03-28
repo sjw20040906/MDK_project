@@ -85,4 +85,5 @@ void Status_Refresh(void)
     is_reversing = 0;
     M2006_Array[Dial_Motor].targetSpeed = 0;
     M2006_Array[Dial_Motor].outCurrent =  PID_Model4_Update(&M2006_DialI_Pid,  &fuzzy_pid_bullet_v,  0,  M2006_Array[Dial_Motor].realSpeed);
+    Dial_Data.Speed_Dial = Dial_Data.Dial_Gear == Dial_Gear_Low ? Dail_Low_Speed : Dail_High_Speed;
 }

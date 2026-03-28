@@ -48,13 +48,14 @@ void UpperCom_Send_To_Up(uint8_t COM)
 	{
 		if (mark++ >= 200)
 			mark = 0;
-		UpperCom_Send_Buffer[3] = 15; // 数据包包含的字节数
+		UpperCom_Send_Buffer[3] = 16; // 数据包包含的字节数
 		memcpy(&UpperCom_Send_Buffer[4], &bullet_velocity, sizeof(bullet_velocity));
 		memcpy(&UpperCom_Send_Buffer[8], &bullet_angle, sizeof(bullet_angle));
 		memcpy(&UpperCom_Send_Buffer[12], &gimbal_yaw, sizeof(gimbal_yaw));
 		memcpy(&UpperCom_Send_Buffer[14], &mark, sizeof(mark));
 		memcpy(&UpperCom_Send_Buffer[16], &ControlMes.tnndcolor, sizeof(ControlMes.tnndcolor));
 		memcpy(&UpperCom_Send_Buffer[17], &ControlMes.z_rotation_velocity, sizeof(ControlMes.z_rotation_velocity));
+		memcpy(&UpperCom_Send_Buffer[19], &ControlMes.AutoAimFlag, sizeof(ControlMes.AutoAimFlag));
 		Append_CRC8_Check_Sum(UpperCom_Send_Buffer, 5 + UpperCom_Send_Buffer[3]); // 5+x，x代表数据包包含的数据字节数。
 	}
 	CDC_Transmit_FS(UpperCom_Send_Buffer, sizeof(UpperCom_Send_Buffer)); // usb发送

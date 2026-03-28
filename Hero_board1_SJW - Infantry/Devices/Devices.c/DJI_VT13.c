@@ -349,7 +349,7 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const VTM_Frame *data)
 
     //                                                                                                            if (km->B.long_press_flag)
 
-    /********************摩擦轮控制F键*******************/
+    /********************B键发射频率*******************/
     if (km->B.press_flag)
     {
         if (B_Lock == 0)

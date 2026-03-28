@@ -16,8 +16,8 @@ float chassis_real_speed = 0;
 float Angle_Cloud = 0; 
 float Setup_Angleoffset = 56907; 
 /************云台PID***********/
-pid_advanced_t M6020s_YawOPID;
-pid_advanced_t AutoAim_M6020s_YawOPID;
+pid_advanced_t YawOPID;
+pid_advanced_t AutoAim_YawOPID;
 positionpid_t J8006s_YawOPID;
 /************云台PID END***********/
 
@@ -30,8 +30,8 @@ void Gimbal_Init(void)
 {
     /****************** (pid_t*) ******** Kp ***** Kd ****** Ki ***** Kf ***** MaxOutput ******* IntegralLimit*******/
     Gimbal.Target_Yaw = IMU_Angle.Yaw / 360.0f * 65536.0f + DM_Array[Gimbal_Motor].angleInit;
-    PID_Advanced_Init(&M6020s_YawOPID,   0.0015f, 0.00004f,  0.000001f, 0.002f,  20.0f,  0.5f);
-    PID_Advanced_Init(&AutoAim_M6020s_YawOPID,   0.8f,   0.4f,  0.000002f, 0.3f,  10.0f,  10.0f);
+    PID_Advanced_Init(&YawOPID,   0.0015f, 0.00004f,  0.000001f, 0.002f,  20.0f,  0.5f);
+    PID_Advanced_Init(&AutoAim_YawOPID,   0.0015f,  0.00004f,  0.000001f, 0.002f,  20.0f,  0.5f);
 }
 
 
@@ -69,13 +69,13 @@ void Yaw_Angle_Set(void)
     // 手动遥控模式
     if (ControlMes.AutoAimFlag == 0)
     {
-        world_target_speed = PID_Advanced_Angle_Calc_Positional(&M6020s_YawOPID, Gimbal.Target_Yaw, Angle_Yaw_Cloud, 65534.0f);
+        world_target_speed = PID_Advanced_Angle_Calc_Positional(&YawOPID, Gimbal.Target_Yaw, Angle_Yaw_Cloud, 65536.0f);
         DM_Array[Gimbal_Motor].outSpeed = world_target_speed - chassis_real_speed;
     }
     // 自动瞄准模式
     else if (ControlMes.AutoAimFlag == 1)
     {
-        world_target_speed = PID_Advanced_Angle_Calc_Positional(&AutoAim_M6020s_YawOPID, Gimbal.Target_Yaw, Angle_Yaw_Cloud, 65534.0f);
+        world_target_speed = PID_Advanced_Angle_Calc_Positional(&AutoAim_YawOPID, Gimbal.Target_Yaw, Angle_Yaw_Cloud, 65536.0f);
         DM_Array[Gimbal_Motor].outSpeed = world_target_speed - chassis_real_speed;
     }
 }
