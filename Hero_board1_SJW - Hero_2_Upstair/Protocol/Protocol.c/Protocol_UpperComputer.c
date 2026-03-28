@@ -19,9 +19,6 @@ float Auto_Aim_Pitch;
 bool Fire_Flag = 0;
 positionpid_t Auto_Aim_PID;
 
-// 测试debug显示用的变量
-float a, b;
-
 /**
  * @brief  UpperCom下位机与上位机通信，向上位机发送信息。使用USB
  * @param  void
@@ -35,7 +32,7 @@ void UpperCom_Send_To_Up(uint8_t COM)
 	float bullet_velocity = 27.0f;
 	if (ControlMes.Speed_Bullet >= 5)
 		bullet_velocity = ControlMes.Speed_Bullet;
-	float bullet_angle = -(Cloud_Pitch_level - J4310s_Pitch.realAngle);
+	float bullet_angle = J4310s_Pitch.realAngle;
 	int16_t gimbal_yaw = ControlMes.yaw_realAngle;
 	static uint16_t mark = 0;
 
@@ -103,11 +100,9 @@ void UpperCom_Receive_From_Up(uint8_t Rec[])
 	case 0xCD:
 		if (!Verify_CRC8_Check_Sum(Rec, 5 + Rec[3]))
 			return;
-		Auto_Aim_Pitch = Cloud_Pitch_level + R2float(&Rec[4]) * 1303.8f; //  8192 / 2 / π;
+		Auto_Aim_Pitch = R2float(&Rec[4]); 
 		Auto_Aim_Yaw = R2int16(&Rec[8]);
 		Fire_Flag = (Rec[10] == 0x01);  
-		a = R2float(&Rec[4]);
-		b = R2int16(&Rec[8]);
 		break;
 	default:
 		return;
