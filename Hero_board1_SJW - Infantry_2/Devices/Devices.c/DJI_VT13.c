@@ -340,10 +340,15 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const VTM_Frame *data)
     //                                                                                        if (km->C.short_press_flag)
 
     //                                                                                            if (km->C.long_press_flag)
-
-    //                                                                                                if (km->V.short_press_flag)
-
-    //                                                                                                    if (km->V.long_press_flag)
+    /********************V键退弹**********************/
+    if (km->V.press_flag)
+    {
+        Dial_Data.Dial_Back = Dial_Back_YES;
+    }
+    else
+    {
+        Dial_Data.Dial_Back = Dial_Back_NO;
+    }
 
     /********************B键发射频率*******************/
     if (km->B.press_flag)

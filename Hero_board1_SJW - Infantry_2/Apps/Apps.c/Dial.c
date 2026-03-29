@@ -1,9 +1,9 @@
 #include "Dial.h"
 
 /**************数据定义****************/
-static uint32_t last_check_time = 0;     // 上一次检测时间
-static uint8_t is_reversing = 0;         // 反转标志
-static uint32_t reverse_start_time = 0;  // 反转开始时间
+static uint32_t last_check_time = 0;    // 上一次检测时间
+static uint8_t is_reversing = 0;        // 反转标志
+static uint32_t reverse_start_time = 0; // 反转开始时间
 
 /****************函数结构体声明******************/
 Dial_Data_t Dial_Data = Dial_DataGroundInit;
@@ -15,18 +15,25 @@ Dial_Data_t Dial_Data = Dial_DataGroundInit;
  */
 void Dial_Processing(void)
 {
-    if (Dial_Data.Shoot_Mode == Continuous_Shoot && Dial_Data.Dial_Switch == Dial_On)
+    if (Dial_Data.Dial_Back == Dial_Back_YES)
     {
-        Bullet_Stuck_Processing();
-
-        if (!is_reversing)
-        {
-            Normal_Dial();
-        }
+        Back_Dial();
     }
     else
     {
-        Status_Refresh();
+        if (Dial_Data.Shoot_Mode == Continuous_Shoot && Dial_Data.Dial_Switch == Dial_On)
+        {
+            Bullet_Stuck_Processing();
+
+            if (!is_reversing)
+            {
+                Normal_Dial();
+            }
+        }
+        else
+        {
+            Status_Refresh();
+        }
     }
 }
 
@@ -36,7 +43,17 @@ void Dial_Processing(void)
 void Normal_Dial(void)
 {
     M2006_Array[Dial_Motor].targetSpeed = Dial_Data.Speed_Dial;
-    M2006_Array[Dial_Motor].outCurrent = PID_Model4_Update(&M2006_DialI_Pid,&fuzzy_pid_bullet_v,M2006_Array[Dial_Motor].targetSpeed,M2006_Array[Dial_Motor].realSpeed);
+    M2006_Array[Dial_Motor].outCurrent = PID_Model4_Update(&M2006_DialI_Pid, &fuzzy_pid_bullet_v, M2006_Array[Dial_Motor].targetSpeed, M2006_Array[Dial_Motor].realSpeed);
+}
+
+/**
+ * @brief 退弹执行
+ * @note 退弹时，拨弹速度为反拨弹速度
+ */
+void Back_Dial(void)
+{
+    M2006_Array[Dial_Motor].targetSpeed = Dial_Motor_Speed;
+    M2006_Array[Dial_Motor].outCurrent = PID_Model4_Update(&M2006_DialI_Pid, &fuzzy_pid_bullet_v, M2006_Array[Dial_Motor].targetSpeed, M2006_Array[Dial_Motor].realSpeed);
 }
 
 /**
@@ -72,7 +89,7 @@ void Bullet_Stuck_Processing(void)
             reverse_start_time = now;
 
             M2006_Array[Dial_Motor].targetSpeed = DIAL_REVERSE_SPEED;
-            M2006_Array[Dial_Motor].outCurrent = PID_Model4_Update(&M2006_DialI_Pid,  &fuzzy_pid_bullet_v,  M2006_Array[Dial_Motor].targetSpeed,  M2006_Array[Dial_Motor].realSpeed);
+            M2006_Array[Dial_Motor].outCurrent = PID_Model4_Update(&M2006_DialI_Pid, &fuzzy_pid_bullet_v, M2006_Array[Dial_Motor].targetSpeed, M2006_Array[Dial_Motor].realSpeed);
         }
     }
 }
@@ -84,6 +101,6 @@ void Status_Refresh(void)
 {
     is_reversing = 0;
     M2006_Array[Dial_Motor].targetSpeed = 0;
-    M2006_Array[Dial_Motor].outCurrent =  PID_Model4_Update(&M2006_DialI_Pid,  &fuzzy_pid_bullet_v,  0,  M2006_Array[Dial_Motor].realSpeed);
+    M2006_Array[Dial_Motor].outCurrent = PID_Model4_Update(&M2006_DialI_Pid, &fuzzy_pid_bullet_v, 0, M2006_Array[Dial_Motor].realSpeed);
     Dial_Data.Speed_Dial = Dial_Data.Dial_Gear == Dial_Gear_Low ? Dail_Low_Speed : Dail_High_Speed;
 }
