@@ -59,6 +59,7 @@ void Cloud_Init(void)
 	ControlMes.shoot_Speed = 2;
 	ControlMes.fric_Flag = 0;
 	ControlMes.redial = 0;
+	Dial_Data.Dial_Gear = Dial_Gear_Low;
 }
 
 /**

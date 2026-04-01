@@ -11,7 +11,6 @@
 #include "BSP_BoardCommunication.h"
 
 ControlMessge ControlMes;
-ext_robot_keycommand_t ext_robot_keycommand;
 
 // 此函数用来按照报文规则生成数据并发送。
 void Board1_To_2(void)
@@ -39,7 +38,6 @@ void Board1_To_2(void)
   data2_Fun[3] |= (uint8_t)(ControlMes.change_Flag & 0x01) << 2;
   data2_Fun[3] |= (uint8_t)(ControlMes.reset_Flag & 0x01) << 3;
   data2_Fun[4] = (uint8_t)(ControlMes.modelFlag);
-  data2_Fun[5] = (uint8_t)(Dial_Data.Dial_Gear);
   // 数据发送
   CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, CAN_ID_GIMBAL, data2_Fun);
 }
