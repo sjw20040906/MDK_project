@@ -79,6 +79,7 @@
 .\hero_board1_sjw\frictionwheel.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\hero_board1_sjw\frictionwheel.o: ../Tasks/Tasks.h/Extern_Handles.h
 .\hero_board1_sjw\frictionwheel.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
+.\hero_board1_sjw\frictionwheel.o: ../Apps/Apps.h/Dial.h
 .\hero_board1_sjw\frictionwheel.o: ../Apps/Apps.h/Cloud_Control.h
 .\hero_board1_sjw\frictionwheel.o: ../Protocol/Protocol.h/Protocol_UpperComputer.h
 .\hero_board1_sjw\frictionwheel.o: ../Protocol/Protocol.h/CRC.h
@@ -90,7 +91,6 @@
 .\hero_board1_sjw\frictionwheel.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h
 .\hero_board1_sjw\frictionwheel.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
 .\hero_board1_sjw\frictionwheel.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
-.\hero_board1_sjw\frictionwheel.o: ../Apps/Apps.h/Dial.h
 .\hero_board1_sjw\frictionwheel.o: ../Alg/Alg.h/SpeedRamp.h
 .\hero_board1_sjw\frictionwheel.o: ../Devices/Devices.h/J4310_Motor.h
 .\hero_board1_sjw\frictionwheel.o: ../Tasks/Tasks.h/Task_CanReceive.h

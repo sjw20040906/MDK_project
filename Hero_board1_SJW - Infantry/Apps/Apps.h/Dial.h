@@ -88,11 +88,10 @@ typedef enum
 typedef struct Heat_Data_t
 {
     // 要储存的值有：当前热量(根据非卡弹倒拨时角度累计来增加，根据时间冷却来减少)，最大热量，冷却速率，过热标志
-    float current_heat; // 当前热量
-    int max_heat;       // 最高热量
-    float cooling_rate; // 冷却速率
-    int overheat;       // 是否过热的标志
-
+    float current_heat;         // 当前热量
+    int max_heat;               // 最高热量
+    float cooling_rate;         // 冷却速率
+    int overheat;               // 是否过热的标志
     uint32_t current_time;      // 获取当前时间
     int32_t last_normal_angle;  // 上一次正常拨弹时的总角度值
     int32_t total_normal_angle; // 累计的正常拨弹角度（绝对值）

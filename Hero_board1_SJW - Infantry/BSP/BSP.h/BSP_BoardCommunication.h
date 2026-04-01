@@ -13,16 +13,15 @@
 #define BSP_BOARDCOMMUNICATION_H
 
 #include "main.h"
-
 #include "BSP_Can.h"
 #include "M2006_Motor.h"
 #include "Extern_Handles.h"
 #include "queue.h"
+#include "Dial.h"
 
 // FDCAN报文的标识符和数据长度
 #define CAN_ID_CHASSIS 0x10f // 假设FDCAN报文底盘数据ID为0x10f
 #define CAN_ID_GIMBAL 0x11f	 // 云台数据ID为0x11f
-// #define FDCAN_ID_IT_KEYCOMMAND  0x22f // 图传键鼠数据ID为0x22f
 
 #define model_Normal 0
 #define model_Record 1
@@ -46,7 +45,7 @@ typedef struct
 	uint8_t shoot_Speed;   // 射速
 	uint8_t change_Flag;   // 变速
 	uint8_t fric_Flag;	   // 摩擦轮
-	uint8_t reset_Flag;    // 复位标志
+	uint8_t reset_Flag;	   // 复位标志
 	uint8_t tnndcolor;	   // 己方颜色，1为红，2为蓝
 	uint8_t redial;
 	int16_t Gimbal_Chassis_Pitch_Angle; // 底盘正方向的pitch轴角度

@@ -33,12 +33,13 @@ void Board1_To_2(void)
 
   data2_Fun[0] = ControlMes.yaw_position >> 8;
   data2_Fun[1] = ControlMes.yaw_position;
-  data2_Fun[2] = ControlMes.shoot_Speed; // 射频
+  data2_Fun[2] = ControlMes.shoot_Speed;
   data2_Fun[3] |= (uint8_t)(ControlMes.fric_Flag & 0x01) << 0;
   data2_Fun[3] |= (uint8_t)(ControlMes.AutoAimFlag & 0x01) << 1;
   data2_Fun[3] |= (uint8_t)(ControlMes.change_Flag & 0x01) << 2;
   data2_Fun[3] |= (uint8_t)(ControlMes.reset_Flag & 0x01) << 3;
   data2_Fun[4] = (uint8_t)(ControlMes.modelFlag);
+  data2_Fun[5] = (uint8_t)(Dial_Data.Dial_Gear);
   // 数据发送
   CAN_SendData(CAN_SendHandle, &hcan2, CAN_ID_STD, CAN_ID_GIMBAL, data2_Fun);
 }

@@ -78,6 +78,7 @@
 .\hero_board1_sjw\shoot.o: ../Apps/Apps.h/Cloud_Control.h
 .\hero_board1_sjw\shoot.o: ../Devices/Devices.h/DT7.h
 .\hero_board1_sjw\shoot.o: ../Core/Inc/usart.h
+.\hero_board1_sjw\shoot.o: ../BSP/BSP.h/BSP_BoardCommunication.h
 .\hero_board1_sjw\shoot.o: ../Apps/Apps.h/Cloud_Control.h
 .\hero_board1_sjw\shoot.o: ../Protocol/Protocol.h/Protocol_UpperComputer.h
 .\hero_board1_sjw\shoot.o: ../Protocol/Protocol.h/CRC.h

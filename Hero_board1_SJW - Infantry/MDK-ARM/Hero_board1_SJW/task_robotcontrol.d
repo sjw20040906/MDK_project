@@ -79,6 +79,7 @@
 .\hero_board1_sjw\task_robotcontrol.o: ../Apps/Apps.h/Cloud_Control.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Devices/Devices.h/DT7.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Core/Inc/usart.h
+.\hero_board1_sjw\task_robotcontrol.o: ../BSP/BSP.h/BSP_BoardCommunication.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Apps/Apps.h/Cloud_Control.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Protocol/Protocol.h/Protocol_UpperComputer.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Protocol/Protocol.h/CRC.h
