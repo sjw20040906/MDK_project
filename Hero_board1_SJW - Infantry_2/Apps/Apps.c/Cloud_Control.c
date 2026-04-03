@@ -87,20 +87,7 @@ void Cloud_Pitch_Angle_Set(void)
 	/********************自瞄******************/
 	if (ControlMes.AutoAimFlag == 1)
 	{
-		Delta_Pitch -= (float)ControlMes.pitch_velocity * Pitch_RC_Sen;
-
-		/**********Delta_Pitch限位**********/
-		if (Delta_Pitch > Delta_Pitch_Max)
-		{
-			Delta_Pitch = Delta_Pitch_Max;
-		}
-		else if (Delta_Pitch < Delta_Pitch_Min)
-		{
-			Delta_Pitch = Delta_Pitch_Min;
-		}
-		/**********Delta_Pitch限位end**********/
-
-		Cloud.Target_Pitch = Pitch_Angle_Init + Cloud.AutoAim_Pitch + Delta_Pitch;
+		Cloud.Target_Pitch = Cloud.AutoAim_Pitch;
 		Aim_Flag = 1;
 	}
 

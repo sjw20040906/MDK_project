@@ -103,3 +103,4 @@
 .\hero_board1_sjw\task_robotcontrol.o: ../Alg/Alg.h/FeedForward.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Devices/Devices.h/Saber_C3.h
 .\hero_board1_sjw\task_robotcontrol.o: ../Apps/Apps.h/struct_typedef.h
+.\hero_board1_sjw\task_robotcontrol.o: ../Apps/Apps.h/Reset.h

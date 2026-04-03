@@ -952,6 +952,11 @@
               <FileType>1</FileType>
               <FilePath>..\Apps\Apps.c\Time_Stamp.c</FilePath>
             </File>
+            <File>
+              <FileName>Reset.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Apps\Apps.c\Reset.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

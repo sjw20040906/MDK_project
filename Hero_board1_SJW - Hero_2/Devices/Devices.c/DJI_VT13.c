@@ -169,6 +169,7 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const VTM_Frame *data)
         e_combo_lock = 0;
         spin_gear = 0;
         ControlMes.change_Flag = 0;
+        ControlMes.modelFlag = 0;
     }
 
     // 鼠标短按 / 长按

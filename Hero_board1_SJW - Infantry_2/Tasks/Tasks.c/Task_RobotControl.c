@@ -19,6 +19,7 @@ void Robot_Control(void const *argument)
     const TickType_t TimeIncrement = pdMS_TO_TICKS(2);
     for (;;)
     {
+			System_Reset();
         Remote_Change();
         Cloud_Sport_Out();
         Shoot_Processing();

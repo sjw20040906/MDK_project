@@ -41,7 +41,6 @@ int Aim_Flag = 0;
 One_Kalman_t Cloud_PitchCurrent_Kalman; // Pitch轴电流的Kalman滤波器
 /******************卡尔曼滤波结构体创建 end*********/
 
-
 /**
  * @brief  云台初始化，配置参数并归位云台
  * @param  None
@@ -88,20 +87,7 @@ void Cloud_Pitch_Angle_Set(void)
 	/********************自瞄******************/
 	if (ControlMes.AutoAimFlag == 1)
 	{
-		Delta_Pitch += (float)ControlMes.pitch_velocity * Pitch_RC_Sen;
-
-		/**********Delta_Pitch限位**********/
-		if (Delta_Pitch > Delta_Pitch_Max)
-		{
-			Delta_Pitch = Delta_Pitch_Max;
-		}
-		else if (Delta_Pitch < Delta_Pitch_Min)
-		{
-			Delta_Pitch = Delta_Pitch_Min;
-		}
-		/**********Delta_Pitch限位end**********/
-
-		Cloud.Target_Pitch = Pitch_Angle_Init + Cloud.AutoAim_Pitch + Delta_Pitch;
+		Cloud.Target_Pitch = Cloud.AutoAim_Pitch;
 		Aim_Flag = 1;
 	}
 
