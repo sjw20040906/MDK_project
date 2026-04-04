@@ -119,4 +119,12 @@ void Status_Refresh(void)
     Heat_Data.overheat = 0;
     Heat_Data.last_normal_angle = M2006_Array[Dial_Motor].totalAngle;
     Dial_Data.Speed_Dial = Dial_Data.Dial_Gear == Dial_Gear_Low ? Dail_Low_Speed : Dail_High_Speed;
+    if(Dial_Data.Dial_Gear == Dial_Gear_Low)
+    {
+        ControlMes.shoot_Speed = 1;
+    }
+    else
+    {
+        ControlMes.shoot_Speed = 2;
+    }   
 }
