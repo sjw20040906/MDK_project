@@ -184,24 +184,6 @@ void KeyMouse_Update(KeyMouseDetect_t *km, const VTM_Frame *data)
         Shoot_Data.Shoot_Switch = TURN_OFF;
     }
 
-    /*****************自瞄开关右键****************/
-    if (km->mouse_r.short_press_flag)
-    {
-        if (ControlMes.AutoAimFlag == 0)
-        {
-            ControlMes.AutoAimFlag = 1;
-        }
-        else if (ControlMes.AutoAimFlag == 1)
-        {
-            ControlMes.AutoAimFlag = 0;
-        }
-    }
-    if (ControlMes.AutoAimFlag == 1)
-    {
-        ControlMes.yaw_position = Auto_Aim_Yaw;
-        Cloud.AutoAim_Pitch = Auto_Aim_Pitch;
-    }
-
     /*****************RESET_FLAG *****************/
     if (km->mouse_m.short_press_flag)
     {
