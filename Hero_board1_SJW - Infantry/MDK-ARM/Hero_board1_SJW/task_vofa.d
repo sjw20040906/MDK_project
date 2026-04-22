@@ -1,7 +1,12 @@
 .\hero_board1_sjw\task_vofa.o: ..\Tasks\Tasks.c\Task_VOFA.c
 .\hero_board1_sjw\task_vofa.o: ../Devices/Devices.h/Task_VOFA.h
 .\hero_board1_sjw\task_vofa.o: ../Devices/Devices.h/vofa.h
-.\hero_board1_sjw\task_vofa.o: ../Devices/Devices.h/sys.h
+.\hero_board1_sjw\task_vofa.o: ../Core/Inc/usart.h
+.\hero_board1_sjw\task_vofa.o: ../Core/Inc/main.h
+.\hero_board1_sjw\task_vofa.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+.\hero_board1_sjw\task_vofa.o: ../Core/Inc/stm32f4xx_hal_conf.h
+.\hero_board1_sjw\task_vofa.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
+.\hero_board1_sjw\task_vofa.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 .\hero_board1_sjw\task_vofa.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 .\hero_board1_sjw\task_vofa.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
 .\hero_board1_sjw\task_vofa.o: ../Drivers/CMSIS/Include/core_cm4.h
@@ -12,10 +17,6 @@
 .\hero_board1_sjw\task_vofa.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 .\hero_board1_sjw\task_vofa.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 .\hero_board1_sjw\task_vofa.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-.\hero_board1_sjw\task_vofa.o: ../Core/Inc/stm32f4xx_hal_conf.h
-.\hero_board1_sjw\task_vofa.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
-.\hero_board1_sjw\task_vofa.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
-.\hero_board1_sjw\task_vofa.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 .\hero_board1_sjw\task_vofa.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
 .\hero_board1_sjw\task_vofa.o: D:\mdk\ARM\ARMCC\Bin\..\include\stddef.h
 .\hero_board1_sjw\task_vofa.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
@@ -39,8 +40,6 @@
 .\hero_board1_sjw\task_vofa.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h
 .\hero_board1_sjw\task_vofa.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
 .\hero_board1_sjw\task_vofa.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
-.\hero_board1_sjw\task_vofa.o: ../Core/Inc/usart.h
-.\hero_board1_sjw\task_vofa.o: ../Core/Inc/main.h
 .\hero_board1_sjw\task_vofa.o: D:\mdk\ARM\ARMCC\Bin\..\include\math.h
 .\hero_board1_sjw\task_vofa.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 .\hero_board1_sjw\task_vofa.o: ../Core/Inc/FreeRTOSConfig.h
