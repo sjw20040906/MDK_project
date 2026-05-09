@@ -1,11 +1,11 @@
 /**
  * @file M3508_Motor.h
- * @author Why,SJW
+ * @author MOON
  * @brief
  * @version 0.1
- * @date 2023-08-14
+ * @date 2024-12-20
  *
- * @copyright Copyright (c) 2021
+ * @copyright Copyright (c) 2023
  *
  */
 #ifndef __M3508_MOTOR_H

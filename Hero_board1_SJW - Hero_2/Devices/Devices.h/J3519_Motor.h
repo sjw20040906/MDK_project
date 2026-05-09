@@ -1,6 +1,6 @@
 /**
- * @file D3519_Motor.h
- * @author sjw
+ * @file J3519_Motor.h
+ * @author MOON
  * @brief
  * @version 0.1
  * @date 2025-9-27

@@ -1,6 +1,6 @@
 /**
  * @file Dial.h
- * @author Why
+ * @author MOON
  * @brief 拨弹盘电机控制
  * @version 0.1
  * @date 2023-08-14

@@ -1,6 +1,6 @@
 /**
  * @file J4310_Motor.c
- * @author ZS (2729511164@qq.com)
+ * @author MOON
  * @brief
  * @version 0.1
  * @date 2024-12-20

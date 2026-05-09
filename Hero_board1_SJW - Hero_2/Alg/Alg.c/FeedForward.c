@@ -39,34 +39,3 @@ void FeedForward_Fric()
 	M3508_Array[Fric_Left].outCurrent += 5000;
 	M3508_Array[Fric_Right].outCurrent += 5000;
 }
-
-/**
- * @brief   给Yaw轴电机进行扰动的补偿
- * @param   云台和云台电机的外部接口
- * @retval  void
- */
-void Compensator_Yaw()
-{
-	//	/* 临时变量 */
-	//	float exp1, exp2, exp3, exp4;
-	//	/* constant for yaw */
-	//	static float Coefficient_2 = Yaw_J * Yaw_L / (Yaw_K * Yaw_K);
-	//	static float Coefficient_1 = (Yaw_J * Yaw_R + Yaw_L * Yaw_b) / (Yaw_K * Yaw_K);
-	//	static float Coefficient_0 = (Yaw_b * Yaw_R) / (Yaw_K * Yaw_K) + 1;
-	//	static float speed_last = 0;
-	//	static float error = 0;
-	//	static float error_last = 0;
-	//	static float eerror = 0;
-
-	//	/* 依次是二阶导、一阶导、零阶导的值,此处得到的值应为负值，单位伏特 */
-	//	//	exp4 = Saber_Angle.Z_Vel / 57.29578f; // 陀螺仪是角度每秒，转化为弧度
-	//	error = exp4 - speed_last;
-	//	eerror = error - error_last;
-	//	exp3 = Coefficient_2 * eerror;
-	//	exp2 = Coefficient_1 * error;
-	//	exp1 = Coefficient_0 * exp4;
-	//	speed_last = exp4;
-	//	error_last = error;
-
-	//	M6020s_Yaw.outCurrent += 1000 * (exp1 + exp2 + exp3);
-}

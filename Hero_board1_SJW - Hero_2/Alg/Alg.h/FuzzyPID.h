@@ -1,8 +1,7 @@
 /**
  * @file FuzzyPID.h
  * @author Why/xyz
- * @brief ����ĺ�������뷨��д��PID�ļ����ڲ�ȥ��ʵ��Fuzzy���ߵ���PID����
- *		  ��Ҫ������ֻ��PID�����ı䷶Χ
+ * @brief 
  * @version 0.1
  * @date 2024-10-21
  *

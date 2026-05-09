@@ -1,6 +1,6 @@
 /**
- * @file Task_CanMsg.h
- * @author Why (1091537104@qq)
+ * @file Task_CanReceive.h
+ * @author MOON
  * @brief
  * @version 0.1
  * @date 2023-08-07

@@ -1,11 +1,11 @@
 /**
  * @file BSP_Can.h
- * @author Why (1091537104@qq)
+ * @author MOON
  * @brief Init of CAN
  * @version 0.1
- * @date 2023-08-07
+ * @date 2025-1-15
  *
- * @copyright Copyright (c) 2021
+ * @copyright Copyright (c) 2023
  *
  */
 

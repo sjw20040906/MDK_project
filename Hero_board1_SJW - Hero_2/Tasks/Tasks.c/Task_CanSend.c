@@ -1,6 +1,6 @@
 /**
  * @file Task_CanSend.c
- * @author Miraggio (w1159904119@gmail)
+ * @author MOON
  * @brief
  * @version 0.1
  * @date 2021-05-31

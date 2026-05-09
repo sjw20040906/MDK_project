@@ -20,7 +20,7 @@
 #include "FeedForward.h"
 #include "stm32f4xx_hal.h"
 
-#define Dail_Low_Speed -500  // 低拨弹速度
+#define Dail_Low_Speed -2500  // 低拨弹速度
 #define Dail_High_Speed -3500 // 高拨弹速度
 #define Dial_Gear_Low 0       // 低拨弹速度档位
 #define Dial_Gear_High 1      // 高拨弹速度档位

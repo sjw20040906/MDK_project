@@ -1,6 +1,6 @@
 /**
  * @file DT7.h
- * @author lxr(784457420@qq.com),cyx(1686143358@qq.com)
+ * @author MOON
  * @brief
  * @version 2.0
  * @date 2024-3-9

@@ -1,6 +1,6 @@
 /**
  * @file FrictionWheel.h
- * @author Why
+ * @author MOON
  * @brief 处理摩擦轮的控制问题
  * @version 0.1
  * @date 2023-08-14

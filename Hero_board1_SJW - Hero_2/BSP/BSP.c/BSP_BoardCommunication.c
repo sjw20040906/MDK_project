@@ -1,6 +1,6 @@
 /**
  * @file BSP_BoardCommunication.c
- * @author lxr(784457420@qq.com)，ZS
+ * @author MOON
  * @brief
  * @version 2.5
  * @date 2025-1-15

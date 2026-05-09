@@ -1,6 +1,6 @@
 /**
  * @file Time_Stamp.c
- * @author Why
+ * @author MOON
  * @brief
  * @version 0.1
  * @date 2023-08-23

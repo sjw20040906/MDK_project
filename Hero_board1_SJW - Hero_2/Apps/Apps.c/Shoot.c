@@ -1,6 +1,6 @@
 /**
  * @file Shoot.c
- * @author Why
+ * @author MOON
  * @brief 综合摩擦轮和拨盘电机的处理，并处理热量、射速、卡弹等问题
  * @version 0.1
  * @date 2023-08-14

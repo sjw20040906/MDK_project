@@ -1,6 +1,6 @@
 /**
  * @file Task_J4310_onlineCheck.h
- * @author SJW
+ * @author MOON
  * @brief   检测4310电机掉线并使能
  * @version 0.1
  * @date 2025-08-12

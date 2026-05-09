@@ -25,6 +25,5 @@
 #define Yaw_L 0.02f // H
 
 void FeedForward_Fric(void);
-void Compensator_Yaw(void);
 
 #endif

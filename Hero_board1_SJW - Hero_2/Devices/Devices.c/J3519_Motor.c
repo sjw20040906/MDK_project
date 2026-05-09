@@ -1,6 +1,6 @@
 /**
  * @file J3519_Motor.c
- * @author SJW
+ * @author MOON
  * @brief
  * @version 0.1
  * @date 2025-9-26

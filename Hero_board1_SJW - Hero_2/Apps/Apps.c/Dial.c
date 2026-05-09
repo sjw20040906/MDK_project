@@ -1,6 +1,6 @@
 /**
  * @file Dial.c
- * @author Why,ZS,SJW
+ * @author MOON
  * @brief 拨弹盘处理总函数
  * @version 0.1
  * @date 2023-08-14

@@ -1,6 +1,6 @@
 /**
  * @file DJI_VT13.c
- * @author SJW
+ * @author MOON
  * @brief
  * @version 1.0
  * @date 2025-10-23

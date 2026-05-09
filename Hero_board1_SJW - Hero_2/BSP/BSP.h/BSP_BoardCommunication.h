@@ -1,9 +1,9 @@
 /**
  * @file BSP_BoardCommunication.h
- * @author lxr(784457420@qq.com)
+ * @author MOON
  * @brief
- * @version 1.0
- * @date 2023-9-15
+ * @version 2.5
+ * @date 2025-1-15
  *
  * @copyright Copyright (c) 2023
  *

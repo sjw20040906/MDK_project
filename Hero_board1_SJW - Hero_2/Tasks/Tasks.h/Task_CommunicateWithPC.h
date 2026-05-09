@@ -9,6 +9,7 @@
 #include "usbd_cdc_if.h"
 #include "BSP_BoardCommunication.h"
 
-void USBCommunicateTask(void const *argument);
+void USBCommunicateTask_Receive(void const *argument);
+void USBCommunicateTask_Send(void const *argument);
 
 #endif
